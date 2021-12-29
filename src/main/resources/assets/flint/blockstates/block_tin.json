@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "flint:block/block_tin" }
+  }
+}

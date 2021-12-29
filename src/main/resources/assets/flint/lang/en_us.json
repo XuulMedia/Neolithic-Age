@@ -1,0 +1,37 @@
+{
+  "itemGroup.flint-tab" : "Flint Age",
+  "itemGroup.iron_tab" : "Metallugy",
+
+
+  "block.flint.ore_tin" : "Tin Ore",
+
+  "item.flint.ingot_tin" : "Tin Ingot",
+  "item.flint.ingot_bronze" : "Bronze Ingot",
+  "item.flint.ingot_silver" : "Silver Ingot",
+  "item.flint.ingot_steel" : "Steel Ingot",
+
+  "item.flint.nugget_copper" :  "Copper Nugget",
+  "item.flint.nugget_tin" : "Tin Nugget",
+  "item.flint.nugget_bronze" :  "Bronze Nugget",
+  "item.flint.nugget_silver" : "Silver Nugget",
+  "item.flint.nugget_steel" : "Steel Nugget",
+
+  "item.flint.dust_iron" : "Iron Dust",
+  "item.flint.dust_copper" : "Copper Dust",
+  "item.flint.dust_tin" : "Tin Dust",
+  "item.flint.dust_bronze" :  "Bronze Dust",
+  "item.flint.dust_silver" : "Silver Dust",
+  "item.flint.dust_steel" : "Steel Dust",
+
+  "item.flint.log_acacia" : "Acacia Log",
+  "item.flint.log_azalea" : "Azalea Log",
+  "item.flint.log_birch" : "Birch Log",
+  "item.flint.log_dark_oak" : "Dark Oak Log",
+  "item.flint.log_jungle" : "Jungle Log",
+  "item.flint.log_oak" : "Oak Log",
+  "item.flint.log_spruce" : "Spruce Log",
+  "item.flint.log_oak" : "Oak Log",
+  "item.flint.log_oak" : "Oak Log",
+  "item.flint.log_oak" : "Oak Log",
+
+}

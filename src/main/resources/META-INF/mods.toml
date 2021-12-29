@@ -1,0 +1,15 @@
+modLoader="javafml" #mandatory
+
+loaderVersion="[39,)"
+license="MIT License"
+[[mods]] #mandatory
+modId="flint" #mandatory
+version="${file.jarVersion}" #mandatory
+displayName="Age of Flint" #mandatory
+logoFile="logo.png" #optional
+credits="" #optional
+authors="Xuul" #optional
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+A mod the changes the early game of minecraft
+'''

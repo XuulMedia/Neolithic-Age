@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values" : [
+    "flint:ore_tin",
+    "flint:ore_nether_silver",
+    "flint:cobblestone",
+    "flint:block_tin",
+    "flint:block_bronze",
+    "flint:block_steel",
+    "flint:block_tin",
+    "flint:block_tin"
+  ]
+}
