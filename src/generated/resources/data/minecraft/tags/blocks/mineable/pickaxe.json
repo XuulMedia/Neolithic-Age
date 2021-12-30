@@ -1,0 +1,23 @@
+{
+  "replace": false,
+  "values": [
+    "flint:ore_tin",
+    "flint:ore_nether_silver",
+    "flint:block_tin",
+    "flint:block_silver",
+    "flint:block_bronze",
+    "flint:block_steel",
+    "flint:cobblestone",
+    "flint:basalt_cobblestone",
+    "flint:deepslate_cobblestone",
+    "flint:netherrack_cobblestone",
+    "flint:sandstone_cobblestone",
+    "flint:blackstone_cobblestone",
+    "flint:endstone_cobblestone",
+    "flint:granite_cobblestone",
+    "flint:tuff_cobblestone",
+    "flint:andesite_cobblestone",
+    "flint:diorite_cobblestone",
+    "flint:calcite_cobblestone"
+  ]
+}

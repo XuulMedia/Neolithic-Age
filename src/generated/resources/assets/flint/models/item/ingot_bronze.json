@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "flint:item/ingots/ingot_bronze"
+  }
+}

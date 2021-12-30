@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "flint:block/ore_nether_silver"
+    }
+  }
+}

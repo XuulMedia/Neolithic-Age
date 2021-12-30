@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "flint:item/nuggets/nugget_bronze"
+  }
+}
