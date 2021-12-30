@@ -15,7 +15,7 @@ public class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup." + Flint.FLINT_TAB, "Stone Age");
-        add("itemGroup." + Flint.FLINT_TAB, "Metal Age");
+        add("itemGroup." + Flint.IRON_TAB, "Metal Age");
 
 
 
@@ -35,10 +35,27 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.DIORITE_COBBLESTONE.get(), "Diorite Cobblestone");
         add(ModBlocks.CALCITE_COBBLESTONE.get(), "Calcite Cobblestone");
 
+        add(ModItems.DUST_STONE.get(), "Stone Dust");
+        add(ModItems.DUST_BASALT.get(), "Basalt Dust");
+        add(ModItems.DUST_DEEPSLATE.get(), "Deepslate Dust");
+        add(ModItems.DUST_NETHERRACK.get(), "Netherrack Dust");
+        add(ModItems.DUST_DRIPSTONE.get(), "Dripstone Dust");
+        add(ModItems.DUST_SANDSTONE.get(), "Sandstone Dust");
+        add(ModItems.DUST_BLACKSTONE.get(), "Blackstone Dust");
+        add(ModItems.DUST_ENDSTONE.get(), "Endstone Dust");
+        add(ModItems.DUST_GRANITE.get(), "Granite Dust");
+        add(ModItems.DUST_TUFF.get(), "Tuff Dust");
+        add(ModItems.DUST_ANDESITE.get(), "Andesite Dust");
+        add(ModItems.DUST_DIORITE.get(), "Diorite Dust");
+        add(ModItems.DUST_CALCITE.get(), "Calcite Dust");
+
         add(ModBlocks.BLOCK_TIN.get(), "Tin Block");
         add(ModBlocks.BLOCK_SILVER.get(), "Silver Block");
         add(ModBlocks.BLOCK_BRONZE.get(), "Bronze Block");
         add(ModBlocks.BLOCK_STEEL.get(), "Steel Block");
+
+        add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
+        add(ModItems.BRAIDED_PLANT_FIBRE.get(), "Braided Plant Fibre");
 
         add(ModItems.LOG_ACACIA.get(), "Acacia Log");
         add(ModItems.LOG_AZALEA.get(), "Azalea Log");
@@ -61,6 +78,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.NUGGET_STEEL.get(),"Steel Nugget");
 
         add(ModItems.DUST_IRON.get(),"Iron Dust");
+        add(ModItems.DUST_GOLD.get(),"Gold Dust");
         add(ModItems.DUST_COPPER.get(),"Copper Dust");
         add(ModItems.DUST_TIN.get(),"Tin Dust");
         add(ModItems.DUST_BRONZE.get(), "Bronze Dust");

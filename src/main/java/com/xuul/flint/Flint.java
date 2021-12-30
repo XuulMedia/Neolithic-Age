@@ -2,6 +2,7 @@ package com.xuul.flint;
 
 import com.xuul.flint.init.ModBlocks;
 import com.xuul.flint.init.ModItems;
+import com.xuul.flint.init.ModTags;
 import com.xuul.flint.util.CustomTabs;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -30,6 +31,7 @@ public class Flint
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
+
 
         // Register the setup method for modloading
 /*        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();

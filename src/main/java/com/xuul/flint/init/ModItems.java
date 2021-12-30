@@ -108,6 +108,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
     public static final RegistryObject<Item> DUST_DRIPSTONE = ITEMS.register("dust_dripstone",
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static final RegistryObject<Item> DUST_SANDSTONE = ITEMS.register("dust_sandstone",
+            () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
     public static final RegistryObject<Item> DUST_DIORITE = ITEMS.register("dust_diorite",
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
     public static final RegistryObject<Item> DUST_GRANITE = ITEMS.register("dust_granite",
@@ -119,6 +121,10 @@ public class ModItems {
     public static final RegistryObject<Item> DUST_NETHERRACK = ITEMS.register("dust_netherrack",
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
     public static final RegistryObject<Item> DUST_BLACKSTONE = ITEMS.register("dust_blackstone",
+            () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static final RegistryObject<Item> DUST_ENDSTONE = ITEMS.register("dust_endstone",
+            () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static final RegistryObject<Item> DUST_CALCITE = ITEMS.register("dust_calcite",
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
     /*STONE DUSTS*/
 

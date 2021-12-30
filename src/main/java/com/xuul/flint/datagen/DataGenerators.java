@@ -13,8 +13,8 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeServer()) {
-//            generator.addProvider(new ModRecipes(generator));
-//            generator.addProvider(new ModLootTables(generator));
+            generator.addProvider(new ModRecipes(generator));
+            generator.addProvider(new ModLootTables(generator));
             ModBlockTags blockTags = new ModBlockTags(generator, event.getExistingFileHelper());
             generator.addProvider(blockTags);
             generator.addProvider(new ModItemTags(generator, blockTags, event.getExistingFileHelper()));

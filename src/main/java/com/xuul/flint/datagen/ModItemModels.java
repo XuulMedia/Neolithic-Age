@@ -19,16 +19,24 @@ public class ModItemModels extends ItemModelProvider {
 
 
 
-
+//This function registers the items to a texture. Existing parent is for blocks that have been set up under Block States it references them
     @Override
     protected void registerModels() {
         withExistingParent(ModItems.ORE_TIN_ITEM.get().getRegistryName().getPath(), modLoc("block/ore_tin"));
         withExistingParent(ModItems.ORE_SILVER_ITEM.get().getRegistryName().getPath(), modLoc("block/ore_nether_silver"));
-
         withExistingParent(ModItems.BLOCK_TIN_ITEM.get().getRegistryName().getPath(), modLoc("block/block_tin"));
         withExistingParent(ModItems.BLOCK_SILVER_ITEM.get().getRegistryName().getPath(), modLoc("block/block_silver"));
         withExistingParent(ModItems.BLOCK_BRONZE_ITEM.get().getRegistryName().getPath(), modLoc("block/block_bronze"));
         withExistingParent(ModItems.BLOCK_STEEL_ITEM.get().getRegistryName().getPath(), modLoc("block/block_steel"));
+
+
+//        singleTexture(ModItems.RAW_TIN.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/raw_tin"));
+//
+//                singleTexture(ModItems.RAW_SILVER.get().getRegistryName().getPath(),
+//                        mcLoc("item/generated"),
+//                        "layer0", modLoc("item/raw_silver"));
 
 
         singleTexture(ModItems.INGOT_TIN.get().getRegistryName().getPath(),

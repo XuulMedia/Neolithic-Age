@@ -36,10 +36,10 @@ public class ModBlockStates extends BlockStateProvider {
 //        simpleBlock(ModBlocks.DIORITE_COBBLESTONE.get());
 //        simpleBlock(ModBlocks.CALCITE_COBBLESTONE.get());
 //
-//        simpleBlock(ModBlocks.BLOCK_TIN.get());
-//        simpleBlock(ModBlocks.BLOCK_SILVER.get());
-//        simpleBlock(ModBlocks.BLOCK_BRONZE.get());
-//        simpleBlock(ModBlocks.BLOCK_STEEL.get());
+        simpleBlock(ModBlocks.BLOCK_TIN.get());
+        simpleBlock(ModBlocks.BLOCK_SILVER.get());
+        simpleBlock(ModBlocks.BLOCK_BRONZE.get());
+        simpleBlock(ModBlocks.BLOCK_STEEL.get());
 
     }
 }

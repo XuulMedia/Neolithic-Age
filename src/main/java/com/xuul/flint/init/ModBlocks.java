@@ -31,7 +31,7 @@ public class ModBlocks {
             .strength(3.0f,3.0f)
             .sound(SoundType.NETHER_ORE)));
 
-    public static final RegistryObject<Block> BLOCK_TIN = BLOCKS.register("block_tin", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL)
+    public static final RegistryObject<Block> BLOCK_TIN = BLOCKS.register("block_tin", () -> new Block(BlockBehaviour.Properties.of(Material.METAL)
             .requiresCorrectToolForDrops()
             .strength(5.0F, 6.0F)
             .sound(SoundType.METAL)));
@@ -80,6 +80,9 @@ public class ModBlocks {
 
     public static final RegistryObject<FallingBlock> CALCITE_COBBLESTONE = BLOCKS.register("calcite_cobblestone",
             () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())));
+
+
+//    TAGS
 
 
 

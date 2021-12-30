@@ -19,6 +19,10 @@ public class ModBlockTags extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.ORE_TIN.get())
                 .add(ModBlocks.ORE_SILVER.get())
+                .add(ModBlocks.BLOCK_TIN.get())
+                .add(ModBlocks.BLOCK_SILVER.get())
+                .add(ModBlocks.BLOCK_BRONZE.get())
+                .add(ModBlocks.BLOCK_STEEL.get())
                 .add(ModBlocks.COBBLESTONE.get())
                 .add(ModBlocks.BASALT_COBBLESTONE.get())
                 .add(ModBlocks.DEEPSLATE_COBBLESTONE.get())
@@ -30,11 +34,7 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(ModBlocks.TUFF_COBBLESTONE.get())
                 .add(ModBlocks.ANDESITE_COBBLESTONE.get())
                 .add(ModBlocks.DIORITE_COBBLESTONE.get())
-                .add(ModBlocks.CALCITE_COBBLESTONE.get())
-                .add(ModBlocks.BLOCK_TIN.get())
-                .add(ModBlocks.BLOCK_SILVER.get())
-                .add(ModBlocks.BLOCK_BRONZE.get())
-                .add(ModBlocks.BLOCK_STEEL.get());
+                .add(ModBlocks.CALCITE_COBBLESTONE.get());
 
 
 
