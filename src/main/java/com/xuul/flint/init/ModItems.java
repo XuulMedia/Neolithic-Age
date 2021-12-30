@@ -3,6 +3,7 @@ package com.xuul.flint.init;
 import com.xuul.flint.Flint;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -59,6 +60,8 @@ public class ModItems {
 
     /*Dusts*/
     public static final RegistryObject<Item> DUST_IRON = ITEMS.register("dust_iron",
+            () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static final RegistryObject<Item> DUST_GOLD = ITEMS.register("dust_gold",
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
     public static final RegistryObject<Item> DUST_COPPER = ITEMS.register("dust_copper",
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
@@ -142,62 +145,32 @@ public class ModItems {
 
 
     /*BLOCKITEMS*/
-    public static final  RegistryObject<BlockItem> ORE_TIN_ITEM = ITEMS.register("ore_tin",
-            () -> new BlockItem(ModBlocks.ORE_TIN.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static <B extends Block> RegistryObject<Item> itemFromBlock(RegistryObject<B> block) {
+        return ITEMS.register(block.getId().getPath(),
+                () -> new BlockItem(block.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
+    }
 
-    public static final  RegistryObject<BlockItem> ORE_SILVER_ITEM = ITEMS.register("ore_nether_silver",
-            () -> new BlockItem(ModBlocks.ORE_SILVER.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static final  RegistryObject<Item> ORE_TIN_ITEM = itemFromBlock(ModBlocks.ORE_TIN);
+    public static final  RegistryObject<Item> ORE_SILVER_ITEM = itemFromBlock(ModBlocks.ORE_SILVER);
 
-    public static final  RegistryObject<BlockItem> BLOCK_TIN_ITEM = ITEMS.register("block_tin",
-            () -> new BlockItem(ModBlocks.BLOCK_TIN.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> BLOCK_SILVER_ITEM = ITEMS.register("block_silver",
-            () -> new BlockItem(ModBlocks.BLOCK_SILVER.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> BLOCK_BRONZE_ITEM = ITEMS.register("block_bronze",
-            () -> new BlockItem(ModBlocks.BLOCK_BRONZE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> BLOCK_STEEL_ITEM = ITEMS.register("block_steel",
-            () -> new BlockItem(ModBlocks.BLOCK_STEEL.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static final  RegistryObject<Item> BLOCK_TIN_ITEM = itemFromBlock(ModBlocks.BLOCK_TIN);
+    public static final  RegistryObject<Item> BLOCK_SILVER_ITEM = itemFromBlock(ModBlocks.BLOCK_SILVER);
+    public static final  RegistryObject<Item> BLOCK_BRONZE_ITEM = itemFromBlock(ModBlocks.BLOCK_BRONZE);
+    public static final  RegistryObject<Item> BLOCK_STEEL_ITEM = itemFromBlock(ModBlocks.BLOCK_STEEL);
 
 
-
-    public static final  RegistryObject<BlockItem> COBBLESTONE_ITEM = ITEMS.register("cobblestone",
-            () -> new BlockItem(ModBlocks.COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> BASTALT_COBBLESTONE_ITEM = ITEMS.register("basalt_cobblestone",
-            () -> new BlockItem(ModBlocks.BASALT_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> DEEPSLATE_COBBLESTONE_ITEM = ITEMS.register("deepslate_cobblestone",
-            () -> new BlockItem(ModBlocks.DEEPSLATE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> NETHERRACK_COBBLESTONE_ITEM = ITEMS.register("netherrack_cobblestone",
-            () -> new BlockItem(ModBlocks.NETHERRACK_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> SANDSTONE_COBBLESTONE_ITEM = ITEMS.register("sandstone_cobblestone",
-            () -> new BlockItem(ModBlocks.SANDSTONE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> BLACKSTONE_COBBLESTONE_ITEM = ITEMS.register("blackstone_cobblestone",
-            () -> new BlockItem(ModBlocks.BLACKSTONE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> ENDSTONE_COBBLESTONE_ITEM = ITEMS.register("endstone_cobblestone",
-            () -> new BlockItem(ModBlocks.ENDSTONE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> GRANITE_COBBLESTONE_ITEM = ITEMS.register("granite_cobblestone",
-            () -> new BlockItem(ModBlocks.GRANITE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> TUFF_COBBLESTONE_ITEM = ITEMS.register("tuff_cobblestone",
-            () -> new BlockItem(ModBlocks.TUFF_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> ANDESITE_COBBLESTONE_ITEM = ITEMS.register("andesite_cobblestone",
-            () -> new BlockItem(ModBlocks.ANDESITE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> DIORITE_COBBLESTONE_ITEM = ITEMS.register("diorite_cobblestone",
-            () -> new BlockItem(ModBlocks.DIORITE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
-    public static final  RegistryObject<BlockItem> CALCITE_COBBLESTONE_ITEM = ITEMS.register("calcite_cobblestone",
-            () -> new BlockItem(ModBlocks.CALCITE_COBBLESTONE.get(), new Item.Properties().tab(Flint.FLINT_TAB)));
-
+    public static final  RegistryObject<Item> COBBLESTONE_ITEM = itemFromBlock(ModBlocks.COBBLESTONE);
+    public static final  RegistryObject<Item> BASTALT_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.BASALT_COBBLESTONE);
+    public static final  RegistryObject<Item> DEEPSLATE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.DEEPSLATE_COBBLESTONE);
+    public static final  RegistryObject<Item> NETHERRACK_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.NETHERRACK_COBBLESTONE);
+    public static final  RegistryObject<Item> SANDSTONE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.SANDSTONE_COBBLESTONE);
+    public static final  RegistryObject<Item> BLACKSTONE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.BLACKSTONE_COBBLESTONE);
+    public static final  RegistryObject<Item> ENDSTONE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.ENDSTONE_COBBLESTONE);
+    public static final  RegistryObject<Item> GRANITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.GRANITE_COBBLESTONE);
+    public static final  RegistryObject<Item> TUFF_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.TUFF_COBBLESTONE);
+    public static final  RegistryObject<Item> ANDESITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.ANDESITE_COBBLESTONE);
+    public static final  RegistryObject<Item> DIORITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.DIORITE_COBBLESTONE);
+    public static final  RegistryObject<Item> CALCITE_COBBLESTONE_ITEM= itemFromBlock(ModBlocks.CALCITE_COBBLESTONE);
 
 
 

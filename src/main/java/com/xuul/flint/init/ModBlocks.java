@@ -4,10 +4,12 @@ import com.xuul.flint.Flint;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import static net.minecraft.world.level.block.Blocks.IRON_BLOCK;
 import static net.minecraft.world.level.block.Blocks.IRON_ORE;
 
 public class ModBlocks {
@@ -19,15 +21,24 @@ public class ModBlocks {
 
 
 //Blocks
-    public static final RegistryObject<OreBlock> ORE_TIN = BLOCKS.register("ore_tin", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
+    public static final RegistryObject<Block> ORE_TIN = BLOCKS.register("ore_tin", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
         .requiresCorrectToolForDrops()
         .strength(3.0f,3.0f)
         .sound(SoundType.STONE)));
 
-    public static final RegistryObject<OreBlock> ORE_SILVER = BLOCKS.register("ore_nether_silver", () -> new OreBlock(BlockBehaviour.Properties.of(Material.STONE)
+    public static final RegistryObject<Block> ORE_SILVER = BLOCKS.register("ore_nether_silver", () -> new Block(BlockBehaviour.Properties.of(Material.STONE)
             .requiresCorrectToolForDrops()
             .strength(3.0f,3.0f)
             .sound(SoundType.NETHER_ORE)));
+
+    public static final RegistryObject<Block> BLOCK_TIN = BLOCKS.register("block_tin", () -> new Block(BlockBehaviour.Properties.of(Material.METAL, MaterialColor.METAL)
+            .requiresCorrectToolForDrops()
+            .strength(5.0F, 6.0F)
+            .sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> BLOCK_SILVER = BLOCKS.register("block_silver", () -> new Block(BlockBehaviour.Properties.copy(BLOCK_TIN.get())));
+    public static final RegistryObject<Block> BLOCK_BRONZE = BLOCKS.register("block_bronze", () -> new Block(BlockBehaviour.Properties.copy(BLOCK_TIN.get())));
+    public static final RegistryObject<Block> BLOCK_STEEL = BLOCKS.register("block_steel", () -> new Block(BlockBehaviour.Properties.copy(BLOCK_TIN.get())));
 
     /*Stone*/
 
@@ -72,10 +83,7 @@ public class ModBlocks {
 
 
 
-    public static final RegistryObject<Block> BLOCK_TIN = BLOCKS.register("block_tin", () -> new Block(BlockBehaviour.Properties.copy(IRON_ORE)));
-    public static final RegistryObject<Block> BLOCK_SILVER = BLOCKS.register("block_silver", () -> new Block(BlockBehaviour.Properties.copy(IRON_ORE)));
-    public static final RegistryObject<Block> BLOCK_BRONZE = BLOCKS.register("block_bronze", () -> new Block(BlockBehaviour.Properties.copy(IRON_ORE)));
-    public static final RegistryObject<Block> BLOCK_STEEL = BLOCKS.register("block_steel", () -> new Block(BlockBehaviour.Properties.copy(IRON_ORE)));
+
 
 }
 
