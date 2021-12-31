@@ -5,6 +5,7 @@ import com.xuul.flint.init.ModItems;
 import com.xuul.flint.init.ModTags;
 import com.xuul.flint.util.CustomTabs;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
@@ -23,8 +24,23 @@ public class Flint
     public static final String MOD_ID = "flint";
 
     /*Creative Mode Tabs*/
-    public static final CustomTabs FLINT_TAB = new CustomTabs("flint_tab", ModItems.CHUNK_GRANITE);
-    public static final CustomTabs IRON_TAB = new CustomTabs("iron_tab", ModItems.INGOT_STEEL);
+    public static final CreativeModeTab FLINT_TAB = new CreativeModeTab(0,"flint_tab") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.CHUNK_GRANITE.get());
+        }
+    };
+    public static final CreativeModeTab IRON_AGE_TAB = new CreativeModeTab(1,"iron_age_tab") {
+        @Override
+        public ItemStack makeIcon() {
+            return new ItemStack(ModItems.INGOT_STEEL.get());
+        }
+    };
+
+
+
+//
+//    public static final CustomTabs IRON_TAB = new CustomTabs("iron_tab", ModItems.INGOT_STEEL);
 
 
     public Flint() {

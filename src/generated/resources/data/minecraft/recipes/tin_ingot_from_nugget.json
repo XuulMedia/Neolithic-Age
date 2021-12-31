@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    },
+    {
+      "item": "flint:nugget_tin"
+    }
+  ],
+  "result": {
+    "item": "flint:ingot_tin"
+  }
+}

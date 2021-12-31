@@ -1,5 +1,6 @@
 {
   "type": "minecraft:smelting",
+  "group": "flint",
   "ingredient": {
     "item": "flint:ore_tin"
   },

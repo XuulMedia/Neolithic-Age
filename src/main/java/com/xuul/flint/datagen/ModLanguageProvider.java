@@ -15,7 +15,7 @@ public class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup." + Flint.FLINT_TAB, "Stone Age");
-        add("itemGroup." + Flint.IRON_TAB, "Metal Age");
+        add("itemGroup." + Flint.IRON_AGE_TAB, "Metal Age");
 
 
 
@@ -48,6 +48,17 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.DUST_ANDESITE.get(), "Andesite Dust");
         add(ModItems.DUST_DIORITE.get(), "Diorite Dust");
         add(ModItems.DUST_CALCITE.get(), "Calcite Dust");
+
+        add(ModItems.BRONZE_SWORD.get(), "Bronze Sword");
+        add(ModItems.BRONZE_PICK.get(), "Bronze Pick");
+        add(ModItems.BRONZE_SHOVEL.get(), "Bronze Shovel");
+        add(ModItems.BRONZE_AXE.get(), "Bronze Axe");
+        add(ModItems.BRONZE_HOE.get(), "Bronze Hoe");
+        add(ModItems.BRONZE_HELMET.get(), "Bronze Helmet");
+        add(ModItems.BRONZE_CHEST.get(), "Bronze Chest");
+        add(ModItems.BRONZE_LEGS.get(), "Bronze Legs");
+        add(ModItems.BRONZE_BOOTS.get(), "Bronze Boots");
+
 
         add(ModBlocks.BLOCK_TIN.get(), "Tin Block");
         add(ModBlocks.BLOCK_SILVER.get(), "Silver Block");
@@ -97,10 +108,17 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CHUNK_BLACKSTONE.get(),"Blackstone Chunk");
         add(ModItems.CHUNK_CALCITE.get(),"Calcite Chunk");
 
-
-
-
-
+        add(ModItems.BRICK_STONE.get(),"Stone Brick");
+        add(ModItems.BRICK_ANDESITE.get(),"Andesite Brick");
+        add(ModItems.BRICK_DEEPSLATE.get(),"Deepslate Brick");
+        add(ModItems.BRICK_DRIPSTONE.get(),"Dripstone Brick");
+        add(ModItems.BRICK_DIORITE.get(),"Diorite Brick");
+        add(ModItems.BRICK_GRANITE.get(),"Granite Brick");
+        add(ModItems.BRICK_BASALT.get(),"Basalt Brick");
+        add(ModItems.BRICK_TUFF.get(),"Tuff Brick");
+        add(ModItems.BRICK_NETHERRACK.get(),"Netherrack Brick");
+        add(ModItems.BRICK_BLACKSTONE.get(),"Blackstone Brick");
+        add(ModItems.BRICK_CALCITE.get(),"Calcite Brick");
 
 
 

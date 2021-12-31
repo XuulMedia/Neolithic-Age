@@ -91,6 +91,40 @@ public class ModItemModels extends ItemModelProvider {
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/dusts/dust_gold"));
 
+
+        singleTexture(ModItems.BRONZE_SWORD.get().getRegistryName().getPath(),
+                mcLoc("item/handheld"),
+                "layer0", modLoc("item/tools/bronze_sword"));
+        singleTexture(ModItems.BRONZE_PICK.get().getRegistryName().getPath(),
+                mcLoc("item/handheld"),
+                "layer0", modLoc("item/tools/bronze_pickaxe"));
+        singleTexture(ModItems.BRONZE_SHOVEL.get().getRegistryName().getPath(),
+                mcLoc("item/handheld"),
+                "layer0", modLoc("item/tools/bronze_shovel"));
+        singleTexture(ModItems.BRONZE_AXE.get().getRegistryName().getPath(),
+                mcLoc("item/handheld"),
+                "layer0", modLoc("item/tools/bronze_axe"));
+        singleTexture(ModItems.BRONZE_HOE.get().getRegistryName().getPath(),
+                mcLoc("item/handheld"),
+                "layer0", modLoc("item/tools/bronze_hoe"));
+
+
+        /*TODO setup layered texture*/
+//        singleTexture(ModItems.BRONZE_HELMET.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("model/armor/bronze_helmet"));
+//        singleTexture(ModItems.BRONZE_CHEST.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("model/armor/bronze_chest"));
+//        singleTexture(ModItems.BRONZE_LEGS.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("model/armor/bronze_legs"));
+//        singleTexture(ModItems.BRONZE_BOOTS.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("model/armor/bronze_boots"));
+//
+
+
         singleTexture(ModItems.CHUNK_STONE.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/rocks/chunk_stone"));
@@ -125,6 +159,40 @@ public class ModItemModels extends ItemModelProvider {
 //                mcLoc("item/generated"),
 //                "layer0", modLoc("item/rocks/chunk_calcite"));
 
+
+//        singleTexture(ModItems.BRICK_STONE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_stone"));
+//        singleTexture(ModItems.BRICK_ANDESITE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_andesite"));
+//        singleTexture(ModItems.BRICK_DEEPSLATE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_deepslate"));
+//        singleTexture(ModItems.BRICK_DRIPSTONE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_dripstone"));
+//        singleTexture(ModItems.BRICK_SANDSTONE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_diorite"));
+//        singleTexture(ModItems.BRICK_DIORITE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_granite"));
+//        singleTexture(ModItems.BRICK_GRANITE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_basalt"));
+//        singleTexture(ModItems.BRICK_BASALT.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_tuff"));
+//        singleTexture(ModItems.BRICK_TUFF.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_netherrack"));
+//        singleTexture(ModItems.BRICK_NETHERRACK.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_blackstone"));
+//        singleTexture(ModItems.BRICK_BLACKSTONE.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),
+//                "layer0", modLoc("item/bricks/brick_calcite"));
 
 
 

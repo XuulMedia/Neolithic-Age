@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "flint:bindings"
+    },
+    {
+      "tag": "flint:bindings"
+    },
+    {
+      "tag": "flint:bindings"
+    }
+  ],
+  "result": {
+    "item": "flint:braided_plant_fibre"
+  }
+}

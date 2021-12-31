@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "flint:brick_sandstone"
+    ]
+  },
+  "criteria": {
+    "has_dust_sandstone": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "flint:dust_blackstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "flint:brick_sandstone"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dust_sandstone",
+      "has_the_recipe"
+    ]
+  ]
+}

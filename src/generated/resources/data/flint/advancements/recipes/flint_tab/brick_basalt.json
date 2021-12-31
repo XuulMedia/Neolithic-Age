@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "flint:brick_basalt"
+    ]
+  },
+  "criteria": {
+    "has_dust_basalt": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "flint:dust_blackstone"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "flint:brick_basalt"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_dust_basalt",
+      "has_the_recipe"
+    ]
+  ]
+}

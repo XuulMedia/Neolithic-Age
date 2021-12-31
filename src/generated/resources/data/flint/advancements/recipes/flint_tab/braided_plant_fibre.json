@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "flint:braided_plant_fibre"
+    ]
+  },
+  "criteria": {
+    "has_plant_fibre": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "flint:plant_fibre"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "flint:braided_plant_fibre"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_plant_fibre",
+      "has_the_recipe"
+    ]
+  ]
+}

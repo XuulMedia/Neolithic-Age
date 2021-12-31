@@ -6,6 +6,7 @@ import com.xuul.flint.init.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.world.item.Items;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -26,6 +27,19 @@ public class ModItemTags extends ItemTagsProvider {
                 .add(ModItems.INGOT_BRONZE.get())
                 .add(ModItems.INGOT_SILVER.get())
                 .add(ModItems.INGOT_STEEL.get());
+
+        tag(ModTags.BINDINGS)
+                .add(ModItems.BRAIDED_PLANT_FIBRE.get())
+                .add(Items.STRING);
+
+        tag(ModTags.PLANT_FIBRE)
+                .add(ModItems.PLANT_FIBRE.get())
+                .add(Items.VINE)
+                .add(Items.TWISTING_VINES)
+                .add(Items.WEEPING_VINES);
+
+
+
 
         tag(ModTags.LOGS)
                 .add(ModItems.LOG_OAK.get())
