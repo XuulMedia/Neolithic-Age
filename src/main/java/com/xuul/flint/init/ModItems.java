@@ -243,6 +243,8 @@ public class ModItems {
     public static final  RegistryObject<Item> DIORITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.DIORITE_COBBLESTONE, STONE_AGE_PROPERTIES);
     public static final  RegistryObject<Item> CALCITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.CALCITE_COBBLESTONE, STONE_AGE_PROPERTIES);
 
+    public static final  RegistryObject<Item> GRINDSTONE_ITEM = itemFromBlock(ModBlocks.GRINDSTONE, STONE_AGE_PROPERTIES);
+
 
 
 

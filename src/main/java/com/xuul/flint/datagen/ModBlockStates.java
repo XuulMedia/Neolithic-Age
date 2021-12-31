@@ -23,19 +23,20 @@ public class ModBlockStates extends BlockStateProvider {
         simpleBlock(ModBlocks.ORE_TIN.get());
         simpleBlock(ModBlocks.ORE_SILVER.get());
 
-//        simpleBlock(ModBlocks.COBBLESTONE.get());
-//        simpleBlock(ModBlocks.BASALT_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.DEEPSLATE_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.NETHERRACK_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.SANDSTONE_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.BLACKSTONE_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.ENDSTONE_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.GRANITE_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.TUFF_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.ANDESITE_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.DIORITE_COBBLESTONE.get());
-//        simpleBlock(ModBlocks.CALCITE_COBBLESTONE.get());
-//
+
+        simpleBlock(ModBlocks.COBBLESTONE.get());
+        simpleBlock(ModBlocks.BASALT_COBBLESTONE.get());
+        simpleBlock(ModBlocks.DEEPSLATE_COBBLESTONE.get());
+        simpleBlock(ModBlocks.NETHERRACK_COBBLESTONE.get());
+        simpleBlock(ModBlocks.SANDSTONE_COBBLESTONE.get());
+        simpleBlock(ModBlocks.BLACKSTONE_COBBLESTONE.get());
+        simpleBlock(ModBlocks.ENDSTONE_COBBLESTONE.get());
+        simpleBlock(ModBlocks.GRANITE_COBBLESTONE.get());
+        simpleBlock(ModBlocks.TUFF_COBBLESTONE.get());
+        simpleBlock(ModBlocks.ANDESITE_COBBLESTONE.get());
+        simpleBlock(ModBlocks.DIORITE_COBBLESTONE.get());
+        simpleBlock(ModBlocks.CALCITE_COBBLESTONE.get());
+
         simpleBlock(ModBlocks.BLOCK_TIN.get());
         simpleBlock(ModBlocks.BLOCK_SILVER.get());
         simpleBlock(ModBlocks.BLOCK_BRONZE.get());
