@@ -16,7 +16,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Flint.MOD_ID);
 
 
-    public static final Item.Properties METAL_AGE_PROPERTIES = new Item.Properties().tab(Flint.IRON_AGE_TAB);
+    public static final Item.Properties METAL_AGE_PROPERTIES = new Item.Properties().tab(Flint.METAL_TAB);
     public static final Item.Properties STONE_AGE_PROPERTIES = new Item.Properties().tab(Flint.FLINT_TAB);
 
 //    Items
@@ -80,7 +80,7 @@ public class ModItems {
             () -> new Item(METAL_AGE_PROPERTIES));
 
     public static final RegistryObject<Item> INGOT_SILVER = ITEMS.register("ingot_silver",
-            () -> new Item( new Item.Properties().tab(Flint.IRON_AGE_TAB)));
+            () -> new Item(METAL_AGE_PROPERTIES));
 
 
     /*Nuggets*/
@@ -243,7 +243,7 @@ public class ModItems {
     public static final  RegistryObject<Item> DIORITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.DIORITE_COBBLESTONE, STONE_AGE_PROPERTIES);
     public static final  RegistryObject<Item> CALCITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.CALCITE_COBBLESTONE, STONE_AGE_PROPERTIES);
 
-    public static final  RegistryObject<Item> GRINDSTONE_ITEM = itemFromBlock(ModBlocks.GRINDSTONE, STONE_AGE_PROPERTIES);
+    public static final  RegistryObject<Item> FLINT_STATION_ITEM = itemFromBlock(ModBlocks.FLINT_STATION, STONE_AGE_PROPERTIES);
 
 
 

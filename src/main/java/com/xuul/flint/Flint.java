@@ -13,6 +13,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.checkerframework.checker.units.qual.C;
@@ -24,23 +25,20 @@ public class Flint
     public static final String MOD_ID = "flint";
 
     /*Creative Mode Tabs*/
-    public static final CreativeModeTab FLINT_TAB = new CreativeModeTab(0,"flint_tab") {
+
+    public static final CreativeModeTab FLINT_TAB = new CreativeModeTab("flint_tab") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.CHUNK_GRANITE.get());
         }
     };
-    public static final CreativeModeTab IRON_AGE_TAB = new CreativeModeTab(1,"iron_age_tab") {
+
+    public static final CreativeModeTab METAL_TAB = new CreativeModeTab("metal_tab") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.INGOT_STEEL.get());
         }
     };
-
-
-
-//
-//    public static final CustomTabs IRON_TAB = new CustomTabs("iron_tab", ModItems.INGOT_STEEL);
 
 
     public Flint() {

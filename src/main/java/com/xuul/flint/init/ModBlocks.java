@@ -1,9 +1,8 @@
 package com.xuul.flint.init;
 
 import com.xuul.flint.Flint;
-import com.xuul.flint.block.GrindStone;
-import com.xuul.flint.block.GrindStoneBE;
-import com.xuul.flint.block.GrindStoneContainer;
+import com.xuul.flint.block.FlintStationBlock;
+import com.xuul.flint.block.FlintStationContainer;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -90,13 +89,11 @@ public class ModBlocks {
 
 
 
-    /*Grindstone*/
-    public static final RegistryObject<GrindStone> GRINDSTONE = BLOCKS.register("grindstone", GrindStone::new);
-    public static final RegistryObject<BlockEntityType<GrindStoneBE>> GRINDSTONE_BE =
-            BLOCK_ENTITIES.register("grindstone", () -> BlockEntityType.Builder.of(GrindStoneBE::new, GRINDSTONE.get()).build(null));
-    public static final RegistryObject<MenuType<GrindStoneContainer>> GRINDSTONE_CONTAINER = CONTAINERS.register("powergen",
-            () -> IForgeMenuType.create((windowId, inv, data) -> new GrindStoneContainer(windowId, data.readBlockPos(), inv, inv.player)));
+    /*FlintStation*/
+    public static final RegistryObject<FlintStationBlock> FLINT_STATION = BLOCKS.register("flint_station", FlintStationBlock::new);
+    public static final RegistryObject<MenuType<FlintStationContainer>> FLINT_STATION_CONTAINER = CONTAINERS.register("flint_station",
+            () -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationContainer(windowId,data.readBlockPos(), inv, pos1, inv.player.getInventory())));
+
 
 }
-
 
