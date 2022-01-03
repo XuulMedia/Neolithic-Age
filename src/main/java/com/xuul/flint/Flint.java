@@ -1,5 +1,6 @@
 package com.xuul.flint;
 
+import com.xuul.flint.init.ClientSetup;
 import com.xuul.flint.init.ModBlocks;
 import com.xuul.flint.init.ModItems;
 import com.xuul.flint.init.ModTags;
@@ -45,16 +46,13 @@ public class Flint
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
+        ModBlocks.CONTAINERS.register(bus);
+
+        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
 
 
-        // Register the setup method for modloading
-/*        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
-        modbus.addListener(ModSetup::init);
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));*/
     }
-
-
-
 
 
 }

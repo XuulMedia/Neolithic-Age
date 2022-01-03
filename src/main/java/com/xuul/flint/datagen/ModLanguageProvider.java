@@ -15,7 +15,7 @@ public class ModLanguageProvider extends LanguageProvider {
     @Override
     protected void addTranslations() {
         add("itemGroup." + Flint.FLINT_TAB, "Stone Age");
-        add("itemGroup." + Flint.IRON_AGE_TAB, "Metal Age");
+        add("itemGroup." + Flint.METAL_TAB, "Metal Age");
 
 
 

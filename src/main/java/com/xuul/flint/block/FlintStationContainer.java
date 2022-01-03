@@ -2,6 +2,7 @@ package com.xuul.flint.block;
 
 import com.google.common.collect.Lists;
 import com.xuul.flint.init.ModBlocks;
+import com.xuul.flint.init.ModRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -11,7 +12,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
+
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -25,7 +26,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
     private final Level level;
     private final BlockPos pos;
     private IItemHandler playerInventory;
-    private List<StonecutterRecipe> recipes = Lists.newArrayList();
+    private List<FlintStationRecipe> recipes = Lists.newArrayList();
 
     private ItemStack input = ItemStack.EMPTY;
     /**
@@ -78,7 +79,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
                 super.onTake(player, itemStack);
             }
         });
-        layoutPlayerInventorySlots(10, 70);
+        layoutPlayerInventorySlots(8, 83);
         this.addDataSlot(this.selectedRecipeIndex);
     }
 
@@ -131,15 +132,15 @@ public class FlintStationContainer extends AbstractContainerMenu {
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
         if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(RecipeType.STONECUTTING, pInventory, this.level);
+            this.recipes = this.level.getRecipeManager().getRecipesFor(ModRecipeTypes.FLINT_STATION, pInventory, this.level);
         }
     }
 
     void setupResultSlot() {
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
-            StonecutterRecipe stonecutterrecipe = this.recipes.get(this.selectedRecipeIndex.get());
-            this.resultContainer.setRecipeUsed(stonecutterrecipe);
-            this.resultSlot.set(stonecutterrecipe.assemble(this.container));
+            FlintStationRecipe flintStationRecipe = this.recipes.get(this.selectedRecipeIndex.get());
+            this.resultContainer.setRecipeUsed(flintStationRecipe);
+            this.resultSlot.set(flintStationRecipe.assemble(this.container));
         } else {
             this.resultSlot.set(ItemStack.EMPTY);
         }
@@ -148,7 +149,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     public MenuType<?> getType() {
-        return MenuType.STONECUTTER;
+        return ModBlocks.FLINT_STATION_CONTAINER.get();
     }
 
     public void registerUpdateListener(Runnable pListener) {
@@ -205,13 +206,14 @@ public class FlintStationContainer extends AbstractContainerMenu {
         return itemstack;
     }
 
-    public void removed(Player pPlayer) {
-        super.removed(pPlayer);
-        this.resultContainer.removeItemNoUpdate(1);
-        this.access.execute((p_40313_, p_40314_) -> {
-            this.clearContainer(pPlayer, this.container);
-        });
-    }
+    /*TODO see what this affects*/
+//    public void removed(Player pPlayer) {
+//        super.removed(pPlayer);
+//        this.resultContainer.removeItemNoUpdate(1);
+//        this.access.execute((p_40313_, p_40314_) -> {
+//            this.clearContainer(pPlayer, this.container);
+//        });
+//    }
 
 /*Setup Player inventory*/
 

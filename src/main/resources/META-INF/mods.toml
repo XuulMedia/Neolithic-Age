@@ -2,6 +2,7 @@ modLoader="javafml" #mandatory
 
 loaderVersion="[39,)"
 license="MIT License"
+state="WIP"
 [[mods]] #mandatory
 modId="flint" #mandatory
 version="${file.jarVersion}" #mandatory
