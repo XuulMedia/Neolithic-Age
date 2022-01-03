@@ -1,9 +1,6 @@
 package com.xuul.flint;
 
-import com.xuul.flint.init.ClientSetup;
-import com.xuul.flint.init.ModBlocks;
-import com.xuul.flint.init.ModItems;
-import com.xuul.flint.init.ModTags;
+import com.xuul.flint.init.*;
 import com.xuul.flint.util.CustomTabs;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -46,7 +43,7 @@ public class Flint
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
-        ModBlocks.CONTAINERS.register(bus);
+        ModContainerTypes.CONTAINERS.register(bus);
 
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));

@@ -2,7 +2,9 @@ package com.xuul.flint.block;
 
 import com.google.common.collect.Lists;
 import com.xuul.flint.init.ModBlocks;
+import com.xuul.flint.init.ModContainerTypes;
 import com.xuul.flint.init.ModRecipeTypes;
+import com.xuul.flint.recipe.FlintStationRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
@@ -56,7 +58,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
 
 
     public FlintStationContainer(int pContainerId, BlockPos pos, Inventory inventory,  Inventory playerInventory) {
-        super(ModBlocks.FLINT_STATION_CONTAINER.get(), pContainerId);
+        super(ModContainerTypes.FLINT_STATION_CONTAINER.get(), pContainerId);
         this.level = inventory.player.level;
         this.pos = pos;
         this.playerInventory = new InvWrapper(playerInventory);
@@ -149,7 +151,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     public MenuType<?> getType() {
-        return ModBlocks.FLINT_STATION_CONTAINER.get();
+        return ModContainerTypes.FLINT_STATION_CONTAINER.get();
     }
 
     public void registerUpdateListener(Runnable pListener) {

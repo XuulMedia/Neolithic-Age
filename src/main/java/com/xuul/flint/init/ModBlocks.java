@@ -23,7 +23,7 @@ public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Flint.MOD_ID);
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(ForgeRegistries.BLOCK_ENTITIES, Flint.MOD_ID);
-    public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, Flint.MOD_ID);
+
 
 
 //Blocks
@@ -91,8 +91,7 @@ public class ModBlocks {
 
     /*FlintStation*/
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = BLOCKS.register("flint_station", FlintStationBlock::new);
-    public static final RegistryObject<MenuType<FlintStationContainer>> FLINT_STATION_CONTAINER = CONTAINERS.register("flint_station",
-            () -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationContainer(windowId,data.readBlockPos(), inv, inv.player.getInventory())));
+
 
 
 }
