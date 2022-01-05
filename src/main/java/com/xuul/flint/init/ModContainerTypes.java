@@ -14,6 +14,6 @@ public class ModContainerTypes {
 
 
     public static final RegistryObject<MenuType<FlintStationContainer>> FLINT_STATION_CONTAINER = CONTAINERS.register("flint_station",
-            () -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationContainer(windowId, data.readBlockPos(), inv, inv.player.getInventory())));
+            () -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationContainer(windowId, data.readBlockPos(), inv, inv.player)));
 
 }

@@ -22,12 +22,20 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 import java.util.List;
 
 public class FlintStationContainer extends AbstractContainerMenu {
+    public static final int INPUT_SLOT = 0;
+    public static final int RESULT_SLOT = 1;
+    private static final int INV_SLOT_START = 2;
+    private static final int INV_SLOT_END = 29;
+    private static final int USE_ROW_SLOT_START = 29;
+    private static final int USE_ROW_SLOT_END = 38;
 
     private final DataSlot selectedRecipeIndex = DataSlot.standalone();
     private final Level level;
+    private List<FlintStationRecipe> recipes = Lists.newArrayList();
+    private Player playerEntity;
+
     private final BlockPos pos;
     private IItemHandler playerInventory;
-    private List<FlintStationRecipe> recipes = Lists.newArrayList();
 
     private ItemStack input = ItemStack.EMPTY;
     final Slot inputSlot;
@@ -46,12 +54,12 @@ public class FlintStationContainer extends AbstractContainerMenu {
     final ResultContainer resultContainer = new ResultContainer();
 
 
-    public FlintStationContainer(int pContainerId, BlockPos pos, Inventory inventory,  Inventory playerInventory) {
+    public FlintStationContainer(int pContainerId, BlockPos pos, Inventory inventory,  Player player) {
         super(ModContainerTypes.FLINT_STATION_CONTAINER.get(), pContainerId);
         this.level = inventory.player.level;
         this.pos = pos;
-        this.playerInventory = new InvWrapper(playerInventory);
-
+        this.playerInventory = new InvWrapper(inventory);
+        this.playerEntity = player;
         this.inputSlot = this.addSlot(new Slot(this.container, 0, 20, 33));
         this.resultSlot = this.addSlot(new Slot(this.resultContainer, 1, 143, 33) {
 
@@ -140,7 +148,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     public MenuType<?> getType() {
-        return MenuType.STONECUTTER;
+        return ModContainerTypes.FLINT_STATION_CONTAINER.get();
     }
 
     public void registerUpdateListener(Runnable pListener) {

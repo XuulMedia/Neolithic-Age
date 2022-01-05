@@ -39,19 +39,20 @@ public class Flint
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
         ModContainerTypes.CONTAINERS.register(bus);
-        addRecipes(bus);
+        ModRecipeSerializers.RECIPES.register(bus);
 
-        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
-        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
+
+//        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
+//        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
 
 
     }
 
-    public void addRecipes(IEventBus event)
-    {
-
-       ModRecipeSerializers.RECIPES.register(event);
-    }
+//    public void addRecipes(IEventBus event)
+//    {
+//
+//       ModRecipeSerializers.RECIPES.register(event);
+//    }
 
 
 }
