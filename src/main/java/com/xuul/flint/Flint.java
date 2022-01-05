@@ -1,20 +1,15 @@
 package com.xuul.flint;
 
 import com.xuul.flint.init.*;
-import com.xuul.flint.util.CustomTabs;
 import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.registries.RegistryObject;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.checkerframework.checker.units.qual.C;
 
 @Mod(Flint.MOD_ID)
 public class Flint
@@ -44,11 +39,18 @@ public class Flint
         ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
         ModContainerTypes.CONTAINERS.register(bus);
+        addRecipes(bus);
 
         IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
 
 
+    }
+
+    public void addRecipes(IEventBus event)
+    {
+
+       ModRecipeSerializers.RECIPES.register(event);
     }
 
 

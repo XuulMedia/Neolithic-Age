@@ -1,9 +1,9 @@
 package com.xuul.flint.block;
 
 import com.google.common.collect.Lists;
+import com.xuul.flint.datagen.ModRecipes;
 import com.xuul.flint.init.ModBlocks;
 import com.xuul.flint.init.ModContainerTypes;
-import com.xuul.flint.init.ModRecipeTypes;
 import com.xuul.flint.recipe.FlintStationRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.Container;
@@ -14,7 +14,6 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -124,7 +123,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
         if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(ModRecipeTypes.FLINT_STATION.get(), pInventory, this.level);
+            this.recipes = this.level.getRecipeManager().getRecipesFor(FlintStationRecipe.FLINT_STATION, pInventory, this.level);
         }
     }
 
