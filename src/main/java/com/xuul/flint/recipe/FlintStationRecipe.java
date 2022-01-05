@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.entity.player.Inventory;
@@ -15,30 +16,23 @@ import net.minecraft.world.level.Level;
 import net.minecraftforge.common.crafting.CraftingHelper;
 import net.minecraftforge.registries.ForgeRegistryEntry;
 import org.checkerframework.checker.signature.qual.Identifier;
+import org.jetbrains.annotations.Nullable;
 
-
-REFRENCE https://github.com/TerraFirmaCraft/TerraFirmaCraft/blob/1.18.x/src/main/java/net/dries007/tfc/common/recipes/SimpleItemRecipe.java
 
 public class FlintStationRecipe implements Recipe<Inventory> {
     protected final Ingredient ingredient;
     protected final int amount;
     protected final ItemStack output;
     protected final int outputAmount;
-    private final RecipeType<?> type;
-    private final RecipeSerializer<?> serializer;
     protected final ResourceLocation recipeId;
     protected final String group;
 
-    public FlintStationRecipe(Ingredient ingredient, int amount, ItemStack output, int outputAmount, ResourceLocation recipeId) {
+    public FlintStationRecipe(Ingredient ingredient,  int amount, ItemStack output, int outputAmount, ResourceLocation recipeId, String group) {
         this.ingredient = ingredient;
         this.amount = amount;
         this.output = output;
         this.outputAmount = outputAmount;
         this.recipeId = recipeId;
-
-
-        this.type = type;
-        this.serializer = serializer;
         this.group = group;
 
 
@@ -59,6 +53,8 @@ public class FlintStationRecipe implements Recipe<Inventory> {
     public String getGroup() {
         return this.group;
     }
+
+
 
     public ItemStack getResultItem() {
         return this.output;
@@ -87,36 +83,111 @@ public class FlintStationRecipe implements Recipe<Inventory> {
 
     /*Serializer*/
 
-    public static class Serializer<R extends Recipe<?>> extends ForgeRegistryEntry<RecipeSerializer<?>> implements RecipeSerializer<R> {
+    public static class Serializer implements RecipeSerializer<FlintStationRecipe> {
 
-        public R fromJson(ResourceLocation recipeId, JsonObject json) {
+
+        @Override
+        public FlintStationRecipe  fromJson(ResourceLocation recipeId, JsonObject json) {
             FlintStationJsonFormat recipeJson = new Gson().fromJson(json, FlintStationJsonFormat.class);
             if (recipeJson.ingredient == null || recipeJson.outputItem == null) {
                 throw new JsonSyntaxException("A required attribute is missing!");
+            }
                 String s = GsonHelper.getAsString(json, "group", "");
-                Ingredient ingredient;
+                Ingredient ingredient = Ingredient.fromJson(recipeJson.ingredient);
                 // If any amount is set to zero default it to 1
                 if (recipeJson.amount == 0) recipeJson.amount = 1;
                 if (recipeJson.outputAmount == 0) recipeJson.outputAmount = 1;
                 int amount = recipeJson.amount;
                 int outputAmount = recipeJson.outputAmount;
-
-                ItemStack output = new ItemStack(recipeJson.outputItem, recipeJson.outputAmount);
-                return new FlintStationRecipe(ingredient, amount, output, outputAmount, recipeId);
+            ItemStack output = new ItemStack(recipeJson.outputItem, recipeJson.outputAmount);
+                return new FlintStationRecipe(ingredient, amount,  output, outputAmount, recipeId);
             }
 
+        @Nullable
+        @Override
+        public FlintStationRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
+            Ingredient ingredient = Ingredient.fromNetwork(pBuffer)
+            int amount = pBuffer.readInt();
+            int outputAmount = pBuffer.readInt();
+            ItemStack output = pBuffer.readItem();
+            String group = String.
+
+
+            return new FlintStationRecipe(ingredient, amount, output, outputAmount, pRecipeId, group);
+        }
+
+        @Override
+        public void toNetwork(FriendlyByteBuf pBuffer, FlintStationRecipe pRecipe) {
+
+        }
+
+        @Override
+        public RecipeSerializer<?> setRegistryName(ResourceLocation name) {
+            return null;
+        }
+
+        @Nullable
+        @Override
+        public ResourceLocation getRegistryName() {
+            return null;
+        }
+
+        @Override
+        public Class<RecipeSerializer<?>> getRegistryType() {
+            return null;
+        }
+    }
 
 
 
-                Item outputItem = CraftingHelper.getItemStack(getAsJsonObject(json, outputItem), true)
-                        JsonHelpers.getItemStack(json, "result")
+    class FlintStationJsonFormat {
+        JsonObject ingredient;
+        String group;
+        int amount;
+        Item outputItem;
+        int outputAmount;
+    }
 
 
-                        Item outputItem = Registry.ITEM.getOrEmpty(new Identifier(recipeJson.outputItem))
-                        // Validate the inputted item actually exists
-                        .orElseThrow(() -> new JsonSyntaxException("No such item " + recipeJson.outputItem));
 
-                ItemStack output = new ItemStack(outputItem, recipeJson.outputAmount);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        Item outputItem = CraftingHelper.getItemStack(getAsJsonObject(json, outputItem), true)
+        JsonHelpers.getItemStack(json, "result")
+
+
+        Item outputItem = Registry.ITEM.getOrEmpty(new Identifier(recipeJson.outputItem))
+                // Validate the inputted item actually exists
+                .orElseThrow(() -> new JsonSyntaxException("No such item " + recipeJson.outputItem));
+
+        ItemStack output = new ItemStack(outputItem, recipeJson.outputAmount);
 
 
 
@@ -134,63 +205,5 @@ public class FlintStationRecipe implements Recipe<Inventory> {
 //            return new FlintStationRecipe(recipeId, s, ingredient, itemstack)
 //
 //            this.factory.create(pRecipeId, s, ingredient, itemstack);
-        }
-
-
-        public AlloyRecipe read(Identifier id, JsonObject json) {
-            AlloyRecipeJsonFormat recipeJson = new Gson().fromJson(json, AlloyRecipeJsonFormat.class);
-            if (recipeJson.inputA == null || recipeJson.inputB == null || recipeJson.outputItem == null) {
-                throw new JsonSyntaxException("A required attribute is missing!");
-            }
-            Ingredient inputA = Ingredient.fromJson(recipeJson.inputA);
-            Ingredient inputB = Ingredient.fromJson(recipeJson.inputB);
-//        If any amount is set to zero default it to 1
-            if (recipeJson.amountA == 0) recipeJson.amountA = 1;
-            if (recipeJson.amountB == 0) recipeJson.amountB = 1;
-            if (recipeJson.outputAmount == 0) recipeJson.outputAmount = 1;
-            int amountA = recipeJson.amountA;
-            int amountB = recipeJson.amountB;
-
-
-            Item outputItem = Registry.ITEM.getOrEmpty(new Identifier(recipeJson.outputItem))
-                    // Validate the inputted item actually exists
-                    .orElseThrow(() -> new JsonSyntaxException("No such item " + recipeJson.outputItem));
-            ItemStack output = new ItemStack(outputItem, recipeJson.outputAmount);
-            return new AlloyRecipe(inputA, inputB, amountA, amountB, output, id);
-
-
-            final SingleItemRecipe.Serializer.SingleItemMaker<T> factory;
-
-        protected Serializer(SingleItemRecipe.Serializer.SingleItemMaker < T > pFactory) {
-                this.factory = pFactory;
-            }
-
-
-            public T fromNetwork (ResourceLocation pRecipeId, FriendlyByteBuf pBuffer){
-                String s = pBuffer.readUtf();
-                Ingredient ingredient = Ingredient.fromNetwork(pBuffer);
-                ItemStack itemstack = pBuffer.readItem();
-                return this.factory.create(pRecipeId, s, ingredient, itemstack);
-            }
-
-            public void toNetwork (FriendlyByteBuf pBuffer, T pRecipe){
-                pBuffer.writeUtf(pRecipe.group);
-                pRecipe.ingredient.toNetwork(pBuffer);
-                pBuffer.writeItem(pRecipe.result);
-            }
-
-
-        }
-
-
-
-    }
-    class FlintStationJsonFormat {
-        JsonObject ingredient;
-        int amount;
-        Item outputItem;
-        int outputAmount;
     }
 
-
-}

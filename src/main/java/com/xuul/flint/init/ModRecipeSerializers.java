@@ -7,4 +7,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 
 public class ModRecipeSerializers {
     public static final DeferredRegister<RecipeSerializer<?>> RECIPE_SERIALIZERS = DeferredRegister.create(ForgeRegistries.RECIPE_SERIALIZERS, Flint.MOD_ID);
+
+
 }

@@ -109,6 +109,11 @@ public class ModItemModels extends ItemModelProvider {
                 "layer0", modLoc("item/tools/bronze_hoe"));
 
 
+        singleTexture(ModItems.LOG_SPRUCE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_spruce"));
+
+
         /*TODO setup layered texture*/
 //        singleTexture(ModItems.BRONZE_HELMET.get().getRegistryName().getPath(),
 //                mcLoc("item/generated"),

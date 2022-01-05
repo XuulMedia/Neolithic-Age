@@ -14,7 +14,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
-
+import net.minecraft.world.item.crafting.StonecutterRecipe;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -31,22 +31,12 @@ public class FlintStationContainer extends AbstractContainerMenu {
     private List<FlintStationRecipe> recipes = Lists.newArrayList();
 
     private ItemStack input = ItemStack.EMPTY;
-    /**
-     * Stores the game time of the last time the player took items from the the crafting result slot. This is used to
-     * prevent the sound from being played multiple times on the same tick.
-     */
-    long lastSoundTime;
     final Slot inputSlot;
-    /** The inventory slot that stores the output of the crafting recipe. */
     final Slot resultSlot;
     Runnable slotUpdateListener = () -> {
     };
 
     public final Container container = new SimpleContainer(1) {
-        /**
-         * For tile entities, ensures the chunk containing the tile entity is saved to disk later - the game won't think
-         * it hasn't changed and skip it.
-         */
         public void setChanged() {
             super.setChanged();
             FlintStationContainer.this.slotsChanged(this);
@@ -81,7 +71,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
                 super.onTake(player, itemStack);
             }
         });
-        layoutPlayerInventorySlots(8, 83);
+        layoutPlayerInventorySlots(10, 70);
         this.addDataSlot(this.selectedRecipeIndex);
     }
 
@@ -134,7 +124,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
         this.selectedRecipeIndex.set(-1);
         this.resultSlot.set(ItemStack.EMPTY);
         if (!pStack.isEmpty()) {
-            this.recipes = this.level.getRecipeManager().getRecipesFor(ModRecipeTypes.FLINT_STATION, pInventory, this.level);
+            this.recipes = this.level.getRecipeManager().getRecipesFor(ModRecipeTypes.FLINT_STATION.get(), pInventory, this.level);
         }
     }
 
@@ -151,7 +141,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     public MenuType<?> getType() {
-        return ModContainerTypes.FLINT_STATION_CONTAINER.get();
+        return MenuType.STONECUTTER;
     }
 
     public void registerUpdateListener(Runnable pListener) {
