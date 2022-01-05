@@ -4,16 +4,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.stats.Stats;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
-import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerLevelAccess;
-import net.minecraft.world.inventory.StonecutterMenu;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -23,8 +19,6 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
-
-import javax.annotation.Nullable;
 
 public class FlintStationBlock extends Block {
 
@@ -45,34 +39,22 @@ public class FlintStationBlock extends Block {
             MenuProvider containerProvider = new MenuProvider() {
                 @Override
                 public Component getDisplayName() {
-                    return new TranslatableComponent(MESSAGE_FLINT_STATION);
+                    return CONTAINER_TITLE;
                 }
-
                 @Override
-                public AbstractContainerMenu createMenu(int windowId, Inventory playerInventory, Player playerEntity) {
-                    return new FlintStationContainer(windowId, pos, playerInventory, playerEntity);
+                public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player playerEntity) {
+                    return new FlintStationContainer(containerId, pos, playerInventory,playerEntity);
                 }
-
             };
-            return InteractionResult.CONSUME;
+            NetworkHooks.openGui((ServerPlayer) player, containerProvider, pos);
         }
         return InteractionResult.SUCCESS;
-    }
-
     };
 
-//    @Nullable
-//    public AbstractContainerMenu getMenuProvider() {
-//        return new FlintStationContainer(windowId, pos, playerInventory, playerEntity);
-//    }
-//
-//
-//
-//
-//    @SuppressWarnings("deprecation")
-//    @Override
-//    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos) {
-//        return RENDER_SHAPE;
-//    }
-//}
 
+    @SuppressWarnings("deprecation")
+    @Override
+    public VoxelShape getOcclusionShape(BlockState state, BlockGetter reader, BlockPos pos) {
+        return RENDER_SHAPE;
+    }
+}
