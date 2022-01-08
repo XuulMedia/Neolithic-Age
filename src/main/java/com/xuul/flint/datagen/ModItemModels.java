@@ -108,10 +108,33 @@ public class ModItemModels extends ItemModelProvider {
                 mcLoc("item/handheld"),
                 "layer0", modLoc("item/tools/bronze_hoe"));
 
+        /*LOGS*/
 
+
+        singleTexture(ModItems.LOG_ACACIA.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_acacia"));
+        singleTexture(ModItems.LOG_BIRCH.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_birch"));
         singleTexture(ModItems.LOG_SPRUCE.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),
                 "layer0", modLoc("item/woods/log_spruce"));
+        singleTexture(ModItems.LOG_CRIMSON.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_crimson"));
+        singleTexture(ModItems.LOG_DARK_OAK.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_dark_oak"));
+        singleTexture(ModItems.LOG_JUNGLE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_jungle"));
+        singleTexture(ModItems.LOG_SPRUCE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_spruce"));
+        singleTexture(ModItems.LOG_WARPED.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),
+                "layer0", modLoc("item/woods/log_warped"));
 
 
         /*TODO setup layered texture*/

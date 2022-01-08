@@ -45,6 +45,37 @@ public class ModItems {
     public static final RegistryObject<HoeItem> BRONZE_HOE = ITEMS.register("bronze_hoe",
             () -> new HoeItem(ModToolMaterials.BRONZE,1,3.0f, METAL_AGE_PROPERTIES));
 
+
+    public static final RegistryObject<SwordItem> FLINT_SWORD = ITEMS.register("flint_sword",
+            () -> new SwordItem(ModToolMaterials.FLINT,4,1.6f, STONE_AGE_PROPERTIES.stacksTo(1)));
+
+    public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pick",
+            () -> new PickaxeItem(ModToolMaterials.FLINT,2,1.2f, STONE_AGE_PROPERTIES.stacksTo(1)));
+
+    public static final RegistryObject<ShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
+            () -> new ShovelItem(ModToolMaterials.FLINT,1.25f,1.0f, STONE_AGE_PROPERTIES.stacksTo(1)));
+
+    public static final RegistryObject<AxeItem> FLINT_AXE = ITEMS.register("flint_axe",
+            () -> new AxeItem(ModToolMaterials.FLINT,7,0.8f, STONE_AGE_PROPERTIES.stacksTo(1)));
+
+    public static final RegistryObject<HoeItem> FLINT_HOE = ITEMS.register("flint_hoe",
+            () -> new HoeItem(ModToolMaterials.FLINT,1,1f, STONE_AGE_PROPERTIES.stacksTo(1)));
+
+    /*TOOLHEADS*/
+    public static final RegistryObject<Item> FLINT_SWORD_HEAD = ITEMS.register("flint_sword_head",
+            () -> new Item(STONE_AGE_PROPERTIES));
+
+    public static final RegistryObject<Item> FLINT_PICK_HEAD = ITEMS.register("flint_pick_head",
+            () -> new Item(STONE_AGE_PROPERTIES));
+
+    public static final RegistryObject<Item> FLINT_SHOVEL_HEAD = ITEMS.register("flint_shovel_head",
+            () -> new Item(STONE_AGE_PROPERTIES));
+
+    public static final RegistryObject<Item> FLINT_AXE_HEAD = ITEMS.register("flint_axe_head",
+            () -> new Item(STONE_AGE_PROPERTIES));
+
+    public static final RegistryObject<Item> FLINT_HOE_HEAD = ITEMS.register("flint_hoe_head",
+            () -> new Item(STONE_AGE_PROPERTIES));
     /*Armor*/
 
     public static final RegistryObject<ArmorItem> BRONZE_HELMET = ITEMS.register("bronze_helmet",

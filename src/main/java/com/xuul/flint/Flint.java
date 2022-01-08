@@ -42,17 +42,11 @@ public class Flint
         ModRecipeSerializers.RECIPES.register(bus);
 
 
-//        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
-//        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
-
+        IEventBus modbus = FMLJavaModLoadingContext.get().getModEventBus();
+        DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> () -> modbus.addListener(ClientSetup::init));
 
     }
 
-//    public void addRecipes(IEventBus event)
-//    {
-//
-//       ModRecipeSerializers.RECIPES.register(event);
-//    }
 
 
 }

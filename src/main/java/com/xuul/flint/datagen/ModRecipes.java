@@ -226,23 +226,17 @@ public class ModRecipes extends RecipeProvider {
 
 
 
+        /*TOOLS*/
 
-
-
-
-
-
-
-//        ShapedRecipeBuilder.shaped(ModItems.BRICK_BLACKSTONE.get())
-//                .pattern("mxm")
-//                .pattern("x#x")
-//                .pattern("#x#")
-//                .define('x', Tags.Items.GEMS_DIAMOND)
-//                .define('#', Tags.Items.INGOTS_IRON)
-//                .define('m', Registration.MYSTERIOUS_INGOT.get())
-//                .group("tutorialv3")
-//                .unlockedBy("mysterious", InventoryChangeTrigger.TriggerInstance.hasItems(Registration.MYSTERIOUS_INGOT.get()))
-//                .save(consumer);
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_SWORD.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.FLINT_SWORD_HEAD.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .group("flint")
+                .save(consumer);
 
 
 

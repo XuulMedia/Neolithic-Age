@@ -78,7 +78,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
                 super.onTake(player, itemStack);
             }
         });
-        layoutPlayerInventorySlots(10, 70);
+        layoutPlayerInventorySlots(8, 84);
         this.addDataSlot(this.selectedRecipeIndex);
     }
 
@@ -177,7 +177,7 @@ public class FlintStationContainer extends AbstractContainerMenu {
                 if (!this.moveItemStackTo(itemstack1, 2, 38, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (this.level.getRecipeManager().getRecipeFor(RecipeType.STONECUTTING, new SimpleContainer(itemstack1), this.level).isPresent()) {
+            } else if (this.level.getRecipeManager().getRecipeFor(FlintStationRecipe.FLINT_STATION, new SimpleContainer(itemstack1), this.level).isPresent()) {
                 if (!this.moveItemStackTo(itemstack1, 0, 1, false)) {
                     return ItemStack.EMPTY;
                 }
