@@ -47,19 +47,19 @@ public class ModItems {
 
 
     public static final RegistryObject<SwordItem> FLINT_SWORD = ITEMS.register("flint_sword",
-            () -> new SwordItem(ModToolMaterials.FLINT,4,1.6f, STONE_AGE_PROPERTIES.stacksTo(1)));
+            () -> new SwordItem(ModToolMaterials.FLINT,4,1.6f, STONE_AGE_PROPERTIES));
 
     public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pick",
-            () -> new PickaxeItem(ModToolMaterials.FLINT,2,1.2f, STONE_AGE_PROPERTIES.stacksTo(1)));
+            () -> new PickaxeItem(ModToolMaterials.FLINT,2,1.2f, STONE_AGE_PROPERTIES));
 
     public static final RegistryObject<ShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
-            () -> new ShovelItem(ModToolMaterials.FLINT,1.25f,1.0f, STONE_AGE_PROPERTIES.stacksTo(1)));
+            () -> new ShovelItem(ModToolMaterials.FLINT,1.25f,1.0f, STONE_AGE_PROPERTIES));
 
     public static final RegistryObject<AxeItem> FLINT_AXE = ITEMS.register("flint_axe",
-            () -> new AxeItem(ModToolMaterials.FLINT,7,0.8f, STONE_AGE_PROPERTIES.stacksTo(1)));
+            () -> new AxeItem(ModToolMaterials.FLINT,7,0.8f, STONE_AGE_PROPERTIES));
 
     public static final RegistryObject<HoeItem> FLINT_HOE = ITEMS.register("flint_hoe",
-            () -> new HoeItem(ModToolMaterials.FLINT,1,1f, STONE_AGE_PROPERTIES.stacksTo(1)));
+            () -> new HoeItem(ModToolMaterials.FLINT,1,1f, STONE_AGE_PROPERTIES));
 
     /*TOOLHEADS*/
     public static final RegistryObject<Item> FLINT_SWORD_HEAD = ITEMS.register("flint_sword_head",

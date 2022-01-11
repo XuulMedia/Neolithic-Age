@@ -32,8 +32,8 @@ public class FlintStationRecipe  implements Recipe<Container> {
 
 
     public FlintStationRecipe(ResourceLocation id, String group, @Nullable Ingredient ingredient, ItemStack result) {
-        this.group = group;
         this.id = id;
+        this.group = group;
         this.ingredient = ingredient;
         this.result = result;
     }
@@ -135,8 +135,6 @@ public class FlintStationRecipe  implements Recipe<Container> {
             buffer.writeBoolean(hasInput);
             if (hasInput) recipe.ingredient.toNetwork(buffer);
             buffer.writeItem(recipe.result);
-
         }
     }
-
 }
