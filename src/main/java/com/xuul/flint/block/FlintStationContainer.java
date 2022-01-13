@@ -206,13 +206,13 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     /*TODO see what this affects*/
-//    public void removed(Player pPlayer) {
-//        super.removed(pPlayer);
-//        this.resultContainer.removeItemNoUpdate(1);
-//        this.access.execute((p_40313_, p_40314_) -> {
-//            this.clearContainer(pPlayer, this.container);
-//        });
-//    }
+    public void removed(Player pPlayer) {
+        super.removed(pPlayer);
+        this.resultContainer.removeItemNoUpdate(1);
+        this.access.execute((p_40313_, p_40314_) -> {
+            this.clearContainer(pPlayer, this.container);
+        });
+    }
 
 /*Setup Player inventory*/
 

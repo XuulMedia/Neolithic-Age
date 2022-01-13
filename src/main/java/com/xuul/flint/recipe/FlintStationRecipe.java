@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import com.xuul.flint.Flint;
 import com.xuul.flint.init.ModBlocks;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.Registry;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -28,7 +29,7 @@ public class FlintStationRecipe  implements Recipe<Container> {
     private final ItemStack result;
 
     public static RecipeSerializer<?> SERIALIZER = new Serializer();
-    public static RecipeType<FlintStationRecipe> FLINT_STATION = RecipeType.register(Flint.MOD_ID + ":flint_station");
+    public static RecipeType<FlintStationRecipe> FLINT_STATION = RecipeType.register(Flint.MOD_ID + "flint_station");
 
 
     public FlintStationRecipe(ResourceLocation id, String group, @Nullable Ingredient ingredient, ItemStack result) {
@@ -111,10 +112,29 @@ public class FlintStationRecipe  implements Recipe<Container> {
 
         @Override
         public FlintStationRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
+            System.out.println("from JSON START");
             String group = GsonHelper.getAsString(json, "group", "");
-            Ingredient input = json.has("ingredient") ? CraftingHelper.getIngredient(json.get("ingredient")) : null;
-            ItemStack result = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "result"), true);
-            return createRecipe(recipeId, group, input, result);
+            Ingredient ingredient;
+            if (GsonHelper.isArrayNode(json, "ingredient")) {
+                ingredient = Ingredient.fromJson(GsonHelper.getAsJsonArray(json, "ingredient"));
+            } else {
+                ingredient = Ingredient.fromJson(GsonHelper.getAsJsonObject(json, "ingredient"));
+            }
+
+            String s1 = GsonHelper.getAsString(json, "result");
+            int i = GsonHelper.getAsInt(json, "count");
+            ItemStack result = new ItemStack(Registry.ITEM.get(new ResourceLocation(s1)), i);
+            return createRecipe(recipeId, group, ingredient, result);
+
+
+//            System.out.println("from JSON START");
+//            String group = GsonHelper.getAsString(json, "group", "");
+//            System.out.println("group:" + group);
+//            Ingredient input = json.has("ingredient") ? CraftingHelper.getIngredient(json.get("ingredient")) : null;
+//            System.out.println("THIS IS INNGREDIENNT" + CraftingHelper.getIngredient(json.get("ingredient")));
+//            ItemStack result = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "result"), true);
+//            System.out.println("Result" + result);
+//            return createRecipe(recipeId, group, input, result);
         }
 
         @Nullable
@@ -137,4 +157,12 @@ public class FlintStationRecipe  implements Recipe<Container> {
             buffer.writeItem(recipe.result);
         }
     }
+}
+
+class FlintRecipeJsonFormat {
+    String group;
+    JsonObject ingredient;
+    int amount;
+    String outputItem;
+    int outputAmount;
 }
