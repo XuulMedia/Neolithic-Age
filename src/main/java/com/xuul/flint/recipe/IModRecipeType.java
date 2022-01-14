@@ -12,7 +12,7 @@ import java.util.Optional;
 
 public interface IModRecipeType<T extends Recipe<?>> {
 
-    RecipeType<CraftingRecipe> FLINT_STATION = register("crafting");
+    RecipeType<CraftingRecipe> FLINT_STATION = register("flint_station");
 
 
     static <T extends Recipe<?>> RecipeType<T> register(final String pIdentifier) {

@@ -1,5 +1,6 @@
 package com.xuul.flint;
 
+import com.xuul.flint.client.ClientSetup;
 import com.xuul.flint.init.*;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;

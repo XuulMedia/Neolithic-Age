@@ -42,92 +42,92 @@ public class ModRecipes extends RecipeProvider {
 
         /*STONE BRICKS*/
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_STONE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_STONE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_STONE.get(),2)
                 .unlockedBy("has_dust_stone", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_ANDESITE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_ANDESITE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_ANDESITE.get(),2)
                 .unlockedBy("has_dust_andesite", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_DEEPSLATE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_DEEPSLATE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_DEEPSLATE.get(),2)
                 .unlockedBy("has_dust_deepslate", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_DRIPSTONE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_DRIPSTONE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_DRIPSTONE.get(),2)
                 .unlockedBy("has_dust_dripstone", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_SANDSTONE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_SANDSTONE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_SANDSTONE.get(),2)
                 .unlockedBy("has_dust_sandstone", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_DIORITE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_DIORITE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_DIORITE.get(),2)
                 .unlockedBy("has_dust_diorite", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_GRANITE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_GRANITE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_GRANITE.get(),2)
                 .unlockedBy("has_dust_granite", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_BASALT.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_BASALT.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_BASALT.get(),2)
                 .unlockedBy("has_dust_basalt", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_TUFF.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_TUFF.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_TUFF.get(),2)
                 .unlockedBy("has_dust_tuff", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_NETHERRACK.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_NETHERRACK.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_NETHERRACK.get(),2)
                 .unlockedBy("has_dust_netherrack", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_BLACKSTONE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_BLACKSTONE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_BLACKSTONE.get(),2)
                 .unlockedBy("has_dust_blackstone", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_ENDSTONE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_ENDSTONE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_ENDSTONE.get(),2)
                 .unlockedBy("has_dust_endstone", has(ModItems.DUST_BLACKSTONE.get()))
                 .save(consumer);
 
-        ShapelessRecipeBuilder.shapeless(ModItems.BRICK_CALCITE.get(), 1)
-                .group("stone_bricks")
+        ShapelessRecipeBuilder.shapeless(ModItems.CLAY_CALCITE.get(), 1)
+                .group("clay_bricks")
                 .requires(Items.CLAY_BALL)
                 .requires(ModItems.DUST_CALCITE.get(),2)
                 .unlockedBy("has_dust_calcite", has(ModItems.DUST_BLACKSTONE.get()))
@@ -228,15 +228,15 @@ public class ModRecipes extends RecipeProvider {
 
         /*TOOLS*/
 
-        ShapedRecipeBuilder.shaped(ModItems.FLINT_SWORD.get())
-                .pattern("I")
-                .pattern("x")
-                .pattern("T")
-                .define('I', ModItems.FLINT_SWORD_HEAD.get())
-                .define('x', ModTags.BINDINGS)
-                .define('T', Items.STICK)
-                .group("flint")
-                .save(consumer);
+//        ShapedRecipeBuilder.shaped(ModItems.FLINT_SWORD.get())
+//                .pattern("I")
+//                .pattern("x")
+//                .pattern("T")
+//                .define('I', ModItems.FLINT_SWORD_HEAD.get())
+//                .define('x', ModTags.BINDINGS)
+//                .define('T', Items.STICK)
+//                .group("flint")
+//                .save(consumer);
 
 
 

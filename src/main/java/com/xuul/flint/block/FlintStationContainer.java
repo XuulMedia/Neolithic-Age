@@ -1,7 +1,6 @@
 package com.xuul.flint.block;
 
 import com.google.common.collect.Lists;
-import com.xuul.flint.datagen.ModRecipes;
 import com.xuul.flint.init.ModBlocks;
 import com.xuul.flint.init.ModContainerTypes;
 import com.xuul.flint.recipe.FlintStationRecipe;
@@ -13,7 +12,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
@@ -136,12 +134,16 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     void setupResultSlot() {
+        String debugtru= "'VALID RECIPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'";
+        String debugfalse= "'BAD RECIPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'";
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
             FlintStationRecipe flintStationRecipe = this.recipes.get(this.selectedRecipeIndex.get());
             this.resultContainer.setRecipeUsed(flintStationRecipe);
             this.resultSlot.set(flintStationRecipe.assemble(this.container));
+            System.out.println(debugtru);
         } else {
             this.resultSlot.set(ItemStack.EMPTY);
+            System.out.println(debugfalse);
         }
 
         this.broadcastChanges();
@@ -206,13 +208,13 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     /*TODO see what this affects*/
-    public void removed(Player pPlayer) {
-        super.removed(pPlayer);
-        this.resultContainer.removeItemNoUpdate(1);
-        this.access.execute((p_40313_, p_40314_) -> {
-            this.clearContainer(pPlayer, this.container);
-        });
-    }
+//    public void removed(Player pPlayer) {
+//        super.removed(pPlayer);
+//        this.resultContainer.removeItemNoUpdate(1);
+//        this.access.execute((p_40313_, p_40314_) -> {
+//            this.clearContainer(pPlayer, this.container);
+//        });
+//    }
 
 /*Setup Player inventory*/
 

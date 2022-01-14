@@ -32,6 +32,7 @@ public class FlintStationRecipe  implements Recipe<Container> {
     public static RecipeType<FlintStationRecipe> FLINT_STATION = RecipeType.register(Flint.MOD_ID + "flint_station");
 
 
+
     public FlintStationRecipe(ResourceLocation id, String group, @Nullable Ingredient ingredient, ItemStack result) {
         this.id = id;
         this.group = group;
@@ -124,6 +125,7 @@ public class FlintStationRecipe  implements Recipe<Container> {
             String s1 = GsonHelper.getAsString(json, "result");
             int i = GsonHelper.getAsInt(json, "count");
             ItemStack result = new ItemStack(Registry.ITEM.get(new ResourceLocation(s1)), i);
+            System.out.println(result);
             return createRecipe(recipeId, group, ingredient, result);
 
 
@@ -159,10 +161,4 @@ public class FlintStationRecipe  implements Recipe<Container> {
     }
 }
 
-class FlintRecipeJsonFormat {
-    String group;
-    JsonObject ingredient;
-    int amount;
-    String outputItem;
-    int outputAmount;
-}
+

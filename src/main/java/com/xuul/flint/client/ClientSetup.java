@@ -1,6 +1,7 @@
-package com.xuul.flint.init;
+package com.xuul.flint.client;
 
 import com.xuul.flint.client.FlintStationScreen;
+import com.xuul.flint.init.ModContainerTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;

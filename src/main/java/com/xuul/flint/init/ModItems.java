@@ -61,6 +61,10 @@ public class ModItems {
     public static final RegistryObject<HoeItem> FLINT_HOE = ITEMS.register("flint_hoe",
             () -> new HoeItem(ModToolMaterials.FLINT,1,1f, STONE_AGE_PROPERTIES));
 
+    public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer",
+            () -> new Item(new Item.Properties().durability(100).tab(Flint.FLINT_TAB)));
+
+
     /*TOOLHEADS*/
     public static final RegistryObject<Item> FLINT_SWORD_HEAD = ITEMS.register("flint_sword_head",
             () -> new Item(STONE_AGE_PROPERTIES));
@@ -150,6 +154,8 @@ public class ModItems {
             () -> new Item(STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CHUNK_DEEPSLATE = ITEMS.register("chunk_deepslate",
             () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CHUNK_SANDSTONE = ITEMS.register("chunk_sanndstone",
+            () -> new Item(STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CHUNK_DRIPSTONE = ITEMS.register("chunk_dripstone",
             () -> new Item(STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CHUNK_DIORITE = ITEMS.register("chunk_diorite",
@@ -194,6 +200,34 @@ public class ModItems {
     public static final RegistryObject<Item> DUST_ENDSTONE = ITEMS.register("dust_endstone",
             () -> new Item(STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> DUST_CALCITE = ITEMS.register("dust_calcite",
+            () -> new Item(STONE_AGE_PROPERTIES));
+
+    /*Stone Clay*/
+    public static final RegistryObject<Item> CLAY_STONE = ITEMS.register("clay_stone",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_ANDESITE = ITEMS.register("clay_andesite",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_DEEPSLATE = ITEMS.register("clay_deepslate",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_DRIPSTONE = ITEMS.register("clay_dripstone",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_SANDSTONE = ITEMS.register("clay_sandstone",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_DIORITE = ITEMS.register("clay_diorite",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_GRANITE = ITEMS.register("clay_granite",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_BASALT = ITEMS.register("clay_basalt",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_TUFF = ITEMS.register("clay_tuff",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_NETHERRACK = ITEMS.register("clay_netherrack",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_BLACKSTONE = ITEMS.register("clay_blackstone",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_ENDSTONE = ITEMS.register("clay_endstone",
+            () -> new Item(STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_CALCITE = ITEMS.register("clay_calcite",
             () -> new Item(STONE_AGE_PROPERTIES));
 
     /*STONE BRICKS*/
