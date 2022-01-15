@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "flint",
+  "pattern": [
+    "I",
+    "x",
+    "T"
+  ],
+  "key": {
+    "I": {
+      "item": "flint:flint_hoe_head"
+    },
+    "x": {
+      "tag": "flint:bindings"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    }
+  },
+  "result": {
+    "item": "flint:flint_hoe"
+  }
+}

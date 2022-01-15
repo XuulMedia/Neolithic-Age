@@ -36,6 +36,19 @@ public class ModBlockStates extends BlockStateProvider {
 //        simpleBlock(ModBlocks.ANDESITE_COBBLESTONE.get());
 //        simpleBlock(ModBlocks.DIORITE_COBBLESTONE.get());
 //        simpleBlock(ModBlocks.CALCITE_COBBLESTONE.get());
+//
+//        simpleBlock(ModBlocks.STONE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.BASALT_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.DEEPSLATE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.NETHERRACK_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.SANDSTONE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.BLACKSTONE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.ENDSTONE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.GRANITE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.TUFF_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.ANDESITE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.DIORITE_BRICK_BLOCK.get());
+//        simpleBlock(ModBlocks.CALCITE_BRICK_BLOCK.get());
 
         simpleBlock(ModBlocks.BLOCK_TIN.get());
         simpleBlock(ModBlocks.BLOCK_SILVER.get());

@@ -46,7 +46,7 @@ public class ModItems {
             () -> new HoeItem(ModToolMaterials.BRONZE,1,3.0f, METAL_AGE_PROPERTIES));
 
 
-    public static final RegistryObject<SwordItem> FLINT_SWORD = ITEMS.register("flint_sword",
+    public static final RegistryObject<SwordItem> FLINT_KNIFE = ITEMS.register("flint_knife",
             () -> new SwordItem(ModToolMaterials.FLINT,4,1.6f, STONE_AGE_PROPERTIES));
 
     public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pick",
@@ -66,7 +66,7 @@ public class ModItems {
 
 
     /*TOOLHEADS*/
-    public static final RegistryObject<Item> FLINT_SWORD_HEAD = ITEMS.register("flint_sword_head",
+    public static final RegistryObject<Item> FLINT_BLADE = ITEMS.register("flint_blade",
             () -> new Item(STONE_AGE_PROPERTIES));
 
     public static final RegistryObject<Item> FLINT_PICK_HEAD = ITEMS.register("flint_pick_head",

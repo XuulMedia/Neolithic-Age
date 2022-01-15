@@ -2,12 +2,14 @@ package com.xuul.flint.datagen;
 
 import com.xuul.flint.init.ModItems;
 import com.xuul.flint.init.ModTags;
+import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 
 
@@ -225,18 +227,77 @@ public class ModRecipes extends RecipeProvider {
                 .save(consumer, "nugget_steel_from_ingot");
 
 
+        /*TODO: create a custom Recipe builder to datagen custom recipes*/
 
         /*TOOLS*/
 
-//        ShapedRecipeBuilder.shaped(ModItems.FLINT_SWORD.get())
-//                .pattern("I")
-//                .pattern("x")
-//                .pattern("T")
-//                .define('I', ModItems.FLINT_SWORD_HEAD.get())
-//                .define('x', ModTags.BINDINGS)
-//                .define('T', Items.STICK)
-//                .group("flint")
-//                .save(consumer);
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_KNIFE.get())
+                .pattern("I")
+                .pattern("T")
+                .define('I', ModItems.FLINT_BLADE.get())
+                .define('T', Items.STICK)
+                .group("flint")
+                .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_BLADE.get()))
+                .save(consumer, "flint_knife");
+
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_PICK.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.FLINT_PICK_HEAD.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .group("flint")
+                .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_PICK_HEAD.get()))
+                .save(consumer, "flint_pick");
+
+
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_SHOVEL.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.FLINT_SHOVEL_HEAD.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .group("flint")
+                .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_SHOVEL_HEAD.get()))
+                .save(consumer, "flint_shovel");
+
+
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_AXE.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.FLINT_AXE_HEAD.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .group("flint")
+                .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_AXE_HEAD.get()))
+                .save(consumer, "flint_axe");
+
+
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_HOE.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.FLINT_HOE_HEAD.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .group("flint")
+                .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_HOE_HEAD.get()))
+                .save(consumer, "flint_hoe");
+
+
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_BLADE.get(), 1).unlockedBy("has_stone", has(Blocks.PRISMARINE_BRICKS))
+                .save(consumer, "flint_blade_from_station");
+
+
+
+
+
+
+
+
 
 
 

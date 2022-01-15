@@ -113,7 +113,6 @@ public class FlintStationRecipe  implements Recipe<Container> {
 
         @Override
         public FlintStationRecipe fromJson(ResourceLocation recipeId, JsonObject json) {
-            System.out.println("from JSON START");
             String group = GsonHelper.getAsString(json, "group", "");
             Ingredient ingredient;
             if (GsonHelper.isArrayNode(json, "ingredient")) {

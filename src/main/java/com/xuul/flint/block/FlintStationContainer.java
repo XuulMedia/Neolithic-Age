@@ -134,16 +134,12 @@ public class FlintStationContainer extends AbstractContainerMenu {
     }
 
     void setupResultSlot() {
-        String debugtru= "'VALID RECIPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'";
-        String debugfalse= "'BAD RECIPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!'";
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
             FlintStationRecipe flintStationRecipe = this.recipes.get(this.selectedRecipeIndex.get());
             this.resultContainer.setRecipeUsed(flintStationRecipe);
             this.resultSlot.set(flintStationRecipe.assemble(this.container));
-            System.out.println(debugtru);
         } else {
             this.resultSlot.set(ItemStack.EMPTY);
-            System.out.println(debugfalse);
         }
 
         this.broadcastChanges();

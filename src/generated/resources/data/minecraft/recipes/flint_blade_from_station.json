@@ -3,6 +3,6 @@
   "ingredient": {
     "item": "minecraft:flint"
   },
-  "result": "minecraft:cobblestone",
+  "result": "flint:flint_blade",
   "count": 1
 }

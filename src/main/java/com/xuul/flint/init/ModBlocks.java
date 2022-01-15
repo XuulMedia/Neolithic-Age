@@ -88,6 +88,54 @@ public class ModBlocks {
             () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())));
 
 
+    /*Stone Brick*/
+    public static final RegistryObject<FallingBlock> STONE_BRICK_BLOCK = BLOCKS.register("stone_brick_block", () -> new FallingBlock(BlockBehaviour.Properties.of(Material.STONE)
+            .requiresCorrectToolForDrops()
+            .strength(1.5F, 6.0F)
+            .isValidSpawn(Blocks::never)
+            .sound(SoundType.STONE)));
+
+    public static final RegistryObject<FallingBlock> BASALT_BRICK_BLOCK = BLOCKS.register("basalt_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> DEEPSLATE_BRICK_BLOCK = BLOCKS.register("deepslate_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> NETHERRACK_BRICK_BLOCK = BLOCKS.register("netherrack_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> SANDSTONE_BRICK_BLOCK = BLOCKS.register("sandstone_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> BLACKSTONE_BRICK_BLOCK = BLOCKS.register("blackstone_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> ENDSTONE_BRICK_BLOCK = BLOCKS.register("endstone_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> GRANITE_BRICK_BLOCK = BLOCKS.register("granite_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> TUFF_BRICK_BLOCK = BLOCKS.register("tuff_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> ANDESITE_BRICK_BLOCK = BLOCKS.register("andesite_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> DIORITE_BRICK_BLOCK = BLOCKS.register("diorite_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+    public static final RegistryObject<FallingBlock> CALCITE_BRICK_BLOCK = BLOCKS.register("calcite_brick_block",
+            () -> new FallingBlock(BlockBehaviour.Properties.copy(ModBlocks.STONE_BRICK_BLOCK.get())));
+
+
+
+
+    /*Plants*/
+//    public static final RegistryObject<Block>THATCH = BLOCKS.register("calcite_cobblestone",
+//            () -> new Block(BlockBehaviour.Properties.of(Material.GRASS);
+
+
 
     /*FlintStation*/
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = BLOCKS.register("flint_station", FlintStationBlock::new);
