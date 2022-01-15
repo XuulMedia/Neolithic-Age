@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "clay_bricks",
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "flint:dust_dripstone"
+    },
+    {
+      "item": "flint:dust_dripstone"
+    }
+  ],
+  "result": {
+    "item": "flint:clay_dripstone"
+  }
+}
