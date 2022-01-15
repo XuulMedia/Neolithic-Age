@@ -80,7 +80,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.INGOT_TIN.get(),"Tin Ingot");
         add(ModItems.INGOT_BRONZE.get(),"Bronze Ingot");
         add(ModItems.INGOT_SILVER.get(),"Silver Ingot");
-        add(ModItems.INGOT_STEEL.get(),"Steel Ingot Log");
+        add(ModItems.INGOT_STEEL.get(),"Steel Ingot");
 
         add(ModItems.NUGGET_COPPER.get(), "Copper Nugget");
         add(ModItems.NUGGET_TIN.get(),"Tin Nugget");

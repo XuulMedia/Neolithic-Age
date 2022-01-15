@@ -71,7 +71,7 @@
   "item.flint.dust_tuff": "Tuff Dust",
   "item.flint.ingot_bronze": "Bronze Ingot",
   "item.flint.ingot_silver": "Silver Ingot",
-  "item.flint.ingot_steel": "Steel Ingot Log",
+  "item.flint.ingot_steel": "Steel Ingot",
   "item.flint.ingot_tin": "Tin Ingot",
   "item.flint.log_acacia": "Acacia Log",
   "item.flint.log_azalea": "Azalea Log",
@@ -86,6 +86,6 @@
   "item.flint.nugget_steel": "Steel Nugget",
   "item.flint.nugget_tin": "Tin Nugget",
   "item.flint.plant_fibre": "Plant Fibre",
-  "itemGroup.com.xuul.flint.Flint$1@4a3e3ce3": "Stone Age",
-  "itemGroup.com.xuul.flint.Flint$2@67954442": "Metal Age"
+  "itemGroup.com.xuul.flint.Flint$1@482ecb95": "Stone Age",
+  "itemGroup.com.xuul.flint.Flint$2@79360eff": "Metal Age"
 }

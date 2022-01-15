@@ -1,10 +1,12 @@
 package com.xuul.flint.datagen;
 
+import com.xuul.flint.Flint;
 import com.xuul.flint.init.ModItems;
 import com.xuul.flint.init.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -26,12 +28,12 @@ public class ModRecipes extends RecipeProvider {
                 ModItems.INGOT_TIN.get(), 1.0f, 100)
                 .group("flint")
                 .unlockedBy("has_ore", has(ModItems.ORE_TIN_ITEM.get()))
-                .save(consumer, "ingot_tin1");
+                .save(consumer, RL("ingot_tin1"));
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.RAW_TIN.get()),
                 ModItems.INGOT_TIN.get(), 1.0f, 100)
                 .unlockedBy("has_ore", has(ModItems.RAW_TIN.get()))
-                .save(consumer, "ingot_tin2");
+                .save(consumer, RL("ingot_tin2"));
 
         /*PLANT FIBRE*/
         ShapelessRecipeBuilder.shapeless(ModItems.BRAIDED_PLANT_FIBRE.get())
@@ -143,88 +145,88 @@ public class ModRecipes extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(ModItems.BLOCK_TIN_ITEM.get())
                 .requires(ModItems.INGOT_TIN.get(), 9)
                 .unlockedBy("has_tin_ingot", has(ModItems.INGOT_TIN.get()))
-                .save(consumer, "tin_block_from_ingot");
+                .save(consumer, RL("tin_block_from_ingot"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.BLOCK_BRONZE_ITEM.get())
                 .requires(ModItems.INGOT_BRONZE.get(), 9)
                 .unlockedBy("has_bronze_ingot", has(ModItems.INGOT_BRONZE.get()))
-                .save(consumer, "bronze_block_from_ingot");
+                .save(consumer, RL("bronze_block_from_ingot"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.BLOCK_SILVER_ITEM.get())
                 .requires(ModItems.INGOT_SILVER.get(), 9)
                 .unlockedBy("has_silver_ingot", has(ModItems.INGOT_SILVER.get()))
-                .save(consumer, "silver_block_from_ingot");
+                .save(consumer, RL("silver_block_from_ingot"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.BLOCK_STEEL_ITEM.get())
                 .requires(ModItems.INGOT_STEEL.get(), 9)
                 .unlockedBy("has_steel_ingot", has(ModItems.INGOT_STEEL.get()))
-                .save(consumer, "steel_block_from_ingot");
+                .save(consumer, RL("steel_block_from_ingot"));
 
         /*Ingots from Nuggets*/
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_TIN.get())
                 .requires(ModItems.NUGGET_TIN.get(), 9)
                 .unlockedBy("has_tin_nugget", has(ModItems.NUGGET_TIN.get()))
-                .save(consumer, "tin_ingot_from_nugget");
+                .save(consumer, RL("tin_ingot_from_nugget"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_BRONZE.get())
                 .requires(ModItems.NUGGET_BRONZE.get(), 9)
                 .unlockedBy("has_bronze_nugget", has(ModItems.NUGGET_BRONZE.get()))
-                .save(consumer, "bronze_ingot_from_nugget");
+                .save(consumer, RL("bronze_ingot_from_nugget"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_SILVER.get())
                 .requires(ModItems.NUGGET_SILVER.get(), 9)
                 .unlockedBy("has_silver_nugget", has(ModItems.NUGGET_SILVER.get()))
-                .save(consumer, "silver_ingot_from_nugget");
+                .save(consumer, RL("silver_ingot_from_nugget"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_STEEL.get())
                 .requires(ModItems.NUGGET_STEEL.get(), 9)
                 .unlockedBy("has_steel_nugget", has(ModItems.NUGGET_STEEL.get()))
-                .save(consumer, "steel_ingot_from_nugget");
+                .save(consumer,RL("steel_ingot_from_nugget"));
 
         /*Ingots from BLOCK*/
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_TIN.get(), 9)
                 .requires(ModItems.BLOCK_TIN_ITEM.get())
                 .unlockedBy("has_tin_block", has(ModItems.BLOCK_TIN_ITEM.get()))
-                .save(consumer, "tin_ingot_from_block");
+                .save(consumer, RL("tin_ingot_from_block"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_BRONZE.get(), 9)
                 .requires(ModItems.BLOCK_BRONZE_ITEM.get())
                 .unlockedBy("has_bronze_block", has(ModItems.BLOCK_BRONZE_ITEM.get()))
-                .save(consumer, "bronze_ingot_from_block");
+                .save(consumer,RL( "bronze_ingot_from_block"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_SILVER.get(), 9)
                 .requires(ModItems.BLOCK_SILVER_ITEM.get())
                 .unlockedBy("has_silver_block", has(ModItems.BLOCK_SILVER_ITEM.get()))
-                .save(consumer, "silver_ingot_from_block");
+                .save(consumer, RL("silver_ingot_from_block"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_STEEL.get(), 9)
                 .requires(ModItems.BLOCK_STEEL_ITEM.get())
                 .unlockedBy("has_steel_block", has(ModItems.BLOCK_STEEL_ITEM.get()))
-                .save(consumer, "steel_ingot_from_block");
+                .save(consumer, RL("steel_ingot_from_block"));
 
         /*Nuggets from Ingot*/
 
         ShapelessRecipeBuilder.shapeless(ModItems.NUGGET_TIN.get(), 9)
                 .requires(ModItems.INGOT_TIN.get())
                 .unlockedBy("has_ingot_tin", has(ModItems.INGOT_TIN.get()))
-                .save(consumer, "nugget_tin_from_ingot");
+                .save(consumer, RL("nugget_tin_from_ingot"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.NUGGET_BRONZE.get(), 9)
                 .requires(ModItems.INGOT_BRONZE.get())
                 .unlockedBy("has_ingot_bronze", has(ModItems.INGOT_BRONZE.get()))
-                .save(consumer, "nugget_bronze_from_ingot");
+                .save(consumer, RL("nugget_bronze_from_ingot"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.NUGGET_SILVER.get(), 9)
                 .requires(ModItems.INGOT_SILVER.get())
                 .unlockedBy("has_ingot_silver", has(ModItems.INGOT_SILVER.get()))
-                .save(consumer, "nugget_silver_from_ingot");
+                .save(consumer, RL("nugget_silver_from_ingot"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.NUGGET_STEEL.get(), 9)
                 .requires(ModItems.INGOT_STEEL.get())
                 .unlockedBy("has_ingot_steel", has(ModItems.INGOT_STEEL.get()))
-                .save(consumer, "nugget_steel_from_ingot");
+                .save(consumer, RL("nugget_steel_from_ingot"));
 
 
         /*TODO: create a custom Recipe builder to datagen custom recipes*/
@@ -238,7 +240,7 @@ public class ModRecipes extends RecipeProvider {
                 .define('T', Items.STICK)
                 .group("flint")
                 .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_BLADE.get()))
-                .save(consumer, "flint_knife");
+                .save(consumer, RL("flint_knife"));
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_PICK.get())
                 .pattern("I")
@@ -249,7 +251,7 @@ public class ModRecipes extends RecipeProvider {
                 .define('T', Items.STICK)
                 .group("flint")
                 .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_PICK_HEAD.get()))
-                .save(consumer, "flint_pick");
+                .save(consumer, RL("flint_pick"));
 
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_SHOVEL.get())
@@ -261,7 +263,7 @@ public class ModRecipes extends RecipeProvider {
                 .define('T', Items.STICK)
                 .group("flint")
                 .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_SHOVEL_HEAD.get()))
-                .save(consumer, "flint_shovel");
+                .save(consumer, RL("flint_shovel"));
 
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_AXE.get())
@@ -273,7 +275,7 @@ public class ModRecipes extends RecipeProvider {
                 .define('T', Items.STICK)
                 .group("flint")
                 .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_AXE_HEAD.get()))
-                .save(consumer, "flint_axe");
+                .save(consumer, RL("flint_axe"));
 
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_HOE.get())
@@ -285,22 +287,37 @@ public class ModRecipes extends RecipeProvider {
                 .define('T', Items.STICK)
                 .group("flint")
                 .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_HOE_HEAD.get()))
-                .save(consumer, "flint_hoe");
+                .save(consumer);
 
 
-        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_BLADE.get(), 1).unlockedBy("has_stone", has(Blocks.PRISMARINE_BRICKS))
-                .save(consumer, "flint_blade_from_station");
-
-
-
-
-
+        ShapelessRecipeBuilder.shapeless(ModItems.FLINT_BLADE.get())
+                .requires(Items.FLINT, 2)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
 
 
 
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_BLADE.get(), 1)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer, RL("blade_from_flint_station"));
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_PICK_HEAD.get(), 1)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SHOVEL_HEAD.get(), 1)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_AXE_HEAD.get(), 1)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_HOE_HEAD.get(), 1)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
 
 
 
+    }
 
+    private ResourceLocation RL(String string){
+        return new ResourceLocation(Flint.MOD_ID, string);
     }
 }
