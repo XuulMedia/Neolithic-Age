@@ -38,6 +38,14 @@ public class ModItemTags extends ItemTagsProvider {
                 .add(Items.TWISTING_VINES)
                 .add(Items.WEEPING_VINES);
 
+        tag(ModTags.HAMMERS)
+                .add(ModItems.STONE_HAMMER.get());
+
+        tag(ModTags.SAWS)
+                .add(ModItems.FLINT_SAW.get());
+
+        tag(ModTags.KNIVES)
+                .add(ModItems.FLINT_KNIFE.get());
 
 
 
@@ -51,6 +59,17 @@ public class ModItemTags extends ItemTagsProvider {
                 .add(ModItems.LOG_AZALEA.get())
                 .add(ModItems.LOG_WARPED.get())
                 .add(ModItems.LOG_CRIMSON.get());
+
+        tag(ModTags.PLANKS)
+                .add(ModItems.PLANK_OAK.get())
+                .add(ModItems.PLANK_SPRUCE.get())
+                .add(ModItems.PLANK_BIRCH.get())
+                .add(ModItems.PLANK_JUNGLE.get())
+                .add(ModItems.PLANK_ACACIA.get())
+                .add(ModItems.PLANK_DARK_OAK.get())
+                .add(ModItems.PLANK_AZALEA.get())
+                .add(ModItems.PLANK_WARPED.get())
+                .add(ModItems.PLANK_CRIMSON.get());
 
         tag(ModTags.STONE_CHUNKS)
                 .add(ModItems.CHUNK_STONE.get())

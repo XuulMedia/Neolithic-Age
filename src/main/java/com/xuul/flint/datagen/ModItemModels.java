@@ -239,16 +239,24 @@ public class ModItemModels extends ItemModelProvider {
       singleTexture(ModItems.FLINT_HOE.get().getRegistryName().getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_hoe"));
 
+
+//        singleTexture(ModItems.STONE_HAMMER.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),"layer0", modLoc("item/tools/stone_hammer"));
+
+
+
+
+
       singleTexture(ModItems.FLINT_BLADE.get().getRegistryName().getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_knife"));
       singleTexture(ModItems.FLINT_PICK_HEAD.get().getRegistryName().getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_pickaxe"));
         singleTexture(ModItems.FLINT_SHOVEL_HEAD.get().getRegistryName().getPath(),
-                mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_hoe"));
+                mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_shovel"));
       singleTexture(ModItems.FLINT_AXE_HEAD.get().getRegistryName().getPath(),
-              mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_shovel"));
-      singleTexture(ModItems.FLINT_HOE_HEAD.get().getRegistryName().getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_axe"));
+      singleTexture(ModItems.FLINT_HOE_HEAD.get().getRegistryName().getPath(),
+              mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_hoe"));
 
 
 

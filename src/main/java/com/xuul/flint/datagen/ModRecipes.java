@@ -1,6 +1,7 @@
 package com.xuul.flint.datagen;
 
 import com.xuul.flint.Flint;
+import com.xuul.flint.init.ModBlocks;
 import com.xuul.flint.init.ModItems;
 import com.xuul.flint.init.ModTags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -35,6 +36,21 @@ public class ModRecipes extends RecipeProvider {
                 .unlockedBy("has_ore", has(ModItems.RAW_TIN.get()))
                 .save(consumer, RL("ingot_tin2"));
 
+
+        /*Crafting Stations*/
+        ShapelessRecipeBuilder.shapeless(ModBlocks.FLINT_STATION.get())
+                .requires(Items.FLINT, 4)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
+
+        ShapedRecipeBuilder.shaped(Blocks.CRAFTING_TABLE)
+                .pattern("xx")
+                .pattern("xx")
+                .define('x', ModTags.LOGS)
+                .group("flint")
+                .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LOG_OAK.get()))
+                .save(consumer, RL("flint_knife"));
+
         /*PLANT FIBRE*/
         ShapelessRecipeBuilder.shapeless(ModItems.BRAIDED_PLANT_FIBRE.get())
                 .requires(ModTags.BINDINGS)
@@ -42,6 +58,7 @@ public class ModRecipes extends RecipeProvider {
                 .requires(ModTags.BINDINGS)
                 .unlockedBy("has_plant_fibre", has(ModItems.PLANT_FIBRE.get()))
                 .save(consumer);
+
 
 
         /*STONE BRICKS*/
@@ -229,7 +246,6 @@ public class ModRecipes extends RecipeProvider {
                 .save(consumer, RL("nugget_steel_from_ingot"));
 
 
-        /*TODO: create a custom Recipe builder to datagen custom recipes*/
 
         /*TOOLS*/
 
@@ -312,6 +328,18 @@ public class ModRecipes extends RecipeProvider {
         CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_HOE_HEAD.get(), 1)
                 .unlockedBy("has_flint", has(Items.FLINT))
                 .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SAW_HEAD.get(), 1)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
+
+
+        /*Flint from gravel*/
+        ShapelessRecipeBuilder.shapeless(Items.FLINT)
+                .requires(Blocks.GRAVEL, 2)
+                .unlockedBy("has_gravel", has(Blocks.GRAVEL))
+                .save(consumer, RL("flint_from_gravel"));
+
+
 
 
 

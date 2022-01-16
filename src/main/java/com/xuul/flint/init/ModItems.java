@@ -1,6 +1,8 @@
 package com.xuul.flint.init;
 
 import com.xuul.flint.Flint;
+import com.xuul.flint.util.HammerItem;
+import com.xuul.flint.util.SawItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -61,8 +63,11 @@ public class ModItems {
     public static final RegistryObject<HoeItem> FLINT_HOE = ITEMS.register("flint_hoe",
             () -> new HoeItem(ModToolMaterials.FLINT,1,1f, new Item.Properties().tab(Flint.FLINT_TAB)));
 
-    public static final RegistryObject<Item> STONE_HAMMER = ITEMS.register("stone_hammer",
-            () -> new Item(new Item.Properties().durability(100).tab(Flint.FLINT_TAB)));
+    public static final RegistryObject<SawItem> FLINT_SAW = ITEMS.register("flint_saw",
+            () -> new SawItem(ModToolMaterials.FLINT,1,1f, new Item.Properties().tab(Flint.FLINT_TAB)));
+
+    public static final RegistryObject<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
+            () -> new HammerItem(ModToolMaterials.FLINT,8,.5f, new Item.Properties().tab(Flint.FLINT_TAB)));
 
 
     /*TOOLHEADS*/
@@ -80,6 +85,13 @@ public class ModItems {
 
     public static final RegistryObject<Item> FLINT_HOE_HEAD = ITEMS.register("flint_hoe_head",
             () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
+
+    public static final RegistryObject<Item> FLINT_SAW_HEAD = ITEMS.register("flint_saw_head",
+            () -> new Item(new Item.Properties().tab(Flint.FLINT_TAB)));
+
+
+
+
     /*Armor*/
 
     public static final RegistryObject<ArmorItem> BRONZE_HELMET = ITEMS.register("bronze_helmet",
@@ -281,6 +293,40 @@ public class ModItems {
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> LOG_CRIMSON = ITEMS.register("log_crimson",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+
+    /*Logs*/
+    public static final RegistryObject<Item> PLANK_OAK = ITEMS.register("plank_oak",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_SPRUCE = ITEMS.register("plank_spruce",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_BIRCH = ITEMS.register("plank_birch",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_JUNGLE = ITEMS.register("plank_jungle",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_ACACIA = ITEMS.register("plank_acacia",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_DARK_OAK = ITEMS.register("plank_dark_oak",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_AZALEA = ITEMS.register("plank_azalea",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_WARPED = ITEMS.register("plank_warped",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> PLANK_CRIMSON = ITEMS.register("plank_crimson",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+
+
+
+
+
+
+    /*HIDES*/
+    public static final RegistryObject<Item> HIDE_SMALL = ITEMS.register("hide_small",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> HIDE_MEDIUM = ITEMS.register("hide_medium",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> HIDE_LARGE = ITEMS.register("hide_large",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+
 
 
 

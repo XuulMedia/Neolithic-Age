@@ -2,6 +2,8 @@ package com.xuul.flint.datagen;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.xuul.flint.init.ModItems;
+import com.xuul.flint.init.ModTags;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -14,6 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -25,9 +28,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -57,6 +58,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
     private static final LootItemCondition.Builder HAS_SHEARS = MatchTool.toolMatches(ItemPredicate.Builder.item().of(Items.SHEARS));
     private static final LootItemCondition.Builder HAS_SHEARS_OR_SILK_TOUCH = HAS_SHEARS.or(HAS_SILK_TOUCH);
     private static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = HAS_SHEARS_OR_SILK_TOUCH.invert();
+    private static final LootItemCondition.Builder HAS_KNIFE = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.KNIVES));
 
     protected abstract void addTables();
   /*BLockLoot.java is vanilla class*/
@@ -94,8 +96,10 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                 .setRolls(ConstantValue.exactly(1))
                 .add(AlternativesEntry.alternatives(
                         LootItem.lootTableItem(block).when(HAS_SHEARS_OR_SILK_TOUCH),
-                        LootItem.lootTableItem(item1).apply(SetItemCountFunction.setCount(UniformGenerator.between(item1Min, item1Max))),
+                        LootItem.lootTableItem(ModItems.PLANT_FIBRE.get()).when(HAS_KNIFE),
                         LootItem.lootTableItem(sapling).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,chances))
+                                .otherwise(LootItem.lootTableItem(item1).apply(SetItemCountFunction.setCount(UniformGenerator.between(item1Min, item1Max)))
+                                )
                 )
         );
         return LootTable.lootTable().withPool(builder);
@@ -104,7 +108,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
 
 
 
-//    Functions with silk touch. Provide the block itself then the item with fortune  bonus numbers after
+    //    Functions with silk touch. Provide the block itself then the item with fortune  bonus numbers after
     protected LootTable.Builder createSilkTouchTable(String name, Block block, Item lootItem, float min, float max) {
         LootPool.Builder builder = LootPool.lootPool()
                 .name(name)

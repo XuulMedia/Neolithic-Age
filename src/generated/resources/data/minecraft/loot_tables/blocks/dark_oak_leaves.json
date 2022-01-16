@@ -2,7 +2,7 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "oak_leaves",
+      "name": "dark_oak_leaves",
       "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
@@ -39,7 +39,7 @@
                   ]
                 }
               ],
-              "name": "minecraft:oak_leaves"
+              "name": "minecraft:dark_oak_leaves"
             },
             {
               "type": "minecraft:item",
@@ -70,7 +70,7 @@
                       ]
                     }
                   ],
-                  "name": "minecraft:oak_sapling"
+                  "name": "minecraft:dark_oak_sapling"
                 },
                 {
                   "type": "minecraft:item",

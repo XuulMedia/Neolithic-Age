@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "flint:plank_oak",
+    "flint:plank_spruce",
+    "flint:plank_birch",
+    "flint:plank_jungle",
+    "flint:plank_acacia",
+    "flint:plank_dark_oak",
+    "flint:plank_azalea",
+    "flint:plank_warped",
+    "flint:plank_crimson"
+  ]
+}

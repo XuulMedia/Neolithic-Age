@@ -128,14 +128,6 @@ public class FlintStationRecipe  implements Recipe<Container> {
             return createRecipe(recipeId, group, ingredient, result);
 
 
-//            System.out.println("from JSON START");
-//            String group = GsonHelper.getAsString(json, "group", "");
-//            System.out.println("group:" + group);
-//            Ingredient input = json.has("ingredient") ? CraftingHelper.getIngredient(json.get("ingredient")) : null;
-//            System.out.println("THIS IS INNGREDIENNT" + CraftingHelper.getIngredient(json.get("ingredient")));
-//            ItemStack result = CraftingHelper.getItemStack(GsonHelper.getAsJsonObject(json, "result"), true);
-//            System.out.println("Result" + result);
-//            return createRecipe(recipeId, group, input, result);
         }
 
         @Nullable

@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "flint:item/tools/toolhead_flint_hoe"
+    "layer0": "flint:item/tools/toolhead_flint_shovel"
   }
 }
