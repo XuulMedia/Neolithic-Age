@@ -2,13 +2,13 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "flint:bindings"
+      "item": "flint:plant_fibre"
     },
     {
-      "tag": "flint:bindings"
+      "item": "flint:plant_fibre"
     },
     {
-      "tag": "flint:bindings"
+      "item": "flint:plant_fibre"
     }
   ],
   "result": {

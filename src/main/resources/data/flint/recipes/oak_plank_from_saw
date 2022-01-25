@@ -1,0 +1,18 @@
+{
+  "type": "flint:tool_use",
+  "ingredients": [
+    {
+      "item": "flint:oak_log"
+    }
+  ],
+  "tool": {
+    "tag": "flint:saws"
+  },
+  "result": {
+    "item": "minecraft:flint_and_steel"
+  }
+}
+
+
+
+
