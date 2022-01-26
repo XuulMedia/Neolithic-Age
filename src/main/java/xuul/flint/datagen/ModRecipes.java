@@ -11,6 +11,8 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import xuul.flint.datagen.builders.CustomRecipeBuilder;
+import xuul.flint.datagen.builders.ToolUseRecipeBuilder;
 
 
 import java.util.function.Consumer;
@@ -242,7 +244,22 @@ public class ModRecipes extends RecipeProvider {
                 .save(consumer, RL("nugget_steel_from_ingot"));
 
 
+        ToolUseRecipeBuilder.build(ModItems.PLANK_OAK.get())
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_OAK.get())
+                .unlockedBy("has_log", has(ModTags.LOGS))
+                .save(consumer, RL("oak_plank_from_saw"));
 
+
+        ToolUseRecipeBuilder.build(ModItems.PLANK_BIRCH.get())
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_BIRCH.get())
+                .unlockedBy("has_log", has(ModTags.LOGS))
+                .save(consumer, RL("birch_plank_from_saw"));
+
+
+
+        /*Saw Recipes*/
         ShapelessRecipeBuilder.shapeless(ModItems.PLANK_OAK.get(), 1)
                 .requires(ModItems.LOG_OAK.get())
                 .requires(ModTags.SAWS)
@@ -384,11 +401,19 @@ public class ModRecipes extends RecipeProvider {
                 .save(consumer);
 
 
+
+
         /*Flint from gravel*/
         ShapelessRecipeBuilder.shapeless(Items.FLINT)
                 .requires(Blocks.GRAVEL, 2)
                 .unlockedBy("has_gravel", has(Blocks.GRAVEL))
                 .save(consumer, RL("flint_from_gravel"));
+
+
+
+
+
+
 
 
 

@@ -2,15 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "group": "flint",
   "pattern": [
-    "xx",
-    "xx"
+    "I",
+    "T"
   ],
   "key": {
-    "x": {
-      "tag": "flint:logs"
+    "I": {
+      "item": "flint:flint_blade"
+    },
+    "T": {
+      "item": "minecraft:stick"
     }
   },
   "result": {
-    "item": "minecraft:crafting_table"
+    "item": "flint:flint_knife"
   }
 }

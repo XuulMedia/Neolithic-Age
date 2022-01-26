@@ -1,4 +1,4 @@
-package xuul.flint.datagen;
+package xuul.flint.datagen.builders;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
@@ -17,10 +17,5 @@ public class CustomRecipeBuilder extends SingleItemRecipeBuilder {
     public static SingleItemRecipeBuilder flintstation(Ingredient pIngredient, ItemLike pResult, int pCount) {
         return new SingleItemRecipeBuilder(FlintStationRecipe.SERIALIZER, pIngredient, pResult, pCount);
     }
-
-//    public static ShapelessRecipeBuilder tooluse(Ingredient tool, NonNullList<Ingredient> ingredients, ItemLike result) {
-//        return new ShapelessRecipeBuilder(ToolUseRecipe.SERIALIZER, result, tool, ingredients);
-//    }
-
 
 }

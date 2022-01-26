@@ -119,6 +119,6 @@
   "item.flint.plank_oak": "Oak Plank",
   "item.flint.plank_warped": "Warped Plank",
   "item.flint.plant_fibre": "Plant Fibre",
-  "itemGroup.com.xuul.flint.Flint$1@5c24724": "Stone Age",
-  "itemGroup.com.xuul.flint.Flint$2@3cac962e": "Metal Age"
+  "itemGroup.xuul.flint.Flint$1@232dda63": "Stone Age",
+  "itemGroup.xuul.flint.Flint$2@2f541378": "Metal Age"
 }
