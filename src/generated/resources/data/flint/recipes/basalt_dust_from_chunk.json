@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "flint:chunk_basalt"
+    },
+    {
+      "tag": "flint:hammers"
+    }
+  ],
+  "result": {
+    "item": "flint:dust_basalt"
+  }
+}

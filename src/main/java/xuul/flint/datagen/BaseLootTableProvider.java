@@ -56,6 +56,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
     private static final LootItemCondition.Builder HAS_SHEARS_OR_SILK_TOUCH = HAS_SHEARS.or(HAS_SILK_TOUCH);
     private static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = HAS_SHEARS_OR_SILK_TOUCH.invert();
     private static final LootItemCondition.Builder HAS_KNIFE = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.KNIVES));
+    private static final LootItemCondition.Builder HAS_HAMMER = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.HAMMERS));
 
     protected abstract void addTables();
   /*BLockLoot.java is vanilla class*/
@@ -103,6 +104,26 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
     }
 
 
+    protected LootTable.Builder HammerSmashingTable(String name, Block block, Item item, Item dust, float min, float max) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(AlternativesEntry.alternatives(
+                                LootItem.lootTableItem(block).when(HAS_SILK_TOUCH),
+                                LootItem.lootTableItem(dust).when(HAS_HAMMER)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1)),
+                                LootItem.lootTableItem(item)
+                                        .apply(SetItemCountFunction.setCount(UniformGenerator.between(min, max)))
+                                        .apply(ApplyBonusCount.addUniformBonusCount(Enchantments.BLOCK_FORTUNE, 1))
+                                        .apply(ApplyExplosionDecay.explosionDecay())
+                        )
+                );
+        return LootTable.lootTable().withPool(builder);
+    }
+
+
+
 
 
     //    Functions with silk touch. Provide the block itself then the item with fortune  bonus numbers after
@@ -122,6 +143,13 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                 );
         return LootTable.lootTable().withPool(builder);
     }
+
+
+
+
+
+
+
 
 
     @Override

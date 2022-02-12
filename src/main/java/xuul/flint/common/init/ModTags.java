@@ -1,5 +1,7 @@
 package xuul.flint.common.init;
 
+import net.minecraft.tags.BlockTags;
+import net.minecraft.world.level.block.Block;
 import xuul.flint.Flint;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
@@ -24,6 +26,10 @@ public class ModTags {
     public static final Tags.IOptionalNamedTag<Item> BINDINGS = ItemTags.createOptional(new ResourceLocation(Flint.MOD_ID, "bindings"));
 
     public static final Tags.IOptionalNamedTag<Item> PLANT_FIBRE = ItemTags.createOptional(new ResourceLocation(Flint.MOD_ID, "plant_fibre"));
+
+
+    /*BlockTags*/
+    public static final Tags.IOptionalNamedTag<Block> MINEABLE_WITH_HAMMER = BlockTags.createOptional(new ResourceLocation(Flint.MOD_ID, "plant_fibre"));
 
 
 

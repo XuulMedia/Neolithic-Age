@@ -1,14 +1,16 @@
 package xuul.flint.common.init;
 
-import xuul.flint.Flint;
-import xuul.flint.common.item.HammerItem;
-import xuul.flint.common.item.SawItem;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import xuul.flint.Flint;
+import xuul.flint.common.item.BasketItem;
+import xuul.flint.common.item.HammerItem;
+import xuul.flint.common.item.SawItem;
+import xuul.flint.common.item.SpindleItem;
 
 
 public class ModItems {
@@ -28,6 +30,9 @@ public class ModItems {
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> BRAIDED_PLANT_FIBRE = ITEMS.register("braided_plant_fibre",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+
+    public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
+            () -> new BasketItem(new Item.Properties().tab(Flint.METAL_TAB).stacksTo(1)));
 
     /*TOOLS*/
     //Req Material, Damage, attack speed and repair item
@@ -68,6 +73,11 @@ public class ModItems {
 
     public static final RegistryObject<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
             () -> new HammerItem(ModToolMaterials.FLINT,8,.5f, new Item.Properties().tab(Flint.FLINT_TAB)));
+
+
+    public static final RegistryObject<SpindleItem> SPINDLE = ITEMS.register("spindle",
+            () -> new SpindleItem(ModToolMaterials.FLINT,new Item.Properties().tab(Flint.FLINT_TAB)));
+
 
 
     /*TOOLHEADS*/
@@ -359,6 +369,8 @@ public class ModItems {
     public static final  RegistryObject<Item> CALCITE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.CALCITE_COBBLESTONE, STANDARD_STONE_AGE_PROPERTIES);
 
     public static final  RegistryObject<Item> FLINT_STATION_ITEM = itemFromBlock(ModBlocks.FLINT_STATION, STANDARD_STONE_AGE_PROPERTIES);
+    public static final  RegistryObject<Item> THATCH_BLOCK_ITEM = itemFromBlock(ModBlocks.THATCH, STANDARD_STONE_AGE_PROPERTIES);
+
 
 
 

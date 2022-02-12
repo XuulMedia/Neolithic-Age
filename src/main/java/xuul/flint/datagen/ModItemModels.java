@@ -234,10 +234,12 @@ public class ModItemModels extends ItemModelProvider {
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_axe"));
       singleTexture(ModItems.FLINT_HOE.get().getRegistryName().getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_hoe"));
+        singleTexture(ModItems.FLINT_SAW.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_saw"));
 
 
-//        singleTexture(ModItems.STONE_HAMMER.get().getRegistryName().getPath(),
-//                mcLoc("item/generated"),"layer0", modLoc("item/tools/stone_hammer"));
+        singleTexture(ModItems.STONE_HAMMER.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/tools/stone_hammer"));
 
 
 

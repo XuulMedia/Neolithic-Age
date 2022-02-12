@@ -62,6 +62,15 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.DUST_DIORITE.get(), "Diorite Dust");
         add(ModItems.DUST_CALCITE.get(), "Calcite Dust");
 
+
+        add(ModItems.FLINT_PICK.get(), "Flint Pick");
+        add(ModItems.FLINT_SHOVEL.get(), "Flint Shovel");
+        add(ModItems.FLINT_AXE.get(), "Flint Axe");
+        add(ModItems.FLINT_HOE.get(), "Flint Hoe");
+        add(ModItems.FLINT_SAW.get(), "Flint Saw");
+        add(ModItems.STONE_HAMMER.get(), "Stone Hammer");
+
+
         add(ModItems.BRONZE_SWORD.get(), "Bronze Sword");
         add(ModItems.BRONZE_PICK.get(), "Bronze Pick");
         add(ModItems.BRONZE_SHOVEL.get(), "Bronze Shovel");

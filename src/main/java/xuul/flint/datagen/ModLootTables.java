@@ -42,17 +42,17 @@ public class ModLootTables extends BaseLootTableProvider {
 
 
 
-        lootTables.put(Blocks.STONE, createSilkTouchTable("stone", Blocks.STONE, ModItems.CHUNK_STONE.get(), 1, 4));
-        lootTables.put(Blocks.ANDESITE, createSilkTouchTable("andesite", Blocks.ANDESITE, ModItems.CHUNK_ANDESITE.get(), 1, 4));
-        lootTables.put(Blocks.DEEPSLATE, createSilkTouchTable("deepslate", Blocks.DEEPSLATE, ModItems.CHUNK_DEEPSLATE.get(), 1, 4));
-        lootTables.put(Blocks.DRIPSTONE_BLOCK, createSilkTouchTable("dripstone", Blocks.DRIPSTONE_BLOCK, ModItems.CHUNK_DRIPSTONE.get(), 1, 4));
-        lootTables.put(Blocks.SANDSTONE, createSilkTouchTable("sandstone", Blocks.SANDSTONE, ModItems.CHUNK_SANDSTONE.get(), 1, 4));
-        lootTables.put(Blocks.DIORITE, createSilkTouchTable("diorite", Blocks.DIORITE, ModItems.CHUNK_DIORITE.get(), 1, 4));
-        lootTables.put(Blocks.GRANITE, createSilkTouchTable("granite", Blocks.GRANITE, ModItems.CHUNK_GRANITE.get(), 1, 4));
-        lootTables.put(Blocks.BASALT, createSilkTouchTable("basalt", Blocks.BASALT, ModItems.CHUNK_BASALT.get(), 1, 4));
-        lootTables.put(Blocks.TUFF, createSilkTouchTable("tuff", Blocks.TUFF, ModItems.CHUNK_TUFF.get(), 1, 4));
-        lootTables.put(Blocks.NETHERRACK, createSilkTouchTable("netherrack", Blocks.NETHERRACK, ModItems.CHUNK_NETHERRACK.get(), 1, 4));
-        lootTables.put(Blocks.BLACKSTONE, createSilkTouchTable("blackstone", Blocks.BLACKSTONE, ModItems.CHUNK_BLACKSTONE.get(), 1, 4));
+        lootTables.put(Blocks.STONE, HammerSmashingTable("stone", Blocks.STONE, ModItems.CHUNK_STONE.get(), ModItems.DUST_STONE.get(), 1, 4));
+        lootTables.put(Blocks.ANDESITE, HammerSmashingTable("andesite", Blocks.ANDESITE, ModItems.CHUNK_ANDESITE.get(), ModItems.DUST_ANDESITE.get(), 1, 4));
+        lootTables.put(Blocks.DEEPSLATE, HammerSmashingTable("deepslate", Blocks.DEEPSLATE, ModItems.CHUNK_DEEPSLATE.get(), ModItems.DUST_DEEPSLATE.get(), 1, 4));
+        lootTables.put(Blocks.DRIPSTONE_BLOCK, HammerSmashingTable("dripstone", Blocks.DRIPSTONE_BLOCK, ModItems.CHUNK_DRIPSTONE.get(), ModItems.DUST_DRIPSTONE.get(), 1, 4));
+        lootTables.put(Blocks.SANDSTONE, HammerSmashingTable("sandstone", Blocks.SANDSTONE, ModItems.CHUNK_SANDSTONE.get(), ModItems.DUST_SANDSTONE.get(), 1, 4));
+        lootTables.put(Blocks.DIORITE, HammerSmashingTable("diorite", Blocks.DIORITE, ModItems.CHUNK_DIORITE.get(), ModItems.DUST_DIORITE.get(), 1, 4));
+        lootTables.put(Blocks.GRANITE, HammerSmashingTable("granite", Blocks.GRANITE, ModItems.CHUNK_GRANITE.get(), ModItems.DUST_GRANITE.get(), 1, 4));
+        lootTables.put(Blocks.BASALT, HammerSmashingTable("basalt", Blocks.BASALT, ModItems.CHUNK_BASALT.get(), ModItems.DUST_BASALT.get(), 1, 4));
+        lootTables.put(Blocks.TUFF, HammerSmashingTable("tuff", Blocks.TUFF, ModItems.CHUNK_TUFF.get(), ModItems.DUST_TUFF.get(), 1, 4));
+        lootTables.put(Blocks.NETHERRACK, HammerSmashingTable("netherrack", Blocks.NETHERRACK, ModItems.CHUNK_NETHERRACK.get(), ModItems.DUST_NETHERRACK.get(), 1, 4));
+        lootTables.put(Blocks.BLACKSTONE, HammerSmashingTable("blackstone", Blocks.BLACKSTONE, ModItems.CHUNK_BLACKSTONE.get(), ModItems.DUST_BLACKSTONE.get(), 1, 4));
 
     }
 }

@@ -1,4 +1,4 @@
-package xuul.flint.common.block;
+package xuul.flint.common.gui;
 
 import com.google.common.collect.Lists;
 import xuul.flint.common.init.ModBlocks;
@@ -52,8 +52,8 @@ public class FlintStationContainer extends AbstractContainerMenu {
     final ResultContainer resultContainer = new ResultContainer();
 
 
-    public FlintStationContainer(int pContainerId, BlockPos pos, Inventory inventory,  Player player) {
-        super(ModContainerTypes.FLINT_STATION_CONTAINER.get(), pContainerId);
+    public FlintStationContainer(int id, BlockPos pos, Inventory inventory,  Player player) {
+        super(ModContainerTypes.FLINT_STATION_CONTAINER.get(), id);
         this.level = inventory.player.level;
         this.pos = pos;
         this.playerInventory = new InvWrapper(inventory);

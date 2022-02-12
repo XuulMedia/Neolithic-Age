@@ -1,7 +1,8 @@
 package xuul.flint.common.init;
 
 import xuul.flint.Flint;
-import xuul.flint.common.block.FlintStationContainer;
+import xuul.flint.common.gui.BasketContainer;
+import xuul.flint.common.gui.FlintStationContainer;
 import net.minecraft.world.inventory.MenuType;
 import net.minecraftforge.common.extensions.IForgeMenuType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -15,5 +16,8 @@ public class ModContainerTypes {
 
     public static final RegistryObject<MenuType<FlintStationContainer>> FLINT_STATION_CONTAINER = CONTAINERS.register("flint_station",
             () -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationContainer(windowId, data.readBlockPos(), inv, inv.player)));
+
+    public static final RegistryObject<MenuType<BasketContainer>> BASKET_CONTAINER = CONTAINERS.register("basket",
+            () -> IForgeMenuType.create((windowId, inv, data) -> new BasketContainer(windowId, inv)));
 
 }

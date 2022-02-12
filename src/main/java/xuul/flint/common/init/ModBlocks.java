@@ -1,13 +1,10 @@
 package xuul.flint.common.init;
 
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import xuul.flint.Flint;
 import xuul.flint.common.block.FlintStationBlock;
 //import com.xuul.flint.block.FlintStationContainer;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.FallingBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -15,6 +12,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xuul.flint.common.block.KilnBlock;
+import xuul.flint.common.block.ThatchBlock;
 import xuul.flint.common.block.block_entity.KilnBE;
 
 public class ModBlocks {
@@ -133,8 +131,9 @@ public class ModBlocks {
 
 
     /*Plants*/
-//    public static final RegistryObject<Block>THATCH = BLOCKS.register("calcite_cobblestone",
-//            () -> new Block(BlockBehaviour.Properties.of(Material.GRASS);
+    public static final RegistryObject<ThatchBlock>THATCH = BLOCKS.register("thatch_block",
+            () -> new ThatchBlock(BlockBehaviour.Properties.of(Material.GRASS).noCollission().strength(4.0F)));
+
 
 
 

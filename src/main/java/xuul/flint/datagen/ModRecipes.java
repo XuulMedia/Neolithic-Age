@@ -307,6 +307,66 @@ public class ModRecipes extends RecipeProvider {
                 .save(consumer, RL("crimson_plank_from_log"));
 
 
+/*Hammer Smashing */
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_STONE.get(), 1)
+                .requires(ModItems.CHUNK_STONE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_STONE.get()))
+                .save(consumer, RL("stone_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_ANDESITE.get(), 1)
+                .requires(ModItems.CHUNK_ANDESITE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_ANDESITE.get()))
+                .save(consumer, RL("andesite_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_DEEPSLATE.get(), 1)
+                .requires(ModItems.CHUNK_DEEPSLATE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_DEEPSLATE.get()))
+                .save(consumer, RL("deepslate_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_SANDSTONE.get(), 1)
+                .requires(ModItems.CHUNK_SANDSTONE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_SANDSTONE.get()))
+                .save(consumer, RL("sandstone_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_DRIPSTONE.get(), 1)
+                .requires(ModItems.CHUNK_DRIPSTONE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_DRIPSTONE.get()))
+                .save(consumer, RL("dripstone_block_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_DIORITE.get(), 1)
+                .requires(ModItems.CHUNK_DIORITE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_DIORITE.get()))
+                .save(consumer, RL("diorite_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_GRANITE.get(), 1)
+                .requires(ModItems.CHUNK_GRANITE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_GRANITE.get()))
+                .save(consumer, RL("granite_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_BASALT.get(), 1)
+                .requires(ModItems.CHUNK_BASALT.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_BASALT.get()))
+                .save(consumer, RL("basalt_dust_from_chunk"));
+
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_TUFF.get(), 1)
+                .requires(ModItems.CHUNK_TUFF.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_TUFF.get()))
+                .save(consumer, RL("tuff_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_NETHERRACK.get(), 1)
+                .requires(ModItems.CHUNK_NETHERRACK.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_NETHERRACK.get()))
+                .save(consumer, RL("netherrack_dust_from_chunk"));
+        ShapelessRecipeBuilder.shapeless(ModItems.DUST_BLACKSTONE.get(), 1)
+                .requires(ModItems.CHUNK_BLACKSTONE.get())
+                .requires(ModTags.HAMMERS)
+                .unlockedBy("has_chunk", has(ModItems.CHUNK_BLACKSTONE.get()))
+                .save(consumer, RL("blackstone_dust_from_chunk"));
+
+
+
 
 
         /*TOOLS*/

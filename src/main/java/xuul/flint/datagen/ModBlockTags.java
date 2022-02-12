@@ -1,5 +1,6 @@
 package xuul.flint.datagen;
 
+import net.minecraft.world.level.block.Blocks;
 import xuul.flint.Flint;
 import xuul.flint.common.init.ModBlocks;
 import net.minecraft.data.DataGenerator;
@@ -7,6 +8,7 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import xuul.flint.common.init.ModTags;
 
 public class ModBlockTags extends BlockTagsProvider {
 
@@ -36,7 +38,20 @@ public class ModBlockTags extends BlockTagsProvider {
                 .add(ModBlocks.DIORITE_COBBLESTONE.get())
                 .add(ModBlocks.CALCITE_COBBLESTONE.get());
 
-
+        tag(ModTags.MINEABLE_WITH_HAMMER)
+                .add(Blocks.STONE)
+                .add(Blocks.STONE)
+                .add(Blocks.ANDESITE)
+                .add(Blocks.DEEPSLATE)
+                .add(Blocks.SANDSTONE)
+                .add(Blocks.DRIPSTONE_BLOCK)
+                .add(Blocks.DIORITE)
+                .add(Blocks.GRANITE)
+                .add(Blocks.BASALT)
+                .add(Blocks.TUFF)
+                .add(Blocks.NETHERRACK)
+                .add(Blocks.BLACKSTONE)
+                .add(Blocks.CALCITE);
 
 
 

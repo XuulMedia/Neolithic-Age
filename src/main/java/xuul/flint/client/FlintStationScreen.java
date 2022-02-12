@@ -3,7 +3,7 @@ package xuul.flint.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import xuul.flint.common.block.FlintStationContainer;
+import xuul.flint.common.gui.FlintStationContainer;
 import xuul.flint.common.recipe.FlintStationRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

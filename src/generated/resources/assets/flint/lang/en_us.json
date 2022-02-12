@@ -91,6 +91,11 @@
   "item.flint.dust_stone": "Stone Dust",
   "item.flint.dust_tin": "Tin Dust",
   "item.flint.dust_tuff": "Tuff Dust",
+  "item.flint.flint_axe": "Flint Axe",
+  "item.flint.flint_hoe": "Flint Hoe",
+  "item.flint.flint_pick": "Flint Pick",
+  "item.flint.flint_saw": "Flint Saw",
+  "item.flint.flint_shovel": "Flint Shovel",
   "item.flint.hide_large": "Large Hide",
   "item.flint.hide_medium": "Medium Hide",
   "item.flint.hide_small": "Small Hide",
@@ -119,6 +124,7 @@
   "item.flint.plank_oak": "Oak Plank",
   "item.flint.plank_warped": "Warped Plank",
   "item.flint.plant_fibre": "Plant Fibre",
-  "itemGroup.xuul.flint.Flint$1@232dda63": "Stone Age",
-  "itemGroup.xuul.flint.Flint$2@2f541378": "Metal Age"
+  "item.flint.stone_hammer": "Stone Hammer",
+  "itemGroup.xuul.flint.Flint$1@41c96a67": "Stone Age",
+  "itemGroup.xuul.flint.Flint$2@8dc73c7": "Metal Age"
 }

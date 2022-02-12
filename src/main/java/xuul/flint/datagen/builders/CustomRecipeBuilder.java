@@ -2,6 +2,7 @@ package xuul.flint.datagen.builders;
 
 import net.minecraft.core.NonNullList;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
+import xuul.flint.common.recipe.ClayShapingRecipe;
 import xuul.flint.common.recipe.FlintStationRecipe;
 import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -16,6 +17,10 @@ public class CustomRecipeBuilder extends SingleItemRecipeBuilder {
 
     public static SingleItemRecipeBuilder flintstation(Ingredient pIngredient, ItemLike pResult, int pCount) {
         return new SingleItemRecipeBuilder(FlintStationRecipe.SERIALIZER, pIngredient, pResult, pCount);
+    }
+
+    public static SingleItemRecipeBuilder clay(Ingredient pIngredient, ItemLike pResult, int pCount) {
+        return new SingleItemRecipeBuilder(ClayShapingRecipe.SERIALIZER, pIngredient, pResult, pCount);
     }
 
 }
