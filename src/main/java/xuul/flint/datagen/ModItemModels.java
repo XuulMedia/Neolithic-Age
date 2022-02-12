@@ -1,10 +1,10 @@
 package xuul.flint.datagen;
 
-import xuul.flint.Flint;
-import xuul.flint.common.init.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import xuul.flint.Flint;
+import xuul.flint.common.init.ModItems;
 
 public class ModItemModels extends ItemModelProvider {
 
@@ -266,7 +266,7 @@ public class ModItemModels extends ItemModelProvider {
 
 
 
-
+	  singleTexture(ModItems.BASKET.get().getRegistryName().getPath(), mcLoc("item/generated"), "layer0", modLoc("item/basket"));
     }
 
 }

@@ -1,17 +1,31 @@
 package xuul.flint.client;
 
-import xuul.flint.common.gui.BasketContainer;
-import xuul.flint.common.init.ModContainerTypes;
-import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
+import xuul.flint.Flint;
+import xuul.flint.common.init.ModContainerTypes;
+import xuul.flint.common.init.ModItems;
 
-public class ClientSetup {
+@OnlyIn(Dist.CLIENT)
+@Mod.EventBusSubscriber(modid = Flint.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+public final class ClientSetup {
+
+	private ClientSetup() {}
+
+	@SubscribeEvent
     public static void init(FMLClientSetupEvent event){
         event.enqueueWork(() -> {
-            MenuScreens.register(ModContainerTypes.FLINT_STATION_CONTAINER.get(), FlintStationScreen::new);
-            MenuScreens.register(ModContainerTypes.BASKET_CONTAINER.get(), BasketScreen::new);
-
+            ModContainerTypes.registerMenuScreens();
         });
-
     }
+
+	@SubscribeEvent
+	public static void onItemColorRegistry(final ColorHandlerEvent.Item event) {
+		event.getItemColors().register((stack, index) -> index == 0 ? ModItems.BASKET.get().getColor(stack) : -1, ModItems.BASKET.get());
+	}
+
 }
