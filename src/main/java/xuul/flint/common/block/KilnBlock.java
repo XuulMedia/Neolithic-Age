@@ -5,47 +5,70 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.AbstractFurnaceBlock;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.entity.FurnaceBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.DirectionProperty;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.Vec3;
+import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 import xuul.flint.common.block.block_entity.KilnBE;
 
 import java.util.Random;
 
-public class KilnBlock extends AbstractFurnaceBlock {
+public class KilnBlock extends Block {
+
     private static final Component CONTAINER_TITLE = new TranslatableComponent("container.kiln");
     public static final String MESSAGE_KILN_STATION = "message.kiln";
+    public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
-    protected KilnBlock(Properties prop) {
-        super(prop);
+    public KilnBlock(Properties properties) {
+        super(properties);
+        this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(LIT, Boolean.valueOf(false)));
     }
 
-    public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
-        return null;
-    }
-
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return super.getTicker(pLevel, pState, pBlockEntityType);
+    public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
+        return new KilnBE(pos, state);
     }
 
     @Override
-    protected void openContainer(Level pLevel, BlockPos pPos, Player pPlayer) {
-        BlockEntity blockentity = pLevel.getBlockEntity(pPos);
-        if (blockentity instanceof KilnBE) {
-            pPlayer.openMenu((MenuProvider) blockentity);
+    public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
+        if (!level.isClientSide()) {
+            BlockEntity be = level.getBlockEntity(pos);
+            if (be instanceof KilnBE) {
+                MenuProvider containerProvider = new MenuProvider() {
+                    @Override
+                    public Component getDisplayName() {
+                        return CONTAINER_TITLE;
+                    }
+                    @Override
+                    public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player playerEntity) {
+                        return new KilnMenu(containerId, pos, playerInventory,playerEntity);
+                    }
+                };
+                NetworkHooks.openGui((ServerPlayer) player, containerProvider, pos);
+            }
         }
+        return InteractionResult.SUCCESS;
     }
+
 
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, Random pRand) {
         if (pState.getValue(LIT)) {

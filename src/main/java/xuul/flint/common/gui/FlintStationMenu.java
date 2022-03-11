@@ -19,7 +19,7 @@ import net.minecraftforge.items.wrapper.InvWrapper;
 
 import java.util.List;
 
-public class FlintStationContainer extends AbstractContainerMenu {
+public class FlintStationMenu extends AbstractContainerMenu {
     public static final int INPUT_SLOT = 0;
     public static final int RESULT_SLOT = 1;
     private static final int INV_SLOT_START = 2;
@@ -44,15 +44,14 @@ public class FlintStationContainer extends AbstractContainerMenu {
     public final Container container = new SimpleContainer(1) {
         public void setChanged() {
             super.setChanged();
-            FlintStationContainer.this.slotsChanged(this);
-            FlintStationContainer.this.slotUpdateListener.run();
+            FlintStationMenu.this.slotsChanged(this);
+            FlintStationMenu.this.slotUpdateListener.run();
         }
     };
 
     final ResultContainer resultContainer = new ResultContainer();
 
-
-    public FlintStationContainer(int id, BlockPos pos, Inventory inventory,  Player player) {
+    public FlintStationMenu(int id, BlockPos pos, Inventory inventory, Player player) {
         super(ModContainerTypes.FLINT_STATION_CONTAINER.get(), id);
         this.level = inventory.player.level;
         this.pos = pos;
@@ -67,10 +66,10 @@ public class FlintStationContainer extends AbstractContainerMenu {
 
             public void onTake(Player player, ItemStack itemStack) {
                 itemStack.onCraftedBy(player.level, player, itemStack.getCount());
-                FlintStationContainer.this.resultContainer.awardUsedRecipes(player);
-                ItemStack itemstack = FlintStationContainer.this.inputSlot.remove(1);
+                FlintStationMenu.this.resultContainer.awardUsedRecipes(player);
+                ItemStack itemstack = FlintStationMenu.this.inputSlot.remove(1);
                 if (!itemstack.isEmpty()) {
-                    FlintStationContainer.this.setupResultSlot();
+                    FlintStationMenu.this.setupResultSlot();
                 }
 
                 super.onTake(player, itemStack);
@@ -79,7 +78,6 @@ public class FlintStationContainer extends AbstractContainerMenu {
         layoutPlayerInventorySlots(8, 84);
         this.addDataSlot(this.selectedRecipeIndex);
     }
-
 
 
     public int getSelectedRecipeIndex() {
@@ -97,7 +95,6 @@ public class FlintStationContainer extends AbstractContainerMenu {
     public boolean hasInputItem() {
         return this.inputSlot.hasItem() && !this.recipes.isEmpty();
     }
-
 
 
     public boolean stillValid(Player player) {
@@ -203,12 +200,10 @@ public class FlintStationContainer extends AbstractContainerMenu {
         return itemstack;
     }
 
-    /*TODO see what this affects*/
     public void removed(Player pPlayer) {
         super.removed(pPlayer);
         this.resultContainer.removeItemNoUpdate(1);
         this.clearContainer(pPlayer, this.container);
-
     }
 
 /*Setup Player inventory*/
@@ -238,6 +233,4 @@ public class FlintStationContainer extends AbstractContainerMenu {
         topRow += 58;
         addSlotRange(playerInventory, 0, leftCol, topRow, 9, 18);
     }
-
-
 }

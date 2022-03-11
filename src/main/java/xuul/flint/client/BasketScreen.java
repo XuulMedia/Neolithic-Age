@@ -14,31 +14,31 @@ import xuul.flint.common.gui.BasketMenu;
 @OnlyIn(Dist.CLIENT)
 public class BasketScreen extends AbstractContainerScreen<BasketMenu> {
 
-	private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation("textures/gui/container/dispenser.png");
+    private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation("textures/gui/container/dispenser.png");
 
-	public BasketScreen(BasketMenu menu, Inventory playerInventory, Component title) {
-		super(menu, playerInventory, title);
-	}
+    public BasketScreen(BasketMenu menu, Inventory playerInventory, Component title) {
+        super(menu, playerInventory, title);
+    }
 
-	@Override
-	protected void init() {
-		super.init();
-		titleLabelX = (int) (imageWidth / 2f - font.width(title) / 2f);
-	}
+    @Override
+    protected void init() {
+        super.init();
+        titleLabelX = (int) (imageWidth / 2f - font.width(title) / 2f);
+    }
 
-	@Override
-	public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
-		renderBackground(poseStack);
-		super.render(poseStack, mouseX, mouseY, partialTick);
-		renderTooltip(poseStack, mouseX, mouseY);
-	}
+    @Override
+    public void render(PoseStack poseStack, int mouseX, int mouseY, float partialTick) {
+        renderBackground(poseStack);
+        super.render(poseStack, mouseX, mouseY, partialTick);
+        renderTooltip(poseStack, mouseX, mouseY);
+    }
 
-	@Override
-	protected void renderBg(PoseStack poseStack, float partialTick, int mouseX, int mouseY) {
-		RenderSystem.setShader(GameRenderer::getPositionTexShader);
-		RenderSystem.setShaderColor(1, 1, 1, 1);
-		RenderSystem.setShaderTexture(0, BACKGROUND_TEXTURE);
-		blit(poseStack, leftPos, topPos, 0, 0, imageWidth, imageHeight);
-	}
+    @Override
+    protected void renderBg(PoseStack poseStack, float partialTick, int mouseX, int mouseY) {
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1, 1, 1, 1);
+        RenderSystem.setShaderTexture(0, BACKGROUND_TEXTURE);
+        blit(poseStack, leftPos, topPos, 0, 0, imageWidth, imageHeight);
+    }
 
 }

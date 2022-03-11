@@ -8,11 +8,9 @@ import xuul.flint.common.init.ModItems;
 
 public class ModItemModels extends ItemModelProvider {
 
-
     public ModItemModels(DataGenerator generator, ExistingFileHelper existingFileHelper) {
         super(generator, Flint.MOD_ID, existingFileHelper);
     }
-
 
 
 //This function registers the items to a texture. Existing parent is for blocks that have been set up under Block States it references them
@@ -40,10 +38,13 @@ public class ModItemModels extends ItemModelProvider {
                 mcLoc("item/generated"),"layer0", modLoc("item/braided_plant_fibre"));
 
 
+        singleTexture(ModItems.BASKET.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/basket"));
+
+
 
         singleTexture(ModItems.INGOT_TIN.get().getRegistryName().getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/ingots/ingot_tin"));
-
         singleTexture(ModItems.INGOT_BRONZE.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/ingots/ingot_bronze"));
         singleTexture(ModItems.INGOT_SILVER.get().getRegistryName().getPath(),
@@ -258,15 +259,6 @@ public class ModItemModels extends ItemModelProvider {
 
 
 
-
-
-
-
-
-
-
-
-	  singleTexture(ModItems.BASKET.get().getRegistryName().getPath(), mcLoc("item/generated"), "layer0", modLoc("item/basket"));
     }
 
 }

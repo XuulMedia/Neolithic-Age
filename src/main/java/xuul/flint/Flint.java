@@ -20,14 +20,14 @@ public class Flint
 
     /*Creative Mode Tabs*/
 
-    public static final CreativeModeTab FLINT_TAB = new CreativeModeTab("flint_tab") {
+    public static final CreativeModeTab FLINT_TAB = new CreativeModeTab(MOD_ID +"stone_age") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.CHUNK_GRANITE.get());
         }
     };
 
-    public static final CreativeModeTab METAL_TAB = new CreativeModeTab("metal_tab") {
+    public static final CreativeModeTab METAL_TAB = new CreativeModeTab(MOD_ID+"metal_age") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.INGOT_STEEL.get());

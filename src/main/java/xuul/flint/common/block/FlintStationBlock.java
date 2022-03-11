@@ -19,7 +19,7 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
-import xuul.flint.common.gui.FlintStationContainer;
+import xuul.flint.common.gui.FlintStationMenu;
 
 public class FlintStationBlock extends Block {
 
@@ -44,7 +44,7 @@ public class FlintStationBlock extends Block {
                 }
                 @Override
                 public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player playerEntity) {
-                    return new FlintStationContainer(containerId, pos, playerInventory,playerEntity);
+                    return new FlintStationMenu(containerId, pos, playerInventory,playerEntity);
                 }
             };
             NetworkHooks.openGui((ServerPlayer) player, containerProvider, pos);

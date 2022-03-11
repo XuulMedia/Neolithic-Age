@@ -3,7 +3,7 @@ package xuul.flint.client;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;
-import xuul.flint.common.gui.FlintStationContainer;
+import xuul.flint.common.gui.FlintStationMenu;
 import xuul.flint.common.recipe.FlintStationRecipe;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -17,7 +17,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 import java.util.List;
 
-public class FlintStationScreen  extends AbstractContainerScreen<FlintStationContainer> {
+public class FlintStationScreen  extends AbstractContainerScreen<FlintStationMenu> {
 
     private final ResourceLocation GUI = new ResourceLocation("minecraft", "textures/gui/container/stonecutter.png");
 
@@ -42,7 +42,7 @@ public class FlintStationScreen  extends AbstractContainerScreen<FlintStationCon
     private boolean displayRecipes;
 
 
-    public FlintStationScreen(FlintStationContainer container, Inventory inv, Component name) {
+    public FlintStationScreen(FlintStationMenu container, Inventory inv, Component name) {
         super(container,inv,name);
         container.registerUpdateListener(this::containerChanged);
         --this.titleLabelY;

@@ -12,7 +12,7 @@ import xuul.flint.Flint;
 import xuul.flint.client.BasketScreen;
 import xuul.flint.client.FlintStationScreen;
 import xuul.flint.common.gui.BasketMenu;
-import xuul.flint.common.gui.FlintStationContainer;
+import xuul.flint.common.gui.FlintStationMenu;
 
 public final class ModContainerTypes {
 
@@ -21,8 +21,8 @@ public final class ModContainerTypes {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister.create(ForgeRegistries.CONTAINERS, Flint.MOD_ID);
 
 
-    public static final RegistryObject<MenuType<FlintStationContainer>> FLINT_STATION_CONTAINER = CONTAINERS.register("flint_station",
-            () -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationContainer(windowId, data.readBlockPos(), inv, inv.player)));
+    public static final RegistryObject<MenuType<FlintStationMenu>> FLINT_STATION_CONTAINER = CONTAINERS.register("flint_station",
+            () -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationMenu(windowId, data.readBlockPos(), inv, inv.player)));
 
     public static final RegistryObject<MenuType<BasketMenu>> BASKET_CONTAINER = CONTAINERS.register("basket", () -> IForgeMenuType.create(BasketMenu::createClientMenu));
 

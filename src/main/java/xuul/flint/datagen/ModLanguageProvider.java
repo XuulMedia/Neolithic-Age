@@ -168,6 +168,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.HIDE_MEDIUM.get(), "Medium Hide");
         add(ModItems.HIDE_LARGE.get(), "Large Hide");
 
+        add(ModItems.BASKET.get(), "Basket");
+
 
 
 
