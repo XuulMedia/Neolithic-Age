@@ -8,7 +8,7 @@ import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.SlotItemHandler;
 import net.minecraftforge.items.wrapper.PlayerInvWrapper;
-import xuul.flint.common.init.ModContainerTypes;
+import xuul.flint.common.init.ModMenuTypes;
 import xuul.flint.common.item.BasketItem;
 import xuul.flint.common.util.ItemBackedContainer;
 
@@ -17,7 +17,7 @@ public class BasketMenu extends AbstractContainerMenu {
 	private final ItemBackedContainer inventory;
 
 	protected BasketMenu(int containerId, Inventory playerInventory, ItemBackedContainer inventory) {
-		super(ModContainerTypes.BASKET_CONTAINER.get(), containerId);
+		super(ModMenuTypes.BASKET_CONTAINER.get(), containerId);
 		addPlayerSlots(playerInventory);
 		this.inventory = inventory;
 

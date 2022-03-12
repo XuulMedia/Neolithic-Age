@@ -12,6 +12,7 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -50,7 +51,7 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
 
 
 
-    public ToolUseRecipeBuilder tool(Tag<Item> tag) {
+    public ToolUseRecipeBuilder tool(TagKey<Item> tag) {
         return this.tool(Ingredient.of(tag));
     }
 
@@ -59,7 +60,7 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
     }
 
 
-    public ShapelessRecipeBuilder requires(Tag<Item> pTag) {
+    public ShapelessRecipeBuilder requires(TagKey<Item> pTag) {
         return this.requires(Ingredient.of(pTag));
     }
 

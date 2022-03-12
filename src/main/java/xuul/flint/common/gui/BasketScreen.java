@@ -1,4 +1,4 @@
-package xuul.flint.client;
+package xuul.flint.common.gui;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.PoseStack;

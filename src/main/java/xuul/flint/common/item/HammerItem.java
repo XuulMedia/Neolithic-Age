@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.Tag;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -15,13 +16,14 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Material;
 import xuul.flint.common.init.ModTags;
 
 import javax.annotation.Nonnull;
 import java.util.Random;
 
 public class HammerItem extends TieredItem implements Vanishable {
-    private final Tag<Block> blocks = ModTags.MINEABLE_WITH_HAMMER;
+    private final TagKey<Block> blocks = ModTags.MINEABLE_WITH_HAMMER;
     protected final float speed;
     private final float attackDamage;
     private final Multimap<Attribute, AttributeModifier> defaultModifiers;
@@ -48,10 +50,9 @@ public class HammerItem extends TieredItem implements Vanishable {
         if (pState.is(Blocks.BONE_BLOCK)) {
             return 15.0F;
         } else {
-            return this.blocks.contains(pState.getBlock()) ? this.speed : 1.0F;
+            Material material = pState.getMaterial();
+            return material != Material.PLANT && material != Material.REPLACEABLE_PLANT ? this.speed : 1.0F;
 
-            //return material != Material.PLANT && material != Material.REPLACEABLE_PLANT && !pState.is(BlockTags.LEAVES) && material != Material.VEGETABLE ? 1.0F : 1.5F;
-           // Material material = pState.getMaterial();
         }
     }
 

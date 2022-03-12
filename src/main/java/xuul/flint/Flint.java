@@ -7,10 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import xuul.flint.common.init.ModBlocks;
-import xuul.flint.common.init.ModContainerTypes;
-import xuul.flint.common.init.ModItems;
-import xuul.flint.common.init.ModRecipeSerializers;
+import xuul.flint.common.init.*;
 
 @Mod(Flint.MOD_ID)
 public class Flint
@@ -37,10 +34,12 @@ public class Flint
 
     public Flint() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        ModItems.ITEMS.register(bus);
         ModBlocks.BLOCKS.register(bus);
-        ModContainerTypes.CONTAINERS.register(bus);
+        ModItems.ITEMS.register(bus);
+        ModBlockEntities.BLOCK_ENTITIES.register(bus);
+        ModMenuTypes.MENUS.register(bus);
         ModRecipeSerializers.RECIPES.register(bus);
+
     }
 
 

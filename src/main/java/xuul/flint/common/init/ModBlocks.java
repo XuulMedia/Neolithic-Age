@@ -1,7 +1,10 @@
 package xuul.flint.common.init;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.world.item.*;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import xuul.flint.Flint;
 import xuul.flint.common.block.FlintStationBlock;
 //import com.xuul.flint.block.FlintStationContainer;
@@ -13,7 +16,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xuul.flint.common.block.KilnBlock;
 import xuul.flint.common.block.ThatchBlock;
-import xuul.flint.common.block.block_entity.KilnBE;
+
+import javax.annotation.Nullable;
+import java.util.List;
+import java.util.function.Supplier;
 
 public class ModBlocks {
     private ModBlocks(){
@@ -140,7 +146,48 @@ public class ModBlocks {
     /*FlintStation*/
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = BLOCKS.register("flint_station", FlintStationBlock::new);
 
-//    public static final RegistryObject<KilnBlock> KILN_BLOCK = BLOCKS.register("kiln", KilnBlock::new);
+    public static final RegistryObject<KilnBlock> KILN_BLOCK = BLOCKS.register("kiln_block",
+            () -> new KilnBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)));
+
+
+
+
+
+
+//    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block,
+//                                                                     CreativeModeTab tab, String tooltipKey) {
+//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+//        registerBlockItem(name, toReturn, tab, tooltipKey);
+//        return toReturn;
+//    }
+//
+//    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block,
+//                                                                            CreativeModeTab tab, String tooltipKey) {
+//        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+//                new Item.Properties().tab(tab)){
+//            @Override
+//            public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltip, TooltipFlag pFlag) {
+//                pTooltip.add(new TranslatableComponent(tooltipKey));
+//            }
+//        });
+//    }
+//
+//    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, CreativeModeTab tab) {
+//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+//        registerBlockItem(name, toReturn, tab);
+//        return toReturn;
+//    }
+//
+//    private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block,
+//                                                                            CreativeModeTab tab) {
+//        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(),
+//                new Item.Properties().tab(tab)));
+//    }
+
+
+
+
+
 //
 //
 //

@@ -1,5 +1,10 @@
 package xuul.flint.datagen;
 
+import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.ItemLike;
 import xuul.flint.Flint;
 import xuul.flint.common.init.ModBlocks;
 import xuul.flint.common.init.ModItems;
@@ -254,7 +259,7 @@ public class ModRecipes extends RecipeProvider {
         ToolUseRecipeBuilder.build(ModItems.PLANK_BIRCH.get())
                 .tool(ModTags.SAWS)
                 .requires(ModItems.LOG_BIRCH.get())
-                .unlockedBy("has_log", has(ModTags.LOGS))
+                .unlockedBy("has_log",  has(ModTags.LOGS))
                 .save(consumer, RL("birch_plank_from_saw"));
 
 
@@ -483,5 +488,20 @@ public class ModRecipes extends RecipeProvider {
 
     private ResourceLocation RL(String string){
         return new ResourceLocation(Flint.MOD_ID, string);
+    }
+
+    private static InventoryChangeTrigger.TriggerInstance has(MinMaxBounds.Ints pCount, ItemLike pItem) {
+        return inventoryTrigger(ItemPredicate.Builder.item().of(pItem).withCount(pCount).build());
+    }
+
+    /**
+     * Creates a new {@link InventoryChangeTrigger} that checks for a player having a certain item.
+     */
+    protected static InventoryChangeTrigger.TriggerInstance has(ItemLike pItemLike) {
+        return inventoryTrigger(ItemPredicate.Builder.item().of(pItemLike).build());
+    }
+
+    private static InventoryChangeTrigger.TriggerInstance has(TagKey<Item> tagKey) {
+        return inventoryTrigger(ItemPredicate.Builder.item().of(tagKey).build());
     }
 }

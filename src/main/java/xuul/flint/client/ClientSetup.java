@@ -7,7 +7,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import xuul.flint.Flint;
-import xuul.flint.common.init.ModContainerTypes;
+import xuul.flint.common.init.ModMenuTypes;
 import xuul.flint.common.init.ModItems;
 
 @OnlyIn(Dist.CLIENT)
@@ -19,7 +19,7 @@ public final class ClientSetup {
 	@SubscribeEvent
     public static void init(FMLClientSetupEvent event){
         event.enqueueWork(() -> {
-            ModContainerTypes.registerMenuScreens();
+            ModMenuTypes.registerMenuScreens();
         });
     }
 

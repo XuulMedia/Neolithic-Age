@@ -370,6 +370,7 @@ public class ModItems {
 
     public static final  RegistryObject<Item> FLINT_STATION_ITEM = itemFromBlock(ModBlocks.FLINT_STATION, STANDARD_STONE_AGE_PROPERTIES);
     public static final  RegistryObject<Item> THATCH_BLOCK_ITEM = itemFromBlock(ModBlocks.THATCH, STANDARD_STONE_AGE_PROPERTIES);
+    public static final  RegistryObject<Item> KILN_BLOCK_ITEM = itemFromBlock(ModBlocks.KILN_BLOCK, STANDARD_STONE_AGE_PROPERTIES);
 
 
 
