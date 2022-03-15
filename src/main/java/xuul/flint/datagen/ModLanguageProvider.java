@@ -138,6 +138,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CHUNK_NETHERRACK.get(),"Netherrack Chunk");
         add(ModItems.CHUNK_BLACKSTONE.get(),"Blackstone Chunk");
         add(ModItems.CHUNK_CALCITE.get(),"Calcite Chunk");
+        add(ModItems.CHUNK_SANDSTONE.get(),"Sandstone Chunk");
 
         add(ModItems.BRICK_STONE.get(),"Stone Brick");
         add(ModItems.BRICK_ANDESITE.get(),"Andesite Brick");

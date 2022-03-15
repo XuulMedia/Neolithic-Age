@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "flint:chunk_sanndstone"
+      "item": "flint:chunk_sandstone"
     },
     {
       "tag": "flint:hammers"

@@ -34,6 +34,16 @@ public class ModItems {
     public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
             () -> new BasketItem(new Item.Properties().tab(Flint.METAL_TAB).stacksTo(1)));
 
+
+    /*HIDES*/
+    public static final RegistryObject<Item> HIDE_SMALL = ITEMS.register("hide_small",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> HIDE_MEDIUM = ITEMS.register("hide_medium",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> HIDE_LARGE = ITEMS.register("hide_large",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+
+
     /*TOOLS*/
     //Req Material, Damage, attack speed and repair item
 
@@ -56,7 +66,7 @@ public class ModItems {
     public static final RegistryObject<SwordItem> FLINT_KNIFE = ITEMS.register("flint_knife",
             () -> new SwordItem(ModToolMaterials.FLINT,4,1.6f, new Item.Properties().tab(Flint.FLINT_TAB)));
 
-    public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pick",
+    public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pickaxe",
             () -> new PickaxeItem(ModToolMaterials.FLINT,2,1.2f, new Item.Properties().tab(Flint.FLINT_TAB)));
 
     public static final RegistryObject<ShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
@@ -178,7 +188,7 @@ public class ModItems {
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CHUNK_DEEPSLATE = ITEMS.register("chunk_deepslate",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> CHUNK_SANDSTONE = ITEMS.register("chunk_sanndstone",
+    public static final RegistryObject<Item> CHUNK_SANDSTONE = ITEMS.register("chunk_sandstone",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CHUNK_DRIPSTONE = ITEMS.register("chunk_dripstone",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
@@ -329,13 +339,6 @@ public class ModItems {
 
 
 
-    /*HIDES*/
-    public static final RegistryObject<Item> HIDE_SMALL = ITEMS.register("hide_small",
-            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> HIDE_MEDIUM = ITEMS.register("hide_medium",
-            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> HIDE_LARGE = ITEMS.register("hide_large",
-            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
 
 

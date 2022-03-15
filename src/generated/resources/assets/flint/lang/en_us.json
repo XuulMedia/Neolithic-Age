@@ -28,6 +28,7 @@
   "block.flint.sandstone_cobblestone": "Sandstone Cobblestone",
   "block.flint.tuff_brick_block": "Tuff Bricks",
   "block.flint.tuff_cobblestone": "Tuff Cobblestone",
+  "item.flint.basket": "Basket",
   "item.flint.braided_plant_fibre": "Braided Plant Fibre",
   "item.flint.brick_andesite": "Andesite Brick",
   "item.flint.brick_basalt": "Basalt Brick",
@@ -58,6 +59,7 @@
   "item.flint.chunk_dripstone": "Dripstone Chunk",
   "item.flint.chunk_granite": "Granite Chunk",
   "item.flint.chunk_netherrack": "Netherrack Chunk",
+  "item.flint.chunk_sandstone": "Sandstone Chunk",
   "item.flint.chunk_stone": "Stone Chunk",
   "item.flint.chunk_tuff": "Tuff Chunk",
   "item.flint.clay_andesite": "Andesite Clay",
@@ -93,7 +95,7 @@
   "item.flint.dust_tuff": "Tuff Dust",
   "item.flint.flint_axe": "Flint Axe",
   "item.flint.flint_hoe": "Flint Hoe",
-  "item.flint.flint_pick": "Flint Pick",
+  "item.flint.flint_pickaxe": "Flint Pick",
   "item.flint.flint_saw": "Flint Saw",
   "item.flint.flint_shovel": "Flint Shovel",
   "item.flint.hide_large": "Large Hide",
@@ -125,6 +127,6 @@
   "item.flint.plank_warped": "Warped Plank",
   "item.flint.plant_fibre": "Plant Fibre",
   "item.flint.stone_hammer": "Stone Hammer",
-  "itemGroup.xuul.flint.Flint$1@41c96a67": "Stone Age",
-  "itemGroup.xuul.flint.Flint$2@8dc73c7": "Metal Age"
+  "itemGroup.xuul.flint.Flint$1@14fda568": "Stone Age",
+  "itemGroup.xuul.flint.Flint$2@407858c5": "Metal Age"
 }
