@@ -62,7 +62,6 @@ public class KilnRecipe implements Recipe<SimpleContainer> {
 
     @Override
     public RecipeType<?> getType() {
-
         return KILN_RECIPE_TYPE;
     }
 

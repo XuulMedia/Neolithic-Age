@@ -10,21 +10,20 @@ import org.apache.logging.log4j.Logger;
 import xuul.flint.common.init.*;
 
 @Mod(Flint.MOD_ID)
-public class Flint
-{
+public class Flint {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "flint";
 
     /*Creative Mode Tabs*/
 
-    public static final CreativeModeTab FLINT_TAB = new CreativeModeTab(MOD_ID +"stone_age") {
+    public static final CreativeModeTab FLINT_TAB = new CreativeModeTab(MOD_ID + "stone_age") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.CHUNK_GRANITE.get());
         }
     };
 
-    public static final CreativeModeTab METAL_TAB = new CreativeModeTab(MOD_ID+"metal_age") {
+    public static final CreativeModeTab METAL_TAB = new CreativeModeTab(MOD_ID + "metal_age") {
         @Override
         public ItemStack makeIcon() {
             return new ItemStack(ModItems.INGOT_STEEL.get());
@@ -39,9 +38,7 @@ public class Flint
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModMenuTypes.MENUS.register(bus);
         ModRecipeSerializers.RECIPES.register(bus);
-
     }
-
 
 
 }

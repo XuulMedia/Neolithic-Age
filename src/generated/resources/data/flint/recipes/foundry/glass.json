@@ -1,0 +1,9 @@
+{
+  "type": "flint:foundry",
+  "input": {
+    "tag": "minecraft:sand"
+  },
+  "output": "minecraft:glass",
+  "count": 1,
+  "heat": 500
+}

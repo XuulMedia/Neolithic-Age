@@ -15,39 +15,41 @@ import xuul.flint.common.gui.*;
 
 public final class ModMenuTypes {
 
-	private ModMenuTypes() {}
+    private ModMenuTypes() {
+    }
 
-    public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.CONTAINERS, Flint.MOD_ID);
-
-
-	public static final RegistryObject<MenuType<FlintStationMenu>> FLINT_STATION_CONTAINER = MENUS.register("flint_station",
-			() -> IForgeMenuType.create((windowId, inv, data) -> new FlintStationMenu(windowId, data.readBlockPos(), inv, inv.player)));
-
-    public static final RegistryObject<MenuType<BasketMenu>> BASKET_CONTAINER = MENUS.register("basket", () -> IForgeMenuType.create(BasketMenu::createClientMenu));
+    public static final DeferredRegister<MenuType<?>> MENUS = DeferredRegister.create(ForgeRegistries.CONTAINERS,
+        Flint.MOD_ID);
 
 
+    public static final RegistryObject<MenuType<FlintStationMenu>> FLINT_STATION_CONTAINER = MENUS.register(
+        "flint_station",
+        () -> IForgeMenuType.create(
+            (windowId, inv, data) -> new FlintStationMenu(windowId, data.readBlockPos(), inv, inv.player)));
 
-	public static final RegistryObject<MenuType<KilnMenu>> KILN =
-			registerMenuType(KilnMenu::new, "kiln_menu");
+    public static final RegistryObject<MenuType<BasketMenu>> BASKET_CONTAINER = MENUS.register("basket",
+        () -> IForgeMenuType.create(BasketMenu::createClientMenu));
 
+    public static final RegistryObject<MenuType<KilnMenu>> KILN =
+        registerMenuType(KilnMenu::new, "kiln_menu");
 
-	private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(IContainerFactory<T> factory,
-																								  String name) {
-		return MENUS.register(name, () -> IForgeMenuType.create(factory));
-	}
-
-
-
-
-	@OnlyIn(Dist.CLIENT)
-	public static void registerMenuScreens() {
-		MenuScreens.register(ModMenuTypes.FLINT_STATION_CONTAINER.get(), FlintStationScreen::new);
-		MenuScreens.register(ModMenuTypes.BASKET_CONTAINER.get(), BasketScreen::new);
-	}
+    public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY = MENUS.register("foundry",
+        () -> IForgeMenuType.create(FoundryMenu::new));
 
 
+    private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(
+        IContainerFactory<T> factory,
+        String name) {
+        return MENUS.register(name, () -> IForgeMenuType.create(factory));
+    }
 
 
+    @OnlyIn(Dist.CLIENT)
+    public static void registerMenuScreens() {
+        MenuScreens.register(ModMenuTypes.FLINT_STATION_CONTAINER.get(), FlintStationScreen::new);
+        MenuScreens.register(ModMenuTypes.BASKET_CONTAINER.get(), BasketScreen::new);
+        MenuScreens.register(ModMenuTypes.FOUNDRY.get(), FoundryScreen::new);
+    }
 
 
 //

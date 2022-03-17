@@ -11,7 +11,6 @@ import net.minecraft.core.Registry;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.Tag;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -34,9 +33,7 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
 
 
     public ToolUseRecipeBuilder(ItemLike result, int count) {
-        super(result,count);
-        this.group = group;
-        this.tool = tool;
+        super(result, count);
         this.result = result.asItem();
         this.count = count;
     }
@@ -48,7 +45,6 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
     public static ToolUseRecipeBuilder build(ItemLike pResult, int pCount) {
         return new ToolUseRecipeBuilder(pResult, pCount);
     }
-
 
 
     public ToolUseRecipeBuilder tool(TagKey<Item> tag) {
@@ -72,12 +68,13 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
 
     @Override
     public ShapelessRecipeBuilder requires(ItemLike pItem, int pQuantity) {
-        for(int i = 0; i < pQuantity; ++i) {
+        for (int i = 0; i < pQuantity; ++i) {
             this.requires(Ingredient.of(pItem));
         }
 
         return this;
     }
+
     @Override
     public ShapelessRecipeBuilder requires(Ingredient pIngredient) {
         return this.requires(pIngredient, 1);
@@ -85,14 +82,12 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
 
     @Override
     public ShapelessRecipeBuilder requires(Ingredient pIngredient, int pQuantity) {
-        for(int i = 0; i < pQuantity; ++i) {
+        for (int i = 0; i < pQuantity; ++i) {
             this.ingredients.add(pIngredient);
         }
 
         return this;
     }
-
-
 
 
     @Override
@@ -105,22 +100,27 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
         this.tool = tool;
         return this;
     }
-    
+
     public RecipeSerializer<?> getType() {
         return ToolUseRecipe.SERIALIZER;
     }
+
     @Override
     public void save(Consumer<FinishedRecipe> finishedRecipeConsumer, ResourceLocation id) {
-        this.advancement.parent(new ResourceLocation("recipes/root")).addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id)).rewards(AdvancementRewards.Builder.recipe(id)).requirements(RequirementsStrategy.OR);
+        this.advancement.parent(new ResourceLocation("recipes/root"))
+            .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(id))
+            .rewards(AdvancementRewards.Builder.recipe(id))
+            .requirements(RequirementsStrategy.OR);
         finishedRecipeConsumer.accept(new ToolUseRecipeBuilder
-                .Result(id,
-                this.result,
-                this.count,
-                this.group == null ? "" : this.group,
-                this.tool,
-                this.ingredients,
-                this.advancement,
-                new ResourceLocation(id.getNamespace(), "recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + id.getPath())));
+            .Result(id,
+            this.result,
+            this.count,
+            this.group == null ? "" : this.group,
+            this.tool,
+            this.ingredients,
+            this.advancement,
+            new ResourceLocation(id.getNamespace(),
+                "recipes/" + this.result.getItemCategory().getRecipeFolderName() + "/" + id.getPath())));
     }
 
 
@@ -134,7 +134,8 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation pId, Item pResult, int pCount, String pGroup, Ingredient tool, List<Ingredient> pIngredients, Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
+        public Result(ResourceLocation pId, Item pResult, int pCount, String pGroup, Ingredient tool,
+            List<Ingredient> pIngredients, Advancement.Builder pAdvancement, ResourceLocation pAdvancementId) {
             this.id = pId;
             this.result = pResult;
             this.count = pCount;
@@ -150,11 +151,11 @@ public class ToolUseRecipeBuilder extends ShapelessRecipeBuilder {
                 pJson.addProperty("group", this.group);
             }
 
-            Ingredient tool =this.tool;
+            Ingredient tool = this.tool;
 
             JsonArray jsonarray = new JsonArray();
 
-            for(Ingredient ingredient : this.ingredients) {
+            for (Ingredient ingredient : this.ingredients) {
                 jsonarray.add(ingredient.toJson());
             }
 

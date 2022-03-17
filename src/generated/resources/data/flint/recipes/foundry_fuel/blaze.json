@@ -1,0 +1,8 @@
+{
+  "type": "flint:foundry_fuel",
+  "input": {
+    "item": "minecraft:blaze_rod"
+  },
+  "heat": 1000,
+  "burnTime": 1600
+}
