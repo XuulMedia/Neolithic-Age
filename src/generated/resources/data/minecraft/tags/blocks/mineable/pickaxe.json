@@ -8,16 +8,16 @@
     "flint:block_bronze",
     "flint:block_steel",
     "flint:cobblestone",
-    "flint:basalt_cobblestone",
-    "flint:deepslate_cobblestone",
-    "flint:netherrack_cobblestone",
-    "flint:sandstone_cobblestone",
-    "flint:blackstone_cobblestone",
-    "flint:endstone_cobblestone",
-    "flint:granite_cobblestone",
-    "flint:tuff_cobblestone",
-    "flint:andesite_cobblestone",
-    "flint:diorite_cobblestone",
-    "flint:calcite_cobblestone"
+    "flint:basalt_cobble",
+    "flint:deepslate_cobble",
+    "flint:netherrack_cobble",
+    "flint:sandstone_cobble",
+    "flint:blackstone_cobble",
+    "flint:endstone_cobble",
+    "flint:granite_cobble",
+    "flint:tuff_cobble",
+    "flint:andesite_cobble",
+    "flint:diorite_cobble",
+    "flint:calcite_cobble"
   ]
 }

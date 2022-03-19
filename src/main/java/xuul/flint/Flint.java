@@ -34,6 +34,7 @@ public class Flint {
     public Flint() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(bus);
+//        ModBlocks.CLASSIC_BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModMenuTypes.MENUS.register(bus);

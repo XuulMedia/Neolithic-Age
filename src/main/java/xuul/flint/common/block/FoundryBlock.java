@@ -10,6 +10,7 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Block;
@@ -23,11 +24,16 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
+import net.minecraft.world.phys.shapes.CollisionContext;
+import net.minecraft.world.phys.shapes.Shapes;
+import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 import org.jetbrains.annotations.Nullable;
 import xuul.flint.common.block.entity.FoundryBlockEntity;
 import xuul.flint.common.init.ModBlockEntities;
 
+import java.util.Optional;
 import java.util.Random;
 
 public class FoundryBlock extends BaseEntityBlock {
@@ -38,6 +44,25 @@ public class FoundryBlock extends BaseEntityBlock {
         super(props);
         this.registerDefaultState(
             this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
+    }
+
+    public static VoxelShape makeShape(){
+        VoxelShape shape = Shapes.empty();
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.0625, 0.1875, 0.125, 0.1875), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.0625, 0.875, 0.125, 0.1875), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.8125, 0.875, 0.125, 0.9375), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.8125, 0.1875, 0.125, 0.9375), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0.125, 0.0625, 0.875, 0.8125, 0.9375), BooleanOp.OR);
+        shape = Shapes.join(shape, Shapes.box(0.0625, 0.8125, 0.3125, 0.875, 1, 0.9375), BooleanOp.OR);
+
+        return shape;
+    }
+
+    private static final Optional<VoxelShape> SHAPE = Optional.of(makeShape());
+
+    @Override
+    public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+        return SHAPE.get();
     }
 
     @Override

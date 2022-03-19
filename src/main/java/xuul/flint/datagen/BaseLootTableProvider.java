@@ -85,6 +85,14 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
         return LootTable.lootTable().withPool(builder);
     }
 
+    protected LootTable.Builder SingleItemDrop(String name ,Item item) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .name(name)
+                .setRolls(ConstantValue.exactly(1))
+                .add(LootItem.lootTableItem(item));
+        return LootTable.lootTable().withPool(builder);
+    }
+
 
 
     /*TODO possibly make sticks only a 50-25% chance*/

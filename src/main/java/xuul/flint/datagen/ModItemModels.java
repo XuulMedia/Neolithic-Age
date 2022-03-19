@@ -22,6 +22,25 @@ public class ModItemModels extends ItemModelProvider {
         withExistingParent(ModItems.BLOCK_SILVER_ITEM.get().getRegistryName().getPath(), modLoc("block/block_silver"));
         withExistingParent(ModItems.BLOCK_BRONZE_ITEM.get().getRegistryName().getPath(), modLoc("block/block_bronze"));
         withExistingParent(ModItems.BLOCK_STEEL_ITEM.get().getRegistryName().getPath(), modLoc("block/block_steel"));
+        withExistingParent(ModItems.FLINT_STATION_ITEM.get().getRegistryName().getPath(), modLoc("block/flint_station"));
+        withExistingParent(ModItems.FLINT_STATION_ITEM.get().getRegistryName().getPath(), modLoc("block/flint_station"));
+
+        withExistingParent(ModItems.THATCH_BLOCK_ITEM.get().getRegistryName().getPath(), modLoc("block/thatch"));
+
+        withExistingParent(ModItems.COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/cobblestone"));
+        withExistingParent(ModItems.BASALT_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/basalt_cobble"));
+        withExistingParent(ModItems.DEEPSLATE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/deepslate_cobble"));
+        withExistingParent(ModItems.NETHERRACK_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/netherrack_cobble"));
+        withExistingParent(ModItems.SANDSTONE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/sandstone_cobble"));
+        withExistingParent(ModItems.BLACKSTONE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/blackstone_cobble"));
+        withExistingParent(ModItems.ENDSTONE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/endstone_cobble"));
+        withExistingParent(ModItems.GRANITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/granite_cobble"));
+        withExistingParent(ModItems.TUFF_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/tuff_cobble"));
+        withExistingParent(ModItems.ANDESITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/andesite_cobble"));
+        withExistingParent(ModItems.DIORITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/diorite_cobble"));
+        withExistingParent(ModItems.CALCITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/calcite_cobble"));
+
+
 
 
 //        singleTexture(ModItems.RAW_TIN.get().getRegistryName().getPath(),
@@ -34,8 +53,10 @@ public class ModItemModels extends ItemModelProvider {
 
         singleTexture(ModItems.PLANT_FIBRE.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/plant_fibre"));
+
         singleTexture(ModItems.BRAIDED_PLANT_FIBRE.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/braided_plant_fibre"));
+
 
         singleTexture(ModItems.HIDE_SMALL.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/hides/hide_small"));
@@ -99,8 +120,8 @@ public class ModItemModels extends ItemModelProvider {
                 mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_hoe"));
 
         /*LOGS*/
-
-
+        singleTexture(ModItems.LOG_OAK.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_oak"));
         singleTexture(ModItems.LOG_ACACIA.get().getRegistryName().getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_acacia"));
         singleTexture(ModItems.LOG_BIRCH.get().getRegistryName().getPath(),
@@ -117,6 +138,26 @@ public class ModItemModels extends ItemModelProvider {
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_spruce"));
         singleTexture(ModItems.LOG_WARPED.get().getRegistryName().getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_warped"));
+
+        /*Planks*/
+        singleTexture(ModItems.PLANK_OAK.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_oak"));
+//        singleTexture(ModItems.PLANK_ACACIA.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_acacia"));
+        singleTexture(ModItems.PLANK_BIRCH.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_birch"));
+        singleTexture(ModItems.PLANK_SPRUCE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_spruce"));
+        singleTexture(ModItems.PLANK_CRIMSON.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_crimson"));
+        singleTexture(ModItems.PLANK_DARK_OAK.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_dark_oak"));
+        singleTexture(ModItems.PLANK_JUNGLE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_jungle"));
+        singleTexture(ModItems.PLANK_SPRUCE.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_spruce"));
+        singleTexture(ModItems.PLANK_WARPED.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_warped"));
 
 
         /*TODO setup layered texture*/
