@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "flint:block/cobble/diorite_cobble",
+    "up": "flint:block/cobble/diorite_cobble",
+    "north": "flint:block/cobble/diorite_cobble",
+    "south": "flint:block/cobble/diorite_cobble",
+    "east": "flint:block/cobble/diorite_cobble",
+    "west": "flint:block/cobble/diorite_cobble"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "flint:block/cobble/netherrack_cobble",
+    "up": "flint:block/cobble/netherrack_cobble",
+    "north": "flint:block/cobble/netherrack_cobble",
+    "south": "flint:block/cobble/netherrack_cobble",
+    "east": "flint:block/cobble/netherrack_cobble",
+    "west": "flint:block/cobble/netherrack_cobble"
+  }
+}

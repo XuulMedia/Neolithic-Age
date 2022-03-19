@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "flint:block/cobble/deepslate_cobble",
+    "up": "flint:block/cobble/deepslate_cobble",
+    "north": "flint:block/cobble/deepslate_cobble",
+    "south": "flint:block/cobble/deepslate_cobble",
+    "east": "flint:block/cobble/deepslate_cobble",
+    "west": "flint:block/cobble/deepslate_cobble"
+  }
+}

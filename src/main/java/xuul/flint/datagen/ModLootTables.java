@@ -1,5 +1,6 @@
 package xuul.flint.datagen;
 
+import net.minecraft.world.level.block.Block;
 import xuul.flint.common.init.ModBlocks;
 import xuul.flint.common.init.ModItems;
 import net.minecraft.data.DataGenerator;
@@ -21,6 +22,8 @@ public class ModLootTables extends BaseLootTableProvider {
         lootTables.put(ModBlocks.ORE_SILVER.get(), createSilkTouchTable("ore_silver", ModBlocks.ORE_SILVER.get(), ModItems.RAW_SILVER.get(), 1, 2));
 
         lootTables.put(ModBlocks.BLOCK_TIN.get(), DropSelfTable("block_tin", ModBlocks.BLOCK_TIN.get()));
+
+        lootTables.put(ModBlocks.FLINT_NODE.get(), SingleItemDrop("flint_from_node", Items.FLINT));
 
         lootTables.put(Blocks.OAK_LOG, createSilkTouchTable("oak_log", Blocks.OAK_LOG, ModItems.LOG_OAK.get(), 1, 1));
         lootTables.put(Blocks.ACACIA_LOG, createSilkTouchTable("acacia_log", Blocks.ACACIA_LOG, ModItems.LOG_ACACIA.get(), 1, 1));

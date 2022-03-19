@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "flint:block/cobble/endstone_cobble",
+    "up": "flint:block/cobble/endstone_cobble",
+    "north": "flint:block/cobble/endstone_cobble",
+    "south": "flint:block/cobble/endstone_cobble",
+    "east": "flint:block/cobble/endstone_cobble",
+    "west": "flint:block/cobble/endstone_cobble"
+  }
+}

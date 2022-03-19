@@ -359,7 +359,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> COBBLESTONE_ITEM = itemFromBlock(ModBlocks.COBBLESTONE,
         STANDARD_STONE_AGE_PROPERTIES);
-    public static final RegistryObject<Item> BASTALT_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.BASALT_COBBLESTONE,
+    public static final RegistryObject<Item> BASALT_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.BASALT_COBBLESTONE,
         STANDARD_STONE_AGE_PROPERTIES);
     public static final RegistryObject<Item> DEEPSLATE_COBBLESTONE_ITEM = itemFromBlock(ModBlocks.DEEPSLATE_COBBLESTONE,
         STANDARD_STONE_AGE_PROPERTIES);
@@ -390,6 +390,9 @@ public class ModItems {
         STANDARD_STONE_AGE_PROPERTIES);
     public static final RegistryObject<Item> FOUNDRY_BLOCK_ITEM = itemFromBlock(ModBlocks.FOUNDRY,
         STANDARD_STONE_AGE_PROPERTIES);
+
+    public static final RegistryObject<Item> FLINT_NODE_ITEM = itemFromBlock(ModBlocks.FLINT_NODE,
+            STANDARD_STONE_AGE_PROPERTIES);
 
 
 }

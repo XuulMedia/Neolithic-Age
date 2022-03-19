@@ -414,12 +414,11 @@ public class ModRecipes extends RecipeProvider {
 
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_AXE.get())
-            .pattern("I")
-            .pattern("x")
-            .pattern("T")
+            .pattern("Ix")
+            .pattern(" T")
             .define('I', ModItems.FLINT_AXE_HEAD.get())
-            .define('x', ModTags.BINDINGS)
-            .define('T', Items.STICK)
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
             .group("flint")
             .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_AXE_HEAD.get()))
             .save(consumer, RL("flint_axe"));
@@ -439,7 +438,7 @@ public class ModRecipes extends RecipeProvider {
         ShapelessRecipeBuilder.shapeless(ModItems.FLINT_SAW.get(), 1)
             .requires(ModItems.FLINT_SAW_HEAD.get())
             .requires(Items.STICK)
-            .unlockedBy("has_stick", has(Items.STICK))
+            .unlockedBy("has_stick", has(ModItems.FLINT_SAW_HEAD.get()))
             .save(consumer, RL("flint_saw"));
 
 
