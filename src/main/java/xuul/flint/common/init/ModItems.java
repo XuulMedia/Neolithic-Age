@@ -84,6 +84,9 @@ public class ModItems {
     public static final RegistryObject<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
         () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().tab(Flint.FLINT_TAB)));
 
+//    public static final RegistryObject<TridentItem> STONE_HSpe = ITEMS.register("stone_hammer",
+//            () -> new TridentItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().tab(Flint.FLINT_TAB)));
+
 
     public static final RegistryObject<SpindleItem> SPINDLE = ITEMS.register("spindle",
         () -> new SpindleItem(ModToolMaterials.FLINT, new Item.Properties().tab(Flint.FLINT_TAB)));
@@ -386,8 +389,7 @@ public class ModItems {
         STANDARD_STONE_AGE_PROPERTIES);
     public static final RegistryObject<Item> THATCH_BLOCK_ITEM = itemFromBlock(ModBlocks.THATCH,
         STANDARD_STONE_AGE_PROPERTIES);
-    public static final RegistryObject<Item> KILN_BLOCK_ITEM = itemFromBlock(ModBlocks.KILN_BLOCK,
-        STANDARD_STONE_AGE_PROPERTIES);
+
     public static final RegistryObject<Item> FOUNDRY_BLOCK_ITEM = itemFromBlock(ModBlocks.FOUNDRY,
         STANDARD_STONE_AGE_PROPERTIES);
 

@@ -2,7 +2,7 @@
   "ambientocclusion": false,
   "textures": {
     "0": "flint:block/flint_node",
-    "particle": "texture"
+    "particle": "flint:block/flint_node"
   },
   "elements": [
     {

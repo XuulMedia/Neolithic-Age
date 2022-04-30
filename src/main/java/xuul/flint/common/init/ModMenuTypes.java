@@ -30,8 +30,6 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<BasketMenu>> BASKET_CONTAINER = MENUS.register("basket",
         () -> IForgeMenuType.create(BasketMenu::createClientMenu));
 
-    public static final RegistryObject<MenuType<KilnMenu>> KILN =
-        registerMenuType(KilnMenu::new, "kiln_menu");
 
     public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY = MENUS.register("foundry",
         () -> IForgeMenuType.create(FoundryMenu::new));

@@ -1,5 +1,16 @@
 {
   "variants": {
-    "" : {"model": "flint:block/thatch"}
+    "axis=x": {
+      "model": "flint:block/thatch_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "flint:block/thatch"
+    },
+    "axis=z": {
+      "model": "flint:block/thatch_horizontal",
+      "x": 90
+    }
   }
 }

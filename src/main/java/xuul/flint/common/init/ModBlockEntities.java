@@ -6,7 +6,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xuul.flint.Flint;
 import xuul.flint.common.block.entity.FoundryBlockEntity;
-import xuul.flint.common.block.entity.KilnBlockEntity;
 
 public class ModBlockEntities {
 
@@ -14,8 +13,6 @@ public class ModBlockEntities {
         ForgeRegistries.BLOCK_ENTITIES, Flint.MOD_ID);
 
 
-    public static final RegistryObject<BlockEntityType<KilnBlockEntity>> KILN = BLOCK_ENTITIES.register("kiln",
-        () -> BlockEntityType.Builder.of(KilnBlockEntity::new, ModBlocks.KILN_BLOCK.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<FoundryBlockEntity>> FOUNDRY = BLOCK_ENTITIES.register("foundry",
         () -> BlockEntityType.Builder.of(FoundryBlockEntity::new, ModBlocks.FOUNDRY.get()).build(null));

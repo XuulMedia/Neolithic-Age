@@ -2,6 +2,7 @@ package xuul.flint;
 
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -34,8 +35,8 @@ public class Flint {
     public Flint() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
         ModBlocks.BLOCKS.register(bus);
-//        ModBlocks.CLASSIC_BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
+        MinecraftForge.EVENT_BUS.register(ModEvents.class);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModMenuTypes.MENUS.register(bus);
         ModRecipeSerializers.RECIPES.register(bus);

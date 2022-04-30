@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "flint:block/flint_station",
 		"1": "block/stone",
-		"particle": "flint:block/flint_station"
+		"particle": "flint:block/flint_node"
 	},
 	"elements": [
 		{
