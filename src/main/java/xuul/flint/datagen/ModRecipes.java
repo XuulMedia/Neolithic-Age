@@ -13,6 +13,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.common.crafting.ConditionalRecipe;
 import xuul.flint.Flint;
 import xuul.flint.common.init.ModBlocks;
 import xuul.flint.common.init.ModItems;
@@ -65,6 +66,24 @@ public class ModRecipes extends RecipeProvider {
             .requires(ModItems.PLANT_FIBRE.get(), 3)
             .unlockedBy("has_plant_fibre", has(ModItems.PLANT_FIBRE.get()))
             .save(consumer);
+
+        ShapelessRecipeBuilder.shapeless(ModItems.YARN.get(), 1)
+                .requires(ModItems.WOOL.get())
+
+                .unlockedBy("has_wool", has(ModItems.WOOL.get()))
+                .save(consumer, RL("yarn_from_wool"));
+
+        ShapelessRecipeBuilder.shapeless(Items.STRING, 1)
+                .requires(ModItems.YARN.get(), 3)
+                .requires(ModItems.SPINDLE.get())
+                .unlockedBy("has_yarn", has(ModItems.YARN.get()))
+                .save(consumer, RL("string_from_yarn"));
+
+        ShapelessRecipeBuilder.shapeless(Blocks.WHITE_WOOL, 1)
+                .requires(ModItems.WOOL.get(), 4)
+                .unlockedBy("has_wool", has(ModItems.WOOL.get()))
+                .save(consumer, RL("wool_block_from_wool"));
+
 
 
 
@@ -468,6 +487,25 @@ public class ModRecipes extends RecipeProvider {
             .save(consumer);
 
 
+        CustomRecipeBuilder.clayShaping(Ingredient.of(ModTags.CLAY), ModItems.UNFIRED_CLAY_JUG.get(), 1)
+                .unlockedBy("has_clay", has(ModTags.CLAY))
+                .save(consumer);
+
+
+        /*Wood Plank*/
+        ShapedRecipeBuilder.shaped(Items.CHEST)
+                .pattern("xxx")
+                .pattern("x x")
+                .pattern("xxx")
+                .define('x', ModTags.PLANKS)
+                .group("flint")
+                .unlockedBy("planks", has(ModTags.PLANKS))
+                .save(consumer);
+
+
+
+
+
         new FoundryFuelRecipeBuilder(Ingredient.of(ItemTags.LOGS_THAT_BURN), 300, 20 * 10 * 4)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry_fuel/logs"));
@@ -492,9 +530,12 @@ public class ModRecipes extends RecipeProvider {
 
         /*Flint from gravel*/
         ShapelessRecipeBuilder.shapeless(Items.FLINT)
-            .requires(Blocks.GRAVEL, 2)
+            .requires(Blocks.GRAVEL, 3)
             .unlockedBy("has_gravel", has(Blocks.GRAVEL))
             .save(consumer, RL("flint_from_gravel"));
+
+        /*TODO Conditional Recipe*/
+//        ConditionalRecipe.builder().addRecipe(Items.TORCH)
 
 
     }

@@ -167,6 +167,9 @@ public class ModBlocks {
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = BLOCKS.register("flint_station",
             FlintStationBlock::new);
 
+    public static final RegistryObject<FlintStationBlock> CLAY_SHAPING_STATION = BLOCKS.register("pottery_wheel",
+            FlintStationBlock::new);
+
 
     public static final RegistryObject<FoundryBlock> FOUNDRY = BLOCKS.register("foundry",
             () -> new FoundryBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)));

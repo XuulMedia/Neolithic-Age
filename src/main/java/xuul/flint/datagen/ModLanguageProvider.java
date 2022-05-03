@@ -22,6 +22,47 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.ORE_TIN.get(), "Tin Ore");
         add(ModBlocks.ORE_SILVER.get(), "Nether Silver Ore");
 
+        add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
+        add(ModItems.BRAIDED_PLANT_FIBRE.get(), "Braided Plant Fibre");
+
+        add(ModItems.WOOL.get(), "Wool");
+        add(ModItems.YARN.get(), "Yarn");
+        add(ModItems.SPINDLE.get(), "Spindle");
+
+
+        add(ModItems.BASKET.get(), "Basket");
+
+        add(ModItems.HIDE_SMALL.get(), "Small Hide");
+        add(ModItems.HIDE_MEDIUM.get(), "Medium Hide");
+        add(ModItems.HIDE_LARGE.get(), "Large Hide");
+
+        add(ModItems.UNFIRED_CLAY_JUG.get(), "Unfired Jug");
+        add(ModItems.UNFIRED_CLAY_BUCKET.get(), "Unfired Clay Bucket");
+        add(ModItems.UNFIRED_CLAY_VIAL.get(), "Unfired Clay Vial");
+
+        add(ModItems.CLAY_VIAL.get(), "Clay Vial");
+
+        add(ModItems.BRONZE_SWORD.get(), "Bronze Sword");
+        add(ModItems.BRONZE_PICK.get(), "Bronze Pick");
+        add(ModItems.BRONZE_SHOVEL.get(), "Bronze Shovel");
+        add(ModItems.BRONZE_AXE.get(), "Bronze Axe");
+        add(ModItems.BRONZE_HOE.get(), "Bronze Hoe");
+        add(ModItems.BRONZE_HELMET.get(), "Bronze Helmet");
+        add(ModItems.BRONZE_CHEST.get(), "Bronze Chest");
+        add(ModItems.BRONZE_LEGS.get(), "Bronze Legs");
+        add(ModItems.BRONZE_BOOTS.get(), "Bronze Boots");
+
+        add(ModItems.FLINT_KNIFE.get(), "Flint Knife");
+        add(ModItems.FLINT_PICK.get(), "Flint Pick");
+        add(ModItems.FLINT_SHOVEL.get(), "Flint Shovel");
+        add(ModItems.FLINT_AXE.get(), "Flint Axe");
+        add(ModItems.FLINT_HOE.get(), "Flint Hoe");
+        add(ModItems.FLINT_SAW.get(), "Flint Saw");
+        add(ModItems.STONE_HAMMER.get(), "Stone Hammer");
+        add(ModItems.STONE_SPEAR.get(), "Flint Spear");
+
+
+
         add(ModBlocks.COBBLESTONE.get(), "Cobblestone");
         add(ModBlocks.BASALT_COBBLESTONE.get(), "Basalt Cobblestone");
         add(ModBlocks.DEEPSLATE_COBBLESTONE.get(), "Deepslate Cobblestone");
@@ -63,32 +104,11 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.DUST_CALCITE.get(), "Calcite Dust");
 
 
-        add(ModItems.FLINT_PICK.get(), "Flint Pick");
-        add(ModItems.FLINT_SHOVEL.get(), "Flint Shovel");
-        add(ModItems.FLINT_AXE.get(), "Flint Axe");
-        add(ModItems.FLINT_HOE.get(), "Flint Hoe");
-        add(ModItems.FLINT_SAW.get(), "Flint Saw");
-        add(ModItems.STONE_HAMMER.get(), "Stone Hammer");
-
-
-        add(ModItems.BRONZE_SWORD.get(), "Bronze Sword");
-        add(ModItems.BRONZE_PICK.get(), "Bronze Pick");
-        add(ModItems.BRONZE_SHOVEL.get(), "Bronze Shovel");
-        add(ModItems.BRONZE_AXE.get(), "Bronze Axe");
-        add(ModItems.BRONZE_HOE.get(), "Bronze Hoe");
-        add(ModItems.BRONZE_HELMET.get(), "Bronze Helmet");
-        add(ModItems.BRONZE_CHEST.get(), "Bronze Chest");
-        add(ModItems.BRONZE_LEGS.get(), "Bronze Legs");
-        add(ModItems.BRONZE_BOOTS.get(), "Bronze Boots");
-
-
         add(ModBlocks.BLOCK_TIN.get(), "Tin Block");
         add(ModBlocks.BLOCK_SILVER.get(), "Silver Block");
         add(ModBlocks.BLOCK_BRONZE.get(), "Bronze Block");
         add(ModBlocks.BLOCK_STEEL.get(), "Steel Block");
 
-        add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
-        add(ModItems.BRAIDED_PLANT_FIBRE.get(), "Braided Plant Fibre");
 
         add(ModItems.LOG_ACACIA.get(), "Acacia Log");
         add(ModItems.LOG_AZALEA.get(), "Azalea Log");
@@ -163,27 +183,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CLAY_NETHERRACK.get(),"Netherrack Clay");
         add(ModItems.CLAY_BLACKSTONE.get(),"Blackstone Clay");
         add(ModItems.CLAY_CALCITE.get(),"Calcite Clay");
-
-
-        add(ModItems.HIDE_SMALL.get(), "Small Hide");
-        add(ModItems.HIDE_MEDIUM.get(), "Medium Hide");
-        add(ModItems.HIDE_LARGE.get(), "Large Hide");
-
-        add(ModItems.BASKET.get(), "Basket");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

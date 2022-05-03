@@ -23,7 +23,7 @@ public class ModItemModels extends ItemModelProvider {
         withExistingParent(ModItems.BLOCK_BRONZE_ITEM.get().getRegistryName().getPath(), modLoc("block/block_bronze"));
         withExistingParent(ModItems.BLOCK_STEEL_ITEM.get().getRegistryName().getPath(), modLoc("block/block_steel"));
         withExistingParent(ModItems.FLINT_STATION_ITEM.get().getRegistryName().getPath(), modLoc("block/flint_station"));
-        withExistingParent(ModItems.FLINT_STATION_ITEM.get().getRegistryName().getPath(), modLoc("block/flint_station"));
+
 
         withExistingParent(ModItems.THATCH_BLOCK_ITEM.get().getRegistryName().getPath(), modLoc("block/thatch"));
 
@@ -57,6 +57,17 @@ public class ModItemModels extends ItemModelProvider {
         singleTexture(ModItems.BRAIDED_PLANT_FIBRE.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/braided_plant_fibre"));
 
+//        singleTexture(ModItems.WOOL.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),"layer0", modLoc("item/wool"));
+//
+//        singleTexture(ModItems.YARN.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),"layer0", modLoc("item/yarn"));
+
+
+
+        singleTexture(ModItems.BASKET.get().getRegistryName().getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/basket"));
+
 
         singleTexture(ModItems.HIDE_SMALL.get().getRegistryName().getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/hides/hide_small"));
@@ -66,8 +77,16 @@ public class ModItemModels extends ItemModelProvider {
                 mcLoc("item/generated"),"layer0", modLoc("item/hides/hide_large"));
 
 
-        singleTexture(ModItems.BASKET.get().getRegistryName().getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/basket"));
+//        singleTexture(ModItems.UNFIRED_CLAY_JUG.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_jug"));
+//        singleTexture(ModItems.UNFIRED_CLAY_BUCKET.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_bucket"));
+//        singleTexture(ModItems.UNFIRED_CLAY_VIAL.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_vial"));
+//
+//        singleTexture(ModItems.CLAY_VIAL.get().getRegistryName().getPath(),
+//                mcLoc("item/generated"),"layer0", modLoc("item/clay_vial"));
+
 
 
 
@@ -304,6 +323,8 @@ public class ModItemModels extends ItemModelProvider {
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_axe"));
       singleTexture(ModItems.FLINT_HOE_HEAD.get().getRegistryName().getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_hoe"));
+        singleTexture(ModItems.FLINT_SAW_HEAD.get().getRegistryName().getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_saw"));
 
 
 

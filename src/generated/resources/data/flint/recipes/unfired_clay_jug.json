@@ -1,0 +1,8 @@
+{
+  "type": "flint:slay_shaping",
+  "ingredient": {
+    "tag": "flint:clay"
+  },
+  "result": "flint:unfired_clay_jug",
+  "count": 1
+}

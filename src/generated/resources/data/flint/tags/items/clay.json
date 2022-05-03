@@ -1,0 +1,20 @@
+{
+  "replace": false,
+  "values": [
+    "flint:clay_andesite",
+    "flint:clay_stone",
+    "flint:clay_andesite",
+    "flint:clay_deepslate",
+    "flint:clay_dripstone",
+    "flint:clay_sandstone",
+    "flint:clay_diorite",
+    "flint:clay_granite",
+    "flint:clay_basalt",
+    "flint:clay_tuff",
+    "flint:clay_netherrack",
+    "flint:clay_blackstone",
+    "flint:clay_endstone",
+    "flint:clay_calcite",
+    "minecraft:clay_ball"
+  ]
+}

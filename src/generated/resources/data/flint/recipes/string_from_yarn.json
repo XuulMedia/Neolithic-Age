@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "flint:yarn"
+    },
+    {
+      "item": "flint:yarn"
+    },
+    {
+      "item": "flint:yarn"
+    },
+    {
+      "item": "flint:spindle"
+    }
+  ],
+  "result": {
+    "item": "minecraft:string"
+  }
+}

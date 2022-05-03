@@ -1,6 +1,8 @@
 package xuul.flint.common.init;
 
+import net.minecraft.client.renderer.EffectInstance;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
@@ -33,6 +35,17 @@ public class ModItems {
     public static final RegistryObject<Item> BRAIDED_PLANT_FIBRE = ITEMS.register("braided_plant_fibre",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
+    /*Wool*/
+    public static final RegistryObject<Item> WOOL = ITEMS.register("wool",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> YARN = ITEMS.register("yarn",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<SpindleItem> SPINDLE = ITEMS.register("spindle",
+            () -> new SpindleItem(ModToolMaterials.FLINT, new Item.Properties().tab(Flint.FLINT_TAB).durability(100)));
+
+
+    /*Containers*/
+
     public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
         () -> new BasketItem(new Item.Properties().tab(Flint.METAL_TAB).stacksTo(1)));
 
@@ -44,6 +57,21 @@ public class ModItems {
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> HIDE_LARGE = ITEMS.register("hide_large",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+
+    /*Clay Objects*/
+    public static final RegistryObject<Item> UNFIRED_CLAY_JUG = ITEMS.register("unfired_clay_jug",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = ITEMS.register("unfired_clay_bucket",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> UNFIRED_CLAY_VIAL = ITEMS.register("unfired_clay_vial",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+
+
+    public static final RegistryObject<BottleItem> CLAY_VIAL = ITEMS.register("clay_vial",
+            () -> new BottleItem(STANDARD_STONE_AGE_PROPERTIES));
+
+
+
     /*TOOLS*/
     //Req Material, Damage, attack speed and repair item
 
@@ -84,12 +112,11 @@ public class ModItems {
     public static final RegistryObject<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
         () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().tab(Flint.FLINT_TAB)));
 
-//    public static final RegistryObject<TridentItem> STONE_HSpe = ITEMS.register("stone_hammer",
-//            () -> new TridentItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().tab(Flint.FLINT_TAB)));
+    public static final RegistryObject<TridentItem> STONE_SPEAR = ITEMS.register("stone_spear",
+            () -> new TridentItem(new Item.Properties().tab(Flint.FLINT_TAB).durability(100)));
 
 
-    public static final RegistryObject<SpindleItem> SPINDLE = ITEMS.register("spindle",
-        () -> new SpindleItem(ModToolMaterials.FLINT, new Item.Properties().tab(Flint.FLINT_TAB)));
+
 
 
     /*TOOLHEADS*/
@@ -127,6 +154,12 @@ public class ModItems {
 
     public static final RegistryObject<ArmorItem> BRONZE_BOOTS = ITEMS.register("bronze_boots",
         () -> new ArmorItem(ModArmorMaterial.BRONZE, EquipmentSlot.FEET, new Item.Properties().tab(Flint.METAL_TAB)));
+
+
+    /*FOOD*/
+    public static final RegistryObject<Item> SALVE = ITEMS.register("salve",
+            () -> new Item(new Item.Properties().food((ModFoods.SALVE)).tab(Flint.FLINT_TAB)));
+
 
 
     /*ORE CHUNKS*/

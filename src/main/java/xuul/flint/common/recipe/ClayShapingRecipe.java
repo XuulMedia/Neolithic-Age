@@ -92,10 +92,10 @@ public class ClayShapingRecipe  implements Recipe<Container> {
         return CLAY_SHAPING_RECIPE_TYPE;
     }
 
-//    @Override
-//    public ItemStack getToastSymbol() {
-//        return new ItemStack(ModBlocks.FLINT_STATION.get());
-//    }
+    @Override
+    public ItemStack getToastSymbol() {
+        return new ItemStack(ModBlocks.CLAY_SHAPING_STATION.get());
+    }
 
     public Ingredient getPattern() {
         return ingredient != null ? ingredient : Ingredient.EMPTY;

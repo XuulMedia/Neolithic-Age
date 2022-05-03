@@ -29,6 +29,9 @@ public class ModTags {
     public static final TagKey<Item> PLANT_FIBRE = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "plant_fibre"));
 
 
+    public static final TagKey<Item> CLAY = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "clay"));
+
+
     /*BlockTags*/
     public static final TagKey<Block> MINEABLE_WITH_HAMMER = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(Flint.MOD_ID, "plant_fibre"));
 

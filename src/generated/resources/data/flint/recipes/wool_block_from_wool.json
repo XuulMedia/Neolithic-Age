@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "flint:wool"
+    },
+    {
+      "item": "flint:wool"
+    },
+    {
+      "item": "flint:wool"
+    },
+    {
+      "item": "flint:wool"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_wool"
+  }
+}

@@ -1,5 +1,6 @@
 package xuul.flint.datagen;
 
+import net.minecraft.world.item.Item;
 import xuul.flint.Flint;
 import xuul.flint.common.init.ModItems;
 import xuul.flint.common.init.ModTags;
@@ -46,6 +47,24 @@ public class ModItemTags extends ItemTagsProvider {
 
         tag(ModTags.KNIVES)
                 .add(ModItems.FLINT_KNIFE.get());
+
+
+        tag(ModTags.CLAY)
+                .add(ModItems.CLAY_ANDESITE.get())
+                .add(ModItems.CLAY_STONE.get())
+                .add(ModItems.CLAY_ANDESITE.get())
+                .add(ModItems.CLAY_DEEPSLATE.get())
+                .add(ModItems.CLAY_DRIPSTONE.get())
+                .add(ModItems.CLAY_SANDSTONE.get())
+                .add(ModItems.CLAY_DIORITE.get())
+                .add(ModItems.CLAY_GRANITE.get())
+                .add(ModItems.CLAY_BASALT.get())
+                .add(ModItems.CLAY_TUFF.get())
+                .add(ModItems.CLAY_NETHERRACK.get())
+                .add(ModItems.CLAY_BLACKSTONE.get())
+                .add(ModItems.CLAY_ENDSTONE.get())
+                .add(ModItems.CLAY_CALCITE.get())
+                .add(Items.CLAY_BALL);
 
 
 

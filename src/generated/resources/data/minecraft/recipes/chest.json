@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "flint",
+  "pattern": [
+    "xxx",
+    "x x",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "tag": "flint:planks"
+    }
+  },
+  "result": {
+    "item": "minecraft:chest"
+  }
+}

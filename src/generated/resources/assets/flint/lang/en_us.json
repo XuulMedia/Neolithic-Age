@@ -73,6 +73,7 @@
   "item.flint.clay_netherrack": "Netherrack Clay",
   "item.flint.clay_stone": "Stone Clay",
   "item.flint.clay_tuff": "Tuff Clay",
+  "item.flint.clay_vial": "Clay Vial",
   "item.flint.dust_andesite": "Andesite Dust",
   "item.flint.dust_basalt": "Basalt Dust",
   "item.flint.dust_blackstone": "Blackstone Dust",
@@ -95,6 +96,7 @@
   "item.flint.dust_tuff": "Tuff Dust",
   "item.flint.flint_axe": "Flint Axe",
   "item.flint.flint_hoe": "Flint Hoe",
+  "item.flint.flint_knife": "Flint Knife",
   "item.flint.flint_pickaxe": "Flint Pick",
   "item.flint.flint_saw": "Flint Saw",
   "item.flint.flint_shovel": "Flint Shovel",
@@ -126,7 +128,14 @@
   "item.flint.plank_oak": "Oak Plank",
   "item.flint.plank_warped": "Warped Plank",
   "item.flint.plant_fibre": "Plant Fibre",
+  "item.flint.spindle": "Spindle",
   "item.flint.stone_hammer": "Stone Hammer",
-  "itemGroup.xuul.flint.Flint$1@682d0957": "Stone Age",
-  "itemGroup.xuul.flint.Flint$2@6023b6d2": "Metal Age"
+  "item.flint.stone_spear": "Flint Spear",
+  "item.flint.unfired_clay_bucket": "Unfired Clay Bucket",
+  "item.flint.unfired_clay_jug": "Unfired Jug",
+  "item.flint.unfired_clay_vial": "Unfired Clay Vial",
+  "item.flint.wool": "Wool",
+  "item.flint.yarn": "Yarn",
+  "itemGroup.xuul.flint.Flint$1@791bdaff": "Stone Age",
+  "itemGroup.xuul.flint.Flint$2@4bdea421": "Metal Age"
 }
