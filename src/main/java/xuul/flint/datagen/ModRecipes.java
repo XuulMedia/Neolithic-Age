@@ -14,6 +14,8 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
+import net.minecraftforge.common.crafting.CraftingHelper;
+import net.minecraftforge.common.crafting.conditions.FalseCondition;
 import xuul.flint.Flint;
 import xuul.flint.common.init.ModBlocks;
 import xuul.flint.common.init.ModItems;
@@ -23,6 +25,7 @@ import xuul.flint.datagen.builders.FoundryFuelRecipeBuilder;
 import xuul.flint.datagen.builders.FoundryRecipeBuilder;
 import xuul.flint.datagen.builders.ToolUseRecipeBuilder;
 
+import javax.json.Json;
 import java.util.function.Consumer;
 
 public class ModRecipes extends RecipeProvider {
@@ -487,9 +490,33 @@ public class ModRecipes extends RecipeProvider {
             .save(consumer);
 
 
-        CustomRecipeBuilder.clayShaping(Ingredient.of(ModTags.CLAY), ModItems.UNFIRED_CLAY_JUG.get(), 1)
+
+        /*CLAY */
+        ShapedRecipeBuilder.shaped(ModItems.UNFIRED_CLAY_JUG.get())
+                .pattern("xxx")
+                .pattern("x x")
+                .pattern("xxx")
+                .define('x', ModTags.CLAY)
+                .group("flint")
                 .unlockedBy("has_clay", has(ModTags.CLAY))
-                .save(consumer);
+                .save(consumer, RL("unfired_clay_jug"));
+
+        ShapedRecipeBuilder.shaped(ModItems.UNFIRED_CLAY_BUCKET.get())
+                .pattern("x x")
+                .pattern("x x")
+                .pattern("xxx")
+                .define('x', ModTags.CLAY)
+                .group("flint")
+                .unlockedBy("has_clay", has(ModTags.CLAY))
+                .save(consumer, RL("unfired_clay_bucket"));
+
+        ShapedRecipeBuilder.shaped(ModItems.UNFIRED_CLAY_VIAL.get())
+                .pattern("x x")
+                .pattern(" x ")
+                .define('x', ModTags.CLAY)
+                .group("flint")
+                .unlockedBy("has_clay", has(ModTags.CLAY))
+                .save(consumer, RL("unfired_clay_vial"));
 
 
         /*Wood Plank*/
@@ -506,6 +533,7 @@ public class ModRecipes extends RecipeProvider {
 
 
 
+        /*Foundry Fuels*/
         new FoundryFuelRecipeBuilder(Ingredient.of(ItemTags.LOGS_THAT_BURN), 300, 20 * 10 * 4)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry_fuel/logs"));
@@ -516,11 +544,18 @@ public class ModRecipes extends RecipeProvider {
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry_fuel/blaze"));
 
+        /*Foundry Cooks*/
+        new FoundryRecipeBuilder(Ingredient.of(Items.STICK), Items.TORCH, 2, 300)
+                .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
+                .save(consumer, RL("foundry/torch"));
+
+
 
         // of course, you ought to make your own recipes here
         new FoundryRecipeBuilder(Ingredient.of(Items.STICK), Items.TORCH, 2, 300)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry/torch"));
+
         new FoundryRecipeBuilder(Ingredient.of(ItemTags.SAND), Items.GLASS, 1, 500)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry/glass"));
@@ -534,8 +569,10 @@ public class ModRecipes extends RecipeProvider {
             .unlockedBy("has_gravel", has(Blocks.GRAVEL))
             .save(consumer, RL("flint_from_gravel"));
 
+
+
         /*TODO Conditional Recipe*/
-//        ConditionalRecipe.builder().addRecipe(Items.TORCH)
+        ConditionalRecipe.builder().addCondition(FalseCondition.INSTANCE).build(consumer, new ResourceLocation("torch"));
 
 
     }
