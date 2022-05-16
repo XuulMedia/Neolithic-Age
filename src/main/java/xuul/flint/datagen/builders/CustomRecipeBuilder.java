@@ -6,6 +6,7 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.ConditionalRecipe;
 import xuul.flint.common.recipe.FlintStationRecipe;
+import xuul.flint.common.recipe.GrindstoneRecipe;
 
 public class CustomRecipeBuilder extends SingleItemRecipeBuilder {
     public CustomRecipeBuilder(RecipeSerializer<?> pType, Ingredient pIngredient, ItemLike pResult, int pCount) {
@@ -14,6 +15,10 @@ public class CustomRecipeBuilder extends SingleItemRecipeBuilder {
 
     public static SingleItemRecipeBuilder flintstation(Ingredient pIngredient, ItemLike pResult, int pCount) {
         return new SingleItemRecipeBuilder(FlintStationRecipe.SERIALIZER, pIngredient, pResult, pCount);
+    }
+
+    public static SingleItemRecipeBuilder grindstone(Ingredient pIngredient, ItemLike pResult, int pCount) {
+        return new SingleItemRecipeBuilder(GrindstoneRecipe.SERIALIZER, pIngredient, pResult, pCount);
     }
 
 

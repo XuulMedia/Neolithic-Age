@@ -399,7 +399,6 @@ public class ModRecipes extends RecipeProvider {
 
 
 
-
         /*TOOLS*/
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_KNIFE.get())
@@ -488,6 +487,12 @@ public class ModRecipes extends RecipeProvider {
         CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SAW_HEAD.get(), 1)
             .unlockedBy("has_flint", has(Items.FLINT))
             .save(consumer);
+
+        /*Grindstone*/
+        CustomRecipeBuilder.grindstone(Ingredient.of(ModItems.CHUNK_STONE.get()), ModItems.DUST_STONE.get(), 1)
+                .unlockedBy("has_stone", has(Items.FLINT))
+                .save(consumer);
+
 
 
 

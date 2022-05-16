@@ -1,0 +1,8 @@
+{
+  "type": "flint:grindstone",
+  "ingredient": {
+    "item": "flint:chunk_stone"
+  },
+  "result": "flint:dust_stone",
+  "count": 1
+}

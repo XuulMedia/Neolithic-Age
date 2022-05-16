@@ -2,9 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "group": "flint",
   "pattern": [
-    "xxx",
     "x x",
-    "xxx"
+    " x "
   ],
   "key": {
     "x": {
@@ -12,6 +11,6 @@
     }
   },
   "result": {
-    "item": "flint:unfired_clay_jug"
+    "item": "flint:unfired_clay_vial"
   }
 }

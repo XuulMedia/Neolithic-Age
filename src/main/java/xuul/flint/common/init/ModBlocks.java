@@ -11,6 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import xuul.flint.Flint;
 import xuul.flint.common.block.*;
+import xuul.flint.common.block.GrindstoneBlock;
 
 public class ModBlocks {
     private ModBlocks() {
@@ -166,6 +167,10 @@ public class ModBlocks {
     /*FlintStation*/
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = BLOCKS.register("flint_station",
             FlintStationBlock::new);
+
+
+    public static final RegistryObject<GrindstoneBlock> GRINDSTONE = BLOCKS.register("grindstone",
+            GrindstoneBlock::new);
 
 
     public static final RegistryObject<FoundryBlock> FOUNDRY = BLOCKS.register("foundry",

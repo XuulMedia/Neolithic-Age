@@ -27,6 +27,11 @@ public final class ModMenuTypes {
         () -> IForgeMenuType.create(
             (windowId, inv, data) -> new FlintStationMenu(windowId, data.readBlockPos(), inv, inv.player)));
 
+    public static final RegistryObject<MenuType<GrindstoneMenu>> GRINDSTONE_CONTAINER = MENUS.register(
+            "grindstone",
+            () -> IForgeMenuType.create(
+                    (windowId, inv, data) -> new GrindstoneMenu(windowId, data.readBlockPos(), inv, inv.player)));
+
     public static final RegistryObject<MenuType<BasketMenu>> BASKET_CONTAINER = MENUS.register("basket",
         () -> IForgeMenuType.create(BasketMenu::createClientMenu));
 
