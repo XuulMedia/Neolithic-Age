@@ -1,10 +1,10 @@
 {
   "type": "minecraft:smelting",
+  "cookingtime": 100,
+  "experience": 1.0,
   "group": "flint",
   "ingredient": {
-    "item": "flint:ore_tin"
+    "item": "minecraft:air"
   },
-  "result": "flint:ingot_tin",
-  "experience": 1.0,
-  "cookingtime": 100
+  "result": "minecraft:air"
 }

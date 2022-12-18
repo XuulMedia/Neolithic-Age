@@ -1,8 +1,8 @@
 package xuul.flint.datagen;
 
 import xuul.flint.Flint;
-import xuul.flint.common.init.ModBlocks;
-import xuul.flint.common.init.ModItems;
+import xuul.flint.init.ModBlocks;
+import xuul.flint.init.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.common.data.LanguageProvider;
 

@@ -13,19 +13,15 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.common.crafting.ConditionalRecipe;
-import net.minecraftforge.common.crafting.CraftingHelper;
-import net.minecraftforge.common.crafting.conditions.FalseCondition;
 import xuul.flint.Flint;
-import xuul.flint.common.init.ModBlocks;
-import xuul.flint.common.init.ModItems;
-import xuul.flint.common.init.ModTags;
+import xuul.flint.init.ModBlocks;
+import xuul.flint.init.ModItems;
+import xuul.flint.init.ModTags;
 import xuul.flint.datagen.builders.CustomRecipeBuilder;
 import xuul.flint.datagen.builders.FoundryFuelRecipeBuilder;
 import xuul.flint.datagen.builders.FoundryRecipeBuilder;
 import xuul.flint.datagen.builders.ToolUseRecipeBuilder;
 
-import javax.json.Json;
 import java.util.function.Consumer;
 
 public class ModRecipes extends RecipeProvider {
@@ -555,15 +551,10 @@ public class ModRecipes extends RecipeProvider {
                 .save(consumer, RL("foundry/torch"));
 
 
-
-        // of course, you ought to make your own recipes here
-        new FoundryRecipeBuilder(Ingredient.of(Items.STICK), Items.TORCH, 2, 300)
-            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-            .save(consumer, RL("foundry/torch"));
-
         new FoundryRecipeBuilder(Ingredient.of(ItemTags.SAND), Items.GLASS, 1, 500)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry/glass"));
+
         new FoundryRecipeBuilder(Ingredient.of(Items.DIRT), Items.DIAMOND, 1, 1000)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry/dirt_to_diamond"));
@@ -577,7 +568,7 @@ public class ModRecipes extends RecipeProvider {
 
 
         /*TODO Conditional Recipe*/
-        ConditionalRecipe.builder().addCondition(FalseCondition.INSTANCE).build(consumer, new ResourceLocation("torch"));
+//        ConditionalRecipe.builder().addCondition(FalseCondition.INSTANCE).build(consumer, new ResourceLocation("torch"));
 
 
     }
@@ -586,7 +577,7 @@ public class ModRecipes extends RecipeProvider {
         return new ResourceLocation(Flint.MOD_ID, string);
     }
 
-    private static InventoryChangeTrigger.TriggerInstance has(MinMaxBounds.Ints pCount, ItemLike pItem) {
+    public static InventoryChangeTrigger.TriggerInstance has(MinMaxBounds.Ints pCount, ItemLike pItem) {
         return inventoryTrigger(ItemPredicate.Builder.item().of(pItem).withCount(pCount).build());
     }
 
@@ -597,7 +588,7 @@ public class ModRecipes extends RecipeProvider {
         return inventoryTrigger(ItemPredicate.Builder.item().of(pItemLike).build());
     }
 
-    private static InventoryChangeTrigger.TriggerInstance has(TagKey<Item> tagKey) {
+    public static InventoryChangeTrigger.TriggerInstance has(TagKey<Item> tagKey) {
         return inventoryTrigger(ItemPredicate.Builder.item().of(tagKey).build());
     }
 }

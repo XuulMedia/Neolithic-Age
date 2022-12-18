@@ -2,13 +2,13 @@ package xuul.flint.datagen;
 
 import net.minecraft.world.level.block.Blocks;
 import xuul.flint.Flint;
-import xuul.flint.common.init.ModBlocks;
+import xuul.flint.init.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.tags.BlockTags;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
-import xuul.flint.common.init.ModTags;
+import xuul.flint.init.ModTags;
 
 public class ModBlockTags extends BlockTagsProvider {
 

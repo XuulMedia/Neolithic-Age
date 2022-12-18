@@ -14,7 +14,7 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import org.jetbrains.annotations.Nullable;
-import xuul.flint.common.recipe.FoundryFuelRecipe;
+import xuul.flint.recipe.FoundryFuelRecipe;
 
 import java.util.function.Consumer;
 

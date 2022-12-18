@@ -1,8 +1,7 @@
 package xuul.flint.datagen;
 
-import net.minecraft.world.level.block.Block;
-import xuul.flint.common.init.ModBlocks;
-import xuul.flint.common.init.ModItems;
+import xuul.flint.init.ModBlocks;
+import xuul.flint.init.ModItems;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;

@@ -1,9 +1,8 @@
 package xuul.flint.datagen;
 
-import net.minecraft.world.item.Item;
 import xuul.flint.Flint;
-import xuul.flint.common.init.ModItems;
-import xuul.flint.common.init.ModTags;
+import xuul.flint.init.ModItems;
+import xuul.flint.init.ModTags;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;

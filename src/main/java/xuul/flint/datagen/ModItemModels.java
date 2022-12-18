@@ -3,8 +3,9 @@ package xuul.flint.datagen;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import xuul.flint.Flint;
-import xuul.flint.common.init.ModItems;
+import xuul.flint.init.ModItems;
 
 public class ModItemModels extends ItemModelProvider {
 
@@ -12,318 +13,316 @@ public class ModItemModels extends ItemModelProvider {
         super(generator, Flint.MOD_ID, existingFileHelper);
     }
 
-
-//This function registers the items to a texture. Existing parent is for blocks that have been set up under Block States it references them
     @Override
     protected void registerModels() {
-        withExistingParent(ModItems.ORE_TIN_ITEM.get().getRegistryName().getPath(), modLoc("block/ore_tin"));
-        withExistingParent(ModItems.ORE_SILVER_ITEM.get().getRegistryName().getPath(), modLoc("block/ore_nether_silver"));
-        withExistingParent(ModItems.BLOCK_TIN_ITEM.get().getRegistryName().getPath(), modLoc("block/block_tin"));
-        withExistingParent(ModItems.BLOCK_SILVER_ITEM.get().getRegistryName().getPath(), modLoc("block/block_silver"));
-        withExistingParent(ModItems.BLOCK_BRONZE_ITEM.get().getRegistryName().getPath(), modLoc("block/block_bronze"));
-        withExistingParent(ModItems.BLOCK_STEEL_ITEM.get().getRegistryName().getPath(), modLoc("block/block_steel"));
-        withExistingParent(ModItems.FLINT_STATION_ITEM.get().getRegistryName().getPath(), modLoc("block/flint_station"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.ORE_TIN_ITEM.get()).getPath(), modLoc("block/ore_tin"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.ORE_SILVER_ITEM.get()).getPath(), modLoc("block/ore_nether_silver"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.BLOCK_TIN_ITEM.get()).getPath(), modLoc("block/block_tin"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.BLOCK_SILVER_ITEM.get()).getPath(), modLoc("block/block_silver"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.BLOCK_BRONZE_ITEM.get()).getPath(), modLoc("block/block_bronze"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.BLOCK_STEEL_ITEM.get()).getPath(), modLoc("block/block_steel"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_STATION_ITEM.get()).getPath(), modLoc("block/flint_station"));
 
 
-        withExistingParent(ModItems.THATCH_BLOCK_ITEM.get().getRegistryName().getPath(), modLoc("block/thatch"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.THATCH_BLOCK_ITEM.get()).getPath(), modLoc("block/thatch"));
 
-        withExistingParent(ModItems.COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/cobblestone"));
-        withExistingParent(ModItems.BASALT_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/basalt_cobble"));
-        withExistingParent(ModItems.DEEPSLATE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/deepslate_cobble"));
-        withExistingParent(ModItems.NETHERRACK_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/netherrack_cobble"));
-        withExistingParent(ModItems.SANDSTONE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/sandstone_cobble"));
-        withExistingParent(ModItems.BLACKSTONE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/blackstone_cobble"));
-        withExistingParent(ModItems.ENDSTONE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/endstone_cobble"));
-        withExistingParent(ModItems.GRANITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/granite_cobble"));
-        withExistingParent(ModItems.TUFF_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/tuff_cobble"));
-        withExistingParent(ModItems.ANDESITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/andesite_cobble"));
-        withExistingParent(ModItems.DIORITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/diorite_cobble"));
-        withExistingParent(ModItems.CALCITE_COBBLESTONE_ITEM.get().getRegistryName().getPath(), modLoc("block/calcite_cobble"));
-
-
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.COBBLESTONE_ITEM.get()).getPath(), modLoc("block/cobblestone"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.BASALT_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/basalt_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.DEEPSLATE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/deepslate_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.NETHERRACK_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/netherrack_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.SANDSTONE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/sandstone_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.BLACKSTONE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/blackstone_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.ENDSTONE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/endstone_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.GRANITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/granite_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.TUFF_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/tuff_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.ANDESITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/andesite_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.DIORITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/diorite_cobble"));
+        withExistingParent(ForgeRegistries.ITEMS.getKey(ModItems.CALCITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/calcite_cobble"));
 
 
-//        singleTexture(ModItems.RAW_TIN.get().getRegistryName().getPath(),
+
+
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.RAW_TIN.get()).getPath(),
 //                mcLoc("item/generated"),
 //                "layer0", modLoc("item/raw_tin"));
 //
-//                singleTexture(ModItems.RAW_SILVER.get().getRegistryName().getPath(),
+//                singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.RAW_SILVER.get()).getPath(),
 //                        mcLoc("item/generated"),
 //                        "layer0", modLoc("item/raw_silver"));
 
-        singleTexture(ModItems.PLANT_FIBRE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANT_FIBRE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/plant_fibre"));
 
-        singleTexture(ModItems.BRAIDED_PLANT_FIBRE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRAIDED_PLANT_FIBRE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/braided_plant_fibre"));
 
-//        singleTexture(ModItems.WOOL.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.WOOL.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/wool"));
 //
-//        singleTexture(ModItems.YARN.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.YARN.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/yarn"));
 
 
 
-        singleTexture(ModItems.BASKET.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BASKET.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/basket"));
 
 
-        singleTexture(ModItems.HIDE_SMALL.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.HIDE_SMALL.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/hides/hide_small"));
-        singleTexture(ModItems.HIDE_MEDIUM.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.HIDE_MEDIUM.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/hides/hide_medium"));
-        singleTexture(ModItems.HIDE_LARGE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.HIDE_LARGE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/hides/hide_large"));
 
 
-//        singleTexture(ModItems.UNFIRED_CLAY_JUG.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_JUG.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_jug"));
-//        singleTexture(ModItems.UNFIRED_CLAY_BUCKET.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_BUCKET.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_bucket"));
-//        singleTexture(ModItems.UNFIRED_CLAY_VIAL.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_VIAL.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_vial"));
 //
-//        singleTexture(ModItems.CLAY_VIAL.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_VIAL.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/clay_vial"));
 
 
 
 
-        singleTexture(ModItems.INGOT_TIN.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.INGOT_TIN.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/ingots/ingot_tin"));
-        singleTexture(ModItems.INGOT_BRONZE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.INGOT_BRONZE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/ingots/ingot_bronze"));
-        singleTexture(ModItems.INGOT_SILVER.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.INGOT_SILVER.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/ingots/ingot_silver"));
-        singleTexture(ModItems.INGOT_STEEL.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.INGOT_STEEL.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/ingots/ingot_steel"));
 
 
-        singleTexture(ModItems.NUGGET_TIN.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.NUGGET_TIN.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/nuggets/nugget_tin"));
-        singleTexture(ModItems.NUGGET_COPPER.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.NUGGET_COPPER.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/nuggets/nugget_copper"));
-        singleTexture(ModItems.NUGGET_SILVER.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.NUGGET_SILVER.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/nuggets/nugget_silver"));
-        singleTexture(ModItems.NUGGET_BRONZE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.NUGGET_BRONZE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/nuggets/nugget_bronze"));
-        singleTexture(ModItems.NUGGET_STEEL.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.NUGGET_STEEL.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/nuggets/nugget_steel"));
 
-        singleTexture(ModItems.DUST_TIN.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_TIN.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/dusts/dust_tin"));
-        singleTexture(ModItems.DUST_COPPER.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_COPPER.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/dusts/dust_copper"));
-        singleTexture(ModItems.DUST_SILVER.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_SILVER.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/dusts/dust_silver"));
-        singleTexture(ModItems.DUST_BRONZE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_BRONZE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/dusts/dust_bronze"));
-        singleTexture(ModItems.DUST_STEEL.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_STEEL.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/dusts/dust_steel"));
-        singleTexture(ModItems.DUST_IRON.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_IRON.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/dusts/dust_iron"));
-        singleTexture(ModItems.DUST_GOLD.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_GOLD.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/dusts/dust_gold"));
 
 
-        singleTexture(ModItems.BRONZE_SWORD.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_SWORD.get()).getPath(),
                 mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_sword"));
-        singleTexture(ModItems.BRONZE_PICK.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_PICK.get()).getPath(),
                 mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_pickaxe"));
-        singleTexture(ModItems.BRONZE_SHOVEL.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_SHOVEL.get()).getPath(),
                 mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_shovel"));
-        singleTexture(ModItems.BRONZE_AXE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_AXE.get()).getPath(),
                 mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_axe"));
-        singleTexture(ModItems.BRONZE_HOE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_HOE.get()).getPath(),
                 mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_hoe"));
 
         /*LOGS*/
-        singleTexture(ModItems.LOG_OAK.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_OAK.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_oak"));
-        singleTexture(ModItems.LOG_ACACIA.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_ACACIA.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_acacia"));
-        singleTexture(ModItems.LOG_BIRCH.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_BIRCH.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_birch"));
-        singleTexture(ModItems.LOG_SPRUCE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_SPRUCE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_spruce"));
-        singleTexture(ModItems.LOG_CRIMSON.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_CRIMSON.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_crimson"));
-        singleTexture(ModItems.LOG_DARK_OAK.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_DARK_OAK.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_dark_oak"));
-        singleTexture(ModItems.LOG_JUNGLE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_JUNGLE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_jungle"));
-        singleTexture(ModItems.LOG_SPRUCE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_SPRUCE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_spruce"));
-        singleTexture(ModItems.LOG_WARPED.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_WARPED.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_warped"));
 
         /*Planks*/
-        singleTexture(ModItems.PLANK_OAK.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_OAK.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_oak"));
-//        singleTexture(ModItems.PLANK_ACACIA.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_ACACIA.get()).getPath(),
 //                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_acacia"));
-        singleTexture(ModItems.PLANK_BIRCH.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_BIRCH.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_birch"));
-        singleTexture(ModItems.PLANK_SPRUCE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_SPRUCE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_spruce"));
-        singleTexture(ModItems.PLANK_CRIMSON.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_CRIMSON.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_crimson"));
-        singleTexture(ModItems.PLANK_DARK_OAK.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_DARK_OAK.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_dark_oak"));
-        singleTexture(ModItems.PLANK_JUNGLE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_JUNGLE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_jungle"));
-        singleTexture(ModItems.PLANK_SPRUCE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_SPRUCE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_spruce"));
-        singleTexture(ModItems.PLANK_WARPED.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_WARPED.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_warped"));
 
 
         /*TODO setup layered texture*/
-//        singleTexture(ModItems.BRONZE_HELMET.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_HELMET.get()).getPath(),
 //                mcLoc("item/generated"),
 //                "layer0", modLoc("model/armor/bronze_helmet"));
-//        singleTexture(ModItems.BRONZE_CHEST.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_CHEST.get()).getPath(),
 //                mcLoc("item/generated"),
 //                "layer0", modLoc("model/armor/bronze_chest"));
-//        singleTexture(ModItems.BRONZE_LEGS.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_LEGS.get()).getPath(),
 //                mcLoc("item/generated"),
 //                "layer0", modLoc("model/armor/bronze_legs"));
-//        singleTexture(ModItems.BRONZE_BOOTS.get().getRegistryName().getPath(),
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_BOOTS.get()).getPath(),
 //                mcLoc("item/generated"),
 //                "layer0", modLoc("model/armor/bronze_boots"));
 //
 
-        singleTexture(ModItems.CHUNK_STONE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_STONE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_stone"));
-        singleTexture(ModItems.CHUNK_ANDESITE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_ANDESITE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_andesite"));
-        singleTexture(ModItems.CHUNK_DEEPSLATE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_DEEPSLATE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_deepslate"));
-        singleTexture(ModItems.CHUNK_DRIPSTONE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_DRIPSTONE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_dripstone"));
-        singleTexture(ModItems.CHUNK_DIORITE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_DIORITE.get()).getPath(),
             mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_diorite"));
-        singleTexture(ModItems.CHUNK_GRANITE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_GRANITE.get()).getPath(),
             mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_granite"));
-        singleTexture(ModItems.CHUNK_BASALT.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_BASALT.get()).getPath(),
             mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_basalt"));
-        singleTexture(ModItems.CHUNK_TUFF.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_TUFF.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_tuff"));
-        singleTexture(ModItems.CHUNK_NETHERRACK.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_NETHERRACK.get()).getPath(),
             mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_netherrack"));
-        singleTexture(ModItems.CHUNK_BLACKSTONE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_BLACKSTONE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_blackstone"));
-        singleTexture(ModItems.CHUNK_CALCITE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_CALCITE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_calcite"));
-        singleTexture(ModItems.CHUNK_SANDSTONE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CHUNK_SANDSTONE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/rocks/chunk_sandstone"));
 
 
-        singleTexture(ModItems.DUST_STONE.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_STONE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_stone"));
-//      singleTexture(ModItems.DUST_ANDESITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_ANDESITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_andesite"));
-//      singleTexture(ModItems.DUST_DEEPSLATE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_DEEPSLATE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_deepslate"));
-//      singleTexture(ModItems.DUST_DRIPSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_DRIPSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_dripstone"));
-//      singleTexture(ModItems.DUST_SANDSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_SANDSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_diorite"));
-//      singleTexture(ModItems.DUST_DIORITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_DIORITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_granite"));
-//      singleTexture(ModItems.DUST_GRANITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_GRANITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_basalt"));
-//      singleTexture(ModItems.DUST_BASALT.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_BASALT.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_tuff"));
-//      singleTexture(ModItems.DUST_TUFF.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_TUFF.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_netherrack"));
-//      singleTexture(ModItems.DUST_NETHERRACK.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_NETHERRACK.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_blackstone"));
-//      singleTexture(ModItems.DUST_BLACKSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.DUST_BLACKSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/dusts/dust_calcite"));
 
 
 
-//      singleTexture(ModItems.BRICK_STONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_STONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_stone"));
-//      singleTexture(ModItems.BRICK_ANDESITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_ANDESITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_andesite"));
-//      singleTexture(ModItems.BRICK_DEEPSLATE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_DEEPSLATE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_deepslate"));
-//      singleTexture(ModItems.BRICK_DRIPSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_DRIPSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_dripstone"));
-//      singleTexture(ModItems.BRICK_SANDSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_SANDSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_diorite"));
-//      singleTexture(ModItems.BRICK_DIORITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_DIORITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_granite"));
-//      singleTexture(ModItems.BRICK_GRANITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_GRANITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_basalt"));
-//      singleTexture(ModItems.BRICK_BASALT.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_BASALT.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_tuff"));
-//      singleTexture(ModItems.BRICK_TUFF.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_TUFF.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_netherrack"));
-//      singleTexture(ModItems.BRICK_NETHERRACK.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_NETHERRACK.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_blackstone"));
-//      singleTexture(ModItems.BRICK_BLACKSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_BLACKSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_calcite"));
 
 
 
-//      singleTexture(ModItems.CLAY_STONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_STONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_stone"));
-//      singleTexture(ModItems.CLAY_ANDESITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_ANDESITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_andesite"));
-//      singleTexture(ModItems.CLAY_DEEPSLATE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_DEEPSLATE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_deepslate"));
-//      singleTexture(ModItems.CLAY_DRIPSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_DRIPSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_dripstone"));
-//      singleTexture(ModItems.CLAY_SANDSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_SANDSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_diorite"));
-//      singleTexture(ModItems.CLAY_DIORITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_DIORITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_granite"));
-//      singleTexture(ModItems.CLAY_GRANITE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_GRANITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_basalt"));
-//      singleTexture(ModItems.CLAY_BASALT.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_BASALT.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_tuff"));
-//      singleTexture(ModItems.CLAY_TUFF.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_TUFF.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_netherrack"));
-//      singleTexture(ModItems.CLAY_NETHERRACK.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_NETHERRACK.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_blackstone"));
-//      singleTexture(ModItems.CLAY_BLACKSTONE.get().getRegistryName().getPath(),
+//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_BLACKSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/clay/clay_calcite"));
 
 
-      singleTexture(ModItems.FLINT_KNIFE.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_KNIFE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_knife"));
-      singleTexture(ModItems.FLINT_PICK.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_PICK.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_pickaxe"));
-      singleTexture(ModItems.FLINT_SHOVEL.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SHOVEL.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_shovel"));
-      singleTexture(ModItems.FLINT_AXE.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_AXE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_axe"));
-      singleTexture(ModItems.FLINT_HOE.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_HOE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_hoe"));
-        singleTexture(ModItems.FLINT_SAW.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SAW.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_saw"));
 
 
-        singleTexture(ModItems.STONE_HAMMER.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.STONE_HAMMER.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/tools/stone_hammer"));
 
 
 
-      singleTexture(ModItems.FLINT_BLADE.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_BLADE.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_knife"));
-      singleTexture(ModItems.FLINT_PICK_HEAD.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_PICK_HEAD.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_pickaxe"));
-        singleTexture(ModItems.FLINT_SHOVEL_HEAD.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SHOVEL_HEAD.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_shovel"));
-      singleTexture(ModItems.FLINT_AXE_HEAD.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_AXE_HEAD.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_axe"));
-      singleTexture(ModItems.FLINT_HOE_HEAD.get().getRegistryName().getPath(),
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_HOE_HEAD.get()).getPath(),
               mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_hoe"));
-        singleTexture(ModItems.FLINT_SAW_HEAD.get().getRegistryName().getPath(),
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SAW_HEAD.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/tools/toolhead_flint_saw"));
 
 

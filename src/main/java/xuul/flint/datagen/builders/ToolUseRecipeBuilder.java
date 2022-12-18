@@ -16,7 +16,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
-import xuul.flint.common.recipe.ToolUseRecipe;
+import xuul.flint.recipe.ToolUseRecipe;
 
 import javax.annotation.Nullable;
 import java.util.List;

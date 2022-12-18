@@ -2,8 +2,9 @@ package xuul.flint.datagen;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraftforge.registries.ForgeRegistries;
 import xuul.flint.Flint;
-import xuul.flint.common.init.ModBlocks;
+import xuul.flint.init.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -34,6 +35,7 @@ public class ModBlockStates extends BlockStateProvider {
         simpleCube(ModBlocks.CALCITE_COBBLESTONE.get(), "block/cobble/calcite_cobble");
 
 
+
 //
 //        simpleBlock(ModBlocks.STONE_BRICK_BLOCK.get());
 //        simpleBlock(ModBlocks.BASALT_BRICK_BLOCK.get());
@@ -59,7 +61,7 @@ public class ModBlockStates extends BlockStateProvider {
 
     private void simpleCube(Block block, String resourceLoc) {
         ResourceLocation side = modLoc(resourceLoc);
-        simpleBlock(block, models().cube(block.getRegistryName().getPath(), side, side, side, side, side, side));
+        simpleBlock(block, models().cube(ForgeRegistries.BLOCKS.getKey(block).getPath(), side, side, side, side, side, side));
     }
 
 }

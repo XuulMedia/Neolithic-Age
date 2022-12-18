@@ -1,12 +1,12 @@
 modLoader="javafml" #mandatory
 
-loaderVersion="[39,)"
-license="MIT License"
+loaderVersion="[43,)"
+license="GNU GPLv3"
 state="WIP"
 [[mods]] #mandatory
 modId="flint" #mandatory
 version="${file.jarVersion}" #mandatory
-displayName="Age of Flint" #mandatory
+displayName="Xuul's HEAT" #mandatory
 logoFile="logo.png" #optional
 credits="" #optional
 authors="Xuul" #optional
