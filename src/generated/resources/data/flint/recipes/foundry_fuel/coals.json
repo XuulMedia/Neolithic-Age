@@ -1,8 +1,8 @@
 {
   "type": "flint:foundry_fuel",
+  "burnTime": 1600,
+  "heat": 500,
   "input": {
     "tag": "minecraft:coals"
-  },
-  "heat": 500,
-  "burnTime": 1600
+  }
 }

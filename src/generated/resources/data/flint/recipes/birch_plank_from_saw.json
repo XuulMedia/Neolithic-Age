@@ -5,10 +5,10 @@
       "item": "flint:log_birch"
     }
   ],
-  "tool": {
-    "tag": "flint:saws"
-  },
   "result": {
     "item": "flint:plank_birch"
+  },
+  "tool": {
+    "tag": "flint:saws"
   }
 }

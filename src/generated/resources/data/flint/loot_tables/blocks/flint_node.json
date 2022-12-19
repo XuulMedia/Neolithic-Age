@@ -2,15 +2,15 @@
   "type": "minecraft:block",
   "pools": [
     {
-      "name": "flint_from_node",
-      "rolls": 1.0,
       "bonus_rolls": 0.0,
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:flint"
         }
-      ]
+      ],
+      "name": "flint_from_node",
+      "rolls": 1.0
     }
   ]
 }

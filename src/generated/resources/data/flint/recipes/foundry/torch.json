@@ -1,9 +1,9 @@
 {
   "type": "flint:foundry",
+  "count": 2,
+  "heat": 300,
   "input": {
     "item": "minecraft:stick"
   },
-  "output": "minecraft:torch",
-  "count": 2,
-  "heat": 300
+  "output": "minecraft:torch"
 }

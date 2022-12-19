@@ -3,7 +3,7 @@
   "cookingtime": 100,
   "experience": 1.0,
   "ingredient": {
-    "item": "minecraft:air"
+    "item": "flint:raw_tin"
   },
-  "result": "minecraft:air"
+  "result": "flint:ingot_tin"
 }

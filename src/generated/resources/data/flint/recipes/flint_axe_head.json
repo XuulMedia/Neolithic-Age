@@ -1,8 +1,8 @@
 {
   "type": "flint:flint_station",
+  "count": 1,
   "ingredient": {
     "item": "minecraft:flint"
   },
-  "result": "flint:flint_axe_head",
-  "count": 1
+  "result": "flint:flint_axe_head"
 }

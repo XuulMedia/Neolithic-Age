@@ -4,7 +4,7 @@
   "experience": 1.0,
   "group": "flint",
   "ingredient": {
-    "item": "minecraft:air"
+    "item": "flint:ore_tin"
   },
-  "result": "minecraft:air"
+  "result": "flint:ingot_tin"
 }

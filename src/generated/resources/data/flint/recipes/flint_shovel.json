@@ -1,22 +1,22 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "flint",
+  "key": {
+    "I": {
+      "item": "flint:flint_shovel_head"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "flint:bindings"
+    }
+  },
   "pattern": [
     "I",
     "x",
     "T"
   ],
-  "key": {
-    "I": {
-      "item": "flint:flint_shovel_head"
-    },
-    "x": {
-      "tag": "flint:bindings"
-    },
-    "T": {
-      "item": "minecraft:stick"
-    }
-  },
   "result": {
     "item": "flint:flint_shovel"
   }

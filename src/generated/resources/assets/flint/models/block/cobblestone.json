@@ -2,10 +2,10 @@
   "parent": "minecraft:block/cube",
   "textures": {
     "down": "flint:block/cobble/cobblestone",
-    "up": "flint:block/cobble/cobblestone",
+    "east": "flint:block/cobble/cobblestone",
     "north": "flint:block/cobble/cobblestone",
     "south": "flint:block/cobble/cobblestone",
-    "east": "flint:block/cobble/cobblestone",
+    "up": "flint:block/cobble/cobblestone",
     "west": "flint:block/cobble/cobblestone"
   }
 }

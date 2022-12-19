@@ -5,10 +5,10 @@
       "item": "flint:log_oak"
     }
   ],
-  "tool": {
-    "tag": "flint:saws"
-  },
   "result": {
     "item": "flint:plank_oak"
+  },
+  "tool": {
+    "tag": "flint:saws"
   }
 }

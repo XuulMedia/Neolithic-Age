@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "group": "flint",
-  "pattern": [
-    "xxx",
-    "x x",
-    "xxx"
-  ],
   "key": {
     "x": {
       "tag": "flint:clay"
     }
   },
+  "pattern": [
+    "xxx",
+    "x x",
+    "xxx"
+  ],
   "result": {
     "item": "flint:unfired_clay_jug"
   }

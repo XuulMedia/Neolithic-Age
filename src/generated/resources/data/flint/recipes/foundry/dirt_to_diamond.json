@@ -1,9 +1,9 @@
 {
   "type": "flint:foundry",
+  "count": 1,
+  "heat": 1000,
   "input": {
     "item": "minecraft:dirt"
   },
-  "output": "minecraft:diamond",
-  "count": 1,
-  "heat": 1000
+  "output": "minecraft:diamond"
 }
