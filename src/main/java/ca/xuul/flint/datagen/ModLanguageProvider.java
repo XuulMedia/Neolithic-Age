@@ -1,10 +1,17 @@
 package ca.xuul.flint.datagen;
 
 import ca.xuul.flint.Flint;
+import ca.xuul.flint.block.FoundryBlock;
 import ca.xuul.flint.init.ModBlocks;
 import ca.xuul.flint.init.ModItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Supplier;
 
 public class ModLanguageProvider extends LanguageProvider {
 
@@ -17,6 +24,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add("itemGroup." + Flint.FLINT_TAB, "Stone Age");
         add("itemGroup." + Flint.METAL_TAB, "Metal Age");
 
+        add("container.flint.foundry.heat","%s degrees");
+        add("container.flint.foundry.heat.target","Fuel max temperature: %s degrees");
+        add("container.flint.foundry.heat.too_cold", "Too cold! Requires %s degrees");
+        add("fuel.no_shift", "Press SHIFT for info");
 
 
         add(ModBlocks.ORE_TIN.get(), "Tin Ore");
@@ -109,23 +120,56 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.BLOCK_BRONZE.get(), "Bronze Block");
         add(ModBlocks.BLOCK_STEEL.get(), "Steel Block");
 
+        /*Logs + Plnaks + Fuels*/
 
-        add(ModItems.LOG_ACACIA.get(), "Acacia Log");
-        add(ModItems.LOG_AZALEA.get(), "Azalea Log");
-        add(ModItems.LOG_BIRCH.get(), "Birch Log");
-        add(ModItems.LOG_DARK_OAK.get(), "Dark Oak Log");
-        add(ModItems.LOG_JUNGLE.get(), "Jungle Log");
         add(ModItems.LOG_OAK.get(), "Oak Log");
         add(ModItems.LOG_SPRUCE.get(), "Spruce Log");
+        add(ModItems.LOG_BIRCH.get(), "Birch Log");
+        add(ModItems.LOG_JUNGLE.get(), "Jungle Log");
+        add(ModItems.LOG_ACACIA.get(), "Acacia Log");
+        add(ModItems.LOG_DARK_OAK.get(), "Dark Oak Log");
+        add(ModItems.LOG_MANGROVE.get(), "Mangrove Log");
+        add(ModItems.LOG_WARPED.get(), "Warped Log");
+        add(ModItems.LOG_CRIMSON.get(), "Crimson Log");
 
-        add(ModItems.PLANK_OAK.get(),"Oak Plank");
-        add(ModItems.PLANK_BIRCH.get(),"Birch Plank");
-        add(ModItems.PLANK_JUNGLE.get(),"Jungle Plank");
-        add(ModItems.PLANK_ACACIA.get(),"Acacia Plank");
-        add(ModItems.PLANK_DARK_OAK.get(),"Dark Oak Plank");
-        add(ModItems.PLANK_AZALEA.get(),"Azalea Plank");
-        add(ModItems.PLANK_WARPED.get(),"Warped Plank");
-        add(ModItems.PLANK_CRIMSON.get(),"Crimson Plank");
+        add(ModItems.PLANK_OAK.get(), "Oak Plank");
+        add(ModItems.PLANK_SPRUCE.get(), "Spruce Plank");
+        add(ModItems.PLANK_BIRCH.get(), "Birch Plank");
+        add(ModItems.PLANK_JUNGLE.get(), "Jungle Plank");
+        add(ModItems.PLANK_ACACIA.get(), "Acacia Plank");
+        add(ModItems.PLANK_DARK_OAK.get(), "Dark Oak Plank");
+        add(ModItems.PLANK_MANGROVE.get(), "Mangrove Plank");
+        add(ModItems.PLANK_WARPED.get(), "Warped Plank");
+        add(ModItems.PLANK_CRIMSON.get(), "Crimson Plank");
+
+
+        /*Show heatvalue on mouseover*/
+
+        add("heat.level." + ModItems.LOG_OAK.get(), new String(Integer.toString(ModItems.LOG_OAK.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_SPRUCE.get(), new String(Integer.toString(ModItems.LOG_SPRUCE.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_BIRCH.get(), new String(Integer.toString(ModItems.LOG_BIRCH.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_JUNGLE.get(), new String(Integer.toString(ModItems.LOG_JUNGLE.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_ACACIA.get(), new String(Integer.toString(ModItems.LOG_ACACIA.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_DARK_OAK.get(), new String(Integer.toString(ModItems.LOG_DARK_OAK.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_MANGROVE.get(), new String(Integer.toString(ModItems.LOG_MANGROVE.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_WARPED.get(), new String(Integer.toString(ModItems.LOG_WARPED.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.LOG_CRIMSON.get(), new String(Integer.toString(ModItems.LOG_CRIMSON.get().getHeat()) + " degrees"));
+
+        add("heat.level." + ModItems.PLANK_OAK.get(), new String(Integer.toString(ModItems.PLANK_OAK.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_SPRUCE.get(), new String(Integer.toString(ModItems.PLANK_SPRUCE.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_BIRCH.get(), new String(Integer.toString(ModItems.PLANK_BIRCH.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_JUNGLE.get(), new String(Integer.toString(ModItems.PLANK_JUNGLE.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_ACACIA.get(), new String(Integer.toString(ModItems.PLANK_ACACIA.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_DARK_OAK.get(), new String(Integer.toString(ModItems.PLANK_DARK_OAK.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_MANGROVE.get(), new String(Integer.toString(ModItems.PLANK_MANGROVE.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_WARPED.get(), new String(Integer.toString(ModItems.PLANK_WARPED.get().getHeat()) + " degrees"));
+        add("heat.level." + ModItems.PLANK_CRIMSON.get(), new String(Integer.toString(ModItems.PLANK_CRIMSON.get().getHeat()) + " degrees"));
+
+
+
+
+
+
 
 
         add(ModItems.INGOT_TIN.get(),"Tin Ingot");
@@ -185,9 +229,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CLAY_CALCITE.get(),"Calcite Clay");
 
 
-
-
-
-
     }
+
+
+
+
+
 }

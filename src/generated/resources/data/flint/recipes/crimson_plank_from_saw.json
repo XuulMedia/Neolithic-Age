@@ -1,0 +1,14 @@
+{
+  "type": "flint:tool_use",
+  "ingredients": [
+    {
+      "item": "flint:log_crimson"
+    }
+  ],
+  "result": {
+    "item": "flint:plank_crimson"
+  },
+  "tool": {
+    "tag": "flint:saws"
+  }
+}

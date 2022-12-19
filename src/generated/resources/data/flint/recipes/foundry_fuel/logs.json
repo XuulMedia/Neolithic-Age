@@ -1,8 +1,0 @@
-{
-  "type": "flint:foundry_fuel",
-  "burnTime": 800,
-  "heat": 300,
-  "input": {
-    "tag": "minecraft:logs_that_burn"
-  }
-}

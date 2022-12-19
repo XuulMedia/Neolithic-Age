@@ -75,7 +75,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.LOG_JUNGLE.get())
                 .add(ModItems.LOG_ACACIA.get())
                 .add(ModItems.LOG_DARK_OAK.get())
-                .add(ModItems.LOG_AZALEA.get())
+                .add(ModItems.LOG_MANGROVE.get())
                 .add(ModItems.LOG_WARPED.get())
                 .add(ModItems.LOG_CRIMSON.get());
 
@@ -86,7 +86,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.PLANK_JUNGLE.get())
                 .add(ModItems.PLANK_ACACIA.get())
                 .add(ModItems.PLANK_DARK_OAK.get())
-                .add(ModItems.PLANK_AZALEA.get())
+                .add(ModItems.PLANK_MANGROVE.get())
                 .add(ModItems.PLANK_WARPED.get())
                 .add(ModItems.PLANK_CRIMSON.get());
 

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "flint:block_silver"
+        }
+      ],
+      "name": "block_silver",
+      "rolls": 1.0
+    }
+  ]
+}

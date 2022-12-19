@@ -8,6 +8,7 @@ import ca.xuul.flint.datagen.builders.ToolUseRecipeBuilder;
 import ca.xuul.flint.init.ModBlocks;
 import ca.xuul.flint.init.ModItems;
 import ca.xuul.flint.init.ModTags;
+import ca.xuul.flint.item.FuelItem;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
@@ -20,9 +21,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 import org.jline.utils.Log;
 
+import java.lang.reflect.Method;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider {
@@ -33,6 +38,8 @@ public class ModRecipeProvider extends RecipeProvider {
 
     @Override
     protected void buildCraftingRecipes(Consumer<FinishedRecipe> consumer) {
+
+        final int BURN_TIME_STANDARD = 20 * 10 * 8;
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.ORE_TIN_ITEM.get()),
                 ModItems.INGOT_TIN.get(), 1.0f, 100)
@@ -272,67 +279,53 @@ public class ModRecipeProvider extends RecipeProvider {
             .save(consumer, RL("nugget_steel_from_ingot"));
 
 
-        ToolUseRecipeBuilder.build(ModItems.PLANK_OAK.get())
-            .tool(ModTags.SAWS)
-            .requires(ModItems.LOG_OAK.get())
-            .unlockedBy("has_log", has(ModTags.LOGS))
-            .save(consumer, RL("oak_plank_from_saw"));
-
-
-        ToolUseRecipeBuilder.build(ModItems.PLANK_BIRCH.get())
-            .tool(ModTags.SAWS)
-            .requires(ModItems.LOG_BIRCH.get())
-            .unlockedBy("has_log", has(ModTags.LOGS))
-            .save(consumer, RL("birch_plank_from_saw"));
-
-
 
         /*Saw Recipes*/
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_OAK.get(), 1)
-            .requires(ModItems.LOG_OAK.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_OAK.get()))
-            .save(consumer, RL("oak_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_SPRUCE.get(), 1)
-            .requires(ModItems.LOG_SPRUCE.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_SPRUCE.get()))
-            .save(consumer, RL("spruce_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_BIRCH.get(), 1)
-            .requires(ModItems.LOG_BIRCH.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_BIRCH.get()))
-            .save(consumer, RL("birch_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_JUNGLE.get(), 1)
-            .requires(ModItems.LOG_JUNGLE.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_JUNGLE.get()))
-            .save(consumer, RL("jungle_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_ACACIA.get(), 1)
-            .requires(ModItems.LOG_ACACIA.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_ACACIA.get()))
-            .save(consumer, RL("acacia_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_DARK_OAK.get(), 1)
-            .requires(ModItems.LOG_DARK_OAK.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_DARK_OAK.get()))
-            .save(consumer, RL("dark_oak_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_AZALEA.get(), 1)
-            .requires(ModItems.LOG_AZALEA.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_AZALEA.get()))
-            .save(consumer, RL("azalea_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_WARPED.get(), 1)
-            .requires(ModItems.LOG_WARPED.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_WARPED.get()))
-            .save(consumer, RL("warped_plank_from_log"));
-        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_CRIMSON.get(), 1)
-            .requires(ModItems.LOG_CRIMSON.get())
-            .requires(ModTags.SAWS)
-            .unlockedBy("has_log", has(ModItems.LOG_CRIMSON.get()))
-            .save(consumer, RL("crimson_plank_from_log"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_OAK.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_OAK.get())
+                .unlockedBy("has_log", has(ModItems.LOG_OAK.get()))
+                .save(consumer, RL("oak_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_SPRUCE.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_SPRUCE.get())
+                .unlockedBy("has_log", has(ModItems.LOG_SPRUCE.get()))
+                .save(consumer, RL("spruce_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_BIRCH.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_BIRCH.get())
+                .unlockedBy("has_log", has(ModItems.LOG_BIRCH.get()))
+                .save(consumer, RL("birch_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_JUNGLE.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_JUNGLE.get())
+                .unlockedBy("has_log", has(ModItems.LOG_JUNGLE.get()))
+                .save(consumer, RL("jungle_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_ACACIA.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_ACACIA.get())
+                .unlockedBy("has_log", has(ModItems.LOG_ACACIA.get()))
+                .save(consumer, RL("acacia_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_DARK_OAK.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_DARK_OAK.get())
+                .unlockedBy("has_log", has(ModItems.LOG_DARK_OAK.get()))
+                .save(consumer, RL("dark_oak_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_MANGROVE.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_MANGROVE.get())
+                .unlockedBy("has_log", has(ModItems.LOG_MANGROVE.get()))
+                .save(consumer, RL("mangrove_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_WARPED.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_WARPED.get())
+                .unlockedBy("has_log", has(ModItems.LOG_WARPED.get()))
+                .save(consumer, RL("warped_plank_from_saw"));
+        ToolUseRecipeBuilder.build(ModItems.PLANK_CRIMSON.get(), 1)
+                .tool(ModTags.SAWS)
+                .requires(ModItems.LOG_CRIMSON.get())
+                .unlockedBy("has_log", has(ModItems.LOG_CRIMSON.get()))
+                .save(consumer, RL("crimson_plank_from_saw"));
 
 
         /*Hammer Smashing */
@@ -571,15 +564,33 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
         /*Foundry Fuels*/
-        new FoundryFuelRecipeBuilder(Ingredient.of(ItemTags.LOGS_THAT_BURN), 300, 20 * 10 * 4)
-            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-            .save(consumer, RL("foundry_fuel/logs"));
+
         new FoundryFuelRecipeBuilder(Ingredient.of(ItemTags.COALS), 500, 20 * 10 * 8)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry_fuel/coals"));
         new FoundryFuelRecipeBuilder(Ingredient.of(Items.BLAZE_ROD), 1000, 20 * 10 * 8)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry_fuel/blaze"));
+
+        FuelSetup(ModItems.PLANK_OAK,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_SPRUCE,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_BIRCH,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_JUNGLE,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_ACACIA,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_DARK_OAK,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_MANGROVE,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_WARPED,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_CRIMSON,BURN_TIME_STANDARD, consumer);
+
+        FuelSetup(ModItems.LOG_OAK,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_SPRUCE,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_BIRCH,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_JUNGLE,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_ACACIA,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_DARK_OAK,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_MANGROVE,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_WARPED,BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_CRIMSON,BURN_TIME_STANDARD, consumer);
 
 
 
@@ -602,7 +613,6 @@ public class ModRecipeProvider extends RecipeProvider {
             .requires(Blocks.GRAVEL, 3)
             .unlockedBy("has_gravel", has(Blocks.GRAVEL))
             .save(consumer, RL("flint_from_gravel"));
-
 
 
         /*TODO Conditional Recipe*/
@@ -629,4 +639,12 @@ public class ModRecipeProvider extends RecipeProvider {
     public static InventoryChangeTrigger.TriggerInstance has(TagKey<Item> tagKey) {
         return inventoryTrigger(ItemPredicate.Builder.item().of(tagKey).build());
     }
+
+    /*Helpers*/
+    private void FuelSetup(RegistryObject<FuelItem> item, int cookTime, Consumer<FinishedRecipe> recipeConsumer) {
+        String s = "foundry_fuel/" + item.get();
+        new FoundryFuelRecipeBuilder(Ingredient.of(item.get()), item.get().getHeat(), cookTime)
+                .unlockedBy("has_" + item.getKey(), has(item.get()))
+                .save(recipeConsumer, RL(s));
+    };
 }

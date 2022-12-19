@@ -1,10 +1,7 @@
 package ca.xuul.flint.init;
 
 import ca.xuul.flint.Flint;
-import ca.xuul.flint.item.BasketItem;
-import ca.xuul.flint.item.HammerItem;
-import ca.xuul.flint.item.SawItem;
-import ca.xuul.flint.item.SpindleItem;
+import ca.xuul.flint.item.*;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
@@ -22,6 +19,11 @@ public class ModItems {
 
     public static final Item.Properties STANDARD_STONE_AGE_PROPERTIES = new Item.Properties().tab(Flint.FLINT_TAB).stacksTo(64);
     public static final Item.Properties STANDARD_METAL_AGE_PROPERTIES = new Item.Properties().tab(Flint.METAL_TAB).stacksTo(64);
+
+    public static final int LOW_HEAT_WOOD = 250;
+    public static final int MED_HEAT_WOOD = 350;
+    public static final int HIGH_HEAT_WOOD = 500;
+    public static final int NETHER_HEAT_WOOD = 650;
 
 
 //    Items
@@ -325,50 +327,59 @@ public class ModItems {
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
     /*Logs*/
-    public static final RegistryObject<Item> LOG_OAK = ITEMS.register("log_oak",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_SPRUCE = ITEMS.register("log_spruce",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_BIRCH = ITEMS.register("log_birch",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_JUNGLE = ITEMS.register("log_jungle",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_ACACIA = ITEMS.register("log_acacia",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_DARK_OAK = ITEMS.register("log_dark_oak",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_AZALEA = ITEMS.register("log_azalea",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_WARPED = ITEMS.register("log_warped",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> LOG_CRIMSON = ITEMS.register("log_crimson",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<FuelItem> LOG_OAK = createFuelItem("log_oak", HIGH_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_SPRUCE = createFuelItem("log_spruce", LOW_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_BIRCH = createFuelItem("log_birch", MED_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_JUNGLE = createFuelItem("log_jungle", LOW_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_ACACIA = createFuelItem("log_acacia", LOW_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_DARK_OAK = createFuelItem("log_dark_oak", MED_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_MANGROVE = createFuelItem("log_mangrove", HIGH_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_WARPED = createFuelItem("log_warped", NETHER_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> LOG_CRIMSON = createFuelItem("log_crimson", NETHER_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
 
-    /*Logs*/
-    public static final RegistryObject<Item> PLANK_OAK = ITEMS.register("plank_oak",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_SPRUCE = ITEMS.register("plank_spruce",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_BIRCH = ITEMS.register("plank_birch",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_JUNGLE = ITEMS.register("plank_jungle",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_ACACIA = ITEMS.register("plank_acacia",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_DARK_OAK = ITEMS.register("plank_dark_oak",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_AZALEA = ITEMS.register("plank_azalea",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_WARPED = ITEMS.register("plank_warped",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> PLANK_CRIMSON = ITEMS.register("plank_crimson",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    /*Planks*/
+    public static final RegistryObject<FuelItem> PLANK_OAK = createFuelItem("plank_oak", HIGH_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_SPRUCE = createFuelItem("plank_spruce", LOW_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_BIRCH = createFuelItem("plank_birch", MED_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_JUNGLE = createFuelItem("plank_jungle", LOW_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_ACACIA = createFuelItem("plank_acacia", LOW_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_DARK_OAK = createFuelItem("plank_dark_oak", MED_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_MANGROVE = createFuelItem("plank_mangrove", HIGH_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_WARPED = createFuelItem("plank_warped", NETHER_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
+    public static final RegistryObject<FuelItem> PLANK_CRIMSON = createFuelItem("plank_crimson", NETHER_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);
 
 
 
 
+    /*Heat Values for wood*/
+//    High: Apple, Beech, Pecan, OAK, Hickory, Mangrove ironwood
+//    Med: birch, walnut  Birch, Walnut, Larch, Ash,
+//    Low: Elm,  Cedar, Poplar, Pine. Alder, Elm, Mapple, Cherry, acacia
+
+    /*Wood real estimates + Heat Level */
+//    OAK = High Heat
+//    SPRUCE = LOW HEAT
+//    BIRCH = white birch = MED HEAT
+//    JUNGLE = cacao or maybe kapok = LOW HEAT
+//    ACACIA = acacia = LOW
+//    DARK_OAK = black oak (Quercus velutina) = MED HEAT
+//    MANGROVE = HIGH HEAT
+//    WARPED Nether woods cant burn normally currently giving them extra high heat instead
+//    CRIMSON
+//    https://theyardable.com/firewood-weight-btu-chart/
 
 
+
+
+
+
+
+    /*Helpers*/
+    public static <I extends Item> RegistryObject<FuelItem> createFuelItem(String name, int heat, Item.Properties itemProperties) {
+        return ITEMS.register(name, () -> new FuelItem(itemProperties, heat, name));
+    }
+
+    /*TODO create a "meltable" itemtype so that the temp can be set programmatically and hoverover tooltips can be imprelemted*/
 
 
 

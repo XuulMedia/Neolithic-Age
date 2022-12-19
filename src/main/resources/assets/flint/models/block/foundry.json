@@ -1,7 +1,7 @@
 {
 	"textures": {
-		"0": "block/foundry",
-		"particle": "block/foundry"
+		"0": "flint:block/foundry",
+		"particle": "flint:block/foundry"
 	},
 	"elements": [
 		{
