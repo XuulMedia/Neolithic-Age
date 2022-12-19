@@ -1,0 +1,14 @@
+{
+  "type": "flint:tool_use",
+  "ingredients": [
+    {
+      "item": "flint:log_dark_oak"
+    }
+  ],
+  "result": {
+    "item": "flint:plank_dark_oak"
+  },
+  "tool": {
+    "tag": "flint:saws"
+  }
+}

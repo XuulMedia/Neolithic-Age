@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "flint:ore_nether_silver"
+    },
+    {
+      "tag": "flint:hammers"
+    }
+  ],
+  "result": {
+    "item": "flint:raw_silver"
+  }
+}

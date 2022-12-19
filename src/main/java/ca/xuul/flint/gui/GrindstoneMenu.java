@@ -1,8 +1,10 @@
 package ca.xuul.flint.gui;
 
+import ca.xuul.flint.Flint;
 import ca.xuul.flint.recipe.GrindstoneRecipe;
 import com.google.common.collect.Lists;
 import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
@@ -53,7 +55,7 @@ public class GrindstoneMenu extends AbstractContainerMenu {
     final ResultContainer resultContainer = new ResultContainer();
 
     public GrindstoneMenu(int id, BlockPos pos, Inventory inventory, Player player) {
-        super(ModMenuTypes.GRINDSTONE_CONTAINER.get(), id);
+        super(ModMenuTypes.GRINDSTONE.get(), id);
         this.level = inventory.player.level;
         this.pos = pos;
         this.playerInventory = new InvWrapper(inventory);
@@ -99,7 +101,7 @@ public class GrindstoneMenu extends AbstractContainerMenu {
 
 
     public boolean stillValid(Player player) {
-        return stillValid(ContainerLevelAccess.create(level, pos), player, ModBlocks.FLINT_STATION.get());
+        return stillValid(ContainerLevelAccess.create(level, pos), player, ModBlocks.GRINDSTONE.get());
     }
 
     public boolean clickMenuButton(Player pPlayer, int pId) {
@@ -144,7 +146,7 @@ public class GrindstoneMenu extends AbstractContainerMenu {
     }
 
     public MenuType<?> getType() {
-        return ModMenuTypes.GRINDSTONE_CONTAINER.get();
+        return ModMenuTypes.GRINDSTONE.get();
     }
 
     public void registerUpdateListener(Runnable pListener) {

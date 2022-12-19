@@ -1,0 +1,8 @@
+{
+  "type": "flint:foundry_fuel",
+  "burnTime": 1600,
+  "heat": 250,
+  "input": {
+    "item": "flint:plank_jungle"
+  }
+}

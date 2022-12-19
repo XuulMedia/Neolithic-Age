@@ -94,9 +94,10 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
     }
 
 
+    private static final float[] MODDED_LEAVES_STICK_CHANCES = new float[]{0.2F, 0.22222223F, 0.25F, 0.33333335F, 1F};
 
-    /*TODO possibly make sticks only a 50-25% chance*/
-    protected LootTable.Builder leavesSticksSaplingTable(String name,Block block, Item item1, float item1Min, float item1Max, Item sapling, float... chances){
+
+    protected LootTable.Builder leavesSticksSaplingTable(String name,Block block, Item item1, Item sapling, float... chances){
         LootPool.Builder builder = LootPool.lootPool()
                 .name(name)
                 .setRolls(ConstantValue.exactly(1))
@@ -104,7 +105,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                         LootItem.lootTableItem(block).when(HAS_SHEARS_OR_SILK_TOUCH),
                         LootItem.lootTableItem(ModItems.PLANT_FIBRE.get()).when(HAS_KNIFE),
                         LootItem.lootTableItem(sapling).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE,chances))
-                                .otherwise(LootItem.lootTableItem(item1).apply(SetItemCountFunction.setCount(UniformGenerator.between(item1Min, item1Max)))
+                                .otherwise(LootItem.lootTableItem(item1).when(BonusLevelTableCondition.bonusLevelFlatChance(Enchantments.BLOCK_FORTUNE, MODDED_LEAVES_STICK_CHANCES))
                                 )
                 )
         );

@@ -72,15 +72,17 @@
                 },
                 {
                   "type": "minecraft:item",
-                  "functions": [
+                  "conditions": [
                     {
-                      "add": false,
-                      "count": {
-                        "type": "minecraft:uniform",
-                        "max": 1.0,
-                        "min": 0.0
-                      },
-                      "function": "minecraft:set_count"
+                      "chances": [
+                        0.2,
+                        0.22222222,
+                        0.25,
+                        0.33333334,
+                        1.0
+                      ],
+                      "condition": "minecraft:table_bonus",
+                      "enchantment": "minecraft:fortune"
                     }
                   ],
                   "name": "minecraft:stick"

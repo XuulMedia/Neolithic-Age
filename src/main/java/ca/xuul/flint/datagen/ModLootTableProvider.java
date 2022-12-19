@@ -14,6 +14,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
     }
 
     private static final float[] LEAVES_SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
+    private static final float[] JUNGLE_LEAVES_SAPLING_CHANGES = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
 
     @Override
     protected void addTables() {
@@ -26,20 +27,23 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         lootTables.put(ModBlocks.FLINT_NODE.get(), SingleItemDrop("flint_from_node", Items.FLINT));
 
         lootTables.put(Blocks.OAK_LOG, createSilkTouchTable("oak_log", Blocks.OAK_LOG, ModItems.LOG_OAK.get(), 1, 1));
-        lootTables.put(Blocks.ACACIA_LOG, createSilkTouchTable("acacia_log", Blocks.ACACIA_LOG, ModItems.LOG_ACACIA.get(), 1, 1));
-        lootTables.put(Blocks.BIRCH_LOG, createSilkTouchTable("birch_log", Blocks.BIRCH_LOG, ModItems.LOG_BIRCH.get(), 1, 1));
-        lootTables.put(Blocks.CRIMSON_STEM, createSilkTouchTable("crimson_stem", Blocks.CRIMSON_STEM, ModItems.LOG_CRIMSON.get(), 1, 1));
-        lootTables.put(Blocks.DARK_OAK_LOG, createSilkTouchTable("dark_oak_log", Blocks.DARK_OAK_LOG, ModItems.LOG_DARK_OAK.get(), 1, 1));
-        lootTables.put(Blocks.JUNGLE_LOG, createSilkTouchTable("jungle_log", Blocks.JUNGLE_LOG, ModItems.LOG_JUNGLE.get(), 1, 1));
         lootTables.put(Blocks.SPRUCE_LOG, createSilkTouchTable("spruce_log", Blocks.SPRUCE_LOG, ModItems.LOG_SPRUCE.get(), 1, 1));
+        lootTables.put(Blocks.BIRCH_LOG, createSilkTouchTable("birch_log", Blocks.BIRCH_LOG, ModItems.LOG_BIRCH.get(), 1, 1));
+        lootTables.put(Blocks.JUNGLE_LOG, createSilkTouchTable("jungle_log", Blocks.JUNGLE_LOG, ModItems.LOG_JUNGLE.get(), 1, 1));
+        lootTables.put(Blocks.ACACIA_LOG, createSilkTouchTable("acacia_log", Blocks.ACACIA_LOG, ModItems.LOG_ACACIA.get(), 1, 1));
+        lootTables.put(Blocks.DARK_OAK_LOG, createSilkTouchTable("dark_oak_log", Blocks.DARK_OAK_LOG, ModItems.LOG_DARK_OAK.get(), 1, 1));
+        lootTables.put(Blocks.MANGROVE_LOG, createSilkTouchTable("MANGROVE_LOG", Blocks.MANGROVE_LOG, ModItems.LOG_MANGROVE.get(), 1, 1));
+        lootTables.put(Blocks.CRIMSON_STEM, createSilkTouchTable("crimson_stem", Blocks.CRIMSON_STEM, ModItems.LOG_CRIMSON.get(), 1, 1));
         lootTables.put(Blocks.WARPED_STEM, createSilkTouchTable("warped_stem", Blocks.WARPED_STEM, ModItems.LOG_WARPED.get(), 1, 1));
 
-        lootTables.put(Blocks.OAK_LEAVES, leavesSticksSaplingTable("oak_leaves", Blocks.OAK_LEAVES,Items.STICK,0,1, Items.OAK_SAPLING,LEAVES_SAPLING_CHANCES));
-        lootTables.put(Blocks.SPRUCE_LEAVES, leavesSticksSaplingTable("spruce_leaves", Blocks.SPRUCE_LEAVES,Items.STICK,0,1, Items.SPRUCE_SAPLING,LEAVES_SAPLING_CHANCES));
-        lootTables.put(Blocks.BIRCH_LEAVES, leavesSticksSaplingTable("birch_leaves", Blocks.BIRCH_LEAVES,Items.STICK,0,1, Items.BIRCH_SAPLING,LEAVES_SAPLING_CHANCES));
-        lootTables.put(Blocks.JUNGLE_LEAVES, leavesSticksSaplingTable("jungle_leaves", Blocks.JUNGLE_LEAVES,Items.STICK,0,1, Items.JUNGLE_SAPLING,LEAVES_SAPLING_CHANCES));
-        lootTables.put(Blocks.ACACIA_LEAVES, leavesSticksSaplingTable("acacia_leaves", Blocks.ACACIA_LEAVES,Items.STICK,0,1, Items.ACACIA_SAPLING,LEAVES_SAPLING_CHANCES));
-        lootTables.put(Blocks.DARK_OAK_LEAVES, leavesSticksSaplingTable("dark_oak_leaves", Blocks.DARK_OAK_LEAVES,Items.STICK,0,1, Items.DARK_OAK_SAPLING,LEAVES_SAPLING_CHANCES));
+        lootTables.put(Blocks.OAK_LEAVES, leavesSticksSaplingTable("oak_leaves", Blocks.OAK_LEAVES,Items.STICK, Items.OAK_SAPLING,LEAVES_SAPLING_CHANCES));
+        lootTables.put(Blocks.SPRUCE_LEAVES, leavesSticksSaplingTable("spruce_leaves", Blocks.SPRUCE_LEAVES,Items.STICK, Items.SPRUCE_SAPLING,LEAVES_SAPLING_CHANCES));
+        lootTables.put(Blocks.BIRCH_LEAVES, leavesSticksSaplingTable("birch_leaves", Blocks.BIRCH_LEAVES,Items.STICK, Items.BIRCH_SAPLING,LEAVES_SAPLING_CHANCES));
+        lootTables.put(Blocks.JUNGLE_LEAVES, leavesSticksSaplingTable("jungle_leaves", Blocks.JUNGLE_LEAVES,Items.STICK, Items.JUNGLE_SAPLING,JUNGLE_LEAVES_SAPLING_CHANGES));
+        lootTables.put(Blocks.ACACIA_LEAVES, leavesSticksSaplingTable("acacia_leaves", Blocks.ACACIA_LEAVES,Items.STICK, Items.ACACIA_SAPLING,LEAVES_SAPLING_CHANCES));
+        lootTables.put(Blocks.DARK_OAK_LEAVES, leavesSticksSaplingTable("dark_oak_leaves", Blocks.DARK_OAK_LEAVES,Items.STICK, Items.DARK_OAK_SAPLING,LEAVES_SAPLING_CHANCES));
+        lootTables.put(Blocks.MANGROVE_LEAVES, leavesSticksSaplingTable("mangrove_leaves", Blocks.MANGROVE_LEAVES,Items.STICK, Items.MANGROVE_PROPAGULE,LEAVES_SAPLING_CHANCES));
+
 
 
 

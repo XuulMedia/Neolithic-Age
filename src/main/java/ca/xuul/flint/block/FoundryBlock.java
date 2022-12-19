@@ -44,14 +44,26 @@ import java.util.Random;
 public class FoundryBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+    public static final String HEAT_MESSAGE ="container.flint.foundry.heat";
+    public static final String HEAT_TARGET_MESSAGE ="container.flint.foundry.heat.target";
+    public static final String TOO_COLD_MESSAGE ="container.flint.foundry.heat.too_cold";
 
-    public FoundryBlock(Properties props) {
+      public FoundryBlock(Properties props) {
         super(props);
         this.registerDefaultState(
             this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }
 
 
+    @Override
+    public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
+        list.add(Component.translatable(HEAT_MESSAGE, Integer.toString(FoundryBlockEntity.IDX_HEAT))
+                .withStyle(ChatFormatting.YELLOW));
+        list.add(Component.translatable(HEAT_TARGET_MESSAGE, Integer.toString(FoundryBlockEntity.IDX_TARGET_HEAT))
+                .withStyle(ChatFormatting.BLUE));
+        list.add(Component.translatable(TOO_COLD_MESSAGE, Integer.toString(FoundryBlockEntity.IDX_MAX_PROGRESS))
+                .withStyle(ChatFormatting.BLUE));
+    }
 
 
     public static VoxelShape makeShape(){
@@ -62,7 +74,6 @@ public class FoundryBlock extends BaseEntityBlock {
         shape = Shapes.join(shape, Shapes.box(0.0625, 0, 0.8125, 0.1875, 0.125, 0.9375), BooleanOp.OR);
         shape = Shapes.join(shape, Shapes.box(0.0625, 0.125, 0.0625, 0.875, 0.8125, 0.9375), BooleanOp.OR);
         shape = Shapes.join(shape, Shapes.box(0.0625, 0.8125, 0.3125, 0.875, 1, 0.9375), BooleanOp.OR);
-
         return shape;
     }
 

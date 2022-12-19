@@ -29,6 +29,7 @@ public class FlintStationBlock extends Block {
     private static final Component CONTAINER_TITLE = Component.translatable("container.flint_station");
     public static final String MESSAGE_FLINT_STATION = "message.flint_station";
 
+
     private static final VoxelShape RENDER_SHAPE = Shapes.box(0, 0, 0, 1, .5, 1);
 
     public FlintStationBlock() {
@@ -36,6 +37,7 @@ public class FlintStationBlock extends Block {
                 .strength(2.0f)
                 .requiresCorrectToolForDrops());
     }
+
     public static VoxelShape makeShape(){
         VoxelShape shape = Shapes.empty();
         shape = Shapes.join(shape, Shapes.box(0, 0, 0, 1, 0.5, 1), BooleanOp.OR);

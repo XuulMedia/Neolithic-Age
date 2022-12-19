@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-18T17:21:54.7675043	Item Models: flint
+// 1.19.2	2022-12-19T14:06:45.1980175	Item Models: flint
 6250f393549d97d5e1bfe08e3a730b5af9459ae0 assets/flint/models/item/andesite_cobble.json
 3eb8200d4554768609bf64bacdb90fcf627b3979 assets/flint/models/item/basalt_cobble.json
 28840a80be44596b96f3dd70bdc342f253d1d88b assets/flint/models/item/basket.json
@@ -73,6 +73,7 @@ cec14cba5037c34866af2178f66f5732351cf3d6 assets/flint/models/item/nugget_bronze.
 e5958e0eb0735cb0bb6843791fc3b385cc63f0df assets/flint/models/item/nugget_tin.json
 4356d2972e4623bd1b97f2ee7ccf6c0125016e6c assets/flint/models/item/ore_nether_silver.json
 4de37108fbcc6d1b5dfd2e70f928f47c78b0889d assets/flint/models/item/ore_tin.json
+5d2a974d93fdb05e267acdb81ee9e0e16eb4bce4 assets/flint/models/item/plank_acacia.json
 3c3bc162bc9d8cb226fc2575b4a9209a722aa274 assets/flint/models/item/plank_birch.json
 c1de8b95383595a3ad98b01e8bbdcc5a0079def4 assets/flint/models/item/plank_crimson.json
 b694d30eb7c33fecb716b7629f1abd06eeec54cf assets/flint/models/item/plank_dark_oak.json

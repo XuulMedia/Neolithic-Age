@@ -27,10 +27,6 @@ public final class ModMenuTypes {
         () -> IForgeMenuType.create(
             (windowId, inv, data) -> new FlintStationMenu(windowId, data.readBlockPos(), inv, inv.player)));
 
-    public static final RegistryObject<MenuType<GrindstoneMenu>> GRINDSTONE_CONTAINER = MENUS.register(
-            "grindstone",
-            () -> IForgeMenuType.create(
-                    (windowId, inv, data) -> new GrindstoneMenu(windowId, data.readBlockPos(), inv, inv.player)));
 
     public static final RegistryObject<MenuType<BasketMenu>> BASKET_CONTAINER = MENUS.register("basket",
         () -> IForgeMenuType.create(BasketMenu::createClientMenu));
@@ -38,6 +34,11 @@ public final class ModMenuTypes {
 
     public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY = MENUS.register("foundry",
         () -> IForgeMenuType.create(FoundryMenu::new));
+
+    public static final RegistryObject<MenuType<GrindstoneMenu>> GRINDSTONE = MENUS.register(
+            "grindstone",
+            () -> IForgeMenuType.create(
+                    (windowId, inv, data) -> new GrindstoneMenu(windowId, data.readBlockPos(), inv, inv.player)));
 
 
     private static <T extends AbstractContainerMenu> RegistryObject<MenuType<T>> registerMenuType(
@@ -52,6 +53,7 @@ public final class ModMenuTypes {
         MenuScreens.register(ModMenuTypes.FLINT_STATION_CONTAINER.get(), FlintStationScreen::new);
         MenuScreens.register(ModMenuTypes.BASKET_CONTAINER.get(), BasketScreen::new);
         MenuScreens.register(ModMenuTypes.FOUNDRY.get(), FoundryScreen::new);
+        MenuScreens.register(ModMenuTypes.GRINDSTONE.get(), GrindstoneScreen::new);
     }
 
 

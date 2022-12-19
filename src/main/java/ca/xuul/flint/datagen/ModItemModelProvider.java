@@ -140,42 +140,63 @@ public class ModItemModelProvider extends ItemModelProvider {
         /*LOGS*/
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_OAK.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_oak"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_ACACIA.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_acacia"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_SPRUCE.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_spruce"));
+
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_BIRCH.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_birch"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_SPRUCE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_spruce"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_CRIMSON.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_crimson"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_DARK_OAK.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_dark_oak"));
+
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_JUNGLE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_jungle"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_SPRUCE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_spruce"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_ACACIA.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_acacia"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_DARK_OAK.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_dark_oak"));
+
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_MANGROVE.get()).getPath(),
+//                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_mangrove"));
+
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_WARPED.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/woods/log_warped"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.LOG_CRIMSON.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/woods/log_crimson"));
+
+
+
 
         /*Planks*/
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_OAK.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_oak"));
-//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_ACACIA.get()).getPath(),
-//                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_acacia"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_SPRUCE.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_spruce"));
+
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_BIRCH.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_birch"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_SPRUCE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_spruce"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_CRIMSON.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_crimson"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_DARK_OAK.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_dark_oak"));
+
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_JUNGLE.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_jungle"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_SPRUCE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_spruce"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_ACACIA.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_acacia"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_DARK_OAK.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_dark_oak"));
+
+//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_MANGROVE.get()).getPath(),
+//                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_mangrove"));
+
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_WARPED.get()).getPath(),
                 mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_warped"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANK_CRIMSON.get()).getPath(),
+                mcLoc("item/generated"), "layer0", modLoc("item/planks/plank_crimson"));
+
+
 
 
         /*TODO setup layered texture*/

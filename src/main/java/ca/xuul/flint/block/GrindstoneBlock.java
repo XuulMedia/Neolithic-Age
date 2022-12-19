@@ -1,5 +1,6 @@
 package ca.xuul.flint.block;
 
+import ca.xuul.flint.gui.FlintStationMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
@@ -46,5 +47,23 @@ public class GrindstoneBlock extends Block {
         }
         return InteractionResult.SUCCESS;
     };
+
+//
+//    public InteractionResult use (BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult trace) {
+//        if (!level.isClientSide) {
+//            MenuProvider containerProvider = new MenuProvider() {
+//                @Override
+//                public Component getDisplayName() {
+//                    return CONTAINER_TITLE;
+//                }
+//                @Override
+//                public AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player playerEntity) {
+//                    return new FlintStationMenu(containerId, pos, playerInventory,playerEntity);
+//                }
+//            };
+//            NetworkHooks.openScreen((ServerPlayer) player, containerProvider, pos);
+//        }
+//        return InteractionResult.SUCCESS;
+//    };
 
 }
