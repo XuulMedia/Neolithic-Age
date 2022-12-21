@@ -1,0 +1,11 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "flint:block/bricks/bricks_sandstone",
+    "east": "flint:block/bricks/bricks_sandstone",
+    "north": "flint:block/bricks/bricks_sandstone",
+    "south": "flint:block/bricks/bricks_sandstone",
+    "up": "flint:block/bricks/bricks_sandstone",
+    "west": "flint:block/bricks/bricks_sandstone"
+  }
+}

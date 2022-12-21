@@ -45,6 +45,9 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         lootTables.put(Blocks.MANGROVE_LEAVES, leavesSticksSaplingTable("mangrove_leaves", Blocks.MANGROVE_LEAVES,Items.STICK, Items.MANGROVE_PROPAGULE,LEAVES_SAPLING_CHANCES));
 
 
+        /*TODO create Log loot table that requires axe or saw  POSSIBLY create 3 distinct harvest levels as well*/
+
+
 
 
 

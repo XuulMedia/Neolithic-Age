@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-19T13:57:11.2257896	Tags for minecraft:item
+// 1.19.2	2022-12-20T22:19:38.1690623	Tags for minecraft:item
 4884b0646406595840d886b5259780c491517d93 data/flint/tags/items/bindings.json
 f1364795f3f01adc9034ba5351e58d9816b1f61a data/flint/tags/items/clay.json
 305f054a47aafd01f26ab950e43c36cc1fd58642 data/flint/tags/items/hammers.json
@@ -9,4 +9,3 @@ d5e893b996f41daf99e98d179141a983abf1cae5 data/flint/tags/items/planks.json
 9250e736f7adb2995e42f238468584eafed1ecbc data/flint/tags/items/saws.json
 cc59510615934e383e40d345ff5446536ddcdd53 data/flint/tags/items/stone_chunks.json
 fdf354a8f71b041e5b42f7b4715468bdac8d64d8 data/forge/tags/items/ingots.json
-ab82d0170b5c4c4cfc67fa3fa887c0cf6b869fcb data/forge/tags/items/ores.json

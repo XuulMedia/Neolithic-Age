@@ -1,6 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "group": "flint",
   "key": {
     "I": {
       "item": "flint:flint_axe_head"

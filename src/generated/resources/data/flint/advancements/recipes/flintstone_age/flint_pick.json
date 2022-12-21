@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "flint": {
+    "flint_pick_head": {
       "conditions": {
         "items": [
           {
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "flint",
+      "flint_pick_head",
       "has_the_recipe"
     ]
   ],

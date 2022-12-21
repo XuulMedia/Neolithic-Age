@@ -1,14 +1,14 @@
 {
-  "type": "flint:tool_use",
+  "type": "minecraft:crafting_shapeless",
   "ingredients": [
+    {
+      "tag": "flint:saws"
+    },
     {
       "item": "flint:log_birch"
     }
   ],
   "result": {
     "item": "flint:plank_birch"
-  },
-  "tool": {
-    "tag": "flint:saws"
   }
 }

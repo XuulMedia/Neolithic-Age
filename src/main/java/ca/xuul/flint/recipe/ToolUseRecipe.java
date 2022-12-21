@@ -32,6 +32,7 @@ public class ToolUseRecipe extends ShapelessRecipe {
         return oldIngredients;
     }
 
+
     @Override
     public boolean isSpecial() {
         return true;

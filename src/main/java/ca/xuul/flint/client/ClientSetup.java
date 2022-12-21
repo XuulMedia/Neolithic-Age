@@ -1,8 +1,11 @@
 package ca.xuul.flint.client;
 
 import ca.xuul.flint.Flint;
+import ca.xuul.flint.init.ModBlocks;
 import ca.xuul.flint.init.ModItems;
 import ca.xuul.flint.init.ModMenuTypes;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RegisterColorHandlersEvent;
@@ -21,6 +24,8 @@ public final class ClientSetup {
         event.enqueueWork(() -> {
             ModMenuTypes.registerMenuScreens();
         });
+
+
     }
 
 	@SubscribeEvent

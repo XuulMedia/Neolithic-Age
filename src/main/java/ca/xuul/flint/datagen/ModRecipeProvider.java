@@ -41,10 +41,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
         final int BURN_TIME_STANDARD = 20 * 10 * 8;
 
-        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.ORE_TIN_ITEM.get()),
+        SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModBlocks.ORE_TIN.get()),
                 ModItems.INGOT_TIN.get(), 1.0f, 100)
             .group("flint")
-            .unlockedBy("has_ore", has(ModBlocks.ORE_TIN_ITEM.get()))
+            .unlockedBy("has_ore", has(ModBlocks.ORE_TIN.get()))
             .save(consumer, RL("ingot_tin1"));
 
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(ModItems.RAW_TIN.get()),
@@ -192,22 +192,22 @@ public class ModRecipeProvider extends RecipeProvider {
 
         /*BLOCKS from ingot*/
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_TIN_ITEM.get())
+        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_TIN.get())
             .requires(ModItems.INGOT_TIN.get(), 9)
             .unlockedBy("has_tin_ingot", has(ModItems.INGOT_TIN.get()))
             .save(consumer, RL("tin_block_from_ingot"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_BRONZE_ITEM.get())
+        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_BRONZE.get())
             .requires(ModItems.INGOT_BRONZE.get(), 9)
             .unlockedBy("has_bronze_ingot", has(ModItems.INGOT_BRONZE.get()))
             .save(consumer, RL("bronze_block_from_ingot"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_SILVER_ITEM.get())
+        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_SILVER.get())
             .requires(ModItems.INGOT_SILVER.get(), 9)
             .unlockedBy("has_silver_ingot", has(ModItems.INGOT_SILVER.get()))
             .save(consumer, RL("silver_block_from_ingot"));
 
-        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_STEEL_ITEM.get())
+        ShapelessRecipeBuilder.shapeless(ModBlocks.BLOCK_STEEL.get())
             .requires(ModItems.INGOT_STEEL.get(), 9)
             .unlockedBy("has_steel_ingot", has(ModItems.INGOT_STEEL.get()))
             .save(consumer, RL("steel_block_from_ingot"));
@@ -237,23 +237,23 @@ public class ModRecipeProvider extends RecipeProvider {
         /*Ingots from BLOCK*/
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_TIN.get(), 9)
-            .requires(ModBlocks.BLOCK_TIN_ITEM.get())
-            .unlockedBy("has_tin_block", has(ModBlocks.BLOCK_TIN_ITEM.get()))
+            .requires(ModBlocks.BLOCK_TIN.get())
+            .unlockedBy("has_tin_block", has(ModBlocks.BLOCK_TIN.get()))
             .save(consumer, RL("tin_ingot_from_block"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_BRONZE.get(), 9)
-            .requires(ModBlocks.BLOCK_BRONZE_ITEM.get())
-            .unlockedBy("has_bronze_block", has(ModBlocks.BLOCK_BRONZE_ITEM.get()))
+            .requires(ModBlocks.BLOCK_BRONZE.get())
+            .unlockedBy("has_bronze_block", has(ModBlocks.BLOCK_BRONZE.get()))
             .save(consumer, RL("bronze_ingot_from_block"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_SILVER.get(), 9)
-            .requires(ModBlocks.BLOCK_SILVER_ITEM.get())
-            .unlockedBy("has_silver_block", has(ModBlocks.BLOCK_SILVER_ITEM.get()))
+            .requires(ModBlocks.BLOCK_SILVER.get())
+            .unlockedBy("has_silver_block", has(ModBlocks.BLOCK_SILVER.get()))
             .save(consumer, RL("silver_ingot_from_block"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.INGOT_STEEL.get(), 9)
-            .requires(ModBlocks.BLOCK_STEEL_ITEM.get())
-            .unlockedBy("has_steel_block", has(ModBlocks.BLOCK_STEEL_ITEM.get()))
+            .requires(ModBlocks.BLOCK_STEEL.get())
+            .unlockedBy("has_steel_block", has(ModBlocks.BLOCK_STEEL.get()))
             .save(consumer, RL("steel_ingot_from_block"));
 
         /*Nuggets from Ingot*/
@@ -280,49 +280,50 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
 
+
         /*Saw Recipes*/
-        ToolUseRecipeBuilder.build(ModItems.PLANK_OAK.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_OAK.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_OAK.get())
                 .unlockedBy("has_log", has(ModItems.LOG_OAK.get()))
                 .save(consumer, RL("oak_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_SPRUCE.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_SPRUCE.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_SPRUCE.get())
                 .unlockedBy("has_log", has(ModItems.LOG_SPRUCE.get()))
                 .save(consumer, RL("spruce_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_BIRCH.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_BIRCH.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_BIRCH.get())
                 .unlockedBy("has_log", has(ModItems.LOG_BIRCH.get()))
                 .save(consumer, RL("birch_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_JUNGLE.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_JUNGLE.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_JUNGLE.get())
                 .unlockedBy("has_log", has(ModItems.LOG_JUNGLE.get()))
                 .save(consumer, RL("jungle_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_ACACIA.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_ACACIA.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_ACACIA.get())
                 .unlockedBy("has_log", has(ModItems.LOG_ACACIA.get()))
                 .save(consumer, RL("acacia_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_DARK_OAK.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_DARK_OAK.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_DARK_OAK.get())
                 .unlockedBy("has_log", has(ModItems.LOG_DARK_OAK.get()))
                 .save(consumer, RL("dark_oak_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_MANGROVE.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_MANGROVE.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_MANGROVE.get())
                 .unlockedBy("has_log", has(ModItems.LOG_MANGROVE.get()))
                 .save(consumer, RL("mangrove_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_WARPED.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_WARPED.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_WARPED.get())
                 .unlockedBy("has_log", has(ModItems.LOG_WARPED.get()))
                 .save(consumer, RL("warped_plank_from_saw"));
-        ToolUseRecipeBuilder.build(ModItems.PLANK_CRIMSON.get(), 1)
-                .tool(ModTags.SAWS)
+        ShapelessRecipeBuilder.shapeless(ModItems.PLANK_CRIMSON.get(), 1)
+                .requires(ModTags.SAWS)
                 .requires(ModItems.LOG_CRIMSON.get())
                 .unlockedBy("has_log", has(ModItems.LOG_CRIMSON.get()))
                 .save(consumer, RL("crimson_plank_from_saw"));
@@ -426,14 +427,21 @@ public class ModRecipeProvider extends RecipeProvider {
 
         /*TOOLS*/
 
-        ShapedRecipeBuilder.shaped(ModItems.FLINT_KNIFE.get())
-            .pattern("I")
-            .pattern("T")
-            .define('I', ModItems.FLINT_BLADE.get())
-            .define('T', Items.STICK)
-            .group("flint")
-            .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_BLADE.get()))
-            .save(consumer, RL("flint_knife"));
+        ShapelessRecipeBuilder.shapeless(ModItems.FLINT_KNIFE.get())
+               .requires(ModItems.FLINT_BLADE.get())
+                .requires(Items.STICK)
+                .unlockedBy("flint", has(Items.FLINT))
+                .save(consumer, RL("flint_knife"));
+
+        ShapedRecipeBuilder.shaped(ModItems.STONE_HAMMER.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModTags.STONE_CHUNKS)
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_stone_chunk", has(ModTags.STONE_CHUNKS))
+                .save(consumer, RL("stone_hammer"));
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_PICK.get())
             .pattern("I")
@@ -442,10 +450,8 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('I', ModItems.FLINT_PICK_HEAD.get())
             .define('x', ModTags.BINDINGS)
             .define('T', Items.STICK)
-            .group("flint")
-            .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_PICK_HEAD.get()))
+            .unlockedBy("flint_pick_head", has(ModItems.FLINT_PICK_HEAD.get()))
             .save(consumer, RL("flint_pick"));
-
 
         ShapedRecipeBuilder.shaped(ModItems.FLINT_SHOVEL.get())
             .pattern("I")
@@ -454,8 +460,7 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('I', ModItems.FLINT_SHOVEL_HEAD.get())
             .define('x', ModTags.BINDINGS)
             .define('T', Items.STICK)
-            .group("flint")
-            .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_SHOVEL_HEAD.get()))
+            .unlockedBy("flint", has(ModItems.FLINT_SHOVEL_HEAD.get()))
             .save(consumer, RL("flint_shovel"));
 
 
@@ -465,8 +470,7 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('I', ModItems.FLINT_AXE_HEAD.get())
                 .define('x', ModTags.BINDINGS)
                 .define('T', Items.STICK)
-            .group("flint")
-            .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_AXE_HEAD.get()))
+            .unlockedBy("flint", has(ModItems.FLINT_AXE_HEAD.get()))
             .save(consumer, RL("flint_axe"));
 
 
@@ -477,8 +481,7 @@ public class ModRecipeProvider extends RecipeProvider {
             .define('I', ModItems.FLINT_HOE_HEAD.get())
             .define('x', ModTags.BINDINGS)
             .define('T', Items.STICK)
-            .group("flint")
-            .unlockedBy("flint", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.FLINT_HOE_HEAD.get()))
+            .unlockedBy("flint", has(ModItems.FLINT_HOE_HEAD.get()))
             .save(consumer, RL("flint_hoe"));
 
         ShapelessRecipeBuilder.shapeless(ModItems.FLINT_SAW.get(), 1)
@@ -527,7 +530,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("x x")
                 .pattern("xxx")
                 .define('x', ModTags.CLAY)
-                .group("flint")
+
                 .unlockedBy("has_clay", has(ModTags.CLAY))
                 .save(consumer, RL("unfired_clay_jug"));
 
@@ -536,7 +539,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("x x")
                 .pattern("xxx")
                 .define('x', ModTags.CLAY)
-                .group("flint")
+
                 .unlockedBy("has_clay", has(ModTags.CLAY))
                 .save(consumer, RL("unfired_clay_bucket"));
 
@@ -544,7 +547,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("x x")
                 .pattern(" x ")
                 .define('x', ModTags.CLAY)
-                .group("flint")
+
                 .unlockedBy("has_clay", has(ModTags.CLAY))
                 .save(consumer, RL("unfired_clay_vial"));
 
@@ -555,7 +558,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .pattern("x x")
                 .pattern("xxx")
                 .define('x', ModTags.PLANKS)
-                .group("flint")
+
                 .unlockedBy("planks", has(ModTags.PLANKS))
                 .save(consumer);
 

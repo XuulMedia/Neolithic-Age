@@ -19,10 +19,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags() {
-        tag(Tags.Items.ORES)
-                .add(ModBlocks.ORE_TIN_ITEM.get())
-                .add(ModBlocks.ORE_SILVER_ITEM.get());
-
         tag(Tags.Items.INGOTS)
                 .add(ModItems.INGOT_TIN.get())
                 .add(ModItems.INGOT_BRONZE.get())
@@ -102,6 +98,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.CHUNK_NETHERRACK.get())
                 .add(ModItems.CHUNK_BLACKSTONE.get())
                 .add(ModItems.CHUNK_CALCITE.get());
+
+
+
 
     }
 }

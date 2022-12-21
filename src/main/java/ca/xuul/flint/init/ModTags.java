@@ -31,7 +31,7 @@ public class ModTags {
 
 
     /*BlockTags*/
-    public static final TagKey<Block> MINEABLE_WITH_HAMMER = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(Flint.MOD_ID, "plant_fibre"));
+    public static final TagKey<Block> MINEABLE_WITH_HAMMER = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(Flint.MOD_ID, "requires_hammer"));
 
 
 

@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-19T14:06:45.1980175	Item Models: flint
+// 1.19.2	2022-12-20T22:19:38.1650917	Item Models: flint
 6250f393549d97d5e1bfe08e3a730b5af9459ae0 assets/flint/models/item/andesite_cobble.json
 3eb8200d4554768609bf64bacdb90fcf627b3979 assets/flint/models/item/basalt_cobble.json
 28840a80be44596b96f3dd70bdc342f253d1d88b assets/flint/models/item/basket.json
@@ -6,6 +6,18 @@ a986241de29278a2bc79768f237f83c6743936cb assets/flint/models/item/blackstone_cob
 f72bf7fc16fa19d40201099d017abf5ad0de9d06 assets/flint/models/item/block_bronze.json
 f81670fd91d3ea931b70eb1c9d313e3c5a7ea3c8 assets/flint/models/item/block_silver.json
 5f99166cb59894f0075773db29342d15c7a58962 assets/flint/models/item/block_tin.json
+b0b43fd15aebd701864a0480151bf1506d40d039 assets/flint/models/item/braided_plant_fibre.json
+8cec5c75df1ce7094f2e7ef79cf3d914653a83df assets/flint/models/item/bricks_andesite.json
+0e367271d99b53c8c48b89a68a6c968b7e78b32a assets/flint/models/item/bricks_calcite.json
+fa50410b38efba3a8b3ecdbac887525b3cbaa4bb assets/flint/models/item/bricks_diorite.json
+4c26559cc2a601f47671d091c3614072baec5f64 assets/flint/models/item/bricks_endstone.json
+94292e0b286e3012a898aff2ee86679fe105abd5 assets/flint/models/item/bricks_granite.json
+5c4fbb7001c1915bb31673a2c0b7a0c07f5b7312 assets/flint/models/item/bricks_netherrack.json
+db7c5470bf07178d42e4e4745c8111d7daffef82 assets/flint/models/item/bricks_sandstone.json
+7fae27dcf34b203c1e94848470b5838655c80e36 assets/flint/models/item/bricks_stone.json
+e12a7a339afbb0c467b77350fc358dda44de1a2e assets/flint/models/item/brick_blackstone.json
+4f117400f9e369c41e22b21d051abc48c28df85b assets/flint/models/item/brick_netherrack.json
+65c1cba2d2e5e738e316fc80cc02988a2eaf834a assets/flint/models/item/brick_stone.json
 52e229df695d3f711f9bc035632bd4e14b54b462 assets/flint/models/item/bronze_axe.json
 c1d3fb917aa28254d4af0eda0cd2d5cc68eecded assets/flint/models/item/bronze_hoe.json
 5cf941ebb070f51a6c8c3d015686dd97c3d30266 assets/flint/models/item/bronze_pick.json
@@ -42,6 +54,7 @@ b999e8a4545e24878deb658821f8d8858ca49894 assets/flint/models/item/dust_tin.json
 f0e0afaa76c2815c3d26483def591cf0da1ea95a assets/flint/models/item/flint_hoe.json
 9e02d994a4f8482733635b67286595bad2146306 assets/flint/models/item/flint_hoe_head.json
 3f1097ed52e9b9ef2127957e3abf949c338a69bd assets/flint/models/item/flint_knife.json
+374838307e89833142f001445303c8140c3a9dbc assets/flint/models/item/flint_node.json
 0a88fd37ba24ebde89f4b9d6b01ee0ecdc4a5a1d assets/flint/models/item/flint_pickaxe.json
 9ea6f10df696058c38c5dece94b88885217fcd98 assets/flint/models/item/flint_pick_head.json
 28f497f18ae4579e517fcfc505c69ff80400c496 assets/flint/models/item/flint_saw.json
@@ -49,6 +62,7 @@ f0e0afaa76c2815c3d26483def591cf0da1ea95a assets/flint/models/item/flint_hoe.json
 7346025fa8c47996b1483bf41435210f98329356 assets/flint/models/item/flint_shovel.json
 afbdb9d6e3fd2fedc2fa749cf81387d16b632c70 assets/flint/models/item/flint_shovel_head.json
 d4db672562b647969d71fdcf7eb902195f04ec8c assets/flint/models/item/flint_station.json
+1a745ab321c9d2949e92a594bd680cbd2e4699df assets/flint/models/item/foundry.json
 06b5ed67bfd6cca3ecf85f25332db13b84bc73dd assets/flint/models/item/granite_cobble.json
 19d0241b6b2dda19cc247d1dff54b90b06af7fd3 assets/flint/models/item/hide_large.json
 91e580062fe779152c9a5c012356b0e46afa72e9 assets/flint/models/item/hide_medium.json
@@ -81,6 +95,7 @@ b694d30eb7c33fecb716b7629f1abd06eeec54cf assets/flint/models/item/plank_dark_oak
 c604b4236ff4104beb9ee4b86ce47bc889b45db2 assets/flint/models/item/plank_oak.json
 82fa964f0d9b48ae6f3ad2ac603ea107dd3ad687 assets/flint/models/item/plank_spruce.json
 81f73f84720e981e8b994353563b82696af59185 assets/flint/models/item/plank_warped.json
+ed7063353b9282a742328737245ee02d0537645d assets/flint/models/item/plant_fibre.json
 7d6505e27979e81b3cc6d81df7f77de14dd8ff46 assets/flint/models/item/sandstone_cobble.json
 cb328947a78cdcb4436b0f3f416e20a4d34e062d assets/flint/models/item/stone_hammer.json
 e017163a864d4fd546d431a6c27c443abd4d5ba1 assets/flint/models/item/thatch.json

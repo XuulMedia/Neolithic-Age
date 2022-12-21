@@ -29,16 +29,30 @@ public class ModLanguageProvider extends LanguageProvider {
         add("container.flint.foundry.heat.too_cold", "Too cold! Requires %s degrees");
         add("fuel.no_shift", "Press SHIFT for info");
 
+        add("container.flint_station", "Knapping");
+
+        add(ModBlocks.FLINT_STATION.get(), "Flintknapping Station");
+        add(ModBlocks.FOUNDRY.get(), "Foundry");
+
+
+
+
 
         add(ModBlocks.ORE_TIN.get(), "Tin Ore");
         add(ModBlocks.ORE_SILVER.get(), "Nether Silver Ore");
+        add(ModBlocks.FLINT_NODE.get(), "Flint Nodule");
 
         add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
         add(ModItems.BRAIDED_PLANT_FIBRE.get(), "Braided Plant Fibre");
+        add(ModBlocks.THATCH.get(), "Thatch");
 
         add(ModItems.WOOL.get(), "Wool");
         add(ModItems.YARN.get(), "Yarn");
         add(ModItems.SPINDLE.get(), "Spindle");
+
+//        add(ModItems.MEDICINE_PLANT_SEEDS.get(), "Herbal Seed");
+//        add(ModItems.MEDICINE_PLANT.get(), "Medical Herb");
+
 
 
         add(ModItems.BASKET.get(), "Basket");
@@ -71,6 +85,13 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.FLINT_SAW.get(), "Flint Saw");
         add(ModItems.STONE_HAMMER.get(), "Stone Hammer");
         add(ModItems.STONE_SPEAR.get(), "Flint Spear");
+
+        add(ModItems.FLINT_BLADE.get(), "Sharp Flint");
+        add(ModItems.FLINT_PICK_HEAD.get(), "Flint Pickaxe Head");
+        add(ModItems.FLINT_SHOVEL_HEAD.get(), "Flint Shovel Head");
+        add(ModItems.FLINT_AXE_HEAD.get(), "Flint Axe Head");
+        add(ModItems.FLINT_HOE_HEAD.get(), "Flint Hoe Head");
+        add(ModItems.FLINT_SAW_HEAD.get(), "Flint Saw Head");
 
 
 
@@ -195,6 +216,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CHUNK_ANDESITE.get(),"Andesite Chunk");
         add(ModItems.CHUNK_DEEPSLATE.get(),"Deepslate Chunk");
         add(ModItems.CHUNK_DRIPSTONE.get(),"Dripstone Chunk");
+        add(ModItems.CHUNK_SANDSTONE.get(),"Sandstone Chunk");
         add(ModItems.CHUNK_DIORITE.get(),"Diorite Chunk");
         add(ModItems.CHUNK_GRANITE.get(),"Granite Chunk");
         add(ModItems.CHUNK_BASALT.get(),"Basalt Chunk");
@@ -202,12 +224,13 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CHUNK_NETHERRACK.get(),"Netherrack Chunk");
         add(ModItems.CHUNK_BLACKSTONE.get(),"Blackstone Chunk");
         add(ModItems.CHUNK_CALCITE.get(),"Calcite Chunk");
-        add(ModItems.CHUNK_SANDSTONE.get(),"Sandstone Chunk");
+        add(ModItems.CHUNK_ENDSTONE.get(),"Endstone Chunk");
 
         add(ModItems.BRICK_STONE.get(),"Stone Brick");
         add(ModItems.BRICK_ANDESITE.get(),"Andesite Brick");
         add(ModItems.BRICK_DEEPSLATE.get(),"Deepslate Brick");
         add(ModItems.BRICK_DRIPSTONE.get(),"Dripstone Brick");
+        add(ModItems.BRICK_SANDSTONE.get(),"SandStone Brick");
         add(ModItems.BRICK_DIORITE.get(),"Diorite Brick");
         add(ModItems.BRICK_GRANITE.get(),"Granite Brick");
         add(ModItems.BRICK_BASALT.get(),"Basalt Brick");
@@ -215,6 +238,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.BRICK_NETHERRACK.get(),"Netherrack Brick");
         add(ModItems.BRICK_BLACKSTONE.get(),"Blackstone Brick");
         add(ModItems.BRICK_CALCITE.get(),"Calcite Brick");
+        add(ModItems.BRICK_ENDSTONE.get(),"Endstone Brick");
 
         add(ModItems.CLAY_STONE.get(),"Stone Clay");
         add(ModItems.CLAY_ANDESITE.get(),"Andesite Clay");
@@ -227,6 +251,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CLAY_NETHERRACK.get(),"Netherrack Clay");
         add(ModItems.CLAY_BLACKSTONE.get(),"Blackstone Clay");
         add(ModItems.CLAY_CALCITE.get(),"Calcite Clay");
+        add(ModItems.CLAY_ENDSTONE.get(),"Endstone Clay");
 
 
     }

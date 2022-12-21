@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "I": {
+      "tag": "flint:stone_chunks"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "flint:bindings"
+    }
+  },
+  "pattern": [
+    "I",
+    "x",
+    "T"
+  ],
+  "result": {
+    "item": "flint:stone_hammer"
+  }
+}

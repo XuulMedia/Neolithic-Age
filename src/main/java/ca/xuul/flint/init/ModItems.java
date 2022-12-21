@@ -3,6 +3,7 @@ package ca.xuul.flint.init;
 import ca.xuul.flint.Flint;
 import ca.xuul.flint.item.*;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
@@ -34,6 +35,17 @@ public class ModItems {
     public static final RegistryObject<Item> BRAIDED_PLANT_FIBRE = ITEMS.register("braided_plant_fibre",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
+
+    /*Crops*/
+//    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = ITEMS.register("medicine_seeds",
+//            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
+//                    new Item.Properties().tab(Flint.METAL_TAB)));
+//
+//    public static final RegistryObject<Item> MEDICINE_PLANT = ITEMS.register("medicine_plant",
+//            () -> new Item(new Item.Properties().tab(Flint.METAL_TAB)
+//                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
+
+
     /*Wool*/
     public static final RegistryObject<Item> WOOL = ITEMS.register("wool",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
@@ -62,7 +74,7 @@ public class ModItems {
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = ITEMS.register("unfired_clay_bucket",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> UNFIRED_CLAY_VIAL = ITEMS.register("unfired_clay_vial",
+    public static final RegistryObject<Item> UNFIRED_CLAY_BOTTLE = ITEMS.register("unfired_clay_bottle",
             () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
 
@@ -91,28 +103,28 @@ public class ModItems {
 
 
     public static final RegistryObject<SwordItem> FLINT_KNIFE = ITEMS.register("flint_knife",
-        () -> new SwordItem(ModToolMaterials.FLINT, 4, 1.6f, new Item.Properties().tab(Flint.FLINT_TAB)));
+        () -> new SwordItem(ModToolMaterials.FLINT, 4, 1.6f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50 * 2))); //double durability because sword takes 2 when mining with it
 
     public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pickaxe",
-        () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().tab(Flint.FLINT_TAB)));
+        () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<ShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
-        () -> new ShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().tab(Flint.FLINT_TAB)));
+        () -> new ShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<AxeItem> FLINT_AXE = ITEMS.register("flint_axe",
-        () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().tab(Flint.FLINT_TAB)));
+        () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<HoeItem> FLINT_HOE = ITEMS.register("flint_hoe",
-        () -> new HoeItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().tab(Flint.FLINT_TAB)));
+        () -> new HoeItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<SawItem> FLINT_SAW = ITEMS.register("flint_saw",
-        () -> new SawItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().tab(Flint.FLINT_TAB)));
+        () -> new SawItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
-        () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().tab(Flint.FLINT_TAB)));
+        () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<TridentItem> STONE_SPEAR = ITEMS.register("stone_spear",
-            () -> new TridentItem(new Item.Properties().tab(Flint.FLINT_TAB).durability(100)));
+            () -> new TridentItem(new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
 
 
@@ -238,6 +250,8 @@ public class ModItems {
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CHUNK_CALCITE = ITEMS.register("chunk_calcite",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CHUNK_ENDSTONE = ITEMS.register("chunk_endstone",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
 
     /*STONE DUSTS*/
@@ -265,10 +279,10 @@ public class ModItems {
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> DUST_BLACKSTONE = ITEMS.register("dust_blackstone",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> DUST_ENDSTONE = ITEMS.register("dust_endstone",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> DUST_CALCITE = ITEMS.register("dust_calcite",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> DUST_ENDSTONE = ITEMS.register("dust_endstone",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
     /*Stone Clay*/
     public static final RegistryObject<Item> CLAY_STONE = ITEMS.register("clay_stone",
@@ -293,10 +307,10 @@ public class ModItems {
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CLAY_BLACKSTONE = ITEMS.register("clay_blackstone",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> CLAY_ENDSTONE = ITEMS.register("clay_endstone",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> CLAY_CALCITE = ITEMS.register("clay_calcite",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> CLAY_ENDSTONE = ITEMS.register("clay_endstone",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
     /*STONE BRICKS*/
     public static final RegistryObject<Item> BRICK_STONE = ITEMS.register("brick_stone",
@@ -321,10 +335,10 @@ public class ModItems {
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> BRICK_BLACKSTONE = ITEMS.register("brick_blackstone",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
-    public static final RegistryObject<Item> BRICK_ENDSTONE = ITEMS.register("brick_endstone",
-        () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
     public static final RegistryObject<Item> BRICK_CALCITE = ITEMS.register("brick_calcite",
         () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
+    public static final RegistryObject<Item> BRICK_ENDSTONE = ITEMS.register("brick_endstone",
+            () -> new Item(STANDARD_STONE_AGE_PROPERTIES));
 
     /*Logs*/
     public static final RegistryObject<FuelItem> LOG_OAK = createFuelItem("log_oak", HIGH_HEAT_WOOD, STANDARD_STONE_AGE_PROPERTIES);

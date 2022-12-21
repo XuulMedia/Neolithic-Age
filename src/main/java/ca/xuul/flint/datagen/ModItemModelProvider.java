@@ -16,28 +16,47 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.ORE_TIN_ITEM.get()).getPath(), modLoc("block/ore_tin"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.ORE_SILVER_ITEM.get()).getPath(), modLoc("block/ore_nether_silver"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.BLOCK_TIN_ITEM.get()).getPath(), modLoc("block/block_tin"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.BLOCK_SILVER_ITEM.get()).getPath(), modLoc("block/block_silver"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.BLOCK_BRONZE_ITEM.get()).getPath(), modLoc("block/block_bronze"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.FLINT_STATION_ITEM.get()).getPath(), modLoc("block/flint_station"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.ORE_TIN.get()).getPath(), modLoc("block/ore_tin"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.ORE_SILVER.get()).getPath(), modLoc("block/ore_nether_silver"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.BLOCK_TIN.get()).getPath(), modLoc("block/block_tin"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.BLOCK_SILVER.get()).getPath(), modLoc("block/block_silver"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.BLOCK_BRONZE.get()).getPath(), modLoc("block/block_bronze"));
+
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.COBBLESTONE.get()).getPath(), modLoc("block/cobblestone"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.BASALT_COBBLESTONE.get()).getPath(), modLoc("block/basalt_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.DEEPSLATE_COBBLESTONE.get()).getPath(), modLoc("block/deepslate_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.NETHERRACK_COBBLESTONE.get()).getPath(), modLoc("block/netherrack_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.SANDSTONE_COBBLESTONE.get()).getPath(), modLoc("block/sandstone_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.BLACKSTONE_COBBLESTONE.get()).getPath(), modLoc("block/blackstone_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENDSTONE_COBBLESTONE.get()).getPath(), modLoc("block/endstone_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.GRANITE_COBBLESTONE.get()).getPath(), modLoc("block/granite_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.TUFF_COBBLESTONE.get()).getPath(), modLoc("block/tuff_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.ANDESITE_COBBLESTONE.get()).getPath(), modLoc("block/andesite_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.DIORITE_COBBLESTONE.get()).getPath(), modLoc("block/diorite_cobble"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.CALCITE_COBBLESTONE.get()).getPath(), modLoc("block/calcite_cobble"));
 
 
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.THATCH_BLOCK_ITEM.get()).getPath(), modLoc("block/thatch"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.STONE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_stone"));
+//        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.BASALT_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_basalt"));
+//        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.DEEPSLATE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_deepslate"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.NETHERRACK_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_netherrack"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.SANDSTONE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_sandstone"));
+//        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.BLACKSTONE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_blackstone"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.GRANITE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_granite"));
+//        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.TUFF_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_tuff"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.ANDESITE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_andesite"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.DIORITE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_diorite"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.CALCITE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_calcite"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.ENDSTONE_BRICK_BLOCK.get()).getPath(), modLoc("block/bricks_endstone"));
 
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.COBBLESTONE_ITEM.get()).getPath(), modLoc("block/cobblestone"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.BASALT_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/basalt_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.DEEPSLATE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/deepslate_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.NETHERRACK_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/netherrack_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.SANDSTONE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/sandstone_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.BLACKSTONE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/blackstone_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.ENDSTONE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/endstone_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.GRANITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/granite_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.TUFF_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/tuff_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.ANDESITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/andesite_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.DIORITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/diorite_cobble"));
-        withExistingParent(ForgeRegistries.ITEMS.getKey(ModBlocks.CALCITE_COBBLESTONE_ITEM.get()).getPath(), modLoc("block/calcite_cobble"));
+
+
+        /*complex blocks with manual json*/
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.FLINT_NODE.get()).getPath(), modLoc("block/flint_node"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.FLINT_STATION.get()).getPath(), modLoc("block/flint_station"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.FOUNDRY.get()).getPath(), modLoc("block/foundry"));
+        withExistingParent(ForgeRegistries.BLOCKS.getKey(ModBlocks.THATCH.get()).getPath(), modLoc("block/thatch"));
+
 
 
 
@@ -50,12 +69,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 //                        mcLoc("item/generated"),
 //                        "layer0", modLoc("item/raw_silver"));
 //
-//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANT_FIBRE.get()).getPath(),
-//                mcLoc("item/generated"),"layer0", modLoc("item/plant_fibre"));
-//
-//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRAIDED_PLANT_FIBRE.get()).getPath(),
-//                mcLoc("item/generated"),"layer0", modLoc("item/braided_plant_fibre"));
-//
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANT_FIBRE.get()).getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/plant_fibre"));
+
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRAIDED_PLANT_FIBRE.get()).getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/braided_plant_fibre"));
+
 //        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.WOOL.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/wool"));
 //
@@ -199,6 +218,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
 
+
         /*TODO setup layered texture*/
 //        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_HELMET.get()).getPath(),
 //                mcLoc("item/generated"),
@@ -265,8 +285,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
 
-//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_STONE.get()).getPath(),
-//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_stone"));
+      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_STONE.get()).getPath(),
+              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_stone"));
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_ANDESITE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_andesite"));
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_DEEPSLATE.get()).getPath(),
@@ -274,19 +294,20 @@ public class ModItemModelProvider extends ItemModelProvider {
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_DRIPSTONE.get()).getPath(),
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_dripstone"));
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_SANDSTONE.get()).getPath(),
-//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_diorite"));
+//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_sandstone"));
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_DIORITE.get()).getPath(),
-//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_granite"));
+//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_diorite"));
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_GRANITE.get()).getPath(),
-//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_basalt"));
+//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_granite"));
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_BASALT.get()).getPath(),
+//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_basalt"));
 //              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_tuff"));
 //      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_TUFF.get()).getPath(),
-//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_netherrack"));
-//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_NETHERRACK.get()).getPath(),
-//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_blackstone"));
-//      singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_BLACKSTONE.get()).getPath(),
-//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_calcite"));
+//              mcLoc("item/generated"),"layer0", modLoc("item/bricks/brick_tuff"));
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_NETHERRACK.get()).getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/bricks/netherbrick"));
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRICK_BLACKSTONE.get()).getPath(),
+              mcLoc("item/generated"),"layer0", modLoc("item/bricks/black_brick"));
 
 
 
@@ -349,5 +370,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
 
     }
+
+
 
 }

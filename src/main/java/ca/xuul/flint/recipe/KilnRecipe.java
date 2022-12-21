@@ -70,8 +70,6 @@ public class KilnRecipe implements Recipe<SimpleContainer> {
     }
 
 
-    /*TODO KILN RECIPE SHOULD HAVE 6 IN and  Out each slot should be a recipe to the corresponding slot allowing
-    *  the kiln recipe. This means you can kiln 6 things at a time on one fuel */
 
     public static class Serializer implements RecipeSerializer<KilnRecipe> {
 

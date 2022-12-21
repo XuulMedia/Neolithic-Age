@@ -1,5 +1,6 @@
 {
   "values": [
-    "flint:ore_tin"
+    "flint:ore_tin",
+    "#minecraft:logs"
   ]
 }

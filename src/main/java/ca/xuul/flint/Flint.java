@@ -22,6 +22,7 @@ public class Flint {
     public Flint() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModBlocks.VANILLA_BLOCKS.register(bus);
         ModBlocks.BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         MinecraftForge.EVENT_BUS.register(ModEvents.class);

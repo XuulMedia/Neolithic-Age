@@ -1,14 +1,14 @@
 {
-  "type": "flint:tool_use",
+  "type": "minecraft:crafting_shapeless",
   "ingredients": [
+    {
+      "tag": "flint:saws"
+    },
     {
       "item": "flint:log_acacia"
     }
   ],
   "result": {
     "item": "flint:plank_acacia"
-  },
-  "tool": {
-    "tag": "flint:saws"
   }
 }

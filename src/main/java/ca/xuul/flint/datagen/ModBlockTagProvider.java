@@ -56,13 +56,31 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
 
         /*TODO create the tool tier for flint and stone*/
-       tag(BlockTags.NEEDS_STONE_TOOL)
-               .add(ModBlocks.ORE_TIN.get()
-               );
+
+
+        /*Harvest Levels*/
+
+        tag(Tags.Blocks.NEEDS_WOOD_TOOL);
+
+        tag(BlockTags.NEEDS_STONE_TOOL)
+                .add(ModBlocks.ORE_TIN.get())
+                .addTag(BlockTags.LOGS);
+
+        tag(BlockTags.NEEDS_IRON_TOOL);
+
+        tag(BlockTags.NEEDS_DIAMOND_TOOL);
 
 
 
-       tag(Tags.Blocks.NEEDS_WOOD_TOOL);
+
+
+        tag(BlockTags.MINEABLE_WITH_AXE);
+        tag(BlockTags.MINEABLE_WITH_HOE);
+        tag(BlockTags.MINEABLE_WITH_PICKAXE);
+        tag(BlockTags.MINEABLE_WITH_SHOVEL);
+
+
+
 
        tag(Tags.Blocks.ORES)
                .add(ModBlocks.ORE_TIN.get());
