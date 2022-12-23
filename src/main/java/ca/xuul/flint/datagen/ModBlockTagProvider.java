@@ -53,6 +53,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.BLACKSTONE)
                 .add(Blocks.CALCITE);
 
+        tag(BlockTags.CAMPFIRES)
+                .add(ModBlocks.CAMPFIRE.get());
+
 
 
         /*TODO create the tool tier for flint and stone*/

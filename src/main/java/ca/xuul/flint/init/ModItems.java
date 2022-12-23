@@ -92,8 +92,8 @@ public class ModItems {
     public static final RegistryObject<PickaxeItem> BRONZE_PICK = ITEMS.register("bronze_pick",
         () -> new PickaxeItem(ModToolMaterials.BRONZE, 4, 1.2f, new Item.Properties().tab(Flint.METAL_TAB)));
 
-    public static final RegistryObject<ShovelItem> BRONZE_SHOVEL = ITEMS.register("bronze_shovel",
-        () -> new ShovelItem(ModToolMaterials.BRONZE, 2.25f, 1.0f, new Item.Properties().tab(Flint.METAL_TAB)));
+    public static final RegistryObject<ModShovelItem> BRONZE_SHOVEL = ITEMS.register("bronze_shovel",
+        () -> new ModShovelItem(ModToolMaterials.BRONZE, 2.25f, 1.0f, new Item.Properties().tab(Flint.METAL_TAB)));
 
     public static final RegistryObject<AxeItem> BRONZE_AXE = ITEMS.register("bronze_axe",
         () -> new AxeItem(ModToolMaterials.BRONZE, 9, 0.9f, new Item.Properties().tab(Flint.METAL_TAB)));
@@ -108,8 +108,8 @@ public class ModItems {
     public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pickaxe",
         () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
-    public static final RegistryObject<ShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
-        () -> new ShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
+    public static final RegistryObject<ModShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
+        () -> new ModShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<AxeItem> FLINT_AXE = ITEMS.register("flint_axe",
         () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
@@ -125,6 +125,9 @@ public class ModItems {
 
     public static final RegistryObject<TridentItem> STONE_SPEAR = ITEMS.register("stone_spear",
             () -> new TridentItem(new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
+
+    public static final RegistryObject<FireStarterItem> BASIC_FIRESTARTER = ITEMS.register("firestarter",
+            () -> new FireStarterItem(new Item.Properties().tab(Flint.FLINT_TAB).durability(2)));
 
 
 

@@ -59,14 +59,25 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_flint", has(Items.FLINT))
                 .save(consumer);
 
-
         ShapedRecipeBuilder.shaped(Blocks.CRAFTING_TABLE)
-            .pattern("xx")
-            .pattern("xx")
-            .define('x', ModTags.LOGS)
-            .group("flint")
-            .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LOG_OAK.get()))
-            .save(consumer);
+                .pattern("xx")
+                .pattern("xx")
+                .define('x', ModTags.LOGS)
+                .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LOG_OAK.get()))
+                .save(consumer);
+
+
+        ShapedRecipeBuilder.shaped(ModBlocks.CAMPFIRE.get())
+                .pattern(" x ")
+                .pattern("xPx")
+                .define('x', ModTags.LOGS)
+                .define('P', ModTags.PLANT_FIBRE)
+                .group("flint")
+                .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LOG_OAK.get()))
+                .save(consumer);
+
+
+
 
         /*PLANT FIBRE*/
         ShapelessRecipeBuilder.shapeless(ModItems.BRAIDED_PLANT_FIBRE.get())
@@ -496,6 +507,11 @@ public class ModRecipeProvider extends RecipeProvider {
             .unlockedBy("has_flint", has(Items.FLINT))
             .save(consumer);
 
+        ShapelessRecipeBuilder.shapeless(ModItems.BASIC_FIRESTARTER.get())
+                .requires(Items.STICK, 2)
+                .unlockedBy("has_stick", has(Items.STICK))
+                .save(consumer);
+
 
         CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_BLADE.get(), 1)
             .unlockedBy("has_flint", has(Items.FLINT))
@@ -543,7 +559,7 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_clay", has(ModTags.CLAY))
                 .save(consumer, RL("unfired_clay_bucket"));
 
-        ShapedRecipeBuilder.shaped(ModItems.UNFIRED_CLAY_VIAL.get())
+        ShapedRecipeBuilder.shaped(ModItems.UNFIRED_CLAY_BOTTLE.get())
                 .pattern("x x")
                 .pattern(" x ")
                 .define('x', ModTags.CLAY)

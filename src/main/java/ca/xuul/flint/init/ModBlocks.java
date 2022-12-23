@@ -170,6 +170,15 @@ public class ModBlocks {
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = registerBlock("flint_station",
             FlintStationBlock::new, STANDARD_STONE_AGE_PROPERTIES);
 
+//
+//    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = VANILLA_BLOCKS.register("campfire",
+//            () -> new ModCampfireBlock(true, 1));
+
+    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire",
+            () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), STANDARD_STONE_AGE_PROPERTIES);
+
+
+
 
 
 

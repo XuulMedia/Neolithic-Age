@@ -94,7 +94,7 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
     }
 
 
-    private static final float[] MODDED_LEAVES_STICK_CHANCES = new float[]{0.2F, 0.22222223F, 0.25F, 0.33333335F, 1F};
+    private static final float[] MODDED_LEAVES_STICK_CHANCES = new float[]{0.4F, 0.444444444F, 0.45F, 0.5555555F, 1F};
 
 
     protected LootTable.Builder leavesSticksSaplingTable(String name,Block block, Item item1, Item sapling, float... chances){

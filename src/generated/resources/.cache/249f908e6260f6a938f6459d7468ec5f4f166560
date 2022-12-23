@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-20T22:19:38.1650917	Item Models: flint
+// 1.19.2	2022-12-21T22:36:06.8814726	Item Models: flint
 6250f393549d97d5e1bfe08e3a730b5af9459ae0 assets/flint/models/item/andesite_cobble.json
 3eb8200d4554768609bf64bacdb90fcf627b3979 assets/flint/models/item/basalt_cobble.json
 28840a80be44596b96f3dd70bdc342f253d1d88b assets/flint/models/item/basket.json
@@ -48,6 +48,7 @@ a02dc5d6644aece117d4c30382e1194e83c7cabe assets/flint/models/item/dust_steel.jso
 f04dde2f4b4feb63aefb81170b7535739182ee6b assets/flint/models/item/dust_stone.json
 b999e8a4545e24878deb658821f8d8858ca49894 assets/flint/models/item/dust_tin.json
 7fdd6a425a0a980d8e882404eba9ba27244a1468 assets/flint/models/item/endstone_cobble.json
+657a152ae2be2e38e32a2dbae7a7ad515e96ac1f assets/flint/models/item/firestarter.json
 611bf07ddd8a844937a72935d62dbc655cf21051 assets/flint/models/item/flint_axe.json
 8721db5687feae6d9c12dfe50224975e4a82c044 assets/flint/models/item/flint_axe_head.json
 6790c84b364dbabebe8c20b305fe56942356fc5b assets/flint/models/item/flint_blade.json

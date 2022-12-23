@@ -63,7 +63,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add(ModItems.UNFIRED_CLAY_JUG.get(), "Unfired Jug");
         add(ModItems.UNFIRED_CLAY_BUCKET.get(), "Unfired Clay Bucket");
-        add(ModItems.UNFIRED_CLAY_VIAL.get(), "Unfired Clay Vial");
+        add(ModItems.UNFIRED_CLAY_BOTTLE.get(), "Unfired Clay Bottle");
 
         add(ModItems.CLAY_VIAL.get(), "Clay Vial");
 
@@ -85,6 +85,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.FLINT_SAW.get(), "Flint Saw");
         add(ModItems.STONE_HAMMER.get(), "Stone Hammer");
         add(ModItems.STONE_SPEAR.get(), "Flint Spear");
+        add(ModItems.BASIC_FIRESTARTER.get(), "Firestarter");
+
 
         add(ModItems.FLINT_BLADE.get(), "Sharp Flint");
         add(ModItems.FLINT_PICK_HEAD.get(), "Flint Pickaxe Head");

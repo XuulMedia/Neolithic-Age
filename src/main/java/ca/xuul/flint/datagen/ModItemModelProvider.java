@@ -352,6 +352,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.STONE_HAMMER.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/tools/stone_hammer"));
 
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BASIC_FIRESTARTER.get()).getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/tools/firestarter"));
+
 
 
       singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_BLADE.get()).getPath(),

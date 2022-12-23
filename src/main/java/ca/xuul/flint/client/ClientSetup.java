@@ -23,6 +23,8 @@ public final class ClientSetup {
     public static void init(FMLClientSetupEvent event){
         event.enqueueWork(() -> {
             ModMenuTypes.registerMenuScreens();
+
+
         });
 
 
