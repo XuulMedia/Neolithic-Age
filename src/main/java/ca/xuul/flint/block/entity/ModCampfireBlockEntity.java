@@ -132,7 +132,6 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
                 }
             }
         }
-
     }
 
     /**
@@ -155,7 +154,6 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
             int[] aint1 = pTag.getIntArray("CookingTotalTimes");
             System.arraycopy(aint1, 0, this.cookingTime, 0, Math.min(this.cookingTime.length, aint1.length));
         }
-
     }
 
     protected void saveAdditional(CompoundTag pTag) {
@@ -195,7 +193,6 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -218,13 +215,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
         System.out.println("reset! Heat is now" + burnTime);
     }
 
-
-    /**/
-
     public boolean isStillBurning() {return burnTime > 0;}
-
-
-
 
     public boolean isNearRain(Level level, BlockPos blockPos) {
         return level.isRainingAt(blockPos) || level.isRainingAt(blockPos.west()) || level.isRainingAt(blockPos.east()) || level.isRainingAt(blockPos.north()) || level.isRainingAt(blockPos.south());

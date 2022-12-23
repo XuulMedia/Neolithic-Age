@@ -9,8 +9,8 @@
         }
     },
     "textures": {
-        "particle": "block/campfire_log",
-        "log": "block/campfire_log"
+        "particle": "flint:block/campfire_log",
+        "log": "flint:block/campfire_log"
     },
     "render_type": "minecraft:cutout",
     "elements": [
