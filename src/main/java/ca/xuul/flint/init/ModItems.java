@@ -108,8 +108,8 @@ public class ModItems {
     public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pickaxe",
         () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
-    public static final RegistryObject<ModShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
-        () -> new ModShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
+    public static final RegistryObject<ShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
+        () -> new ShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));
 
     public static final RegistryObject<AxeItem> FLINT_AXE = ITEMS.register("flint_axe",
         () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().tab(Flint.FLINT_TAB).durability(50)));

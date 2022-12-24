@@ -1,5 +1,6 @@
 package ca.xuul.flint.block;
 
+import ca.xuul.flint.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
@@ -8,7 +9,9 @@ import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.TorchBlock;
@@ -18,9 +21,12 @@ import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
+import javax.annotation.Nullable;
+
 public class ModTorchBlock extends TorchBlock {
+    protected static final  int BURN_MINUITES = 5; // how long in min the torchs will burn
     protected static final int DELAY = 60; // 600 ticks is 30 seconds
-    protected static final int BURN_TICKS = 2;
+    protected static int BURN_TICKS = 2 * BURN_MINUITES;
     public int burnTime = BURN_TICKS;
 
     public static final IntegerProperty BURNTIME = IntegerProperty.create("burn_time", 0, BURN_TICKS);
@@ -30,7 +36,7 @@ public class ModTorchBlock extends TorchBlock {
     public ModTorchBlock(Properties pProperties) {
         super(pProperties, ParticleTypes.FLAME);
         registerDefaultState(stateDefinition.any()
-                .setValue(LIT, false)
+                .setValue(LIT, true)
                 .setValue(BURNTIME, BURN_TICKS));
     }
 
@@ -42,8 +48,7 @@ public class ModTorchBlock extends TorchBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
-            System.out.println("tick scheduled!");
+        if (!pLevel.isClientSide() && !pState.getValue(LIT) && pPlayer.getItemInHand(pHand).is(ModTags.LIGHTERS)) {
             pLevel.scheduleTick(pPos, this, DELAY);
             pLevel.setBlock(pPos, pState.cycle(LIT), 3);
         }
@@ -55,20 +60,17 @@ public class ModTorchBlock extends TorchBlock {
 
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos blockPos, RandomSource randomSource) {
-        System.out.println("TICK");
+        System.out.println("TORCH TICK");
         if(!level.isClientSide &&  level.isRaining() && isNearRain(level,blockPos)){
             extinguish(state, level, blockPos);
             return;
         }
-        System.out.println("burnTime is " + burnTime);
         int newBurnTime = state.getValue(BURNTIME) - 1;
-        System.out.println("newburnTime is " + newBurnTime);
         if(newBurnTime <= 0){
             state.setValue(LIT, false);
             extinguish(state, level, blockPos);
         } else {
             level.scheduleTick(blockPos, this, DELAY);
-            System.out.println("tick scheduled!");
             level.setBlock(blockPos, state.setValue(BURNTIME, newBurnTime), 3);
         }
     }
@@ -84,16 +86,10 @@ public class ModTorchBlock extends TorchBlock {
 
     }
 
-//    @Override
-//    public void setPlacedBy(Level pLevel, BlockPos pos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
-//        System.out.println("tick scheduled!");
-//        pLevel.scheduleTick(pos, this, DELAY);
-//    }
-//
-//    @Override
-//    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
-//        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
-//    }
+    @Override
+    public void setPlacedBy(Level pLevel, BlockPos pos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+        pLevel.scheduleTick(pos, this, DELAY);
+    }
 
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(LIT)) {

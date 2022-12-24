@@ -2,6 +2,7 @@ package ca.xuul.flint.block;
 
 import ca.xuul.flint.block.entity.ModCampfireBlockEntity;
 import ca.xuul.flint.init.ModBlockEntities;
+import ca.xuul.flint.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -79,6 +80,16 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         BlockEntity blockentity = pLevel.getBlockEntity(pPos);
+
+        if(pPlayer.getItemInHand(pHand).is(ModTags.LIGHTERS) && !pState.getValue(LIT) ){
+            pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
+        }
+        if(pPlayer.getItemInHand(pHand).is(ModTags.DOUSERS) && pState.getValue(LIT) ){
+            pLevel.setBlock(pPos, pState.setValue(LIT, false), 3);
+        }
+
+
+
         if (blockentity instanceof ModCampfireBlockEntity campfireblockentity) {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
             Optional<CampfireCookingRecipe> optional = campfireblockentity.getCookableRecipe(itemstack);

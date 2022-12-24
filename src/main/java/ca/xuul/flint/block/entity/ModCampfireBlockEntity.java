@@ -29,14 +29,12 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
-    private static final int DELAY = 1200; // 1200 ticks is 60 seconds, so we only check once every
-    public int maxBurnTime= 1 * DELAY; //should be in minutes
+    protected static final  int BURN_MINUITES = 5; // how long in min the fire will burn
+    private static final int DELAY = 1200; // 1200 ticks is 60 seconds
+    public int maxBurnTime= BURN_MINUITES * DELAY; //should be in minutes
     public int burnTime = maxBurnTime;
-    private static final int BURN_COOL_SPEED = 2;
-    private static final int NUM_SLOTS = 4;
-
-//    public static final IntegerProperty BURN_TIME = IntegerProperty.create("burn_time", 0,MAX_BURN_TIME);
-
+//    private static final int BURN_COOL_SPEED = 2;
+//    private static final int NUM_SLOTS = 4;
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
     private final int[] cookingProgress = new int[4];
@@ -76,7 +74,6 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
             blockEntity.setChanged();
             return;
         }
-        System.out.println("burntime is" +  blockEntity.burnTime);
         int newBurnTime = blockEntity.burnTime - 1;
         if(newBurnTime <= 0){
             level.setBlockAndUpdate(blockPos, state.setValue(FoundryBlock.LIT, false));
@@ -199,6 +196,8 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
     private void markUpdated() {
         this.setChanged();
         this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
+        this.setChanged();
+        this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
 
     public void clearContent() {
@@ -212,7 +211,6 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
     }
     public void reset(){
         burnTime = maxBurnTime;
-        System.out.println("reset! Heat is now" + burnTime);
     }
 
     public boolean isStillBurning() {return burnTime > 0;}

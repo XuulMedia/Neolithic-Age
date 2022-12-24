@@ -1,4 +1,4 @@
-package ca.xuul.flint.datagen;
+package ca.xuul.flint.datagen.loot;
 
 import ca.xuul.flint.init.ModItems;
 import ca.xuul.flint.init.ModTags;
@@ -12,9 +12,11 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.LootPool;
@@ -23,6 +25,7 @@ import net.minecraft.world.level.storage.loot.LootTables;
 import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
 import net.minecraft.world.level.storage.loot.entries.DynamicLoot;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import net.minecraft.world.level.storage.loot.predicates.*;
@@ -37,15 +40,16 @@ import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
 
-public abstract class BaseLootTableProvider extends LootTableProvider {
+public abstract class BlockLootTableProvider extends LootTableProvider {
 
     private static final Logger LOGGER = LogManager.getLogger();
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().disableHtmlEscaping().create();
 
     protected final Map<Block, LootTable.Builder> lootTables = new HashMap<>();
+
     private final DataGenerator generator;
 
-    public BaseLootTableProvider(DataGenerator dataGeneratorIn) {
+    public BlockLootTableProvider(DataGenerator dataGeneratorIn) {
         super(dataGeneratorIn);
         this.generator = dataGeneratorIn;
     }
@@ -152,12 +156,6 @@ public abstract class BaseLootTableProvider extends LootTableProvider {
                 );
         return LootTable.lootTable().withPool(builder);
     }
-
-
-
-
-
-
 
 
 

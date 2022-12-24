@@ -15,6 +15,7 @@ public class ModTags {
     public static final TagKey<Item> HAMMERS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "hammers"));
     public static final TagKey<Item> SAWS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "saws"));
     public static final TagKey<Item> KNIVES = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "knives"));
+    public static final TagKey<Item> SHOVELS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "shovels"));
 
     public static final TagKey<Item> LOGS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "logs"));
     public static final TagKey<Item> PLANKS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "planks"));
@@ -30,8 +31,15 @@ public class ModTags {
     public static final TagKey<Item> CLAY = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "clay"));
 
 
+    /*For items that can light and put out campfires and torches*/
+    public static final TagKey<Item> LIGHTERS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "lighters"));
+    public static final TagKey<Item> DOUSERS = TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(Flint.MOD_ID, "dousers"));
+
+
     /*BlockTags*/
     public static final TagKey<Block> MINEABLE_WITH_HAMMER = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(Flint.MOD_ID, "requires_hammer"));
+
+    public static final TagKey<Block> NEEDS_FLINT_TOOL = TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(Flint.MOD_ID, "requires_flint"));
 
 
 

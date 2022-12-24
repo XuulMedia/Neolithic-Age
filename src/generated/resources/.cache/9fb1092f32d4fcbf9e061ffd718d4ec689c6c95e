@@ -1,8 +1,9 @@
-// 1.19.2	2022-12-21T22:45:02.7849298	Recipes
+// 1.19.2	2022-12-23T20:02:29.546621	Recipes
 ca31e7ecda02d8e9a16828172ddad10ad65f3fee data/flint/advancements/recipes/building_blocks/wool_block_from_wool.json
 be283d1ee9ca65ef528f738b909a9bcbcce6af73 data/flint/advancements/recipes/flintmetal_age/bronze_block_from_ingot.json
 78bf825c5807c5fe9e8a236b711d168137b8c199 data/flint/advancements/recipes/flintmetal_age/bronze_ingot_from_block.json
 09b908fbfd288e641c680bcc318178b35867288a data/flint/advancements/recipes/flintmetal_age/bronze_ingot_from_nugget.json
+530d9629f94cbd9df17418e867ab97d3c18c0d53 data/flint/advancements/recipes/flintmetal_age/campfire/torch_from_stick.json
 a3c0250cc9fc740f2c9ff31f003844588351994b data/flint/advancements/recipes/flintmetal_age/ingot_tin1.json
 dd0d33c3155f4141a97e7a7a48c26c80b0e52595 data/flint/advancements/recipes/flintmetal_age/ingot_tin2.json
 0eaa368a6029d7a39c8b600058c5d757b4265a01 data/flint/advancements/recipes/flintmetal_age/nugget_bronze_from_ingot.json
@@ -114,6 +115,7 @@ de2576e7fb97c421df122b1ec48fec0785ba680c data/flint/recipes/braided_plant_fibre.
 9121c60b62491105fa6df91e3f0aaff9f247015f data/flint/recipes/bronze_ingot_from_block.json
 0951e3c8e342381cbddccca04bb2affa7bacf4a7 data/flint/recipes/bronze_ingot_from_nugget.json
 347c69b0ddf650e7804b29cb503b02893cd117cc data/flint/recipes/campfire.json
+e695ac335a0b54d7d3dff1587909405bbf40d548 data/flint/recipes/campfire/torch_from_stick.json
 e4f52c28f905f35450d8defd1956e1120012b436 data/flint/recipes/clay_andesite.json
 2276676a654d7efb4628e2ebf077a8132b6254b3 data/flint/recipes/clay_basalt.json
 f4f097114a9846b110a7d5d3fd42c58b9194a19f data/flint/recipes/clay_blackstone.json

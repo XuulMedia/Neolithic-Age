@@ -1,13 +1,15 @@
 package ca.xuul.flint.datagen;
 
+import ca.xuul.flint.datagen.loot.BlockLootTableProvider;
 import ca.xuul.flint.init.ModBlocks;
 import ca.xuul.flint.init.ModItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Blocks;
 
 
-public class ModLootTableProvider extends BaseLootTableProvider {
+public class ModLootTableProvider extends BlockLootTableProvider {
 
     public ModLootTableProvider(DataGenerator dataGeneratorIn) {
         super(dataGeneratorIn);
@@ -45,11 +47,6 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         lootTables.put(Blocks.MANGROVE_LEAVES, leavesSticksSaplingTable("mangrove_leaves", Blocks.MANGROVE_LEAVES,Items.STICK, Items.MANGROVE_PROPAGULE,LEAVES_SAPLING_CHANCES));
 
 
-        /*TODO create Log loot table that requires axe or saw  POSSIBLY create 3 distinct harvest levels as well*/
-
-
-
-
 
 
         lootTables.put(Blocks.STONE, HammerSmashingTable("stone", Blocks.STONE, ModItems.CHUNK_STONE.get(), ModItems.DUST_STONE.get(), 1, 4));
@@ -64,5 +61,7 @@ public class ModLootTableProvider extends BaseLootTableProvider {
         lootTables.put(Blocks.NETHERRACK, HammerSmashingTable("netherrack", Blocks.NETHERRACK, ModItems.CHUNK_NETHERRACK.get(), ModItems.DUST_NETHERRACK.get(), 1, 4));
         lootTables.put(Blocks.BLACKSTONE, HammerSmashingTable("blackstone", Blocks.BLACKSTONE, ModItems.CHUNK_BLACKSTONE.get(), ModItems.DUST_BLACKSTONE.get(), 1, 4));
 
+
+        entitylootTables.put(EntityType.SHEEP, createSheepTable("sheep", Items.BLACK_WOOL));
     }
 }

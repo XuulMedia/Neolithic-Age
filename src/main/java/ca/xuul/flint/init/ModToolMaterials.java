@@ -4,6 +4,7 @@ import ca.xuul.flint.util.BaseToolMaterial;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraftforge.common.ForgeTier;
 
 public class ModToolMaterials {
     private ModToolMaterials(){}
@@ -12,6 +13,11 @@ public class ModToolMaterials {
             () -> Ingredient.of(ModItems.INGOT_BRONZE.get()));
 
 
-    protected static final Tier FLINT = new BaseToolMaterial(0,5,2,2f,100,
+//    protected static final Tier FLINT = new BaseToolMaterial(0,5,2,2f,100,
+//            () -> Ingredient.of(Items.FLINT));
+
+    public static final ForgeTier FLINT = new ForgeTier(1, 100,2f,0,5,ModTags.NEEDS_FLINT_TOOL,
             () -> Ingredient.of(Items.FLINT));
+
+
 }

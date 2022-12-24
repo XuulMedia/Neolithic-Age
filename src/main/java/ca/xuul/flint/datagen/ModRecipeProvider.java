@@ -19,7 +19,9 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -578,6 +580,12 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("planks", has(ModTags.PLANKS))
                 .save(consumer);
 
+//        ItemLike pResult, Ingredient pIngredient, float pExperience, int pCookingTime, SimpleCookingSerializer<?> pSerializer)
+
+        SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(Items.STICK), ModBlocks.TORCH.get(), 10, 100)
+                .unlockedBy("has_campfire", has(ModBlocks.CAMPFIRE.get()))
+                .save(consumer, RL("campfire/torch_from_stick"));
+
 
 
 
@@ -610,6 +618,8 @@ public class ModRecipeProvider extends RecipeProvider {
         FuelSetup(ModItems.LOG_MANGROVE,BURN_TIME_STANDARD, consumer);
         FuelSetup(ModItems.LOG_WARPED,BURN_TIME_STANDARD, consumer);
         FuelSetup(ModItems.LOG_CRIMSON,BURN_TIME_STANDARD, consumer);
+
+
 
 
 

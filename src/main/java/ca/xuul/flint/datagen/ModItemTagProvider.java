@@ -44,6 +44,9 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.KNIVES)
                 .add(ModItems.FLINT_KNIFE.get());
 
+        tag(ModTags.SHOVELS)
+                .add(ModItems.FLINT_SHOVEL.get());
+
 
         tag(ModTags.CLAY)
                 .add(ModItems.CLAY_ANDESITE.get())
@@ -99,6 +102,14 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.CHUNK_BLACKSTONE.get())
                 .add(ModItems.CHUNK_CALCITE.get());
 
+
+        tag(ModTags.LIGHTERS)
+                .add(ModItems.BASIC_FIRESTARTER.get())
+                .add(Items.FLINT_AND_STEEL)
+                .add(Items.CANDLE);
+
+        tag(ModTags.DOUSERS)
+                .add(ModItems.FLINT_SHOVEL.get());
 
 
 
