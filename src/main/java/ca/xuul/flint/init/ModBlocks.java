@@ -9,6 +9,8 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,6 +19,7 @@ import net.minecraftforge.registries.RegistryObject;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Supplier;
+import java.util.function.ToIntFunction;
 
 import static ca.xuul.flint.init.ModItems.*;
 
@@ -177,7 +180,11 @@ public class ModBlocks {
     public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire",
             () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), STANDARD_STONE_AGE_PROPERTIES);
 
-
+    public static final RegistryObject<ModTorchBlock> TORCH = registerBlock("torch",
+            () -> new ModTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
+                    .noCollission()
+                    .instabreak()
+                    .lightLevel(litBlockEmission(15))), STANDARD_METAL_AGE_PROPERTIES);
 
 
 
@@ -227,6 +234,13 @@ public class ModBlocks {
         return  new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (rotation) -> {
             return rotation.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ?  pTopColor: pBarkColor;
         }).strength(2.0F).sound(SoundType.WOOD).requiresCorrectToolForDrops());
+    }
+
+
+    private static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {
+        return (state) -> {
+            return state.getValue(BlockStateProperties.LIT) ? pLightValue : 0;
+        };
     }
 
 

@@ -166,12 +166,10 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
                 makeParticles((Level)pLevel, pPos, pState.getValue(SIGNAL_FIRE), true);
             }
         }
-
         BlockEntity blockentity = pLevel.getBlockEntity(pPos);
         if (blockentity instanceof ModCampfireBlockEntity) {
             ((ModCampfireBlockEntity)blockentity).dowse();
         }
-
         pLevel.gameEvent(pEntity, GameEvent.BLOCK_CHANGE, pPos);
     }
 
@@ -182,10 +180,8 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
                 if (!pLevel.isClientSide()) {
                     pLevel.playSound((Player)null, pPos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 }
-
                 dowse((Entity)null, pLevel, pPos, pState);
             }
-
             pLevel.setBlock(pPos, pState.setValue(WATERLOGGED, Boolean.valueOf(true)).setValue(LIT, Boolean.valueOf(false)), 3);
             pLevel.scheduleTick(pPos, pFluidState.getType(), pFluidState.getType().getTickDelay(pLevel));
             return true;
@@ -273,15 +269,6 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
         }) && !pState.getValue(WATERLOGGED) && !pState.getValue(LIT);
     }
 
-
-
-
-
-
-
-
-//
-///*Custom*/
 
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         BlockPos blockpos = pPos.below();

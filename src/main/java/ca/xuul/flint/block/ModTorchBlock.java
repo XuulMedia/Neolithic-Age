@@ -1,0 +1,108 @@
+package ca.xuul.flint.block;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.TorchBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.phys.BlockHitResult;
+
+public class ModTorchBlock extends TorchBlock {
+    protected static final int DELAY = 60; // 600 ticks is 30 seconds
+    protected static final int BURN_TICKS = 2;
+    public int burnTime = BURN_TICKS;
+
+    public static final IntegerProperty BURNTIME = IntegerProperty.create("burn_time", 0, BURN_TICKS);
+    public static final BooleanProperty LIT = BooleanProperty.create("lit");
+
+
+    public ModTorchBlock(Properties pProperties) {
+        super(pProperties, ParticleTypes.FLAME);
+        registerDefaultState(stateDefinition.any()
+                .setValue(LIT, false)
+                .setValue(BURNTIME, BURN_TICKS));
+    }
+
+    @Override
+    protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
+        pBuilder.add(LIT).add(BURNTIME);
+    }
+
+
+    @Override
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if (!pLevel.isClientSide() && pHand == InteractionHand.MAIN_HAND) {
+            System.out.println("tick scheduled!");
+            pLevel.scheduleTick(pPos, this, DELAY);
+            pLevel.setBlock(pPos, pState.cycle(LIT), 3);
+        }
+        return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+    }
+
+
+
+
+    @Override
+    public void tick(BlockState state, ServerLevel level, BlockPos blockPos, RandomSource randomSource) {
+        System.out.println("TICK");
+        if(!level.isClientSide &&  level.isRaining() && isNearRain(level,blockPos)){
+            extinguish(state, level, blockPos);
+            return;
+        }
+        System.out.println("burnTime is " + burnTime);
+        int newBurnTime = state.getValue(BURNTIME) - 1;
+        System.out.println("newburnTime is " + newBurnTime);
+        if(newBurnTime <= 0){
+            state.setValue(LIT, false);
+            extinguish(state, level, blockPos);
+        } else {
+            level.scheduleTick(blockPos, this, DELAY);
+            System.out.println("tick scheduled!");
+            level.setBlock(blockPos, state.setValue(BURNTIME, newBurnTime), 3);
+        }
+    }
+
+
+    public boolean isNearRain(Level level, BlockPos blockPos) {
+        return level.isRainingAt(blockPos) || level.isRainingAt(blockPos.west()) || level.isRainingAt(blockPos.east()) || level.isRainingAt(blockPos.north()) || level.isRainingAt(blockPos.south());
+    }
+
+    public void extinguish(BlockState state, Level level, BlockPos blockPos){
+        level.setBlockAndUpdate(blockPos, state.setValue(LIT, false));
+        level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
+
+    }
+
+//    @Override
+//    public void setPlacedBy(Level pLevel, BlockPos pos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+//        System.out.println("tick scheduled!");
+//        pLevel.scheduleTick(pos, this, DELAY);
+//    }
+//
+//    @Override
+//    public void onPlace(BlockState pState, Level pLevel, BlockPos pPos, BlockState pOldState, boolean pIsMoving) {
+//        super.onPlace(pState, pLevel, pPos, pOldState, pIsMoving);
+//    }
+
+    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+        if (pState.getValue(LIT)) {
+            double d0 = (double) pPos.getX() + 0.5D;
+            double d1 = (double) pPos.getY() + 0.7D;
+            double d2 = (double) pPos.getZ() + 0.5D;
+            pLevel.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+            pLevel.addParticle(this.flameParticle, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+        }
+    }
+
+}
