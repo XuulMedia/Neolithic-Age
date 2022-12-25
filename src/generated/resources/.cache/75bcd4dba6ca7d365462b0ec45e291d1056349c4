@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-21T22:56:19.3679393	Tags for minecraft:block
+// 1.19.2	2022-12-24T13:12:34.0734571	Tags for minecraft:block
 c9d3b981987de73ebb3ad01cdd82df445805a840 data/flint/tags/blocks/requires_hammer.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/forge/tags/blocks/needs_wood_tool.json
 1a823741f94c5a520c548e5cea82fff5306f0e42 data/forge/tags/blocks/ores.json

@@ -3,13 +3,17 @@
   "pools": [
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
       "entries": [
         {
           "type": "minecraft:item",
           "name": "minecraft:flint"
         }
       ],
-      "name": "flint_from_node",
       "rolls": 1.0
     }
   ]

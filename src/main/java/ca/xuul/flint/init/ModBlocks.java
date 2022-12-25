@@ -197,12 +197,17 @@ public class ModBlocks {
     public static final RegistryObject<RotatedPillarBlock> JUNGLE_LOG = VANILLA_BLOCKS.register("jungle_log", () -> log(MaterialColor.DIRT, MaterialColor.PODZOL));
     public static final RegistryObject<RotatedPillarBlock> ACACIA_LOG = VANILLA_BLOCKS.register("acacia_log", () -> log(MaterialColor.COLOR_ORANGE, MaterialColor.STONE));
     public static final RegistryObject<RotatedPillarBlock> DARK_OAK_LOG = VANILLA_BLOCKS.register("dark_oak_log",() ->  log(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN));
+    public static final RegistryObject<RotatedPillarBlock> MANGROVE_LOG = VANILLA_BLOCKS.register("mangrove_log", () -> log(MaterialColor.COLOR_BROWN, MaterialColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> CRIMSON_STEM = VANILLA_BLOCKS.register("crimson_stem", () -> log(MaterialColor.COLOR_RED, MaterialColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> WARPED_STEM = VANILLA_BLOCKS.register("warped_stem", () -> log(MaterialColor.COLOR_BLUE, MaterialColor.STONE));
+
+
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_OAK_LOG = VANILLA_BLOCKS.register("stripped_oak_log", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_SPRUCE_LOG = VANILLA_BLOCKS.register("stripped_spruce_log",() ->  log(MaterialColor.PODZOL, MaterialColor.PODZOL));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_BIRCH_LOG = VANILLA_BLOCKS.register("stripped_birch_log",() ->  log(MaterialColor.SAND, MaterialColor.SAND));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_JUNGLE_LOG = VANILLA_BLOCKS.register("stripped_jungle_log", () -> log(MaterialColor.DIRT, MaterialColor.DIRT));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_ACACIA_LOG = VANILLA_BLOCKS.register("stripped_acacia_log", () -> log(MaterialColor.COLOR_ORANGE, MaterialColor.COLOR_ORANGE));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_DARK_OAK_LOG = VANILLA_BLOCKS.register("stripped_dark_oak_log",() ->  log(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN));
-    public static final RegistryObject<RotatedPillarBlock> STRIPPED_OAK_LOG = VANILLA_BLOCKS.register("stripped_oak_log", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
 
     public static final RegistryObject<GravelBlock> DIRT = VANILLA_BLOCKS.register("dirt",  () -> new GravelBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT)
             .strength(0.5F)
