@@ -1,5 +1,6 @@
 package ca.xuul.flint.datagen.builders;
 
+import ca.xuul.flint.recipe.FoundryRecipe;
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -14,7 +15,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import org.jetbrains.annotations.Nullable;
-import ca.xuul.flint.recipe.FoundryRecipe;
 
 import java.util.function.Consumer;
 
@@ -59,18 +59,18 @@ public class FoundryRecipeBuilder implements RecipeBuilder {
             throw new IllegalStateException("No way of obtaining recipe " + pRecipeId);
         }
         this.advancement.parent(new ResourceLocation("recipes/root"))
-            .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
-            .rewards(AdvancementRewards.Builder.recipe(pRecipeId))
-            .requirements(RequirementsStrategy.OR);
+                .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId))
+                .rewards(AdvancementRewards.Builder.recipe(pRecipeId))
+                .requirements(RequirementsStrategy.OR);
         pFinishedRecipeConsumer.accept(new Result(
-            pRecipeId,
-            this.group == null ? "" : this.group,
-            this.input,
-            this.output,
-            this.count,
-            this.heat,
-            this.advancement,
-            new ResourceLocation(pRecipeId.getNamespace(), "recipes/foundry/" + pRecipeId.getPath())));
+                pRecipeId,
+                this.group == null ? "" : this.group,
+                this.input,
+                this.output,
+                this.count,
+                this.heat,
+                this.advancement,
+                new ResourceLocation(pRecipeId.getNamespace(), "recipes/foundry/" + pRecipeId.getPath())));
 
     }
 
@@ -85,7 +85,7 @@ public class FoundryRecipeBuilder implements RecipeBuilder {
         private final ResourceLocation advancementId;
 
         public Result(ResourceLocation id, String group, Ingredient input, Item output, int count, int heat,
-            Advancement.Builder advancement, ResourceLocation advancementId) {
+                      Advancement.Builder advancement, ResourceLocation advancementId) {
             this.id = id;
             this.group = group;
             this.input = input;

@@ -349,6 +349,9 @@ public class ModItemModelProvider extends ItemModelProvider {
                 mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_saw"));
 
 
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.STONE_SPEAR.get()).getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/tools/flint_spear"));
+
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.STONE_HAMMER.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/tools/stone_hammer"));
 

@@ -3,9 +3,7 @@ package ca.xuul.flint.init;
 import ca.xuul.flint.Flint;
 import ca.xuul.flint.item.*;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -386,18 +384,10 @@ public class ModItems {
 //    https://theyardable.com/firewood-weight-btu-chart/
 
 
-
-
-
-
-
     /*Helpers*/
     public static <I extends Item> RegistryObject<FuelItem> createFuelItem(String name, int heat, Item.Properties itemProperties) {
         return ITEMS.register(name, () -> new FuelItem(itemProperties, heat, name));
     }
-
-    /*TODO create a "meltable" itemtype so that the temp can be set programmatically and hoverover tooltips can be imprelemted*/
-
 
 
 }
