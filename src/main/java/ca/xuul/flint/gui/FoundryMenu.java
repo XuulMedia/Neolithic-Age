@@ -1,5 +1,11 @@
 package ca.xuul.flint.gui;
 
+import ca.xuul.flint.block.entity.FoundryBlockEntity;
+import ca.xuul.flint.gui.slot.ModResultSlot;
+import ca.xuul.flint.init.ModBlocks;
+import ca.xuul.flint.init.ModMenuTypes;
+import ca.xuul.flint.recipe.FoundryRecipe;
+import ca.xuul.flint.recipe.HeatingFuelRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -13,18 +19,10 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import ca.xuul.flint.block.entity.FoundryBlockEntity;
-import ca.xuul.flint.gui.slot.ModResultSlot;
-import ca.xuul.flint.init.ModBlocks;
-import ca.xuul.flint.init.ModMenuTypes;
-import ca.xuul.flint.recipe.FoundryFuelRecipe;
-import ca.xuul.flint.recipe.FoundryRecipe;
 
 import java.util.List;
 
 public class FoundryMenu extends AbstractContainerMenu {
-    public static final int INPUT_SLOT = 0, FUEL_SLOT = 1, OUTPUT_SLOT = 2;
-
     private final BlockPos pos;
     private final Level world;
     private final Player player;
@@ -33,7 +31,7 @@ public class FoundryMenu extends AbstractContainerMenu {
 
     private final ContainerData data;
 
-    private final List<FoundryFuelRecipe> fuels;
+    private final List<HeatingFuelRecipe> fuels;
     private final List<FoundryRecipe> recipes;
 
     public FoundryMenu(int windowId, Inventory inv, FriendlyByteBuf extraData) {
@@ -51,9 +49,9 @@ public class FoundryMenu extends AbstractContainerMenu {
         this.data = data;
 
         this.tile.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, INPUT_SLOT, 56, 17));
-            this.addSlot(new FuelSlot(handler, FUEL_SLOT, 56, 53));
-            this.addSlot(new ModResultSlot(handler, OUTPUT_SLOT, 116, 35));
+            this.addSlot(new SlotItemHandler(handler, FoundryBlockEntity.SLOT_INPUT, 56, 17));
+            this.addSlot(new FuelSlot(handler, FoundryBlockEntity.SLOT_FUEL, 56, 53));
+            this.addSlot(new ModResultSlot(handler, FoundryBlockEntity.SLOT_OUTPUT, 116, 35));
         });
 
         // Inventory
@@ -67,11 +65,11 @@ public class FoundryMenu extends AbstractContainerMenu {
         for (int k = 0; k < 9; ++k) {
             this.addSlot(new Slot(inventory, k, 8 + k * 18, 142));
         }
-        
+
         this.addDataSlots(data);
 
         var recman = this.world.getRecipeManager();
-        this.fuels = recman.getAllRecipesFor(FoundryFuelRecipe.Type.INSTANCE);
+        this.fuels = recman.getAllRecipesFor(HeatingFuelRecipe.Type.INSTANCE);
         this.recipes = recman.getAllRecipesFor(FoundryRecipe.Type.INSTANCE);
     }
 
@@ -87,7 +85,7 @@ public class FoundryMenu extends AbstractContainerMenu {
         if (hoveredSlot != null && hoveredSlot.hasItem()) {
             ItemStack hoveredItem = hoveredSlot.getItem();
             out = hoveredItem.copy();
-            if (pIndex == OUTPUT_SLOT) {
+            if (pIndex == FoundryBlockEntity.SLOT_OUTPUT) {
                 if (!this.moveItemStackTo(hoveredItem, 3, 39, true)) {
                     return ItemStack.EMPTY;
                 }
@@ -191,7 +189,7 @@ public class FoundryMenu extends AbstractContainerMenu {
     }
 
     public @Nullable Integer heatReqdToCookInput() {
-        var input = this.getSlot(INPUT_SLOT).getItem();
+        var input = this.getSlot(FoundryBlockEntity.SLOT_INPUT).getItem();
         if (input.isEmpty()) {
             return null;
         }

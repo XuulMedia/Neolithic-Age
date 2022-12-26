@@ -1,0 +1,19 @@
+{
+  "type": "flint:kiln",
+  "heat": 200,
+  "inputs": [
+    {
+      "tag": "minecraft:copper_ores"
+    }
+  ],
+  "outputs": [
+    {
+      "count": 1,
+      "item": "minecraft:iron_block"
+    },
+    {
+      "count": 16,
+      "item": "minecraft:acacia_log"
+    }
+  ]
+}

@@ -27,9 +27,6 @@ public class FlintStationRecipe  implements Recipe<Container> {
     private final ItemStack result;
 
     public static RecipeSerializer<?> SERIALIZER = new Serializer();
-//    public static RecipeType<FlintStationRecipe> FLINT_STATION_RECIPE_TYPE = RecipeType.register(Flint.MOD_ID + "flint_station");
-
-
 
     public FlintStationRecipe(ResourceLocation id, String group, @Nullable Ingredient ingredient, ItemStack result) {
         this.id = id;

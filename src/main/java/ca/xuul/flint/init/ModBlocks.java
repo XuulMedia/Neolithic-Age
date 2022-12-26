@@ -1,14 +1,13 @@
 package ca.xuul.flint.init;
 
 import ca.xuul.flint.Flint;
-import ca.xuul.flint.block.*;
 import ca.xuul.flint.block.GrindstoneBlock;
-import ca.xuul.flint.block.crops.MedicineCropBlock;
+import ca.xuul.flint.block.*;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
@@ -16,12 +15,12 @@ import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
-import static ca.xuul.flint.init.ModItems.*;
+import static ca.xuul.flint.init.ModItems.STANDARD_METAL_AGE_PROPERTIES;
+import static ca.xuul.flint.init.ModItems.STANDARD_STONE_AGE_PROPERTIES;
 
 public class ModBlocks {
 
@@ -170,6 +169,10 @@ public class ModBlocks {
     public static final RegistryObject<FoundryBlock> FOUNDRY = registerBlock("foundry",
             () -> new FoundryBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), STANDARD_STONE_AGE_PROPERTIES);
 
+    public static final RegistryObject<KilnBlock> KILN = registerBlock("kiln",
+            () -> new KilnBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), STANDARD_STONE_AGE_PROPERTIES);
+
+
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = registerBlock("flint_station",
             FlintStationBlock::new, STANDARD_STONE_AGE_PROPERTIES);
 
@@ -185,6 +188,8 @@ public class ModBlocks {
                     .noCollission()
                     .instabreak()
                     .lightLevel(litBlockEmission(15))), STANDARD_METAL_AGE_PROPERTIES);
+
+
 
 
 

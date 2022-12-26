@@ -2,9 +2,9 @@ package ca.xuul.flint.datagen;
 
 import ca.xuul.flint.Flint;
 import ca.xuul.flint.datagen.builders.CustomRecipeBuilder;
-import ca.xuul.flint.datagen.builders.FoundryFuelRecipeBuilder;
 import ca.xuul.flint.datagen.builders.FoundryRecipeBuilder;
-import ca.xuul.flint.datagen.builders.ToolUseRecipeBuilder;
+import ca.xuul.flint.datagen.builders.HeatingFuelRecipeBuilder;
+import ca.xuul.flint.datagen.builders.KilnRecipeBuilder;
 import ca.xuul.flint.init.ModBlocks;
 import ca.xuul.flint.init.ModItems;
 import ca.xuul.flint.init.ModTags;
@@ -12,24 +12,20 @@ import ca.xuul.flint.item.FuelItem;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.core.NonNullList;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CampfireCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.item.crafting.SimpleCookingSerializer;
 import net.minecraft.world.level.ItemLike;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-import org.jline.utils.Log;
 
-import java.lang.reflect.Method;
 import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider {
@@ -456,6 +452,28 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_stone_chunk", has(ModTags.STONE_CHUNKS))
                 .save(consumer, RL("stone_hammer"));
 
+        ShapedRecipeBuilder.shaped(ModItems.STONE_SPEAR.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.FLINT_BLADE.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .group("stone_spear")
+                .unlockedBy("has_sharp_flint", has(ModItems.FLINT_BLADE.get()))
+                .save(consumer, RL("stone_spear"));
+
+        ShapedRecipeBuilder.shaped(ModItems.STONE_SPEAR.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.FLINT_KNIFE.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_sharp_flint", has(ModItems.FLINT_BLADE.get()))
+                .group("stone_spear")
+                .save(consumer, RL("stone_spear_from_knife"));
+
         ShapedRecipeBuilder.shaped(ModItems.FLINT_PICK.get())
             .pattern("I")
             .pattern("x")
@@ -569,7 +587,6 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_clay", has(ModTags.CLAY))
                 .save(consumer, RL("unfired_clay_vial"));
 
-
         /*Wood Plank*/
         ShapedRecipeBuilder.shaped(Items.CHEST)
                 .pattern("xxx")
@@ -580,6 +597,10 @@ public class ModRecipeProvider extends RecipeProvider {
                 .unlockedBy("planks", has(ModTags.PLANKS))
                 .save(consumer);
 
+
+
+
+
 //        ItemLike pResult, Ingredient pIngredient, float pExperience, int pCookingTime, SimpleCookingSerializer<?> pSerializer)
 
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(Items.STICK), ModBlocks.TORCH.get(), 10, 100)
@@ -588,16 +609,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
 
 
-
-
         /*Foundry Fuels*/
-
-        new FoundryFuelRecipeBuilder(Ingredient.of(ItemTags.COALS), 500, 20 * 10 * 8)
-            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-            .save(consumer, RL("foundry_fuel/coals"));
-        new FoundryFuelRecipeBuilder(Ingredient.of(Items.BLAZE_ROD), 1000, 20 * 10 * 8)
-            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-            .save(consumer, RL("foundry_fuel/blaze"));
+        new HeatingFuelRecipeBuilder(Ingredient.of(ItemTags.COALS), 500, 20 * 10 * 8)
+                .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
+                .save(consumer, RL("heating_fuel/coals"));
 
         FuelSetup(ModItems.PLANK_OAK,BURN_TIME_STANDARD, consumer);
         FuelSetup(ModItems.PLANK_SPRUCE,BURN_TIME_STANDARD, consumer);
@@ -619,6 +634,37 @@ public class ModRecipeProvider extends RecipeProvider {
         FuelSetup(ModItems.LOG_WARPED,BURN_TIME_STANDARD, consumer);
         FuelSetup(ModItems.LOG_CRIMSON,BURN_TIME_STANDARD, consumer);
 
+
+        // Testing!
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(Items.GRANITE), Ingredient.of(Items.DIORITE),
+                        Ingredient.of(Items.ANDESITE)),
+                NonNullList.of(null, new ItemStack(Items.COBBLESTONE, 2), new ItemStack(Items.COBBLED_DEEPSLATE, 4)),
+                500)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/3-to-2"));
+
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(Items.IRON_INGOT),
+                        Ingredient.of(Items.GOLD_INGOT)),
+                NonNullList.of(null, new ItemStack(Items.DIAMOND), new ItemStack(Items.NETHERITE_INGOT)),
+                200)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/2-to-2"));
+
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(Items.IRON_BARS)),
+                NonNullList.of(null, new ItemStack(Items.IRON_NUGGET)),
+                200)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/1-to-1"));
+
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(ItemTags.COPPER_ORES)),
+                NonNullList.of(null, new ItemStack(Items.IRON_BLOCK), new ItemStack(Items.ACACIA_LOG, 16)),
+                200)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/1-to-2"));
 
 
 
@@ -644,9 +690,6 @@ public class ModRecipeProvider extends RecipeProvider {
             .save(consumer, RL("flint_from_gravel"));
 
 
-        /*TODO Conditional Recipe*/
-//        ConditionalRecipe.builder().addCondition(FalseCondition.INSTANCE).build(consumer, new ResourceLocation("torch"));
-
 
     }
 
@@ -671,9 +714,10 @@ public class ModRecipeProvider extends RecipeProvider {
 
     /*Helpers*/
     private void FuelSetup(RegistryObject<FuelItem> item, int cookTime, Consumer<FinishedRecipe> recipeConsumer) {
-        String s = "foundry_fuel/" + item.get();
-        new FoundryFuelRecipeBuilder(Ingredient.of(item.get()), item.get().getHeat(), cookTime)
+        String s = "heating_fuel/" + item.get();
+        new HeatingFuelRecipeBuilder(Ingredient.of(item.get()), item.get().getHeat(), cookTime)
                 .unlockedBy("has_" + item.getKey(), has(item.get()))
                 .save(recipeConsumer, RL(s));
-    };
+    }
+
 }

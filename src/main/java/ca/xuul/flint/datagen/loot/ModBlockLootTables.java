@@ -84,6 +84,7 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropSelf(ModBlocks.GRINDSTONE.get());
         this.dropSelf(ModBlocks.FOUNDRY.get());
         this.dropSelf(ModBlocks.FLINT_STATION.get());
+        this.dropSelf(ModBlocks.KILN.get());
 
         this.dropOther(ModBlocks.CAMPFIRE.get(), Items.CHARCOAL);
         this.dropOther(ModBlocks.TORCH.get(), Items.STICK);

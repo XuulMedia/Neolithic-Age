@@ -1,0 +1,8 @@
+{
+  "type": "flint:heating_fuel",
+  "burnTime": 1600,
+  "heat": 650,
+  "input": {
+    "item": "flint:log_warped"
+  }
+}

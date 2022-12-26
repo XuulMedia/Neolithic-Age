@@ -1,8 +1,0 @@
-{
-  "type": "flint:foundry_fuel",
-  "burnTime": 1600,
-  "heat": 350,
-  "input": {
-    "item": "flint:log_dark_oak"
-  }
-}

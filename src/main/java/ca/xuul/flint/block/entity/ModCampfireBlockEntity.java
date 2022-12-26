@@ -9,7 +9,6 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
-import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
@@ -29,7 +28,7 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
-    protected static final  int BURN_MINUITES = 5; // how long in min the fire will burn
+    protected static final  int BURN_MINUITES = 1; // how long in min the fire will burn
     private static final int DELAY = 1200; // 1200 ticks is 60 seconds
     public int maxBurnTime= BURN_MINUITES * DELAY; //should be in minutes
     public int burnTime = maxBurnTime;
@@ -75,6 +74,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
             return;
         }
         int newBurnTime = blockEntity.burnTime - 1;
+        System.out.println("burn time " + newBurnTime);
         if(newBurnTime <= 0){
             level.setBlockAndUpdate(blockPos, state.setValue(FoundryBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);

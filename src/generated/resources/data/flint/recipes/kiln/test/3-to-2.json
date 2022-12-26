@@ -1,0 +1,25 @@
+{
+  "type": "flint:kiln",
+  "heat": 500,
+  "inputs": [
+    {
+      "item": "minecraft:granite"
+    },
+    {
+      "item": "minecraft:diorite"
+    },
+    {
+      "item": "minecraft:andesite"
+    }
+  ],
+  "outputs": [
+    {
+      "count": 2,
+      "item": "minecraft:cobblestone"
+    },
+    {
+      "count": 4,
+      "item": "minecraft:cobbled_deepslate"
+    }
+  ]
+}

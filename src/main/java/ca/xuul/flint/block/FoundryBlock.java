@@ -48,10 +48,10 @@ public class FoundryBlock extends BaseEntityBlock {
     public static final String HEAT_TARGET_MESSAGE ="container.flint.foundry.heat.target";
     public static final String TOO_COLD_MESSAGE ="container.flint.foundry.heat.too_cold";
 
-      public FoundryBlock(Properties props) {
+    public FoundryBlock(Properties props) {
         super(props);
         this.registerDefaultState(
-            this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
+                this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }
 
 
@@ -103,10 +103,10 @@ public class FoundryBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState,
-        BlockEntityType<T> pBlockEntityType) {
+                                                                  BlockEntityType<T> pBlockEntityType) {
         return pLevel.isClientSide
-            ? null
-            : createTickerHelper(pBlockEntityType, ModBlockEntities.FOUNDRY.get(), FoundryBlockEntity::tick);
+                ? null
+                : createTickerHelper(pBlockEntityType, ModBlockEntities.FOUNDRY.get(), FoundryBlockEntity::tick);
     }
 
 
@@ -117,7 +117,7 @@ public class FoundryBlock extends BaseEntityBlock {
             double sz = pos.getZ() + 0.5D;
             if (pRandom.nextDouble() < 0.1D) {
                 world.playLocalSound(sx, sy, sz, SoundEvents.BLASTFURNACE_FIRE_CRACKLE, SoundSource.BLOCKS, 1.0F, 1.0F,
-                    false);
+                        false);
             }
 
             var facing = bs.getValue(FACING);
@@ -132,7 +132,7 @@ public class FoundryBlock extends BaseEntityBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
-        BlockHitResult pHit) {
+                                 BlockHitResult pHit) {
         if (pLevel.isClientSide()) {
             return InteractionResult.SUCCESS;
         } else {

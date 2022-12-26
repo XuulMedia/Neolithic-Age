@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-24T13:12:34.0759609	Item Models: flint
+// 1.19.2	2022-12-25T23:08:14.3579991	Item Models: flint
 6250f393549d97d5e1bfe08e3a730b5af9459ae0 assets/flint/models/item/andesite_cobble.json
 3eb8200d4554768609bf64bacdb90fcf627b3979 assets/flint/models/item/basalt_cobble.json
 28840a80be44596b96f3dd70bdc342f253d1d88b assets/flint/models/item/basket.json
@@ -99,5 +99,6 @@ c604b4236ff4104beb9ee4b86ce47bc889b45db2 assets/flint/models/item/plank_oak.json
 ed7063353b9282a742328737245ee02d0537645d assets/flint/models/item/plant_fibre.json
 7d6505e27979e81b3cc6d81df7f77de14dd8ff46 assets/flint/models/item/sandstone_cobble.json
 cb328947a78cdcb4436b0f3f416e20a4d34e062d assets/flint/models/item/stone_hammer.json
+9a34e06903c4afaa067e9186ccface27568243f3 assets/flint/models/item/stone_spear.json
 e017163a864d4fd546d431a6c27c443abd4d5ba1 assets/flint/models/item/thatch.json
 b0279c260acf3fe0d4a01c11839d2155981997fb assets/flint/models/item/tuff_cobble.json

@@ -1,7 +1,7 @@
 package ca.xuul.flint.recipe;
 
 import ca.xuul.flint.Flint;
-import ca.xuul.flint.gui.FoundryMenu;
+import ca.xuul.flint.block.entity.FoundryBlockEntity;
 import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.Registry;
@@ -46,7 +46,7 @@ public class FoundryRecipe implements Recipe<Container> {
 
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
-        return this.input.test(pContainer.getItem(FoundryMenu.INPUT_SLOT));
+        return this.input.test(pContainer.getItem(FoundryBlockEntity.SLOT_INPUT));
     }
 
     @Override
@@ -76,7 +76,9 @@ public class FoundryRecipe implements Recipe<Container> {
     }
 
     public static class Type implements RecipeType<FoundryRecipe> {
-        private Type() { }
+        private Type() {
+        }
+
         public static final FoundryRecipe.Type INSTANCE = new FoundryRecipe.Type();
         public static final String ID = "foundry";
     }
