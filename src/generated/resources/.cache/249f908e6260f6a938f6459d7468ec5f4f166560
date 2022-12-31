@@ -1,4 +1,4 @@
-// 1.19.2	2022-12-25T23:08:14.3579991	Item Models: flint
+// 1.19.2	2022-12-31T13:44:37.1163015	Item Models: flint
 6250f393549d97d5e1bfe08e3a730b5af9459ae0 assets/flint/models/item/andesite_cobble.json
 3eb8200d4554768609bf64bacdb90fcf627b3979 assets/flint/models/item/basalt_cobble.json
 28840a80be44596b96f3dd70bdc342f253d1d88b assets/flint/models/item/basket.json
@@ -80,6 +80,7 @@ f22d98776c89589a8c59a84b1af710b1a5d3e7d4 assets/flint/models/item/log_jungle.jso
 b622f5bf9c8295b004f7cbee6a769a9abc1eef89 assets/flint/models/item/log_oak.json
 0b4e72939354318fd4f18d500c00811d6682e7dd assets/flint/models/item/log_spruce.json
 2740a6a62fa485e500903fb762ce7310bab1a3c9 assets/flint/models/item/log_warped.json
+43218b9890c61e6a9d2681e4656ff8a2167813fb assets/flint/models/item/medicine_seeds.json
 567343f28243fa4e9e58d2da2b2622be2ba444e1 assets/flint/models/item/netherrack_cobble.json
 cec14cba5037c34866af2178f66f5732351cf3d6 assets/flint/models/item/nugget_bronze.json
 2a002eb604b5aaf4c3b8105d2b1b15a4121dc9eb assets/flint/models/item/nugget_copper.json

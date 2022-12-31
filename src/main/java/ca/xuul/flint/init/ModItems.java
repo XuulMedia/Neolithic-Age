@@ -3,6 +3,7 @@ package ca.xuul.flint.init;
 import ca.xuul.flint.Flint;
 import ca.xuul.flint.item.*;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -35,13 +36,13 @@ public class ModItems {
 
 
     /*Crops*/
-//    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = ITEMS.register("medicine_seeds",
-//            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
-//                    new Item.Properties().tab(Flint.METAL_TAB)));
-//
-//    public static final RegistryObject<Item> MEDICINE_PLANT = ITEMS.register("medicine_plant",
-//            () -> new Item(new Item.Properties().tab(Flint.METAL_TAB)
-//                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
+    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = ITEMS.register("medicine_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
+                    new Item.Properties().tab(Flint.METAL_TAB)));
+
+    public static final RegistryObject<Item> MEDICINE_PLANT = ITEMS.register("medicine_plant",
+            () -> new Item(new Item.Properties().tab(Flint.METAL_TAB)
+                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0.5f).alwaysEat().fast().build())));
 
 
     /*Wool*/

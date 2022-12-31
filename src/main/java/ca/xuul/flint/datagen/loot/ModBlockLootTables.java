@@ -1,11 +1,13 @@
 package ca.xuul.flint.datagen.loot;
 
+import ca.xuul.flint.block.crops.MedicineCropBlock;
 import ca.xuul.flint.init.ModBlocks;
 import ca.xuul.flint.init.ModItems;
 import ca.xuul.flint.init.ModTags;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -19,6 +21,7 @@ import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -39,6 +42,9 @@ public class ModBlockLootTables extends BlockLoot {
     private static final LootItemCondition.Builder HAS_NO_SHEARS_OR_SILK_TOUCH = HAS_SHEARS_OR_SILK_TOUCH.invert();
     private static final LootItemCondition.Builder HAS_KNIFE = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.KNIVES));
     private static final LootItemCondition.Builder HAS_HAMMER = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.HAMMERS));
+
+    LootItemCondition.Builder conditionMedicineCrop = LootItemBlockStatePropertyCondition.hasBlockStateProperties(ModBlocks.MEDICINE_CROP.get())
+            .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(MedicineCropBlock.AGE, 5));
 
 
     @Override
@@ -89,6 +95,12 @@ public class ModBlockLootTables extends BlockLoot {
         this.dropOther(ModBlocks.CAMPFIRE.get(), Items.CHARCOAL);
         this.dropOther(ModBlocks.TORCH.get(), Items.STICK);
 
+        this.add(ModBlocks.MEDICINE_CROP.get(),createCropDrops(ModBlocks.MEDICINE_CROP.get(),ModItems.MEDICINE_PLANT.get(),ModItems.MEDICINE_PLANT_SEEDS.get(), conditionMedicineCrop));
+
+
+
+
+
     }
 
 
@@ -116,6 +128,7 @@ public class ModBlockLootTables extends BlockLoot {
                 );
         return LootTable.lootTable().withPool(builder);
     }
+
 
 
 

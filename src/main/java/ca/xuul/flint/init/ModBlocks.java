@@ -3,6 +3,7 @@ package ca.xuul.flint.init;
 import ca.xuul.flint.Flint;
 import ca.xuul.flint.block.GrindstoneBlock;
 import ca.xuul.flint.block.*;
+import ca.xuul.flint.block.crops.MedicineCropBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -156,8 +157,8 @@ public class ModBlocks {
 
     /*Crops*/
 
-//    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = BLOCKS.register("medicine_crop",
-//            () -> new MedicineCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = BLOCKS.register("medicine_crop",
+            () -> new MedicineCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 
 
 
@@ -189,8 +190,12 @@ public class ModBlocks {
                     .instabreak()
                     .lightLevel(litBlockEmission(15))), STANDARD_METAL_AGE_PROPERTIES);
 
-
-
+//    public static final RegistryObject<ModWallTorchBlock> WALL_TORCH = registerBlock("wall_torch",
+//            () -> new ModWallTorchBlock(BlockBehaviour.Properties.copy(Blocks.WALL_TORCH)), STANDARD_METAL_AGE_PROPERTIES);
+//
+//
+//
+//
 
 
 

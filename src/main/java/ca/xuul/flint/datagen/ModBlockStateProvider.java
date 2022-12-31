@@ -2,15 +2,15 @@ package ca.xuul.flint.datagen;
 
 import ca.xuul.flint.Flint;
 import ca.xuul.flint.init.ModBlocks;
+import net.minecraft.data.DataGenerator;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraft.data.DataGenerator;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.function.Function;
 
@@ -61,6 +61,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleCube(ModBlocks.DIORITE_BRICK_BLOCK.get(),"block/bricks/bricks_diorite");
         simpleCube(ModBlocks.CALCITE_BRICK_BLOCK.get(),"block/bricks/bricks_calcite");
         simpleCube(ModBlocks.ENDSTONE_BRICK_BLOCK.get() ,"block/bricks/bricks_endstone");
+
+
 
 
 

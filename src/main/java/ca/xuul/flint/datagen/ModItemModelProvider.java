@@ -68,6 +68,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 //                singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.RAW_SILVER.get()).getPath(),
 //                        mcLoc("item/generated"),
 //                        "layer0", modLoc("item/raw_silver"));
+
+
+        /*Plants and Crops*/
 //
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.PLANT_FIBRE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/plant_fibre"));
@@ -75,11 +78,17 @@ public class ModItemModelProvider extends ItemModelProvider {
         singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRAIDED_PLANT_FIBRE.get()).getPath(),
                 mcLoc("item/generated"),"layer0", modLoc("item/braided_plant_fibre"));
 
+        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.MEDICINE_PLANT_SEEDS.get()).getPath(),
+                mcLoc("item/generated"),"layer0", modLoc("item/seeds/medicine_seeds"));
+
 //        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.WOOL.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/wool"));
 //
 //        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.YARN.get()).getPath(),
 //                mcLoc("item/generated"),"layer0", modLoc("item/yarn"));
+
+
+
 
 
 

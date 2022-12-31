@@ -1,0 +1,33 @@
+{
+  "variants": {
+    "age=0": {
+      "render_type": "cutout",
+      "model": "flint:block/crops/med_age0"
+    },
+    "age=1": {
+      "render_type": "cutout",
+      "model": "flint:block/crops/med_age1"
+    },
+    "age=2": {
+      "render_type": "cutout",
+      "model": "flint:block/crops/med_age2"
+    },
+    "age=3": {
+      "render_type": "cutout",
+      "model": "flint:block/crops/med_age3"
+    },
+    "age=4": {
+      "render_type": "cutout",
+      "model": "flint:block/crops/med_age4"
+    },
+    "age=5": {
+      "render_type": "cutout",
+      "model": "flint:block/crops/med_age5"
+    },
+    "age=6": {
+      "render_type": "cutout",
+      "model": "flint:block/crops/med_age6"
+    }
+
+  }
+}
