@@ -76,20 +76,22 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
             var recipe = recipeMatch.get();
 
             if (recipeMatches(recipe, idx -> tile.itemHandler.getStackInSlot(KilnBlockEntity.SLOT_INPUT0 + idx))
-                    && recipe.heat <= tile.heat) {
-
+                && recipe.heat <= tile.heat) {
 
                 boolean outMatches = true;
-                System.out.println(recipe.outputs.size());
-                for (int i = 0; i < recipe.outputs.size(); i++) {
+//                System.out.println(recipe.outputs.size());
+                for (int i = 0; i < KilnRecipe.MAX_OUTPUTS; i++) {
                     var stackHere = tile.itemHandler.getStackInSlot(KilnBlockEntity.SLOT_OUTPUT0 + i);
-                    var outAttempt = recipe.outputs.get(i);
+                    ItemStack outAttempt;
+                    if (i < recipe.outputs.size()) {
+                        outAttempt = recipe.outputs.get(i);
+                    } else {
+                        outAttempt = ItemStack.EMPTY;
+                    }
 
-
-                    System.out.println("outattempt "  + outAttempt  + " stackhere " + stackHere + " outpui slot " + KilnBlockEntity.SLOT_OUTPUT0);
                     if (!stackHere.isEmpty()
-                            && (!ItemStack.isSameItemSameTags(outAttempt, stackHere)
-                            || outAttempt.getCount() + stackHere.getCount() > outAttempt.getMaxStackSize())) {
+                        && (!ItemStack.isSameItemSameTags(outAttempt, stackHere)
+                        || outAttempt.getCount() + stackHere.getCount() > outAttempt.getMaxStackSize())) {
                         outMatches = false;
                         break;
                     }
@@ -102,7 +104,6 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
 
             if (recipeOk) {
                 tile.progress += 1;
-                recipeOk = false;
                 if (tile.progress > tile.maxProgress) {
                     tile.progress = 0;
 
@@ -113,7 +114,7 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
                         var stackHere = tile.itemHandler.getStackInSlot(KilnBlockEntity.SLOT_OUTPUT0 + i);
                         var outAttempt = recipe.outputs.get(i);
                         if (stackHere.isEmpty()) {
-                            tile.itemHandler.setStackInSlot(KilnBlockEntity.SLOT_OUTPUT0 + i, outAttempt);
+                            tile.itemHandler.setStackInSlot(KilnBlockEntity.SLOT_OUTPUT0 + i, outAttempt.copy());
                         } else {
                             stackHere.grow(outAttempt.getCount());
                         }
