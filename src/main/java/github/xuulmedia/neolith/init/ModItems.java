@@ -386,6 +386,7 @@ public class ModItems {
                 entries.accept(CHUNK_CALCITE.get());
                 entries.accept(CHUNK_ENDSTONE.get());
                 entries.accept(ModBlocks.MANUAL_GRINDER.get());
+                entries.accept(ModBlocks.FLINT_STATION.get());
 
             }).build());
 
@@ -416,8 +417,5 @@ public class ModItems {
     }
 
 
-
-//    public static final Item.Properties new Item.Properties() = new Item.Properties().tab(Neolith.FLINT_TAB).stacksTo(64);
-//    public static final Item.Properties new Item.Properties() = new Item.Properties().tab(Neolith.METAL_TAB).stacksTo(64);
 
 }

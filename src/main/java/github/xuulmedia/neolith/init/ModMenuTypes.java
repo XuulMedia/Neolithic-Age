@@ -1,6 +1,8 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
+
+import github.xuulmedia.neolith.gui.FlintStationMenu;
 import github.xuulmedia.neolith.gui.manualGrinderBlock.ManualGrinderMenu;
 import github.xuulmedia.neolith.gui.manualGrinderBlock.ManualGrinderScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
@@ -23,6 +25,9 @@ public final class ModMenuTypes {
     /*Menus*/
     public static final RegistryObject<MenuType<ManualGrinderMenu>> MANUAL_GRINDER_MENU =
             registerMenuType(ManualGrinderMenu::new, "manual_grinder_menu");
+
+    public static final RegistryObject<MenuType<FlintStationMenu>> FLINT_STATION_MENU =
+            registerMenuType(FlintStationMenu::new, "flint_station_menu");
 
 
     @OnlyIn(Dist.CLIENT)

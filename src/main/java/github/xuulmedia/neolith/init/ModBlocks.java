@@ -4,6 +4,7 @@ import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.ModCampfireBlock;
 import github.xuulmedia.neolith.block.custom.*;
 import github.xuulmedia.neolith.block.custom.GrassGravityBlock;
+import github.xuulmedia.neolith.block.workstation.FlintStationBlock;
 import github.xuulmedia.neolith.block.workstation.ManualGrinderBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -188,6 +189,9 @@ public class ModBlocks {
     /*Workstations*/
     public static final RegistryObject<ManualGrinderBlock> MANUAL_GRINDER = registerBlock("manual_grinder",
             ManualGrinderBlock::new, new Item.Properties());
+
+    public static final RegistryObject<FlintStationBlock> FLINT_STATION = registerBlock("flint_station",
+            FlintStationBlock::new, new Item.Properties());
 
 
 //    public static final RegistryObject<FoundryBlock> FOUNDRY = registerBlock("foundry",
