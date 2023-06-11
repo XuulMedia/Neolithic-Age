@@ -27,8 +27,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BRAIDED_PLANT_FIBRE.get());
 //        handheldItem(ModItems.BASKET.get());
 
-        simpleItem(ModItems.WOOL.get());
-        simpleItem(ModItems.YARN.get());
+//        simpleItem(ModItems.WOOL.get());
+//        simpleItem(ModItems.YARN.get());
 
         simpleItem(ModItems.INGOT_TIN.get(), "ingots");
         simpleItem(ModItems.INGOT_BRONZE.get(), "ingots");
@@ -99,31 +99,18 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DUST_CALCITE.get(), "stone/dusts");
         simpleItem(ModItems.DUST_SANDSTONE.get(), "stone/dusts");
 
-        simpleItem(ModItems.CHUNK_STONE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_ANDESITE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_DEEPSLATE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_DRIPSTONE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_DIORITE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_GRANITE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_BASALT.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_TUFF.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_NETHERRACK.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_BLACKSTONE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_CALCITE.get(), "stone/chunk");
-        simpleItem(ModItems.CHUNK_SANDSTONE.get(), "stone/chunk");
-
-        simpleItem(ModItems.CLAY_STONE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_ANDESITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_DEEPSLATE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_DRIPSTONE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_DIORITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_GRANITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_BASALT.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_TUFF.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_NETHERRACK.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_BLACKSTONE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_CALCITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_SANDSTONE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_STONE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_ANDESITE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_DEEPSLATE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_DRIPSTONE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_DIORITE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_GRANITE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_BASALT.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_TUFF.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_NETHERRACK.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_BLACKSTONE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_CALCITE.get(), "stone/clay");
+//        simpleItem(ModItems.CLAY_SANDSTONE.get(), "stone/clay");
 
         simpleItem(ModItems.BRICK_STONE.get(), "stone/bricks");
         simpleItem(ModItems.BRICK_ANDESITE.get(), "stone/bricks");

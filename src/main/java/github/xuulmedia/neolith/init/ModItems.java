@@ -14,7 +14,7 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Neolith.MODID);
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Neolith.MODID);
-    
+
     public static final int LOW_HEAT_WOOD = 250;
     public static final int MED_HEAT_WOOD = 350;
     public static final int HIGH_HEAT_WOOD = 500;
@@ -127,9 +127,6 @@ public class ModItems {
             () -> new FireStarterItem(new Item.Properties().durability(2)));
 
 
-
-
-
     /*TOOLHEADS*/
     public static final RegistryObject<Item> FLINT_BLADE = ITEMS.register("flint_blade",
             () -> new Item(new Item.Properties()));
@@ -170,7 +167,6 @@ public class ModItems {
     /*FOOD*/
     public static final RegistryObject<Item> SALVE = ITEMS.register("salve",
             () -> new Item(new Item.Properties().food((ModFoods.SALVE))));
-
 
 
     /*ORE CHUNKS*/
@@ -363,10 +359,6 @@ public class ModItems {
     public static final RegistryObject<FuelItem> PLANK_CRIMSON = createFuelItem("plank_crimson", NETHER_HEAT_WOOD, new Item.Properties());
 
 
-
-
-
-
     //CreativeModeTabs
     public static final RegistryObject<CreativeModeTab> STONE_AGE_TAB = CREATIVE_MODE_TABS.register((Neolith.MODID + "stone_age"), () -> CreativeModeTab.builder()
             .title(Component.translatable("stoneAge." + Neolith.MODID))
@@ -387,6 +379,63 @@ public class ModItems {
                 entries.accept(CHUNK_ENDSTONE.get());
                 entries.accept(ModBlocks.MANUAL_GRINDER.get());
                 entries.accept(ModBlocks.FLINT_STATION.get());
+                entries.accept(DUST_STONE.get());
+                entries.accept(DUST_ANDESITE.get());
+                entries.accept(DUST_DEEPSLATE.get());
+                entries.accept(DUST_DRIPSTONE.get());
+                entries.accept(DUST_SANDSTONE.get());
+                entries.accept(DUST_DIORITE.get());
+                entries.accept(DUST_GRANITE.get());
+                entries.accept(DUST_BASALT.get());
+                entries.accept(DUST_TUFF.get());
+                entries.accept(DUST_NETHERRACK.get());
+                entries.accept(DUST_BLACKSTONE.get());
+                entries.accept(DUST_CALCITE.get());
+                entries.accept(DUST_ENDSTONE.get());
+                entries.accept(CLAY_STONE.get());
+                entries.accept(CLAY_ANDESITE.get());
+                entries.accept(CLAY_DEEPSLATE.get());
+                entries.accept(CLAY_DRIPSTONE.get());
+                entries.accept(CLAY_SANDSTONE.get());
+                entries.accept(CLAY_DIORITE.get());
+                entries.accept(CLAY_GRANITE.get());
+                entries.accept(CLAY_BASALT.get());
+                entries.accept(CLAY_TUFF.get());
+                entries.accept(CLAY_NETHERRACK.get());
+                entries.accept(CLAY_BLACKSTONE.get());
+                entries.accept(CLAY_CALCITE.get());
+                entries.accept(CLAY_ENDSTONE.get());
+                entries.accept(BRICK_STONE.get());
+                entries.accept(BRICK_ANDESITE.get());
+                entries.accept(BRICK_DEEPSLATE.get());
+                entries.accept(BRICK_DRIPSTONE.get());
+                entries.accept(BRICK_SANDSTONE.get());
+                entries.accept(BRICK_DIORITE.get());
+                entries.accept(BRICK_GRANITE.get());
+                entries.accept(BRICK_BASALT.get());
+                entries.accept(BRICK_TUFF.get());
+                entries.accept(BRICK_NETHERRACK.get());
+                entries.accept(BRICK_BLACKSTONE.get());
+                entries.accept(BRICK_CALCITE.get());
+                entries.accept(BRICK_ENDSTONE.get());
+                entries.accept(LOG_OAK.get());
+                entries.accept(LOG_SPRUCE.get());
+                entries.accept(LOG_BIRCH.get());
+                entries.accept(LOG_JUNGLE.get());
+                entries.accept(LOG_ACACIA.get());
+                entries.accept(LOG_DARK_OAK.get());
+                entries.accept(LOG_MANGROVE.get());
+                entries.accept(LOG_WARPED.get());
+                entries.accept(LOG_CRIMSON.get());
+                entries.accept(PLANK_OAK.get());
+                entries.accept(PLANK_SPRUCE.get());
+                entries.accept(PLANK_BIRCH.get());
+                entries.accept(PLANK_JUNGLE.get());
+                entries.accept(PLANK_ACACIA.get());
+                entries.accept(PLANK_DARK_OAK.get());
+                entries.accept(PLANK_MANGROVE.get());
+                entries.accept(PLANK_WARPED.get());
+                entries.accept(PLANK_CRIMSON.get());
 
             }).build());
 
@@ -415,7 +464,6 @@ public class ModItems {
     public static <I extends Item> RegistryObject<FuelItem> createFuelItem(String name, int heat, Item.Properties itemProperties) {
         return ITEMS.register(name, () -> new FuelItem(itemProperties, heat, name));
     }
-
 
 
 }
