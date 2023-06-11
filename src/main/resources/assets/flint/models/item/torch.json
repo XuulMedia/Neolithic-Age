@@ -1,6 +1,0 @@
-{
-  "parent": "flint:block/template_torch",
-  "textures": {
-    "layer0": "minecraft:block/torch"
-  }
-}

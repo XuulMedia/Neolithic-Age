@@ -1,8 +1,0 @@
-{
-  "type": "flint:flint_station",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:flint"
-  },
-  "result": "flint:flint_shovel_head"
-}

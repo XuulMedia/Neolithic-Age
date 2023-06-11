@@ -1,8 +1,0 @@
-{
-  "type": "flint:heating_fuel",
-  "burnTime": 1600,
-  "heat": 500,
-  "input": {
-    "item": "flint:log_mangrove"
-  }
-}
