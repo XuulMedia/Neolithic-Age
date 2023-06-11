@@ -1,4 +1,4 @@
-package github.xuulmedia.neolith.block;
+package github.xuulmedia.neolith.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

@@ -89,7 +89,6 @@ public class HammerItem extends TieredItem implements Vanishable {
             return container;
     }
 
-
     @Override
     public boolean hasCraftingRemainingItem(@Nonnull ItemStack stack)
     {

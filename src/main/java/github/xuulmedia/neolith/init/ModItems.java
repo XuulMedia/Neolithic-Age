@@ -6,6 +6,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -18,6 +19,11 @@ public class ModItems {
     public static final int MED_HEAT_WOOD = 350;
     public static final int HIGH_HEAT_WOOD = 500;
     public static final int NETHER_HEAT_WOOD = 650;
+
+
+    /*Util*/
+    public static final RegistryObject<Item> BASIC_GRINDING_STONE = ITEMS.register("basic_grinding_stone",
+            () -> new Item(new Item.Properties().durability(50)));
 
 
     /*PLANTS*/
@@ -48,8 +54,8 @@ public class ModItems {
 
     /*Containers*/
 
-    public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
-            () -> new BasketItem(new Item.Properties().stacksTo(1)));
+//    public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
+//            () -> new BasketItem(new Item.Properties().stacksTo(1)));
 
 
     /*HIDES*/
@@ -379,6 +385,7 @@ public class ModItems {
                 entries.accept(CHUNK_BLACKSTONE.get());
                 entries.accept(CHUNK_CALCITE.get());
                 entries.accept(CHUNK_ENDSTONE.get());
+                entries.accept(ModBlocks.MANUAL_GRINDER.get());
 
             }).build());
 

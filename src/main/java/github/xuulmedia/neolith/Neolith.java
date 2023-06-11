@@ -3,6 +3,7 @@ package github.xuulmedia.neolith;
 import com.mojang.logging.LogUtils;
 import github.xuulmedia.neolith.init.*;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
@@ -38,8 +39,8 @@ public class Neolith {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
         // Register the commonSetup method for .addListener(this::commonSetup);
-        ModBlocks.VANILLA_BLOCKS.register(bus);
         ModBlocks.BLOCKS.register(bus);
+        ModBlocks.VANILLA_BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
         ModItems.CREATIVE_MODE_TABS.register(bus);
         MinecraftForge.EVENT_BUS.register(ModEvents.class);
@@ -83,9 +84,13 @@ public class Neolith {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event)
         {
-            // Some client setup code
-            LOGGER.info("HELLO FROM CLIENT SETUP");
-            LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            ModMenuTypes.registerMenuScreens();
+
         }
+
+        //	@SubscribeEvent
+//	public static void onItemColorRegistry(final RegisterColorHandlersEvent.Item event) {
+//		event.getItemColors().register((stack, index) -> index == 0 ? ModItems.BASKET.get().getColor(stack) : -1, ModItems.BASKET.get());
+//	}
     }
 }

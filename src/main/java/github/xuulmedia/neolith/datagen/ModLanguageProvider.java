@@ -44,7 +44,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
 
 
-        add(ModItems.BASKET.get(), "Basket");
+//        add(ModItems.BASKET.get(), "Basket");
 
         add(ModItems.HIDE_SMALL.get(), "Small Hide");
         add(ModItems.HIDE_MEDIUM.get(), "Medium Hide");

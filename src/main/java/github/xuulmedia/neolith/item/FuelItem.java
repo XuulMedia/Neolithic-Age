@@ -13,7 +13,6 @@ import java.util.List;
 public class FuelItem extends Item {
     public int heatLevel;
     public String name;
-
     public static final String NO_SHIFT_MESSAGE ="fuel.no_shift";
 
     public FuelItem(Properties pProperties, int heatLevel, String name) {
@@ -29,7 +28,6 @@ public class FuelItem extends Item {
     public String getName(){
         return this.name;
     }
-
 
     @Override
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {

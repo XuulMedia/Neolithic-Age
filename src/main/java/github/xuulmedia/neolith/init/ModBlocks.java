@@ -1,18 +1,17 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.block.FlintNodeBlock;
-import github.xuulmedia.neolith.block.ThatchBlock;
+import github.xuulmedia.neolith.block.ModCampfireBlock;
+import github.xuulmedia.neolith.block.custom.*;
+import github.xuulmedia.neolith.block.custom.GrassGravityBlock;
+import github.xuulmedia.neolith.block.workstation.ManualGrinderBlock;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.Instrument;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.GravelBlock;
-import net.minecraft.world.level.block.RotatedPillarBlock;
-import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -142,99 +141,74 @@ public class ModBlocks {
 //    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = BLOCKS.register("medicine_crop",
 //            () -> new MedicineCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
 
-    /*Vanilla modifiers*/
-//
-//    public static final RegistryObject<RotatedPillarBlock> OAK_LOG = VANILLA_BLOCKS.register("oak_log", () -> log(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));
-//    public static final RegistryObject<RotatedPillarBlock> SPRUCE_LOG = VANILLA_BLOCKS.register("spruce_log", () -> log(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));
-//    public static final RegistryObject<RotatedPillarBlock> BIRCH_LOG = VANILLA_BLOCKS.register("birch_log", () -> log(MaterialColor.SAND, MaterialColor.QUARTZ));
-//    public static final RegistryObject<RotatedPillarBlock> JUNGLE_LOG = VANILLA_BLOCKS.register("jungle_log", () -> log(MaterialColor.DIRT, MaterialColor.PODZOL));
-//    public static final RegistryObject<RotatedPillarBlock> ACACIA_LOG = VANILLA_BLOCKS.register("acacia_log", () -> log(MaterialColor.COLOR_ORANGE, MaterialColor.STONE));
-//    public static final RegistryObject<RotatedPillarBlock> DARK_OAK_LOG = VANILLA_BLOCKS.register("dark_oak_log",() ->  log(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN));
-//    public static final RegistryObject<RotatedPillarBlock> MANGROVE_LOG = VANILLA_BLOCKS.register("mangrove_log", () -> log(MaterialColor.COLOR_BROWN, MaterialColor.STONE));
-//    public static final RegistryObject<RotatedPillarBlock> CRIMSON_STEM = VANILLA_BLOCKS.register("crimson_stem", () -> log(MaterialColor.COLOR_RED, MaterialColor.STONE));
-//    public static final RegistryObject<RotatedPillarBlock> WARPED_STEM = VANILLA_BLOCKS.register("warped_stem", () -> log(MaterialColor.COLOR_BLUE, MaterialColor.STONE));
-//
 
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_OAK_LOG = VANILLA_BLOCKS.register("stripped_oak_log", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_SPRUCE_LOG = VANILLA_BLOCKS.register("stripped_spruce_log",() ->  log(MaterialColor.PODZOL, MaterialColor.PODZOL));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_BIRCH_LOG = VANILLA_BLOCKS.register("stripped_birch_log",() ->  log(MaterialColor.SAND, MaterialColor.SAND));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_JUNGLE_LOG = VANILLA_BLOCKS.register("stripped_jungle_log", () -> log(MaterialColor.DIRT, MaterialColor.DIRT));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_ACACIA_LOG = VANILLA_BLOCKS.register("stripped_acacia_log", () -> log(MaterialColor.COLOR_ORANGE, MaterialColor.COLOR_ORANGE));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_DARK_OAK_LOG = VANILLA_BLOCKS.register("stripped_dark_oak_log",() ->  log(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN));
+    /*Wood Logs*/
+    public static final RegistryObject<RotatedPillarBlock> OAK_LOG = VANILLA_BLOCKS.register("oak_log",  () -> createLog(MapColor.WOOD, MapColor.PODZOL));
+    public static final RegistryObject<RotatedPillarBlock> SPRUCE_LOG = VANILLA_BLOCKS.register("spruce_log", () -> createLog(MapColor.PODZOL, MapColor.COLOR_BROWN));
+    public static final RegistryObject<RotatedPillarBlock> BIRCH_LOG = VANILLA_BLOCKS.register("birch_log", () -> createLog(MapColor.SAND, MapColor.QUARTZ));
+    public static final RegistryObject<RotatedPillarBlock> JUNGLE_LOG = VANILLA_BLOCKS.register("jungle_log", () -> createLog(MapColor.DIRT, MapColor.PODZOL));
+    public static final RegistryObject<RotatedPillarBlock> ACACIA_LOG = VANILLA_BLOCKS.register("acacia_log", () -> createLog(MapColor.COLOR_ORANGE, MapColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> DARK_OAK_LOG = VANILLA_BLOCKS.register("dark_oak_log",() ->  createLog(MapColor.COLOR_BROWN, MapColor.COLOR_BROWN));
+    public static final RegistryObject<RotatedPillarBlock> MANGROVE_LOG = VANILLA_BLOCKS.register("mangrove_log", () -> createLog(MapColor.COLOR_BROWN, MapColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> CRIMSON_STEM = VANILLA_BLOCKS.register("crimson_stem", () -> createLog(MapColor.COLOR_RED, MapColor.STONE));
+    public static final RegistryObject<RotatedPillarBlock> WARPED_STEM = VANILLA_BLOCKS.register("warped_stem", () -> createLog(MapColor.COLOR_BLUE, MapColor.STONE));
 
-//    public static final RegistryObject<GravelBlock> DIRT = VANILLA_BLOCKS.register("dirt",  () -> new GravelBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT)
+    /*Stripped Logs*/
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_OAK_LOG = VANILLA_BLOCKS.register("stripped_oak_log", () -> createLog(MapColor.WOOD, MapColor.WOOD));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_SPRUCE_LOG = VANILLA_BLOCKS.register("stripped_spruce_log",() ->  createLog(MapColor.PODZOL, MapColor.PODZOL));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_BIRCH_LOG = VANILLA_BLOCKS.register("stripped_birch_log",() ->  createLog(MapColor.SAND, MapColor.SAND));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_JUNGLE_LOG = VANILLA_BLOCKS.register("stripped_jungle_log", () -> createLog(MapColor.DIRT, MapColor.DIRT));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_ACACIA_LOG = VANILLA_BLOCKS.register("stripped_acacia_log", () -> createLog(MapColor.COLOR_ORANGE, MapColor.COLOR_ORANGE));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_DARK_OAK_LOG = VANILLA_BLOCKS.register("stripped_dark_oak_log",() ->  createLog(MapColor.COLOR_BROWN, MapColor.COLOR_BROWN));
+
+    /*Dirt*/
+    public static final RegistryObject<GravelBlock> DIRT = VANILLA_BLOCKS.register("dirt",  () -> new GravelBlock(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.DIRT)
+            .strength(0.5F)
+            .sound(SoundType.GRAVEL)
+            .requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<GrassGravityBlock> GRASS_BLOCK = VANILLA_BLOCKS.register("grass_block",  () -> new GrassGravityBlock(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.GRASS)
+            .randomTicks().strength(0.6F)
+            .sound(SoundType.GRASS)
+            .requiresCorrectToolForDrops()));
+
+//    public static final RegistryObject<GrassGravityBlock> COARSE_DIRT = VANILLA_BLOCKS.register("coarse_dirt",  () -> new GrassGravityBlock(BlockBehaviour.Properties.of()
+//            .mapColor(MapColor.DIRT)
 //            .strength(0.5F)
 //            .sound(SoundType.GRAVEL)
 //            .requiresCorrectToolForDrops()));
 //
-//    public static final RegistryObject<GrassGravityBlock> GRASS_BLOCK = VANILLA_BLOCKS.register("grass_block",  () -> new GrassGravityBlock(BlockBehaviour.Properties.of(Material.GRASS)
-//            .randomTicks().strength(0.6F)
-//            .sound(SoundType.GRASS)
-//            .requiresCorrectToolForDrops()));
+
+
+
 
 
     /*Workstations*/
-//    public static final RegistryObject<GrindstoneBlock> GRINDSTONE = registerBlock("grindstone",
-//            GrindstoneBlock::new, new Item.Properties());
-//
-//
+    public static final RegistryObject<ManualGrinderBlock> MANUAL_GRINDER = registerBlock("manual_grinder",
+            ManualGrinderBlock::new, new Item.Properties());
+
+
 //    public static final RegistryObject<FoundryBlock> FOUNDRY = registerBlock("foundry",
 //            () -> new FoundryBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
 //
 //    public static final RegistryObject<KilnBlock> KILN = registerBlock("kiln",
 //            () -> new KilnBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
 //
-//
 //    public static final RegistryObject<FlintStationBlock> FLINT_STATION = registerBlock("flint_station",
 //            FlintStationBlock::new, new Item.Properties());
 
-//
-//    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = VANILLA_BLOCKS.register("campfire",
-//            () -> new ModCampfireBlock(true, 1));
+    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire",
+            () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties());
 
-//    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire",
-//            () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties());
-//
-//    public static final RegistryObject<ModTorchBlock> TORCH = registerBlock("torch",
-//            () -> new ModTorchBlock(BlockBehaviour.Properties.of(Material.DECORATION)
-//                    .noCollission()
-//                    .instabreak()
-//                    .lightLevel(litBlockEmission(15))), new Item.Properties());
-//
+    public static final RegistryObject<ModTorchBlock> TORCH = registerBlock("torch",
+            () -> new ModTorchBlock(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .instabreak()
+                    .lightLevel(litBlockEmission(15))), new Item.Properties());
 
 
-
-
-
-    /*Vanilla modifiers*/
-//
-//    public static final RegistryObject<RotatedPillarBlock> OAK_LOG = VANILLA_BLOCKS.register("oak_log", () -> log(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));
-//    public static final RegistryObject<RotatedPillarBlock> SPRUCE_LOG = VANILLA_BLOCKS.register("spruce_log", () -> log(MaterialColor.PODZOL, MaterialColor.COLOR_BROWN));
-//    public static final RegistryObject<RotatedPillarBlock> BIRCH_LOG = VANILLA_BLOCKS.register("birch_log", () -> log(MaterialColor.SAND, MaterialColor.QUARTZ));
-//    public static final RegistryObject<RotatedPillarBlock> JUNGLE_LOG = VANILLA_BLOCKS.register("jungle_log", () -> log(MaterialColor.DIRT, MaterialColor.PODZOL));
-//    public static final RegistryObject<RotatedPillarBlock> ACACIA_LOG = VANILLA_BLOCKS.register("acacia_log", () -> log(MaterialColor.COLOR_ORANGE, MaterialColor.STONE));
-//    public static final RegistryObject<RotatedPillarBlock> DARK_OAK_LOG = VANILLA_BLOCKS.register("dark_oak_log",() ->  log(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN));
-//    public static final RegistryObject<RotatedPillarBlock> MANGROVE_LOG = VANILLA_BLOCKS.register("mangrove_log", () -> log(MaterialColor.COLOR_BROWN, MaterialColor.STONE));
-//    public static final RegistryObject<RotatedPillarBlock> CRIMSON_STEM = VANILLA_BLOCKS.register("crimson_stem", () -> log(MaterialColor.COLOR_RED, MaterialColor.STONE));
-//    public static final RegistryObject<RotatedPillarBlock> WARPED_STEM = VANILLA_BLOCKS.register("warped_stem", () -> log(MaterialColor.COLOR_BLUE, MaterialColor.STONE));
-//
-//
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_OAK_LOG = VANILLA_BLOCKS.register("stripped_oak_log", () -> log(MaterialColor.WOOD, MaterialColor.WOOD));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_SPRUCE_LOG = VANILLA_BLOCKS.register("stripped_spruce_log",() ->  log(MaterialColor.PODZOL, MaterialColor.PODZOL));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_BIRCH_LOG = VANILLA_BLOCKS.register("stripped_birch_log",() ->  log(MaterialColor.SAND, MaterialColor.SAND));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_JUNGLE_LOG = VANILLA_BLOCKS.register("stripped_jungle_log", () -> log(MaterialColor.DIRT, MaterialColor.DIRT));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_ACACIA_LOG = VANILLA_BLOCKS.register("stripped_acacia_log", () -> log(MaterialColor.COLOR_ORANGE, MaterialColor.COLOR_ORANGE));
-//    public static final RegistryObject<RotatedPillarBlock> STRIPPED_DARK_OAK_LOG = VANILLA_BLOCKS.register("stripped_dark_oak_log",() ->  log(MaterialColor.COLOR_BROWN, MaterialColor.COLOR_BROWN));
-//
-//    public static final RegistryObject<GravelBlock> DIRT = VANILLA_BLOCKS.register("dirt",  () -> new GravelBlock(BlockBehaviour.Properties.of(Material.DIRT, MaterialColor.DIRT)
-//            .strength(0.5F)
-//            .sound(SoundType.GRAVEL)
-//            .requiresCorrectToolForDrops()));
-//
-//    public static final RegistryObject<GrassGravityBlock> GRASS_BLOCK = VANILLA_BLOCKS.register("grass_block",  () -> new GrassGravityBlock(BlockBehaviour.Properties.of(Material.GRASS)
-//            .randomTicks().strength(0.6F)
-//            .sound(SoundType.GRASS)
-//            .requiresCorrectToolForDrops()));
 
 
 
@@ -249,26 +223,22 @@ public class ModBlocks {
         registerBlockItem(name, toReturn, itemProperties);
         return toReturn;
     }
-
     private static <T extends Block> RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block, Item.Properties itemProperties) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), itemProperties));
     }
+    private static RotatedPillarBlock createLog(MapColor topColor, MapColor barkColor) {
+        return new RotatedPillarBlock(BlockBehaviour.Properties.of().mapColor((color) -> {
+            return color.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;
+        }).instrument(NoteBlockInstrument.BASS).strength(2.0F).sound(SoundType.WOOD).ignitedByLava().requiresCorrectToolForDrops());
+    }
+
 
     private static Boolean never(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {
         return (boolean)false;
     }
-
     private static Boolean always(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {
         return (boolean)true;
     }
-
-//    private static RotatedPillarBlock log(MaterialColor pTopColor, MaterialColor pBarkColor) {
-//        return  new RotatedPillarBlock(BlockBehaviour.Properties.of(Material.WOOD, (rotation) -> {
-//            return rotation.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ?  pTopColor: pBarkColor;
-//        }).strength(2.0F).sound(SoundType.WOOD).requiresCorrectToolForDrops());
-//    }
-
-
     private static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {
         return (state) -> {
             return state.getValue(BlockStateProperties.LIT) ? pLightValue : 0;

@@ -1,6 +1,5 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.block.FoundryBlock;
 import github.xuulmedia.neolith.block.ModCampfireBlock;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -32,8 +31,6 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
     private static final int DELAY = 1200; // 1200 ticks is 60 seconds
     public int maxBurnTime= BURN_MINUITES * DELAY; //should be in minutes
     public int burnTime = maxBurnTime;
-//    private static final int BURN_COOL_SPEED = 2;
-//    private static final int NUM_SLOTS = 4;
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
     private final int[] cookingProgress = new int[4];
@@ -54,29 +51,31 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
                 int j = blockEntity.cookingProgress[i]++;
                 if (blockEntity.cookingProgress[i] >= blockEntity.cookingTime[i]) {
                     Container container = new SimpleContainer(itemstack);
-                    ItemStack itemstack1 = blockEntity.quickCheck.getRecipeFor(container, level).map((p_155305_) -> {
-                        return p_155305_.assemble(container);
+                    ItemStack itemstack1 = blockEntity.quickCheck.getRecipeFor(container, level).map((p_270054_) -> {
+                        return p_270054_.assemble(container, level.registryAccess());
                     }).orElse(itemstack);
-                    Containers.dropItemStack(level, (double)blockPos.getX(), (double)blockPos.getY(), (double)blockPos.getZ(), itemstack1);
-                    blockEntity.items.set(i, ItemStack.EMPTY);
-                    level.sendBlockUpdated(blockPos, state, state, 3);
-                    level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(state));
+                    if (itemstack1.isItemEnabled(level.enabledFeatures())) {
+                        Containers.dropItemStack(level, (double) blockPos.getX(), (double) blockPos.getY(), (double) blockPos.getZ(), itemstack1);
+                        blockEntity.items.set(i, ItemStack.EMPTY);
+                        level.sendBlockUpdated(blockPos, state, state, 3);
+                        level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(state));
+                    }
                 }
             }
         }
 
-
-
         if(level.isRaining() && blockEntity.isNearRain(level,blockPos)) {
-            level.setBlockAndUpdate(blockPos, state.setValue(FoundryBlock.LIT, false));
+            level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
+
             blockEntity.setChanged();
             return;
         }
+
         int newBurnTime = blockEntity.burnTime - 1;
         System.out.println("burn time " + newBurnTime);
         if(newBurnTime <= 0){
-            level.setBlockAndUpdate(blockPos, state.setValue(FoundryBlock.LIT, false));
+            level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
             blockEntity.setChanged();
             return;
@@ -84,11 +83,11 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
             blockEntity.burnTime = newBurnTime;
         }
 
-
         if (flag) {
             setChanged(level, blockPos, state);
         }
     }
+
 
     public static void cooldownTick(Level level, BlockPos blockPos, BlockState pState, ModCampfireBlockEntity blockEntity) {
         boolean flag = false;
@@ -221,7 +220,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
 
     public void extinguishFire(BlockState state, Level level, BlockPos blockPos){
         if (!isStillBurning()) {
-            level.setBlockAndUpdate(blockPos, state.setValue(FoundryBlock.LIT, false));
+            level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
         }
     }

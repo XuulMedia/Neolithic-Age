@@ -25,7 +25,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.PLANT_FIBRE.get());
         simpleItem(ModItems.BRAIDED_PLANT_FIBRE.get());
-        handheldItem(ModItems.BASKET.get());
+//        handheldItem(ModItems.BASKET.get());
 
         simpleItem(ModItems.WOOL.get());
         simpleItem(ModItems.YARN.get());

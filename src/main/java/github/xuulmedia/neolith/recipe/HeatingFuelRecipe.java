@@ -1,6 +1,5 @@
 package github.xuulmedia.neolith.recipe;
 
-import github.xuulmedia.neolith.Flint;
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.util.HeatingFuelContainer;
 import com.google.gson.JsonObject;

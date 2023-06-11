@@ -1,14 +1,9 @@
 package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.datagen.loot.BlockLootTableProvider;
-import github.xuulmedia.neolith.datagen.loot.EntityLootTableProvider;
-import github.xuulmedia.neolith.datagen.loot.ModLootTableProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.TagsProvider;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -34,7 +29,7 @@ public class DataGenerators {
         ModItemTagProvider itemTagProvider =  new ModItemTagProvider(packOutput, lookupProvider, blockTagProvider.contentsGetter(), existingFileHelper);
 
 //       generator.addProvider(event.includeServer(), new ModLootTableProvider(packOutput));
-        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
+//        generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
         generator.addProvider(event.includeServer(), blockTagProvider);
         generator.addProvider(event.includeServer(),itemTagProvider);
 

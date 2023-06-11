@@ -1,4 +1,4 @@
-package github.xuulmedia.neolith.block;
+package github.xuulmedia.neolith.block.custom;
 
 import github.xuulmedia.neolith.init.ModTags;
 import net.minecraft.core.BlockPos;
