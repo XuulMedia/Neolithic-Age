@@ -1,4 +1,4 @@
-package github.xuulmedia.neolith.gui;
+package github.xuulmedia.neolith.gui.flintStation;
 
 import com.google.common.collect.Lists;
 import github.xuulmedia.neolith.init.ModBlocks;

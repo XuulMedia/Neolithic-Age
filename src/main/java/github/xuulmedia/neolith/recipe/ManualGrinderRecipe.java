@@ -77,7 +77,7 @@ public class ManualGrinderRecipe implements Recipe<SimpleContainer> {
 
         @Override
         public ManualGrinderRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "output"));
+
 
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");

@@ -1,7 +1,8 @@
 
 package github.xuulmedia.neolith.block.workstation;
 
-import github.xuulmedia.neolith.gui.FlintStationMenu;
+
+import github.xuulmedia.neolith.gui.flintStation.FlintStationMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
