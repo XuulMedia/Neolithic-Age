@@ -30,9 +30,9 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
     public static final int DELTA_HEAT_COOL = 3;
     public static final int DELTA_HEAT_COLD = 5;
 
-    public static final int IDX_HEAT = 0, IDX_TARGET_HEAT = 1,
-            IDX_FUEL_LEFT = 2, IDX_MAX_FUEL_LEFT = 3,
-            IDX_PROGRESS = 4, IDX_MAX_PROGRESS = 5;
+    public static final int INDEX_HEAT = 0, INDEX_TARGET_HEAT = 1,
+            INDEX_FUEL_LEFT = 2, INDEX_MAX_FUEL_LEFT = 3,
+            INDEX_PROGRESS = 4, INDEX_MAX_PROGRESS = 5;
 
     private static final String TAG_INVENTORY = "inventory",
             TAG_HEAT = "heat",
@@ -60,9 +60,9 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
         super(type, pWorldPosition, pBlockState);
         this.data = new ContainerData() {
             @Override
-            public int get(int idx) {
+            public int get(int index) {
                 var it = AbstractHeatingBlockEntity.this;
-                return switch (idx) {
+                return switch (index) {
                     case 0 -> it.heat;
                     case 1 -> it.targetHeat;
                     case 2 -> it.fuelTicksLeft;
@@ -74,9 +74,9 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
             }
 
             @Override
-            public void set(int idx, int value) {
+            public void set(int index, int value) {
                 var it = AbstractHeatingBlockEntity.this;
-                switch (idx) {
+                switch (index) {
                     case 0 -> it.heat = value;
                     case 1 -> it.targetHeat = value;
                     case 2 -> it.fuelTicksLeft = value;
@@ -88,12 +88,12 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
 
             @Override
             public int getCount() {
-                return IDX_MAX_PROGRESS + 1;
+                return INDEX_MAX_PROGRESS + 1;
             }
         };
     }
 
-    protected abstract int getFuelSlotIdx();
+    protected abstract int getFuelSlotIndex();
 
     @NotNull
     @Override
@@ -161,7 +161,7 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
             var fuelMatch = recman.getRecipeFor(HeatingFuelRecipe.Type.INSTANCE, ersatzInv, world);
             if (fuelMatch.isPresent()) {
                 var fuel = fuelMatch.get();
-                tile.itemHandler.getStackInSlot(tile.getFuelSlotIdx()).shrink(1);
+                tile.itemHandler.getStackInSlot(tile.getFuelSlotIndex()).shrink(1);
                 tile.targetHeat = fuel.maxHeat;
                 tile.fuelTicksLeft = tile.maxFuelTicksLeft = fuel.burnTime;
             } else {

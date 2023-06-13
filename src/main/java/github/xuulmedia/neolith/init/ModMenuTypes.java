@@ -1,13 +1,11 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
-
-
-
-import github.xuulmedia.neolith.gui.flintStation.FlintStationMenu;
-import github.xuulmedia.neolith.gui.foundry.FoundryMenu;
-import github.xuulmedia.neolith.gui.manualGrinderBlock.ManualGrinderMenu;
-import github.xuulmedia.neolith.gui.manualGrinderBlock.ManualGrinderScreen;
+import github.xuulmedia.neolith.gui.menu.FlintStationMenu;
+import github.xuulmedia.neolith.gui.menu.FoundryMenu;
+import github.xuulmedia.neolith.gui.menu.ManualGrinderMenu;
+import github.xuulmedia.neolith.gui.screen.FoundryScreen;
+import github.xuulmedia.neolith.gui.screen.ManualGrinderScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -28,13 +26,10 @@ public final class ModMenuTypes {
     /*Menus*/
     public static final RegistryObject<MenuType<ManualGrinderMenu>> MANUAL_GRINDER_MENU =
             registerMenuType(ManualGrinderMenu::new, "manual_grinder_menu");
-
     public static final RegistryObject<MenuType<FlintStationMenu>> FLINT_STATION_MENU =
             registerMenuType(FlintStationMenu::new, "flint_station_menu");
-
-
     public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY_MENU =
-            registerMenuType(FoundryMenu::new, "foundry_menu");
+            registerMenuType(FoundryMenu::new,"foundry_menu");
 
 
 
@@ -42,6 +37,7 @@ public final class ModMenuTypes {
     @OnlyIn(Dist.CLIENT)
     public static void registerMenuScreens() {
         MenuScreens.register(ModMenuTypes.MANUAL_GRINDER_MENU.get(), ManualGrinderScreen::new);
+        MenuScreens.register(ModMenuTypes.FOUNDRY_MENU.get(), FoundryScreen::new);
     }
 
 

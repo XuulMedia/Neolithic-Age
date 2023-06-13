@@ -364,6 +364,9 @@ public class ModItems {
             .title(Component.translatable("stoneAge." + Neolith.MODID))
             .icon(() -> CHUNK_STONE.get().getDefaultInstance())
             .displayItems((enabledFeatures, entries) -> {
+                entries.accept(ModBlocks.MANUAL_GRINDER.get());
+                entries.accept(ModBlocks.FLINT_STATION.get());
+                entries.accept(ModBlocks.FOUNDRY.get());
                 entries.accept(CHUNK_STONE.get());
                 entries.accept(CHUNK_ANDESITE.get());
                 entries.accept(CHUNK_DEEPSLATE.get());
@@ -377,8 +380,7 @@ public class ModItems {
                 entries.accept(CHUNK_BLACKSTONE.get());
                 entries.accept(CHUNK_CALCITE.get());
                 entries.accept(CHUNK_ENDSTONE.get());
-                entries.accept(ModBlocks.MANUAL_GRINDER.get());
-                entries.accept(ModBlocks.FLINT_STATION.get());
+
                 entries.accept(DUST_STONE.get());
                 entries.accept(DUST_ANDESITE.get());
                 entries.accept(DUST_DEEPSLATE.get());

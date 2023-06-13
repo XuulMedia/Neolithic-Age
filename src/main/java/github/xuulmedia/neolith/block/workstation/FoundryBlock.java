@@ -58,11 +58,11 @@ public class FoundryBlock extends BaseEntityBlock {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable BlockGetter reader, List<Component> list, TooltipFlag flags) {
-        list.add(Component.translatable(HEAT_MESSAGE, Integer.toString(AbstractHeatingBlockEntity.IDX_HEAT))
+        list.add(Component.translatable(HEAT_MESSAGE, Integer.toString(AbstractHeatingBlockEntity.INDEX_HEAT))
                 .withStyle(ChatFormatting.YELLOW));
-        list.add(Component.translatable(HEAT_TARGET_MESSAGE, Integer.toString(AbstractHeatingBlockEntity.IDX_TARGET_HEAT))
+        list.add(Component.translatable(HEAT_TARGET_MESSAGE, Integer.toString(AbstractHeatingBlockEntity.INDEX_TARGET_HEAT))
                 .withStyle(ChatFormatting.BLUE));
-        list.add(Component.translatable(TOO_COLD_MESSAGE, Integer.toString(AbstractHeatingBlockEntity.IDX_MAX_PROGRESS))
+        list.add(Component.translatable(TOO_COLD_MESSAGE, Integer.toString(AbstractHeatingBlockEntity.INDEX_MAX_PROGRESS))
                 .withStyle(ChatFormatting.BLUE));
     }
 
@@ -132,17 +132,16 @@ public class FoundryBlock extends BaseEntityBlock {
     }
 
     @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
-                                 BlockHitResult pHit) {
-        if (pLevel.isClientSide()) {
-            return InteractionResult.SUCCESS;
-        } else {
-            var tile = pLevel.getBlockEntity(pPos);
-            if (tile instanceof FoundryBlockEntity fbe) {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, fbe, pPos);
+    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if(!pLevel.isClientSide()) {
+            BlockEntity entity = pLevel.getBlockEntity(pPos);
+            if(entity instanceof FoundryBlockEntity) {
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (FoundryBlockEntity)entity, pPos);
+            } else {
+                throw new IllegalStateException("Our Container provider is missing!");
             }
-            return InteractionResult.CONSUME;
         }
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
 
     @Nullable

@@ -1,4 +1,4 @@
-//package github.xuulmedia.neolith.client.screen;
+//package github.xuulmedia.neolith.gui.screen;
 //
 //import github.xuulmedia.neolith.block.entity.FoundryBlockEntity;
 //import github.xuulmedia.neolith.gui.KilnMenu;

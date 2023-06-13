@@ -1,4 +1,4 @@
-//package github.xuulmedia.neolith.gui;
+//package github.xuulmedia.neolith.gui.menu;
 //
 //import github.xuulmedia.neolith.block.entity.KilnBlockEntity;
 //import github.xuulmedia.neolith.gui.slot.ModResultSlot;

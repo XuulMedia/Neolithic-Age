@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.gui.manualGrinderBlock.ManualGrinderMenu;
+import github.xuulmedia.neolith.gui.menu.ManualGrinderMenu;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.init.ModItems;
 import net.minecraft.core.BlockPos;
@@ -76,7 +76,6 @@ public class ManualGrinderBlockEntity extends BlockEntity implements MenuProvide
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory pPlayerInventory, Player pPlayer) {
-
         return new ManualGrinderMenu(id, pPlayerInventory, this, this.data);
     }
 
@@ -128,37 +127,15 @@ public class ManualGrinderBlockEntity extends BlockEntity implements MenuProvide
         if(level.isClientSide()) {
             return;
         }
-        boolean hasGrindingStoneInFirstSlot = pEntity.itemHandler.getStackInSlot(1).getItem() == ModItems.BASIC_GRINDING_STONE.get();
 
-        if(!hasGrindingStoneInFirstSlot){
-            return;
-        }
-//        if(hasRecipe(pEntity, hasGrindingStoneInFirstSlot)) {
-//            pEntity.progress++;
-//            pEntity.itemHandler.getStackInSlot(1).setDamageValue(pEntity.itemHandler.getStackInSlot(1).getDamageValue() -1);
-//            setChanged(level, pos, state);
-//
-//            if(pEntity.progress >= pEntity.maxProgress) {
-//                craftItem(pEntity);
-//            }
-//        } else {
-//            pEntity.resetProgress();
-//            setChanged(level, pos, state);
-//        }
+
+
     }
 
     private void resetProgress() {
         this.progress = 0;
     }
 
-//    private static boolean hasRecipe(ManualGrinderBlockEntity entity, boolean condition) {
-//        SimpleContainer inventory = new SimpleContainer(entity.itemHandler.getSlots());
-//        for (int i = 0; i < entity.itemHandler.getSlots(); i++) {
-//            inventory.setItem(i, entity.itemHandler.getStackInSlot(i));
-//        }
-//        return condition && isAmountIntoOutputSlotValid(inventory) &&
-//                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.ZIRCON.get(), 1));
-//    }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack stack) {
         return inventory.getItem(2).getItem() == stack.getItem() || inventory.getItem(2).isEmpty();

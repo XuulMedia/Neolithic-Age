@@ -1,4 +1,4 @@
-//package github.xuulmedia.neolith.client.screen;
+//package github.xuulmedia.neolith.gui.screen;
 //
 //import github.xuulmedia.neolith.gui.BasketMenu;
 //import com.mojang.blaze3d.systems.RenderSystem;

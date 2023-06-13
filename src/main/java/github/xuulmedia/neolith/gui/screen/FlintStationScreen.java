@@ -1,11 +1,13 @@
-//package github.xuulmedia.neolith.client.screen;
+//package github.xuulmedia.neolith.gui.screen;
 //
 //
-//import github.xuulmedia.neolith.gui.FlintStationMenu;
+//
+//import github.xuulmedia.neolith.gui.flintStation.FlintStationMenu;
 //import github.xuulmedia.neolith.recipe.FlintStationRecipe;
 //import com.mojang.blaze3d.systems.RenderSystem;
 //import com.mojang.blaze3d.vertex.PoseStack;
 //import net.minecraft.client.Minecraft;
+//import net.minecraft.client.gui.GuiGraphics;
 //import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 //import net.minecraft.client.renderer.GameRenderer;
 //import net.minecraft.client.resources.sounds.SimpleSoundInstance;
@@ -19,7 +21,7 @@
 //
 //public class FlintStationScreen extends AbstractContainerScreen<FlintStationMenu> {
 //
-//    private final ResourceLocation GUI = new ResourceLocation("minecraft", "textures/gui/container/stonecutter.png");
+//    private final ResourceLocation CONTAINER_BG = new ResourceLocation("minecraft", "textures/gui/container/stonecutter.png");
 //
 //    private static final int SCROLLER_WIDTH = 12;
 //    private static final int SCROLLER_HEIGHT = 15;
@@ -51,6 +53,8 @@
 //        --this.titleLabelY;
 //    }
 //
+//
+//
 //    @Override
 //    public void render(PoseStack matrixStack, int mouseX, int mouseY, float partialTicks) {
 //        this.renderBackground(matrixStack);
@@ -60,25 +64,25 @@
 //
 //
 //    @Override
-//    protected void renderBg(PoseStack matrixStack, float partialTicks, int mouseX, int mouseY) {
-//        this.renderBackground(matrixStack);
+//    protected void renderBg(GuiGraphics gui, float partialTicks, int mouseX, int mouseY) {
+//        this.renderBackground(gui);
 //        RenderSystem.setShader(GameRenderer::getPositionTexShader);
 //        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-//        RenderSystem.setShaderTexture(0, GUI);
+//        RenderSystem.setShaderTexture(0, CONTAINER_BG);
 //        int i = this.leftPos;
 //        int j = this.topPos;
-//        this.blit(matrixStack, i, j, 0, 0, this.imageWidth, this.imageHeight);
+//        gui.blit(CONTAINER_BG, i, j, 0, 0, this.imageWidth, this.imageHeight);
 //        int k = (int) (41.0F * this.scrollOffs);
-//        this.blit(matrixStack, i + 119, j + 15 + k, 176 + (this.isScrollBarActive() ? 0 : 12), 0, 12, 15);
+//        gui.blit(CONTAINER_BG, i + 119, j + 15 + k, 176 + (this.isScrollBarActive() ? 0 : 12), 0, 12, 15);
 //        int l = this.leftPos + 52;
 //        int i1 = this.topPos + 14;
 //        int j1 = this.startIndex + 12;
-//        this.renderButtons(matrixStack, mouseX, mouseY, l, i1, j1);
+//        this.renderButtons(new PoseStack(), mouseX, mouseY, l, i1, j1);
 //        this.renderRecipes(l, i1, j1);
 //    }
 //
-//    protected void renderTooltip(PoseStack pPoseStack, int pX, int pY) {
-//        super.renderTooltip(pPoseStack, pX, pY);
+//    protected void renderTooltip(GuiGraphics gui, int pX, int pY) {
+//        super.renderTooltip(gui, pX, pY);
 //        if (this.displayRecipes) {
 //            int i = this.leftPos + 52;
 //            int j = this.topPos + 14;
@@ -90,7 +94,7 @@
 //                int j1 = i + i1 % 4 * 16;
 //                int k1 = j + i1 / 4 * 18 + 2;
 //                if (pX >= j1 && pX < j1 + 16 && pY >= k1 && pY < k1 + 18) {
-//                    this.renderTooltip(pPoseStack, list.get(l).getResultItem(), pX, pY);
+//                    this.renderTooltip(new PoseStack(), list.get(l).getResultItem(), pX, pY);
 //                }
 //            }
 //        }

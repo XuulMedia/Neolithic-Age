@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.gui.foundry.FoundryMenu;
+import github.xuulmedia.neolith.gui.menu.FoundryMenu;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.recipe.FoundryRecipe;
 import github.xuulmedia.neolith.util.HeatingFuelContainer;
@@ -20,9 +20,12 @@ public class FoundryBlockEntity extends AbstractHeatingBlockEntity implements Me
     public static final int SLOT_FUEL = 1;
     public static final int SLOT_OUTPUT = 2;
 
+    public static final int STACK_SIZE = 3; // this must be a match with the number in the block MENU
+
+
     public FoundryBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.FOUNDRY.get(), pWorldPosition, pBlockState);
-        this.itemHandler = new ItemStackHandler(4) {
+        this.itemHandler = new ItemStackHandler(STACK_SIZE) {
             @Override
             protected void onContentsChanged(int slot) {
                 setChanged();
@@ -31,7 +34,7 @@ public class FoundryBlockEntity extends AbstractHeatingBlockEntity implements Me
     }
 
     @Override
-    protected int getFuelSlotIdx() {
+    protected int getFuelSlotIndex() {
         return SLOT_FUEL;
     }
 
@@ -80,9 +83,9 @@ public class FoundryBlockEntity extends AbstractHeatingBlockEntity implements Me
             if (tile.progress > tile.maxProgress) {
                 tile.progress = 0;
                 if (presentOutputStack.isEmpty()) {
-                    tile.itemHandler.setStackInSlot(SLOT_OUTPUT, recipeMatch.get().getResultItem());
+                    tile.itemHandler.setStackInSlot(SLOT_OUTPUT, recipeMatch.get().output);
                 } else {
-                    presentOutputStack.grow(recipeMatch.get().getResultItem().getCount());
+                    presentOutputStack.grow(recipeMatch.get().output.getCount());
                 }
                 tile.itemHandler.getStackInSlot(SLOT_INPUT).shrink(1);
             }

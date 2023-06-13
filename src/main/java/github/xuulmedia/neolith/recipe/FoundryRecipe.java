@@ -59,7 +59,7 @@ public class FoundryRecipe implements Recipe<Container> {
 
     @Override
     public ItemStack getResultItem(RegistryAccess p_267052_) {
-        return return this.output.copy();;
+        return  this.output.copy();
     }
 
     @Override

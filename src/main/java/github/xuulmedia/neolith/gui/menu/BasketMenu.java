@@ -1,4 +1,4 @@
-//package github.xuulmedia.neolith.gui;
+//package github.xuulmedia.neolith.gui.menu;
 //
 //import github.xuulmedia.neolith.init.ModMenuTypes;
 //import github.xuulmedia.neolith.item.BasketItem;
