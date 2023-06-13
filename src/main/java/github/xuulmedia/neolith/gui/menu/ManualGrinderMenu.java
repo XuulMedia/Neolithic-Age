@@ -18,7 +18,7 @@ public class ManualGrinderMenu  extends AbstractContainerMenu {
     public final ManualGrinderBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
-    public static final int STACK_SIZE = 3; // this must be a match with the number in the BE
+    public static final int NUM_SLOTS = 3; // this must be a match with the number in the BE
 
 
     public ManualGrinderMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
@@ -27,7 +27,7 @@ public class ManualGrinderMenu  extends AbstractContainerMenu {
 
     public ManualGrinderMenu(int id, Inventory inventory, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.MANUAL_GRINDER_MENU.get(), id);
-        checkContainerSize(inventory, 3);
+        checkContainerSize(inventory, NUM_SLOTS);
         blockEntity = (ManualGrinderBlockEntity) entity;
         this.level = inventory.player.level();
         this.data = data;
@@ -98,10 +98,10 @@ public class ManualGrinderMenu  extends AbstractContainerMenu {
         if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
             // This is a vanilla container slot so merge the stack into the tile inventory
             if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
-                    + STACK_SIZE, false)) {
+                    + NUM_SLOTS, false)) {
                 return ItemStack.EMPTY;  // EMPTY_ITEM
             }
-        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + STACK_SIZE) {
+        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + NUM_SLOTS) {
             // This is a TE slot so merge the stack into the players inventory
             if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
                 return ItemStack.EMPTY;

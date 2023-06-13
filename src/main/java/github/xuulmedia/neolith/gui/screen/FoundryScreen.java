@@ -2,6 +2,7 @@ package github.xuulmedia.neolith.gui.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import github.xuulmedia.neolith.Neolith;
+import github.xuulmedia.neolith.block.entity.FoundryBlockEntity;
 import github.xuulmedia.neolith.gui.menu.FoundryMenu;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -16,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(Neolith.MODID, "textures/gui/foundry_gui.png");
-    private @Nullable Integer heatReqdToCookInput;
+    private @Nullable Integer heatRequiredToCook;
     private int leftPos;
     private  int topPos ;
     private int imageWidth;
@@ -27,7 +28,7 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
     public FoundryScreen(FoundryMenu pMenu, Inventory pPlayerInventory,
                          Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
-        this.heatReqdToCookInput = this.menu.heatReqdToCookInput();
+        this.heatRequiredToCook = this.menu.heatReqdToCookInput();
         this.leftPos = 0;
         this.topPos = 0;
         this.imageWidth = 176;
@@ -36,7 +37,7 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
 
     @Override
     protected void containerTick() {
-        this.heatReqdToCookInput = this.menu.heatReqdToCookInput();
+        this.heatRequiredToCook = this.menu.heatReqdToCookInput();
     }
 
     @Override
@@ -45,7 +46,6 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
         super.render(gui, mouseX, mouseY, delta);
         super.renderTooltip(gui, mouseX, mouseY);
     }
-
 
     @Override
     protected void renderBg(GuiGraphics gui, float pPartialTick, int pMouseX, int pMouseY) {
@@ -107,10 +107,10 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
     }
 
     private boolean isTooColdToCook() {
-        if (this.heatReqdToCookInput == null) {
+        if (this.heatRequiredToCook == null) {
             return false;
         }
-        return this.heatReqdToCookInput > this.menu.heat();
+        return this.heatRequiredToCook > this.menu.heat();
     }
 
     @Override
@@ -118,32 +118,29 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
         return false;
     }
 
-//    @Override
-//    protected void renderTooltip(PoseStack ps, int mx, int my) {
-//        int x = (width - imageWidth) / 2;
-//        int y = (height - imageHeight) / 2;
-//        if (mx >= x + 45 && mx <= x + 50 && my >= y + 22 && my <= y + 63) {
-//            this.renderTooltip(ps, Component.translatable("container.flint.foundry.heat", this.menu.heat()), mx, my);
-//        } else if (mx >= x + 56 && mx <= x + 70 && my >= y + 36 && my <= y + 50 && this.menu.isBurningFuel()) {
-//            this.renderTooltip(ps,
-//                    Component.translatable("container.flint.foundry.heat.target", this.menu.targetHeat()),
-//                    mx, my);
-//        } else if (mx >= x + 76 && mx <= x + 87 && my >= y + 19 && my <= y + 30 && this.isTooColdToCook()) {
-//            this.renderTooltip(ps,
-//                    Component.translatable("container.flint.foundry.heat.too_cold", this.heatReqdToCookInput),
-//                    mx, my);
-//        } else if (this.menu.getCarried().isEmpty() && this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
-//            this.renderTooltip(ps, this.hoveredSlot.getItem(), mx, my);
-//        } else if (!this.menu.getCarried().isEmpty()
-//                && this.hoveredSlot != null && this.hoveredSlot.index == FoundryBlockEntity.SLOT_FUEL) {
-//            var fuelTemp = this.menu.maxHeatOf(this.menu.getCarried());
-//            if (fuelTemp != null) {
-//                this.renderTooltip(ps,
-//                        Component.translatable("container.flint.foundry.heat.target", fuelTemp),
-//                        mx, my);
-//            }
-//        }
-//    }
+    @Override
+    protected void renderTooltip(GuiGraphics gui, int mx, int my) {
+        super.renderTooltip(gui, mx, my);
+
+        int x = (width - imageWidth) / 2;
+        int y = (height - imageHeight) / 2;
+        if (mx >= x + 45 && mx <= x + 50 && my >= y + 22 && my <= y + 63) {
+
+            gui.renderTooltip(this.font, Component.translatable("container.flint.foundry.heat", this.menu.heat()), mx, my);
+        } else if (mx >= x + 56 && mx <= x + 70 && my >= y + 36 && my <= y + 50 && this.menu.isBurningFuel()) {
+            gui.renderTooltip(this.font, Component.translatable("container.flint.foundry.heat.target", this.menu.targetHeat()),  mx, my);
+        } else if (mx >= x + 76 && mx <= x + 87 && my >= y + 19 && my <= y + 30 && this.isTooColdToCook()) {
+            gui.renderTooltip(this.font, Component.translatable("container.flint.foundry.heat.too_cold", this.heatRequiredToCook), mx, my);
+        } else if (this.menu.getCarried().isEmpty() && this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
+            gui.renderTooltip(this.font, this.hoveredSlot.getItem(), mx, my);
+        } else if (!this.menu.getCarried().isEmpty()
+                && this.hoveredSlot != null && this.hoveredSlot.index == FoundryBlockEntity.SLOT_FUEL) {
+            var fuelTemp = this.menu.maxHeatOf(this.menu.getCarried());
+            if (fuelTemp != null) {
+                gui.renderTooltip(this.font,Component.translatable("container.flint.foundry.heat.target", fuelTemp), mx, my);
+            }
+        }
+    }
 
 
 

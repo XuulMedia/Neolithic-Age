@@ -145,6 +145,9 @@ public class FlintStationMenu extends AbstractContainerMenu {
         this.broadcastChanges();
     }
 
+    public void registerUpdateListener(Runnable pListener) {
+        this.slotUpdateListener = pListener;
+    }
 
     /*Helpers for quick stack and player inventory*/
     private void addPlayerInventory(Inventory playerInventory) {

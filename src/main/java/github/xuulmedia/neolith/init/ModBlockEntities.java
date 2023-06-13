@@ -4,6 +4,7 @@ import github.xuulmedia.neolith.Neolith;
 
 
 import github.xuulmedia.neolith.block.entity.FoundryBlockEntity;
+import github.xuulmedia.neolith.block.entity.KilnBlockEntity;
 import github.xuulmedia.neolith.block.entity.ManualGrinderBlockEntity;
 
 import github.xuulmedia.neolith.block.entity.ModCampfireBlockEntity;
@@ -25,6 +26,9 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<FoundryBlockEntity>> FOUNDRY = BLOCK_ENTITIES.register("foundry",
         () -> BlockEntityType.Builder.of(FoundryBlockEntity::new, ModBlocks.FOUNDRY.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<KilnBlockEntity>> KILN = BLOCK_ENTITIES.register("kiln",
+            () -> BlockEntityType.Builder.of(KilnBlockEntity::new, ModBlocks.KILN.get()).build(null));
 //
 //
 //    public static final RegistryObject<BlockEntityType<ModCampfireBlockEntity>> CAMPFIRE = BLOCK_ENTITIES.register("campfire",

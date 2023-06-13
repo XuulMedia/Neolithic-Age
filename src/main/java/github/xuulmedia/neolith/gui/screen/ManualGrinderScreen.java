@@ -24,12 +24,18 @@ public class ManualGrinderScreen extends AbstractContainerScreen<ManualGrinderMe
     }
 
     @Override
-    protected void renderBg(GuiGraphics guiGraphics, float partialTick , int mouseX, int mouseY) {
+    public void render(GuiGraphics gui, int mouseX, int mouseY, float delta) {
+        renderBackground(gui);
+        super.render(gui, mouseX, mouseY, delta);
+        super.renderTooltip(gui, mouseX, mouseY);
+    }
+    @Override
+    protected void renderBg(GuiGraphics gui, float partialTick , int mouseX, int mouseY) {
         int x = (width - imageWidth) / 2;
         int y = (height - imageHeight) / 2;
 
-        guiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
-        renderProgressArrow(guiGraphics, x, y);
+        gui.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+        renderProgressArrow(gui, x, y);
     }
 
 
@@ -40,11 +46,6 @@ public class ManualGrinderScreen extends AbstractContainerScreen<ManualGrinderMe
         }
     }
 
-    @Override
-    public void render(GuiGraphics gui, int mouseX, int mouseY, float delta) {
-        renderBackground(gui);
-        super.render(gui, mouseX, mouseY, delta);
-        super.renderTooltip(gui, mouseX, mouseY);
-    }
+
 
 }

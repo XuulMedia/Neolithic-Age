@@ -10,7 +10,9 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -56,8 +58,8 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
     public int maxProgress = 20 * 10;
 
 
-    public AbstractHeatingBlockEntity(BlockEntityType<?> type, BlockPos pWorldPosition, BlockState pBlockState) {
-        super(type, pWorldPosition, pBlockState);
+    public AbstractHeatingBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState pBlockState) {
+        super(type, pos, pBlockState);
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
@@ -183,4 +185,9 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
 
         tile.setChanged();
     }
+
+
+
+
+
 }

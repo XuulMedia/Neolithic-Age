@@ -2,7 +2,6 @@ package github.xuulmedia.neolith.block.entity;
 
 import github.xuulmedia.neolith.gui.menu.ManualGrinderMenu;
 import github.xuulmedia.neolith.init.ModBlockEntities;
-import github.xuulmedia.neolith.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -28,9 +27,9 @@ import org.jetbrains.annotations.Nullable;
 
 public class ManualGrinderBlockEntity extends BlockEntity implements MenuProvider {
     public static final String DISPLAY_NAME = "Grindstone";
-    public static final int STACK_SIZE = 3; // this must be a match with the number in the block MENU
+    public static final int NUM_SLOTS = 3; // this must be a match with the number in the block MENU
 
-    private final ItemStackHandler itemHandler = new ItemStackHandler(STACK_SIZE) {
+    private final ItemStackHandler itemHandler = new ItemStackHandler(NUM_SLOTS) {
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
@@ -68,9 +67,9 @@ public class ManualGrinderBlockEntity extends BlockEntity implements MenuProvide
             }
         };
     }
-            @Override
+    @Override
     public Component getDisplayName() {
-        return Component.literal(DISPLAY_NAME);
+        return Component.translatable(DISPLAY_NAME);
     }
 
     @Nullable

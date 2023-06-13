@@ -1,11 +1,8 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.gui.menu.FlintStationMenu;
-import github.xuulmedia.neolith.gui.menu.FoundryMenu;
-import github.xuulmedia.neolith.gui.menu.ManualGrinderMenu;
-import github.xuulmedia.neolith.gui.screen.FoundryScreen;
-import github.xuulmedia.neolith.gui.screen.ManualGrinderScreen;
+import github.xuulmedia.neolith.gui.menu.*;
+import github.xuulmedia.neolith.gui.screen.*;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -18,7 +15,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 public final class ModMenuTypes {
-
     public static final DeferredRegister<MenuType<?>> MENUS =
             DeferredRegister.create(ForgeRegistries.MENU_TYPES, Neolith.MODID);
 
@@ -30,14 +26,20 @@ public final class ModMenuTypes {
             registerMenuType(FlintStationMenu::new, "flint_station_menu");
     public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY_MENU =
             registerMenuType(FoundryMenu::new,"foundry_menu");
+    public static final RegistryObject<MenuType<KilnMenu>> KILN_MENU =
+            registerMenuType(KilnMenu::new,"kiln_menu");
 
-
+    public static final RegistryObject<MenuType<BasketMenu>> BASKET_MENU = MENUS.register("basket_menu",
+            () -> IForgeMenuType.create(BasketMenu::createClientMenu));
 
 
     @OnlyIn(Dist.CLIENT)
     public static void registerMenuScreens() {
         MenuScreens.register(ModMenuTypes.MANUAL_GRINDER_MENU.get(), ManualGrinderScreen::new);
+        MenuScreens.register(ModMenuTypes.FLINT_STATION_MENU.get(), FlintStationScreen::new);
         MenuScreens.register(ModMenuTypes.FOUNDRY_MENU.get(), FoundryScreen::new);
+        MenuScreens.register(ModMenuTypes.KILN_MENU.get(), KilnScreen::new);
+        MenuScreens.register(ModMenuTypes.BASKET_MENU.get(), BasketScreen::new);
     }
 
 
@@ -48,32 +50,4 @@ public final class ModMenuTypes {
 }
 
 
-//    public static final RegistryObject<MenuType<FlintStationMenu>> FLINT_STATION_CONTAINER = MENUS.register(
-//            "flint_station",
-//            () -> IForgeMenuType.create(
-//                    (windowId, inv, data) -> new FlintStationMenu(windowId, data.readBlockPos(), inv, inv.player)));
-//
-//
-//    public static final RegistryObject<MenuType<BasketMenu>> BASKET_CONTAINER = MENUS.register("basket",
-//            () -> IForgeMenuType.create(BasketMenu::createClientMenu));
-//
-//
-
-//    public static final RegistryObject<MenuType<KilnMenu>> KILN = MENUS.register("kiln",
-//            () -> IForgeMenuType.create(KilnMenu::new));
-//
-
-
-
-
-
-
-
-
-
-//        MenuScreens.register(ModMenuTypes.FLINT_STATION_CONTAINER.get(), FlintStationScreen::new);
-//        MenuScreens.register(ModMenuTypes.BASKET_CONTAINER.get(), BasketScreen::new);
-//        MenuScreens.register(ModMenuTypes.FOUNDRY.get(), FoundryScreen::new);
-//        MenuScreens.register(ModMenuTypes.KILN.get(), KilnScreen::new);
-//
 
