@@ -237,10 +237,10 @@ public class ModBlocks {
 
 
     private static Boolean never(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {
-        return (boolean)false;
+        return false;
     }
     private static Boolean always(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {
-        return (boolean)true;
+        return true;
     }
     private static ToIntFunction<BlockState> litBlockEmission(int pLightValue) {
         return (state) -> {

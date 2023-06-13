@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:yarn"
+    },
+    {
+      "item": "neolith:yarn"
+    },
+    {
+      "item": "neolith:yarn"
+    },
+    {
+      "item": "neolith:spindle"
+    }
+  ],
+  "result": {
+    "item": "minecraft:string"
+  }
+}

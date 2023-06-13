@@ -13,10 +13,10 @@ public class ModEvents {
         if (!(event.getLevel() instanceof ServerLevel world)) return;
         if (!(world.getLevelData() instanceof PrimaryLevelData data)) return;
         GameRules rules = data.getGameRules();
-        if (((ServerLevel) event.getLevel()).getGameRules().getBoolean(GameRules.RULE_NATURAL_REGENERATION) == true) {
+        if (((ServerLevel) event.getLevel()).getGameRules().getBoolean(GameRules.RULE_NATURAL_REGENERATION)) {
             rules.getRule(GameRules.RULE_NATURAL_REGENERATION).set(false, world.getServer());
             System.out.println("Natural regeneration is set to false");
-        };
-    };
+        }
+    }
 }
 

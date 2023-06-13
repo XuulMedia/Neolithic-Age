@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:plant_fibre"
+    },
+    {
+      "item": "neolith:plant_fibre"
+    },
+    {
+      "item": "neolith:plant_fibre"
+    }
+  ],
+  "result": {
+    "item": "neolith:braided_plant_fibre"
+  }
+}

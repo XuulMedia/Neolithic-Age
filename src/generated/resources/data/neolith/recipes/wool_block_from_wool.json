@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:wool"
+    },
+    {
+      "item": "neolith:wool"
+    },
+    {
+      "item": "neolith:wool"
+    },
+    {
+      "item": "neolith:wool"
+    }
+  ],
+  "result": {
+    "item": "minecraft:white_wool"
+  }
+}

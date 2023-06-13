@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "neolith:saws"
+    },
+    {
+      "item": "neolith:log_jungle"
+    }
+  ],
+  "result": {
+    "item": "neolith:plank_jungle"
+  }
+}

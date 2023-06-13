@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:plank_acacia_from_saw"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haslog_acacia": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:log_acacia"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haslog_acacia",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:plank_acacia_from_saw"
+    ]
+  },
+  "sends_telemetry_event": false
+}

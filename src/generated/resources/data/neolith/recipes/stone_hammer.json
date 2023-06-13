@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "tag": "neolith:stone_chunks"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    "I",
+    "x",
+    "T"
+  ],
+  "result": {
+    "item": "neolith:stone_hammer"
+  },
+  "show_notification": true
+}

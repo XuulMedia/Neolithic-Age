@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:plank_jungle_from_saw"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haslog_jungle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:log_jungle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haslog_jungle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:plank_jungle_from_saw"
+    ]
+  },
+  "sends_telemetry_event": false
+}

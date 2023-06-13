@@ -32,7 +32,7 @@ public class FuelItem extends Item {
     @Override
     public void appendHoverText(ItemStack pStack, @org.jetbrains.annotations.Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         if(Screen.hasShiftDown()) {
-            pTooltipComponents.add(Component.translatable(new String(name), new String(Integer.toString(this.heatLevel))));
+            pTooltipComponents.add(Component.translatable(name, Integer.toString(this.heatLevel)));
         } else {
             pTooltipComponents.add(Component.translatable(NO_SHIFT_MESSAGE).withStyle(ChatFormatting.ITALIC));
         }

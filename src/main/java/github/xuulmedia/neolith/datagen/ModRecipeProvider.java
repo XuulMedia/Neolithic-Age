@@ -1,9 +1,10 @@
 package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
-
-
+import github.xuulmedia.neolith.datagen.builders.CustomRecipeBuilder;
+import github.xuulmedia.neolith.datagen.builders.FoundryRecipeBuilder;
 import github.xuulmedia.neolith.datagen.builders.HeatingFuelRecipeBuilder;
+import github.xuulmedia.neolith.datagen.builders.KilnRecipeBuilder;
 import github.xuulmedia.neolith.init.ModItems;
 import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModTags;
@@ -165,10 +166,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 //        /*Crafting Stations*/
-//        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.FLINT_STATION.get())
-//               .requires(Items.FLINT, 4)
-//                .unlockedBy("has_flint", has(Items.FLINT))
-//                .save(consumer);
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.FLINT_STATION.get())
+               .requires(Items.FLINT, 4)
+                .unlockedBy("has_flint", has(Items.FLINT))
+                .save(consumer);
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC,Blocks.CRAFTING_TABLE)
                 .pattern("xx")
@@ -284,34 +285,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Items.STICK, 2)
                 .unlockedBy("has_stick", has(Items.STICK))
                 .save(consumer);
-//
-//
-//        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_BLADE.get(), 1)
-//            .unlockedBy("has_flint", has(Items.FLINT))
-//            .save(consumer, RL("blade_from_flint_station"));
-//        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_PICK_HEAD.get(), 1)
-//            .unlockedBy("has_flint", has(Items.FLINT))
-//            .save(consumer);
-//        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SHOVEL_HEAD.get(), 1)
-//            .unlockedBy("has_flint", has(Items.FLINT))
-//            .save(consumer);
-//        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_AXE_HEAD.get(), 1)
-//            .unlockedBy("has_flint", has(Items.FLINT))
-//            .save(consumer);
-//        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_HOE_HEAD.get(), 1)
-//            .unlockedBy("has_flint", has(Items.FLINT))
-//            .save(consumer);
-//        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SAW_HEAD.get(), 1)
-//            .unlockedBy("has_flint", has(Items.FLINT))
-//            .save(consumer);
 
-        /*Grindstone*/
+
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_BLADE.get(), 1)
+            .unlockedBy("has_flint", has(Items.FLINT))
+            .save(consumer, RL("blade_from_flint_station"));
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_PICK_HEAD.get(), 1)
+            .unlockedBy("has_flint", has(Items.FLINT))
+            .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SHOVEL_HEAD.get(), 1)
+            .unlockedBy("has_flint", has(Items.FLINT))
+            .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_AXE_HEAD.get(), 1)
+            .unlockedBy("has_flint", has(Items.FLINT))
+            .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_HOE_HEAD.get(), 1)
+            .unlockedBy("has_flint", has(Items.FLINT))
+            .save(consumer);
+        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SAW_HEAD.get(), 1)
+            .unlockedBy("has_flint", has(Items.FLINT))
+            .save(consumer);
+
+//        /*Grindstone*/
 //        CustomRecipeBuilder.grindstone(Ingredient.of(ModItems.CHUNK_STONE.get()), ModItems.DUST_STONE.get(), 1)
 //                .unlockedBy("has_stone", has(Items.FLINT))
 //                .save(consumer);
 //
 //
-//
+
 
 
 
@@ -326,78 +327,76 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 //                .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
 //                .save(consumer, RL("heating_fuel/coals"));
 
-        FuelSetup(ModItems.PLANK_OAK,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_SPRUCE,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_BIRCH,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_JUNGLE,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_ACACIA,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_DARK_OAK,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_MANGROVE,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_WARPED,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.PLANK_CRIMSON,BURN_TIME_STANDARD, consumer);
-
-        FuelSetup(ModItems.LOG_OAK,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_SPRUCE,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_BIRCH,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_JUNGLE,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_ACACIA,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_DARK_OAK,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_MANGROVE,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_WARPED,BURN_TIME_STANDARD, consumer);
-        FuelSetup(ModItems.LOG_CRIMSON,BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_OAK.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_SPRUCE.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_BIRCH.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_JUNGLE.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_ACACIA.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_DARK_OAK.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_MANGROVE.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_WARPED.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.PLANK_CRIMSON.get(),BURN_TIME_STANDARD, consumer);
+//
+//        FuelSetup(ModItems.LOG_OAK.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_SPRUCE.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_BIRCH.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_JUNGLE.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_ACACIA.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_DARK_OAK.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_MANGROVE.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_WARPED.get(),BURN_TIME_STANDARD, consumer);
+//        FuelSetup(ModItems.LOG_CRIMSON.get(),BURN_TIME_STANDARD, consumer);
 
 
         // Testing!
-//        new KilnRecipeBuilder(
-//                NonNullList.of(null, Ingredient.of(Items.GRANITE), Ingredient.of(Items.DIORITE),
-//                        Ingredient.of(Items.ANDESITE)),
-//                NonNullList.of(null, new ItemStack(Items.COBBLESTONE, 2), new ItemStack(Items.COBBLED_DEEPSLATE, 4)),
-//                500)
-//                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
-//                .save(consumer, RL("kiln/test/3-to-2"));
-//
-//        new KilnRecipeBuilder(
-//                NonNullList.of(null, Ingredient.of(Items.IRON_INGOT),
-//                        Ingredient.of(Items.GOLD_INGOT)),
-//                NonNullList.of(null, new ItemStack(Items.DIAMOND), new ItemStack(Items.NETHERITE_INGOT)),
-//                200)
-//                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
-//                .save(consumer, RL("kiln/test/2-to-2"));
-//
-//        new KilnRecipeBuilder(
-//                NonNullList.of(null, Ingredient.of(Items.IRON_BARS)),
-//                NonNullList.of(null, new ItemStack(Items.IRON_NUGGET)),
-//                200)
-//                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
-//                .save(consumer, RL("kiln/test/1-to-1"));
-//
-//        new KilnRecipeBuilder(
-//                NonNullList.of(null, Ingredient.of(ItemTags.COPPER_ORES)),
-//                NonNullList.of(null, new ItemStack(Items.IRON_BLOCK), new ItemStack(Items.ACACIA_LOG, 16)),
-//                200)
-//                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
-//                .save(consumer, RL("kiln/test/1-to-2"));
-//
-//
-//
-//
-//
-//        /*Foundry Cooks*/
-//        new FoundryRecipeBuilder(Ingredient.of(Items.STICK), Items.TORCH, 2, 300)
-//                .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-//                .save(consumer, RL("foundry/torch"));
-//
-//        new FoundryRecipeBuilder(Ingredient.of(ItemTags.SAND), Items.GLASS, 1, 500)
-//            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-//            .save(consumer, RL("foundry/glass"));
-//
-//        new FoundryRecipeBuilder(Ingredient.of(Items.DIRT), Items.DIAMOND, 1, 1000)
-//            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-//            .save(consumer, RL("foundry/dirt_to_diamond"));
-//
-//
-//
-//
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(Items.GRANITE), Ingredient.of(Items.DIORITE),
+                        Ingredient.of(Items.ANDESITE)),
+                NonNullList.of(null, new ItemStack(Items.COBBLESTONE, 2), new ItemStack(Items.COBBLED_DEEPSLATE, 4)),
+                500)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/3-to-2"));
+
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(Items.IRON_INGOT),
+                        Ingredient.of(Items.GOLD_INGOT)),
+                NonNullList.of(null, new ItemStack(Items.DIAMOND), new ItemStack(Items.NETHERITE_INGOT)),
+                200)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/2-to-2"));
+
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(Items.IRON_BARS)),
+                NonNullList.of(null, new ItemStack(Items.IRON_NUGGET)),
+                200)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/1-to-1"));
+
+        new KilnRecipeBuilder(
+                NonNullList.of(null, Ingredient.of(ItemTags.COPPER_ORES)),
+                NonNullList.of(null, new ItemStack(Items.IRON_BLOCK), new ItemStack(Items.ACACIA_LOG, 16)),
+                200)
+                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .save(consumer, RL("kiln/test/1-to-2"));
+
+
+
+
+
+        /*Foundry Cooks*/
+        new FoundryRecipeBuilder(Ingredient.of(Items.STICK), Items.TORCH, 2, 300)
+                .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
+                .save(consumer, RL("foundry/torch"));
+
+        new FoundryRecipeBuilder(Ingredient.of(ItemTags.SAND), Items.GLASS, 1, 500)
+            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
+            .save(consumer, RL("foundry/glass"));
+
+        new FoundryRecipeBuilder(Ingredient.of(Items.DIRT), Items.DIAMOND, 1, 1000)
+            .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
+            .save(consumer, RL("foundry/dirt_to_diamond"));
+
+
 
     }
 
@@ -409,7 +408,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private ResourceLocation toResultRL(ItemLike output){
        return new ResourceLocation(Neolith.MODID, getItemName(output));
-    };
+    }
 
     protected static InventoryChangeTrigger.TriggerInstance has(ItemLike pItemLike) {
         return inventoryTrigger(ItemPredicate.Builder.item().of(pItemLike).build());
@@ -481,10 +480,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has" + getItemName(ingredient), has(ingredient))
                 .save(consumer, new ResourceLocation(Neolith.MODID, getItemName(result) + "_with_hammer_from_"+getItemName(ingredient)));
     }
-    private void FuelSetup(RegistryObject<FuelItem> item, int cookTime, Consumer<FinishedRecipe> recipeConsumer) {
-        String s = "heating_fuel/" + item.get();
-        new HeatingFuelRecipeBuilder(Ingredient.of(item.get()), item.get().getHeat(), cookTime)
-                .unlockedBy("has_" + item.getKey(), has(item.get()))
+    private void FuelSetup(FuelItem item, int cookTime, Consumer<FinishedRecipe> recipeConsumer) {
+        String s = "heating_fuel/" + item.getName();
+        new HeatingFuelRecipeBuilder(Ingredient.of(item), item.getHeat(), cookTime)
+                .unlockedBy("has_" + item.getName(), has(item))
                 .save(recipeConsumer, RL(s));
     }
 

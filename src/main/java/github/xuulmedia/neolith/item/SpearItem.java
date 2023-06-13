@@ -22,8 +22,7 @@ public class SpearItem extends Item {
     }
 
     public void releaseUsing(ItemStack pStack, Level pLevel, LivingEntity pEntityLiving, int pTimeLeft) {
-        if (pEntityLiving instanceof Player) {
-            Player player = (Player)pEntityLiving;
+        if (pEntityLiving instanceof Player player) {
             int i = this.getUseDuration(pStack) - pTimeLeft;
             if (i >= 10) {
                 int j = EnchantmentHelper.getRiptide(pStack);
@@ -40,7 +39,7 @@ public class SpearItem extends Item {
                             }
 
                             pLevel.addFreshEntity(throwntrident);
-                            pLevel.playSound((Player)null, throwntrident, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
+                            pLevel.playSound(null, throwntrident, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS, 1.0F, 1.0F);
                             if (!player.getAbilities().instabuild) {
                                 player.getInventory().removeItem(pStack);
                             }
@@ -59,11 +58,11 @@ public class SpearItem extends Item {
                         f1 *= f5 / f4;
                         f2 *= f5 / f4;
                         f3 *= f5 / f4;
-                        player.push((double)f1, (double)f2, (double)f3);
+                        player.push(f1, f2, f3);
                         player.startAutoSpinAttack(20);
                         if (player.onGround()) {
                             float f6 = 1.1999999F;
-                            player.move(MoverType.SELF, new Vec3(0.0D, (double)1.1999999F, 0.0D));
+                            player.move(MoverType.SELF, new Vec3(0.0D, 1.1999999F, 0.0D));
                         }
 
                         SoundEvent soundevent;
@@ -75,7 +74,7 @@ public class SpearItem extends Item {
                             soundevent = SoundEvents.TRIDENT_RIPTIDE_1;
                         }
 
-                        pLevel.playSound((Player)null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
+                        pLevel.playSound(null, player, soundevent, SoundSource.PLAYERS, 1.0F, 1.0F);
                     }
 
                 }

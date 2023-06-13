@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    },
+    {
+      "item": "neolith:ingot_bronze"
+    }
+  ],
+  "result": {
+    "item": "neolith:block_bronze"
+  }
+}

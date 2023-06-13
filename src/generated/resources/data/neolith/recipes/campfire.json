@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "flint",
+  "key": {
+    "P": {
+      "tag": "neolith:plant_fibre"
+    },
+    "x": {
+      "tag": "neolith:logs"
+    }
+  },
+  "pattern": [
+    " x ",
+    "xPx"
+  ],
+  "result": {
+    "item": "neolith:campfire"
+  },
+  "show_notification": true
+}

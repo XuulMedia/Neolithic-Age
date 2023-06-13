@@ -1,5 +1,6 @@
 package github.xuulmedia.neolith.datagen.builders;
 
+import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
 import com.google.gson.JsonObject;
 import net.minecraft.advancements.Advancement;
@@ -9,11 +10,13 @@ import net.minecraft.advancements.RequirementsStrategy;
 import net.minecraft.advancements.critereon.RecipeUnlockedTrigger;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeBuilder;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
+import org.jetbrains.annotations.Debug;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
@@ -46,6 +49,7 @@ public class HeatingFuelRecipeBuilder implements RecipeBuilder {
         return this;
     }
 
+
     @Override
     public Item getResult() {
         return Items.AIR;
@@ -67,7 +71,7 @@ public class HeatingFuelRecipeBuilder implements RecipeBuilder {
                 this.heat,
                 this.burnTime,
                 this.advancement,
-                new ResourceLocation(pRecipeId.getNamespace(), "recipes/heating_fuel/" + pRecipeId.getPath())));
+                new ResourceLocation(pRecipeId.getNamespace(), "recipes/fuel/" + pRecipeId.getPath())));
 
     }
 

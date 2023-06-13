@@ -55,7 +55,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
                         return p_270054_.assemble(container, level.registryAccess());
                     }).orElse(itemstack);
                     if (itemstack1.isItemEnabled(level.enabledFeatures())) {
-                        Containers.dropItemStack(level, (double) blockPos.getX(), (double) blockPos.getY(), (double) blockPos.getZ(), itemstack1);
+                        Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), itemstack1);
                         blockEntity.items.set(i, ItemStack.EMPTY);
                         level.sendBlockUpdated(blockPos, state, state, 3);
                         level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(state));

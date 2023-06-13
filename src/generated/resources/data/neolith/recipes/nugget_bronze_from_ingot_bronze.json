@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:ingot_bronze"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "neolith:nugget_bronze"
+  }
+}

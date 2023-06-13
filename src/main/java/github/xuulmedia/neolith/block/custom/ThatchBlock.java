@@ -23,7 +23,7 @@ public class ThatchBlock extends HayBlock {
     }
 
     public void entityInside(BlockState pState, Level pLevel, BlockPos pPos, Entity pEntity) {
-        pEntity.makeStuckInBlock(pState, new Vec3(0.5D, (double)0.1F, 0.5D));
+        pEntity.makeStuckInBlock(pState, new Vec3(0.5D, 0.1F, 0.5D));
     }
 
     public BlockState rotate(BlockState pState, Rotation pRot) {
@@ -34,7 +34,7 @@ public class ThatchBlock extends HayBlock {
         switch(pRotation) {
             case COUNTERCLOCKWISE_90:
             case CLOCKWISE_90:
-                switch((Direction.Axis)pState.getValue(AXIS)) {
+                switch(pState.getValue(AXIS)) {
                     case X:
                         return pState.setValue(AXIS, Direction.Axis.Z);
                     case Z:

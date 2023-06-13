@@ -129,7 +129,7 @@ public class ToolUseRecipe extends ShapelessRecipe {
         @Override
         public ToolUseRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
             String group = GsonHelper.getAsString(pSerializedRecipe, "group", "");
-            CraftingBookCategory craftingbookcategory = CraftingBookCategory.CODEC.byName(GsonHelper.getAsString(pSerializedRecipe, "category", (String)null), CraftingBookCategory.MISC);
+            CraftingBookCategory craftingbookcategory = CraftingBookCategory.CODEC.byName(GsonHelper.getAsString(pSerializedRecipe, "category", null), CraftingBookCategory.MISC);
             NonNullList<Ingredient> ingredients = itemsFromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredient"));
             ItemStack result = ShapedRecipe.itemStackFromJson(pSerializedRecipe.getAsJsonObject("result"));
             Ingredient tool = Ingredient.fromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "tool"));

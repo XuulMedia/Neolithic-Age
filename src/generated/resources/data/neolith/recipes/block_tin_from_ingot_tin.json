@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    },
+    {
+      "item": "neolith:ingot_tin"
+    }
+  ],
+  "result": {
+    "item": "neolith:block_tin"
+  }
+}

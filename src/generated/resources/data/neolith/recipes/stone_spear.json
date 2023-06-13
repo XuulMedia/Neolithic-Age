@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "stone_spear",
+  "key": {
+    "I": {
+      "item": "neolith:flint_blade"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    "I",
+    "x",
+    "T"
+  ],
+  "result": {
+    "item": "neolith:stone_spear"
+  },
+  "show_notification": true
+}

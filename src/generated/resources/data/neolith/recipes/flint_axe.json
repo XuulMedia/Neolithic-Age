@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "neolith:flint_axe_head"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    "Ix",
+    " T"
+  ],
+  "result": {
+    "item": "neolith:flint_axe"
+  },
+  "show_notification": true
+}

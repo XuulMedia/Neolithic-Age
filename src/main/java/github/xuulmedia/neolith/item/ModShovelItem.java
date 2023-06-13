@@ -35,7 +35,7 @@ public class ModShovelItem extends ShovelItem {
                 blockstate2 = blockstate1;
             } else if (blockstate.getBlock() instanceof ModCampfireBlock && blockstate.getValue(ModCampfireBlock.LIT)) {
                 if (!level.isClientSide()) {
-                    level.levelEvent((Player)null, 1009, blockpos, 0);
+                    level.levelEvent(null, 1009, blockpos, 0);
                 }
 
                 ModCampfireBlock.dowse(pContext.getPlayer(), level, blockpos, blockstate);

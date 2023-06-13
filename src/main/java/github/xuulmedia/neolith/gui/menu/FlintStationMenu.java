@@ -59,7 +59,6 @@ public class FlintStationMenu extends AbstractContainerMenu {
                 if (!itemstack.isEmpty()) {
                     github.xuulmedia.neolith.gui.menu.FlintStationMenu.this.setupResultSlot();
                 }
-                ;
                 super.onTake(p_150672_, p_150673_);
             }
 

@@ -1,0 +1,8 @@
+{
+  "type": "neolith:flint_station",
+  "count": 1,
+  "ingredient": {
+    "item": "minecraft:flint"
+  },
+  "result": "neolith:flint_axe_head"
+}

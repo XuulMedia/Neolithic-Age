@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_deepslate_with_hammer_from_chunk_deepslate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haschunk_deepslate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:chunk_deepslate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haschunk_deepslate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_deepslate_with_hammer_from_chunk_deepslate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

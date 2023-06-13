@@ -124,7 +124,6 @@ public class ManualGrinderBlockEntity extends BlockEntity implements MenuProvide
 
     public static void tick(Level level, BlockPos pos, BlockState state, ManualGrinderBlockEntity pEntity) {
         if(level.isClientSide()) {
-            return;
         }
 
 

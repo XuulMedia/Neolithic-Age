@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_netherrack_with_hammer_from_chunk_netherrack"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haschunk_netherrack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:chunk_netherrack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haschunk_netherrack",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_netherrack_with_hammer_from_chunk_netherrack"
+    ]
+  },
+  "sends_telemetry_event": false
+}

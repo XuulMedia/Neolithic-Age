@@ -18,10 +18,10 @@ public class FoundryScreen extends AbstractContainerScreen<FoundryMenu> {
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(Neolith.MODID, "textures/gui/foundry_gui.png");
     private @Nullable Integer heatRequiredToCook;
-    private int leftPos;
-    private  int topPos ;
-    private int imageWidth;
-    private int imageHeight;
+    private final int leftPos;
+    private final int topPos ;
+    private final int imageWidth;
+    private final int imageHeight;
 
 
 

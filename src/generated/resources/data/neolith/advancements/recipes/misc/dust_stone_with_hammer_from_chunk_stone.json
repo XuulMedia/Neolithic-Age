@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_stone_with_hammer_from_chunk_stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haschunk_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:chunk_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haschunk_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_stone_with_hammer_from_chunk_stone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "neolith:hammers"
+    },
+    {
+      "item": "neolith:chunk_dripstone"
+    }
+  ],
+  "result": {
+    "item": "neolith:dust_dripstone"
+  }
+}

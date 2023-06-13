@@ -159,7 +159,7 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
 
             if (this.spawnParticles && pRandom.nextInt(5) == 0) {
                 for(int i = 0; i < pRandom.nextInt(1) + 1; ++i) {
-                    pLevel.addParticle(ParticleTypes.LAVA, (double)pPos.getX() + 0.5D, (double)pPos.getY() + 0.5D, (double)pPos.getZ() + 0.5D, (double)(pRandom.nextFloat() / 2.0F), 5.0E-5D, (double)(pRandom.nextFloat() / 2.0F));
+                    pLevel.addParticle(ParticleTypes.LAVA, (double)pPos.getX() + 0.5D, (double)pPos.getY() + 0.5D, (double)pPos.getZ() + 0.5D, pRandom.nextFloat() / 2.0F, 5.0E-5D, pRandom.nextFloat() / 2.0F);
                 }
             }
 
@@ -184,9 +184,9 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
             boolean flag = pState.getValue(LIT);
             if (flag) {
                 if (!pLevel.isClientSide()) {
-                    pLevel.playSound((Player)null, pPos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
+                    pLevel.playSound(null, pPos, SoundEvents.GENERIC_EXTINGUISH_FIRE, SoundSource.BLOCKS, 1.0F, 1.0F);
                 }
-                dowse((Entity)null, pLevel, pPos, pState);
+                dowse(null, pLevel, pPos, pState);
             }
             pLevel.setBlock(pPos, pState.setValue(WATERLOGGED, Boolean.valueOf(true)).setValue(LIT, Boolean.valueOf(false)), 3);
             pLevel.scheduleTick(pPos, pFluidState.getType(), pFluidState.getType().getTickDelay(pLevel));

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "neolith:flint_shovel_head"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    "I",
+    "x",
+    "T"
+  ],
+  "result": {
+    "item": "neolith:flint_shovel"
+  },
+  "show_notification": true
+}
