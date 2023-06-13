@@ -16,8 +16,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
     @Override
     protected void registerStatesAndModels() {
-        blockWithItem(ModBlocks.ORE_TIN.get(), "ore");
-        blockWithItem(ModBlocks.ORE_SILVER.get(), "ore");
+        blockWithItem(ModBlocks.ORE_TIN.get(), "block/ore");
+        blockWithItem(ModBlocks.ORE_SILVER.get(), "block/ore");
 
         blockWithItem(ModBlocks.BLOCK_TIN.get(), "block");
         blockWithItem(ModBlocks.BLOCK_SILVER.get(), "block");
@@ -43,7 +43,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.STONE_BRICK_BLOCK.get(),"block/bricks");
 //        simpleCube(ModBlocks.BASALT_BRICK_BLOCK.get(),"block/bricks/bricks_XX");
 //        simpleCube(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(),"block/bricks/bricks_XX");
-        blockWithItem(ModBlocks.NETHERRACK_BRICK_BLOCK.get(),"block/bricks");
+//        blockWithItem(ModBlocks.NETHERRACK_BRICK_BLOCK.get(),"block/bricks");
         blockWithItem(ModBlocks.SANDSTONE_BRICK_BLOCK.get() ,"block/bricks");
 //        simpleCube(ModBlocks.BLACKSTONE_BRICK_BLOCK.get(),"block/bricks/bricks_XX");
         blockWithItem(ModBlocks.GRANITE_BRICK_BLOCK.get(),"block/bricks");

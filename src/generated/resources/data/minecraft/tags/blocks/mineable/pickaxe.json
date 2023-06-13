@@ -1,0 +1,22 @@
+{
+  "values": [
+    "neolith:ore_tin",
+    "neolith:ore_nether_silver",
+    "neolith:block_tin",
+    "neolith:block_silver",
+    "neolith:block_bronze",
+    "neolith:block_steel",
+    "neolith:cobblestone",
+    "neolith:basalt_cobble",
+    "neolith:deepslate_cobble",
+    "neolith:netherrack_cobble",
+    "neolith:sandstone_cobble",
+    "neolith:blackstone_cobble",
+    "neolith:endstone_cobble",
+    "neolith:granite_cobble",
+    "neolith:tuff_cobble",
+    "neolith:andesite_cobble",
+    "neolith:diorite_cobble",
+    "neolith:calcite_cobble"
+  ]
+}

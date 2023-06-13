@@ -37,10 +37,10 @@ public class ModItems {
 //    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = ITEMS.register("medicine_seeds",
 //            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
 //                    new Item.Properties()));
-//
-//    public static final RegistryObject<Item> MEDICINE_PLANT = ITEMS.register("medicine_plant",
-//            () -> new Item(new Item.Properties()
-//                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
+
+    public static final RegistryObject<Item> MEDICINE_PLANT = ITEMS.register("medicine_plant",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
 
 
     /*Wool*/
@@ -54,8 +54,8 @@ public class ModItems {
 
     /*Containers*/
 
-//    public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
-//            () -> new BasketItem(new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
+            () -> new BasketItem(new Item.Properties().stacksTo(1)));
 
 
     /*HIDES*/

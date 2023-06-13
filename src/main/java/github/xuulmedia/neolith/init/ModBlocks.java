@@ -28,14 +28,9 @@ import java.util.function.Supplier;
 import java.util.function.ToIntFunction;
 
 public class ModBlocks {
+
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Neolith.MODID);
     public static final DeferredRegister<Block> VANILLA_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "minecraft");
-
-
-//    public static final RegistryObject<FlintNodeBlock> FLINT_NODE = registerBlock("flint_node",
-//            () -> new FlintNodeBlock(BlockBehaviour.Properties.of(Material.STONE)
-//                    .instabreak()), new Item.Properties);
-
 
     public static final RegistryObject<Block> ORE_TIN = registerBlock("ore_tin",
             () -> new Block(BlockBehaviour.Properties.of()
@@ -186,6 +181,18 @@ public class ModBlocks {
 
 
 
+    public static final RegistryObject<FlintNodeBlock> FLINT_NODE = registerBlock("flint_node",
+            () -> new FlintNodeBlock(BlockBehaviour.Properties.of()
+                    .instabreak()), new Item.Properties());
+
+
+    public static final RegistryObject<ModTorchBlock> TORCH = registerBlock("torch",
+            () -> new ModTorchBlock(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .instabreak()
+                    .lightLevel(litBlockEmission(15))), new Item.Properties());
+
+
 
 
     /*Workstations*/
@@ -200,20 +207,9 @@ public class ModBlocks {
 
     public static final RegistryObject<KilnBlock> KILN = registerBlock("kiln",
             () -> new KilnBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
-//
-
-
-//    public static final RegistryObject<FlintStationBlock> FLINT_STATION = registerBlock("flint_station",
-//            FlintStationBlock::new, new Item.Properties());
 
     public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire",
             () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties());
-
-    public static final RegistryObject<ModTorchBlock> TORCH = registerBlock("torch",
-            () -> new ModTorchBlock(BlockBehaviour.Properties.of()
-                    .noCollission()
-                    .instabreak()
-                    .lightLevel(litBlockEmission(15))), new Item.Properties());
 
 
 
@@ -226,7 +222,7 @@ public class ModBlocks {
 
     /*Helpers*/
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Item.Properties itemProperties) {
-            RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn, itemProperties);
         return toReturn;
     }
@@ -251,6 +247,5 @@ public class ModBlocks {
             return state.getValue(BlockStateProperties.LIT) ? pLightValue : 0;
         };
     }
-
 
 }

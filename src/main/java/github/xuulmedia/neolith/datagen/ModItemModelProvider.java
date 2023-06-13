@@ -25,7 +25,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.PLANT_FIBRE.get());
         simpleItem(ModItems.BRAIDED_PLANT_FIBRE.get());
-//        handheldItem(ModItems.BASKET.get());
+        handheldItem(ModItems.BASKET.get());
 
 //        simpleItem(ModItems.WOOL.get());
 //        simpleItem(ModItems.YARN.get());
@@ -87,17 +87,17 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CHUNK_SANDSTONE.get(), "stone/chunks");
 
         simpleItem(ModItems.DUST_STONE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_ANDESITE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_DEEPSLATE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_DRIPSTONE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_DIORITE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_GRANITE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_BASALT.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_TUFF.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_NETHERRACK.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_BLACKSTONE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_CALCITE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_SANDSTONE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_ANDESITE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_DEEPSLATE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_DRIPSTONE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_DIORITE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_GRANITE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_BASALT.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_TUFF.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_NETHERRACK.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_BLACKSTONE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_CALCITE.get(), "stone/dusts");
+//        simpleItem(ModItems.DUST_SANDSTONE.get(), "stone/dusts");
 
 //        simpleItem(ModItems.CLAY_STONE.get(), "stone/clay");
 //        simpleItem(ModItems.CLAY_ANDESITE.get(), "stone/clay");
@@ -113,17 +113,17 @@ public class ModItemModelProvider extends ItemModelProvider {
 //        simpleItem(ModItems.CLAY_SANDSTONE.get(), "stone/clay");
 
         simpleItem(ModItems.BRICK_STONE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_ANDESITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_DEEPSLATE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_DRIPSTONE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_DIORITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_GRANITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_BASALT.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_TUFF.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_NETHERRACK.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_BLACKSTONE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_CALCITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_SANDSTONE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_ANDESITE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_DEEPSLATE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_DRIPSTONE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_DIORITE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_GRANITE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_BASALT.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_TUFF.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_NETHERRACK.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_BLACKSTONE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_CALCITE.get(), "stone/bricks");
+//        simpleItem(ModItems.BRICK_SANDSTONE.get(), "stone/bricks");
 
 
 //        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_JUG.get()).getPath(),
