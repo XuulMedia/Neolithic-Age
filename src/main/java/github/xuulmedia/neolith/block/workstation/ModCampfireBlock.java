@@ -1,4 +1,4 @@
-package github.xuulmedia.neolith.block;
+package github.xuulmedia.neolith.block.workstation;
 
 import github.xuulmedia.neolith.block.entity.ModCampfireBlockEntity;
 import github.xuulmedia.neolith.init.ModBlockEntities;
@@ -78,22 +78,25 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
 
         if(pPlayer.getItemInHand(pHand).is(ModTags.LIGHTERS) && !pState.getValue(LIT) ){
             pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
+            return InteractionResult.SUCCESS;
         }
         if(pPlayer.getItemInHand(pHand).is(ModTags.DOUSERS) && pState.getValue(LIT) ){
             pLevel.setBlock(pPos, pState.setValue(LIT, false), 3);
+            return InteractionResult.SUCCESS;
         }
 
-
-
-        if (blockentity instanceof ModCampfireBlockEntity campfireblockentity) {
+        if (blockentity instanceof ModCampfireBlockEntity blockEntity) {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
-            Optional<CampfireCookingRecipe> optional = campfireblockentity.getCookableRecipe(itemstack);
+            Optional<CampfireCookingRecipe> optional = blockEntity.getCookableRecipe(itemstack);
             if (optional.isPresent()) {
-                if (!pLevel.isClientSide && campfireblockentity.placeFood(pPlayer, pPlayer.getAbilities().instabuild ? itemstack.copy() : itemstack, optional.get().getCookingTime())) {
+                if (!pLevel.isClientSide && blockEntity.placeFood(pPlayer, pPlayer.getAbilities().instabuild ? itemstack.copy() : itemstack, optional.get().getCookingTime())) {
                     pPlayer.awardStat(Stats.INTERACT_WITH_CAMPFIRE);
                     return InteractionResult.SUCCESS;
                 }
-                return InteractionResult.CONSUME;}}
+
+                return InteractionResult.CONSUME;
+            }
+        }
         return InteractionResult.PASS;
     }
 

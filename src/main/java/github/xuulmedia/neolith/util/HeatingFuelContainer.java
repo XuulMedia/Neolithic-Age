@@ -6,6 +6,5 @@ public abstract class HeatingFuelContainer extends SimpleContainer {
     public HeatingFuelContainer(int pSize) {
         super(pSize);
     }
-
     public abstract int getFuelSlot();
 }

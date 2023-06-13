@@ -21,11 +21,6 @@ public class ModItems {
     public static final int NETHER_HEAT_WOOD = 650;
 
 
-    /*Util*/
-    public static final RegistryObject<Item> BASIC_GRINDING_STONE = ITEMS.register("basic_grinding_stone",
-            () -> new Item(new Item.Properties().durability(50)));
-
-
     /*PLANTS*/
     public static final RegistryObject<Item> PLANT_FIBRE = ITEMS.register("plant_fibre",
             () -> new Item(new Item.Properties()));
@@ -364,9 +359,78 @@ public class ModItems {
             .title(Component.translatable("stoneAge." + Neolith.MODID))
             .icon(() -> CHUNK_STONE.get().getDefaultInstance())
             .displayItems((enabledFeatures, entries) -> {
+                entries.accept(ModBlocks.FLINT_NODE.get());
                 entries.accept(ModBlocks.MANUAL_GRINDER.get());
                 entries.accept(ModBlocks.FLINT_STATION.get());
                 entries.accept(ModBlocks.FOUNDRY.get());
+                entries.accept(ModBlocks.KILN.get());
+                entries.accept(ModBlocks.CAMPFIRE.get());
+                entries.accept(SPINDLE.get());
+                entries.accept(BASKET.get());
+
+
+                entries.accept(ModBlocks.COBBLESTONE.get());
+                entries.accept(ModBlocks.BASALT_COBBLESTONE.get());
+                entries.accept(ModBlocks.DEEPSLATE_COBBLESTONE.get());
+                entries.accept(ModBlocks.NETHERRACK_COBBLESTONE.get());
+                entries.accept(ModBlocks.SANDSTONE_COBBLESTONE.get());
+                entries.accept(ModBlocks.BLACKSTONE_COBBLESTONE.get());
+                entries.accept(ModBlocks.ENDSTONE_COBBLESTONE.get());
+                entries.accept(ModBlocks.GRANITE_COBBLESTONE.get());
+                entries.accept(ModBlocks.TUFF_COBBLESTONE.get());
+                entries.accept(ModBlocks.ANDESITE_COBBLESTONE.get());
+                entries.accept(ModBlocks.DIORITE_COBBLESTONE.get());
+                entries.accept(ModBlocks.CALCITE_COBBLESTONE.get());
+
+                entries.accept(ModBlocks.STONE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.BASALT_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.DEEPSLATE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.NETHERRACK_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.SANDSTONE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.BLACKSTONE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.ENDSTONE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.GRANITE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.TUFF_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.ANDESITE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.DIORITE_BRICK_BLOCK.get());
+                entries.accept(ModBlocks.CALCITE_BRICK_BLOCK.get());
+
+                entries.accept(ModBlocks.THATCH.get());
+                entries.accept(ModBlocks.TORCH.get());
+
+                entries.accept(PLANT_FIBRE.get());
+                entries.accept(BRAIDED_PLANT_FIBRE.get());
+                entries.accept(MEDICINE_PLANT.get());
+                entries.accept(WOOL.get());
+                entries.accept(YARN.get());
+
+
+                entries.accept(HIDE_SMALL.get());
+                entries.accept(HIDE_MEDIUM.get());
+                entries.accept(HIDE_LARGE.get());
+                entries.accept(UNFIRED_CLAY_JUG.get());
+                entries.accept(UNFIRED_CLAY_BUCKET.get());
+                entries.accept(UNFIRED_CLAY_BOTTLE.get());
+                entries.accept(CLAY_VIAL.get());
+                entries.accept(BASIC_FIRESTARTER.get());
+                entries.accept(FLINT_KNIFE.get());
+                entries.accept(FLINT_PICK.get());
+                entries.accept(FLINT_SHOVEL.get());
+                entries.accept(FLINT_AXE.get());
+                entries.accept(FLINT_HOE.get());
+                entries.accept(FLINT_SAW.get());
+                entries.accept(STONE_HAMMER.get());
+                entries.accept(STONE_SPEAR.get());
+
+                entries.accept(FLINT_BLADE.get());
+                entries.accept(FLINT_PICK_HEAD.get());
+                entries.accept(FLINT_SHOVEL_HEAD.get());
+                entries.accept(FLINT_AXE_HEAD.get());
+                entries.accept(FLINT_HOE_HEAD.get());
+                entries.accept(FLINT_SAW_HEAD.get());
+
+                entries.accept(SALVE.get());
+
                 entries.accept(CHUNK_STONE.get());
                 entries.accept(CHUNK_ANDESITE.get());
                 entries.accept(CHUNK_DEEPSLATE.get());
@@ -380,7 +444,6 @@ public class ModItems {
                 entries.accept(CHUNK_BLACKSTONE.get());
                 entries.accept(CHUNK_CALCITE.get());
                 entries.accept(CHUNK_ENDSTONE.get());
-
                 entries.accept(DUST_STONE.get());
                 entries.accept(DUST_ANDESITE.get());
                 entries.accept(DUST_DEEPSLATE.get());
@@ -441,7 +504,47 @@ public class ModItems {
 
             }).build());
 
+    public static final RegistryObject<CreativeModeTab> METAL_AGE_TAB = CREATIVE_MODE_TABS.register((Neolith.MODID + "metal_age"), () -> CreativeModeTab.builder()
+            .title(Component.translatable("bronze_age" + Neolith.MODID))
+            .icon(() -> INGOT_BRONZE.get().getDefaultInstance())
+            .displayItems((enabledFeatures, entries) -> {
+                        entries.accept(ModBlocks.ORE_TIN.get());
+                        entries.accept(ModBlocks.ORE_SILVER.get());
+                        entries.accept(ModBlocks.BLOCK_TIN.get());
+                        entries.accept(ModBlocks.BLOCK_SILVER.get());
+                        entries.accept(ModBlocks.BLOCK_BRONZE.get());
+                        entries.accept(ModBlocks.BLOCK_STEEL.get());
 
+                        entries.accept(BRONZE_SWORD.get());
+                        entries.accept(BRONZE_PICK.get());
+                        entries.accept(BRONZE_SHOVEL.get());
+                        entries.accept(BRONZE_AXE.get());
+                        entries.accept(BRONZE_HOE.get());
+
+                        entries.accept(RAW_TIN.get());
+                        entries.accept(RAW_SILVER.get());
+                        entries.accept(INGOT_TIN.get());
+                        entries.accept(INGOT_BRONZE.get());
+                        entries.accept(INGOT_STEEL.get());
+                        entries.accept(INGOT_SILVER.get());
+                        entries.accept(NUGGET_COPPER.get());
+                        entries.accept(NUGGET_TIN.get());
+                        entries.accept(NUGGET_BRONZE.get());
+                        entries.accept(NUGGET_STEEL.get());
+                        entries.accept(NUGGET_SILVER.get());
+                        entries.accept(DUST_IRON.get());
+                        entries.accept(DUST_GOLD.get());
+                        entries.accept(DUST_COPPER.get());
+                        entries.accept(DUST_TIN.get());
+                        entries.accept(DUST_BRONZE.get());
+                        entries.accept(DUST_STEEL.get());
+                        entries.accept(DUST_SILVER.get());
+
+                entries.accept(BRONZE_HELMET.get());
+                entries.accept(BRONZE_CHEST.get());
+                entries.accept(BRONZE_LEGS.get());
+                entries.accept(BRONZE_BOOTS.get());
+                    }).build());
 
 
     /*Heat Values for wood*/

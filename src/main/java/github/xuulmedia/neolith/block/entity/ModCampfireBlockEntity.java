@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.block.ModCampfireBlock;
+import github.xuulmedia.neolith.block.workstation.ModCampfireBlock;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -77,6 +77,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
         if(newBurnTime <= 0){
             level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
+            blockEntity.burnTime = blockEntity.maxBurnTime;
             blockEntity.setChanged();
             return;
         } else {
@@ -87,6 +88,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
             setChanged(level, blockPos, state);
         }
     }
+
 
 
     public static void cooldownTick(Level level, BlockPos blockPos, BlockState pState, ModCampfireBlockEntity blockEntity) {

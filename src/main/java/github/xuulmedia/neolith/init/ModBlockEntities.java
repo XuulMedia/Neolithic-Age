@@ -22,20 +22,13 @@ public class ModBlockEntities {
             () -> BlockEntityType.Builder.of(ManualGrinderBlockEntity::new, ModBlocks.MANUAL_GRINDER.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<ModCampfireBlockEntity>> CAMPFIRE = BLOCK_ENTITIES.register("campfire",
-            () -> BlockEntityType.Builder.of(ModCampfireBlockEntity::new, ModBlocks.MANUAL_GRINDER.get()).build(null));
+            () -> BlockEntityType.Builder.of(ModCampfireBlockEntity::new, ModBlocks.CAMPFIRE.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<FoundryBlockEntity>> FOUNDRY = BLOCK_ENTITIES.register("foundry",
         () -> BlockEntityType.Builder.of(FoundryBlockEntity::new, ModBlocks.FOUNDRY.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<KilnBlockEntity>> KILN = BLOCK_ENTITIES.register("kiln",
             () -> BlockEntityType.Builder.of(KilnBlockEntity::new, ModBlocks.KILN.get()).build(null));
-//
-//
-//    public static final RegistryObject<BlockEntityType<ModCampfireBlockEntity>> CAMPFIRE = BLOCK_ENTITIES.register("campfire",
-//            () -> BlockEntityType.Builder.of(ModCampfireBlockEntity::new, ModBlocks.CAMPFIRE.get()).build(null));
-//
-//    public static final RegistryObject<BlockEntityType<KilnBlockEntity>> KILN = BLOCK_ENTITIES.register("kiln",
-//            () -> BlockEntityType.Builder.of(KilnBlockEntity::new, ModBlocks.KILN.get()).build(null));
 
 
 }

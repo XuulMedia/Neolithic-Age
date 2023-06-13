@@ -37,13 +37,10 @@ public class ManualGrinderBlock extends BaseEntityBlock {
                 .requiresCorrectToolForDrops());
     }
 
-
     @Override
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
-
-
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
@@ -72,8 +69,8 @@ public class ManualGrinderBlock extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if(entity instanceof ManualGrinderBlockEntity) {
-                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (ManualGrinderBlockEntity)entity, pPos);
+            if (entity instanceof ManualGrinderBlockEntity) {
+                NetworkHooks.openScreen(((ServerPlayer) pPlayer), (ManualGrinderBlockEntity) entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }

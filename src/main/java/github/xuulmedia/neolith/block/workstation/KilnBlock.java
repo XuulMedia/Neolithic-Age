@@ -29,9 +29,10 @@ public class KilnBlock extends BaseEntityBlock {
 
     public KilnBlock(Properties props) {
         super(props);
-        this.registerDefaultState(
-                this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
+//        this.registerDefaultState(
+//                this.getStateDefinition().any().setValue(FACING, Direction.NORTH).setValue(LIT, false));
     }
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
@@ -70,23 +71,25 @@ public class KilnBlock extends BaseEntityBlock {
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }
     }
+
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide()) {
-            BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if (entity instanceof KilnBlockEntity kilnBlockEntity) {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, kilnBlockEntity, pPos);
-            }
-        }else {
-            throw new IllegalStateException("Our Container provider is missing!");
-        }
 
-        return InteractionResult.sidedSuccess(pLevel.isClientSide());
-}
+        if (pLevel.isClientSide) {
+            return InteractionResult.SUCCESS;
+        } else {
+            BlockEntity entity = pLevel.getBlockEntity(pPos);
+            if (entity instanceof KilnBlockEntity) {
+                NetworkHooks.openScreen((ServerPlayer) pPlayer, (KilnBlockEntity) entity, pPos);
+            }
+            return InteractionResult.CONSUME;
+        }
+    }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
+
         return new KilnBlockEntity(pPos, pState);
     }
 
@@ -95,8 +98,6 @@ public class KilnBlock extends BaseEntityBlock {
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
         return createTickerHelper(type, ModBlockEntities.KILN.get(), KilnBlockEntity::tick);
     }
-
-
 
 
 }

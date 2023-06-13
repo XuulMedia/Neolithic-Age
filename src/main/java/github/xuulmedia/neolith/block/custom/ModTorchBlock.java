@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
 
 public class ModTorchBlock extends TorchBlock {
     protected static final  int BURN_MINUITES = 5; // how long in min the torchs will burn
-    protected static final int DELAY = 600; // 600 ticks is 30 seconds
+    protected static final int DELAY = 600; // 600 ticks is 30 seconds This is the delay between each tick
     protected static int BURN_TICKS = 2 * BURN_MINUITES;
     public int burnTime = BURN_TICKS;
 

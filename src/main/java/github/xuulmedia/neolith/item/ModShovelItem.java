@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.item;
 
-import github.xuulmedia.neolith.block.ModCampfireBlock;
+import github.xuulmedia.neolith.block.workstation.ModCampfireBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -11,6 +11,7 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 
@@ -35,13 +36,12 @@ public class ModShovelItem extends ShovelItem {
                 blockstate2 = blockstate1;
             } else if (blockstate.getBlock() instanceof ModCampfireBlock && blockstate.getValue(ModCampfireBlock.LIT)) {
                 if (!level.isClientSide()) {
-                    level.levelEvent(null, 1009, blockpos, 0);
+                    level.levelEvent((Player)null, 1009, blockpos, 0);
                 }
 
                 ModCampfireBlock.dowse(pContext.getPlayer(), level, blockpos, blockstate);
                 blockstate2 = blockstate.setValue(ModCampfireBlock.LIT, Boolean.valueOf(false));
             }
-
             if (blockstate2 != null) {
                 if (!level.isClientSide) {
                     level.setBlock(blockpos, blockstate2, 11);

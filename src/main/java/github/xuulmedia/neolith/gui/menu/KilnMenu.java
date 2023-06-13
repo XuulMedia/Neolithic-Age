@@ -27,8 +27,6 @@ public class KilnMenu extends AbstractContainerMenu {
     public final KilnBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;
-    public static final int NUM_SLOTS = 6;
-
     private final List<HeatingFuelRecipe> fuels;
     private final List<KilnRecipe> recipes;
 
@@ -41,7 +39,7 @@ public class KilnMenu extends AbstractContainerMenu {
 
     public KilnMenu(int id, Inventory inventory, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.KILN_MENU.get(), id);
-
+        checkContainerSize(inventory, 6);
         this.blockEntity = (KilnBlockEntity) entity;
         this.level = inventory.player.level();
         this.data = data;

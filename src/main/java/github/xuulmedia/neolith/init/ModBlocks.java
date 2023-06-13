@@ -1,13 +1,9 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.block.ModCampfireBlock;
 import github.xuulmedia.neolith.block.custom.*;
 import github.xuulmedia.neolith.block.custom.GrassGravityBlock;
-import github.xuulmedia.neolith.block.workstation.FlintStationBlock;
-import github.xuulmedia.neolith.block.workstation.FoundryBlock;
-import github.xuulmedia.neolith.block.workstation.KilnBlock;
-import github.xuulmedia.neolith.block.workstation.ManualGrinderBlock;
+import github.xuulmedia.neolith.block.workstation.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.EntityType;
@@ -179,8 +175,6 @@ public class ModBlocks {
 //            .requiresCorrectToolForDrops()));
 //
 
-
-
     public static final RegistryObject<FlintNodeBlock> FLINT_NODE = registerBlock("flint_node",
             () -> new FlintNodeBlock(BlockBehaviour.Properties.of()
                     .instabreak()), new Item.Properties());
@@ -193,31 +187,17 @@ public class ModBlocks {
                     .lightLevel(litBlockEmission(15))), new Item.Properties());
 
 
-
-
     /*Workstations*/
     public static final RegistryObject<ManualGrinderBlock> MANUAL_GRINDER = registerBlock("manual_grinder",
             ManualGrinderBlock::new, new Item.Properties());
-
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = registerBlock("flint_station",
             FlintStationBlock::new, new Item.Properties());
-
     public static final RegistryObject<FoundryBlock> FOUNDRY = registerBlock("foundry",
             () -> new FoundryBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
-
     public static final RegistryObject<KilnBlock> KILN = registerBlock("kiln",
             () -> new KilnBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
-
     public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire",
-            () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties());
-
-
-
-
-
-
-
-
+            () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties().stacksTo(1));
 
 
     /*Helpers*/
