@@ -2,6 +2,7 @@ package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.recipe.FlintStationRecipe;
+import github.xuulmedia.neolith.recipe.ForgeRecipe;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
 import github.xuulmedia.neolith.recipe.ManualGrinderRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
@@ -16,8 +17,15 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ManualGrinderRecipe>> MANUAL_GRINDER_SERIALIZER = RECIPES.register(
             "manual_grinder", () -> ManualGrinderRecipe.Serializer.INSTANCE);
 
-    public static final RegistryObject<RecipeSerializer<ManualGrinderRecipe>> FLINT_STATION_SERIALIZER = RECIPES.register(
-            "flint_station", () -> FlintStationRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<ForgeRecipe>> FORGE_SERIZALIZER = RECIPES.register(
+            "forge", () -> ForgeRecipe.SERIALIZER);
+
+//    public static final RegistryObject<RecipeSerializer<FlintStationRecipe>> FLINT_STATION_SERIALIZER = RECIPES.register(
+//            "flint_station", () -> FlintStationRecipe.Serializer.INSTANCE);
+
+
+
+
 
 
 

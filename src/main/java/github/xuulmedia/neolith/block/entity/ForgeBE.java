@@ -1,8 +1,8 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.gui.menu.FoundryMenu;
+import github.xuulmedia.neolith.gui.menu.ForgeMenu;
 import github.xuulmedia.neolith.init.ModBlockEntities;
-import github.xuulmedia.neolith.recipe.FoundryRecipe;
+import github.xuulmedia.neolith.recipe.ForgeRecipe;
 import github.xuulmedia.neolith.util.HeatingFuelContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -15,7 +15,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 
-public class FoundryBlockEntity extends AbstractHeatingBlockEntity implements MenuProvider {
+public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider {
+    public static final String DISPLAY_NAME = "Forge";
     public static final int SLOT_INPUT = 0;
     public static final int SLOT_FUEL = 1;
     public static final int SLOT_OUTPUT = 2;
@@ -23,8 +24,8 @@ public class FoundryBlockEntity extends AbstractHeatingBlockEntity implements Me
     public static final int STACK_SIZE = 3; // this must be a match with the number in the block MENU
 
 
-    public FoundryBlockEntity(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.FOUNDRY.get(), pWorldPosition, pBlockState);
+    public ForgeBE(BlockPos pWorldPosition, BlockState pBlockState) {
+        super(ModBlockEntities.FORGE.get(), pWorldPosition, pBlockState);
         this.itemHandler = new ItemStackHandler(STACK_SIZE) {
             @Override
             protected void onContentsChanged(int slot) {
@@ -41,16 +42,16 @@ public class FoundryBlockEntity extends AbstractHeatingBlockEntity implements Me
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
-        return new FoundryMenu(pContainerId, pInventory, this, this.data);
+        return new ForgeMenu(pContainerId, pInventory, this, this.data);
     }
 
     @Override
     public Component getDisplayName() {
-        return Component.translatable("Foundry");
+        return Component.translatable(DISPLAY_NAME);
     }
 
 
-    public static void tick(Level world, BlockPos pos, BlockState state, FoundryBlockEntity tile) {
+    public static void tick(Level world, BlockPos pos, BlockState state, ForgeBE tile) {
         var ersatzInv = new HeatingFuelContainer(tile.itemHandler.getSlots()) {
             @Override
             public int getFuelSlot() {
@@ -65,27 +66,28 @@ public class FoundryBlockEntity extends AbstractHeatingBlockEntity implements Me
 
         var recman = world.getRecipeManager();
 
-        var recipeMatch = recman.getRecipeFor(FoundryRecipe.Type.INSTANCE, ersatzInv, world);
+        var recipeMatch = recman.getRecipeFor(ForgeRecipe.Type.INSTANCE, ersatzInv, world);
         var presentOutputStack = tile.itemHandler.getStackInSlot(SLOT_OUTPUT);
         var recipeOk = false;
         if (recipeMatch.isPresent()) {
             var recipe = recipeMatch.get();
 
-            if (recipe.input.test(tile.itemHandler.getStackInSlot(SLOT_INPUT))
-                    && recipe.heat <= tile.heat
-                    && (presentOutputStack.isEmpty() || recipe.output.is(presentOutputStack.getItem()))
-                    && presentOutputStack.getMaxStackSize() >= presentOutputStack.getCount() + recipe.output.getCount()) {
+            if (recipe.getIngredient().test(tile.itemHandler.getStackInSlot(SLOT_INPUT))
+                    && recipe.getHeat() <= tile.heat
+                    && (presentOutputStack.isEmpty() || recipe.getResult().is(presentOutputStack.getItem()))
+                    && presentOutputStack.getMaxStackSize() >= presentOutputStack.getCount() + recipe.getResult().getCount()) {
                 recipeOk = true;
             }
         }
         if (recipeOk) {
+
             tile.progress += 1;
-            if (tile.progress > tile.maxProgress) {
+            if (tile.progress > recipeMatch.get().getCookingTime()) {
                 tile.progress = 0;
                 if (presentOutputStack.isEmpty()) {
-                    tile.itemHandler.setStackInSlot(SLOT_OUTPUT, recipeMatch.get().output);
+                    tile.itemHandler.setStackInSlot(SLOT_OUTPUT, recipeMatch.get().getResult());
                 } else {
-                    presentOutputStack.grow(recipeMatch.get().output.getCount());
+                    presentOutputStack.grow(recipeMatch.get().getResult().getCount());
                 }
                 tile.itemHandler.getStackInSlot(SLOT_INPUT).shrink(1);
             }

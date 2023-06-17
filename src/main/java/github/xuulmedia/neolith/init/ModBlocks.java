@@ -1,6 +1,7 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
+import github.xuulmedia.neolith.block.crops.MedicineCropBlock;
 import github.xuulmedia.neolith.block.custom.*;
 import github.xuulmedia.neolith.block.custom.GrassGravityBlock;
 import github.xuulmedia.neolith.block.workstation.*;
@@ -16,6 +17,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -128,12 +130,9 @@ public class ModBlocks {
     public static final RegistryObject<ThatchBlock> THATCH = registerBlock("thatch",
             () -> new ThatchBlock(BlockBehaviour.Properties.of().noCollission().strength(4.0F).sound(SoundType.GRASS)), new Item.Properties());
 
-
-
     /*Crops*/
-
-//    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = BLOCKS.register("medicine_crop",
-//            () -> new MedicineCropBlock(BlockBehaviour.Properties.of(Material.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP)));
+    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = BLOCKS.register("medicine_crop",
+            () -> new MedicineCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)));
 
 
     /*Wood Logs*/
@@ -168,12 +167,12 @@ public class ModBlocks {
             .sound(SoundType.GRASS)
             .requiresCorrectToolForDrops()));
 
-//    public static final RegistryObject<GrassGravityBlock> COARSE_DIRT = VANILLA_BLOCKS.register("coarse_dirt",  () -> new GrassGravityBlock(BlockBehaviour.Properties.of()
-//            .mapColor(MapColor.DIRT)
-//            .strength(0.5F)
-//            .sound(SoundType.GRAVEL)
-//            .requiresCorrectToolForDrops()));
-//
+    public static final RegistryObject<GravelBlock> COARSE_DIRT = VANILLA_BLOCKS.register("coarse_dirt",  () -> new GravelBlock(BlockBehaviour.Properties.of()
+            .mapColor(MapColor.DIRT)
+            .strength(0.5F)
+            .sound(SoundType.GRAVEL)
+            .requiresCorrectToolForDrops()));
+
 
     public static final RegistryObject<FlintNodeBlock> FLINT_NODE = registerBlock("flint_node",
             () -> new FlintNodeBlock(BlockBehaviour.Properties.of()
@@ -192,10 +191,11 @@ public class ModBlocks {
             ManualGrinderBlock::new, new Item.Properties());
     public static final RegistryObject<FlintStationBlock> FLINT_STATION = registerBlock("flint_station",
             FlintStationBlock::new, new Item.Properties());
+    public static final RegistryObject<ForgeBlock> FORGE = registerBlock("forge",
+            () -> new ForgeBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
     public static final RegistryObject<FoundryBlock> FOUNDRY = registerBlock("foundry",
             () -> new FoundryBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
-    public static final RegistryObject<KilnBlock> KILN = registerBlock("kiln",
-            () -> new KilnBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
+
     public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire",
             () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties().stacksTo(1));
 

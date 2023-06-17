@@ -2,9 +2,9 @@ package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.datagen.builders.CustomRecipeBuilder;
-import github.xuulmedia.neolith.datagen.builders.FoundryRecipeBuilder;
+import github.xuulmedia.neolith.datagen.builders.StoveRecipeBuilder;
 import github.xuulmedia.neolith.datagen.builders.HeatingFuelRecipeBuilder;
-import github.xuulmedia.neolith.datagen.builders.KilnRecipeBuilder;
+import github.xuulmedia.neolith.datagen.builders.FoundryRecipieBuilder;
 import github.xuulmedia.neolith.init.ModItems;
 import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModTags;
@@ -20,12 +20,10 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.CookingBookCategory;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-import net.minecraftforge.registries.RegistryObject;
 
 
 import java.util.function.Consumer;
@@ -349,34 +347,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         // Testing!
-        new KilnRecipeBuilder(
+        new FoundryRecipieBuilder(
                 NonNullList.of(null, Ingredient.of(Items.GRANITE), Ingredient.of(Items.DIORITE),
                         Ingredient.of(Items.ANDESITE)),
                 NonNullList.of(null, new ItemStack(Items.COBBLESTONE, 2), new ItemStack(Items.COBBLED_DEEPSLATE, 4)),
                 500)
-                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .unlockedBy("has_kiln", has(ModBlocks.FOUNDRY.get()))
                 .save(consumer, RL("kiln/test/3-to-2"));
 
-        new KilnRecipeBuilder(
+        new FoundryRecipieBuilder(
                 NonNullList.of(null, Ingredient.of(Items.IRON_INGOT),
                         Ingredient.of(Items.GOLD_INGOT)),
                 NonNullList.of(null, new ItemStack(Items.DIAMOND), new ItemStack(Items.NETHERITE_INGOT)),
                 200)
-                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .unlockedBy("has_kiln", has(ModBlocks.FOUNDRY.get()))
                 .save(consumer, RL("kiln/test/2-to-2"));
 
-        new KilnRecipeBuilder(
+        new FoundryRecipieBuilder(
                 NonNullList.of(null, Ingredient.of(Items.IRON_BARS)),
                 NonNullList.of(null, new ItemStack(Items.IRON_NUGGET)),
                 200)
-                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .unlockedBy("has_kiln", has(ModBlocks.FOUNDRY.get()))
                 .save(consumer, RL("kiln/test/1-to-1"));
 
-        new KilnRecipeBuilder(
+        new FoundryRecipieBuilder(
                 NonNullList.of(null, Ingredient.of(ItemTags.COPPER_ORES)),
                 NonNullList.of(null, new ItemStack(Items.IRON_BLOCK), new ItemStack(Items.ACACIA_LOG, 16)),
                 200)
-                .unlockedBy("has_kiln", has(ModBlocks.KILN.get()))
+                .unlockedBy("has_kiln", has(ModBlocks.FOUNDRY.get()))
                 .save(consumer, RL("kiln/test/1-to-2"));
 
 
@@ -384,15 +382,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         /*Foundry Cooks*/
-        new FoundryRecipeBuilder(Ingredient.of(Items.STICK), Items.TORCH, 2, 300)
+        new StoveRecipeBuilder(Ingredient.of(Items.STICK), Items.TORCH, 2, 300)
                 .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
                 .save(consumer, RL("foundry/torch"));
 
-        new FoundryRecipeBuilder(Ingredient.of(ItemTags.SAND), Items.GLASS, 1, 500)
+        new StoveRecipeBuilder(Ingredient.of(ItemTags.SAND), Items.GLASS, 1, 500)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry/glass"));
 
-        new FoundryRecipeBuilder(Ingredient.of(Items.DIRT), Items.DIAMOND, 1, 1000)
+        new StoveRecipeBuilder(Ingredient.of(Items.DIRT), Items.DIAMOND, 1, 1000)
             .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
             .save(consumer, RL("foundry/dirt_to_diamond"));
 

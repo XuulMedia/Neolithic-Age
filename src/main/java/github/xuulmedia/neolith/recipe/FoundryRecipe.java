@@ -1,8 +1,10 @@
 package github.xuulmedia.neolith.recipe;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.block.entity.FoundryBlockEntity;
+import github.xuulmedia.neolith.block.entity.FoundryBE;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -17,18 +19,23 @@ import org.jetbrains.annotations.Nullable;
 public class FoundryRecipe implements Recipe<Container> {
     public static final Serializer SERIALIZER = new Serializer();
 
+    public static final int MAX_INPUTS = 3;
+    public static final int MAX_OUTPUTS = 2;
+
     private final ResourceLocation id;
     private final String group;
-    public final Ingredient input;
-    public final int heat;
-    public final ItemStack output;
 
-    public FoundryRecipe(ResourceLocation id, String group, int heat, Ingredient input, ItemStack output) {
+    public final NonNullList<Ingredient> ingredients;
+    public final NonNullList<ItemStack> results;
+    public final int heat;
+
+    public FoundryRecipe(ResourceLocation id, String group, int heat, NonNullList<Ingredient> ingredients,
+                         NonNullList<ItemStack> results) {
         this.id = id;
         this.group = group;
         this.heat = heat;
-        this.input = input;
-        this.output = output;
+        this.ingredients = ingredients;
+        this.results = results;
     }
 
     @Override
@@ -38,28 +45,27 @@ public class FoundryRecipe implements Recipe<Container> {
 
     @Override
     public NonNullList<Ingredient> getIngredients() {
-        return NonNullList.of(this.input);
+        return this.ingredients;
     }
 
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
-        return this.input.test(pContainer.getItem(FoundryBlockEntity.SLOT_INPUT));
+        return FoundryBE.recipeMatches(this, idx -> pContainer.getItem(FoundryBE.SLOT_INPUT0 + idx));
     }
 
     @Override
-    public ItemStack assemble(Container p_44001_, RegistryAccess p_267165_) {
-        return this.output.copy();
-    }
-
-
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return pWidth * pHeight >= 1;
+    public ItemStack assemble(Container pContainer, RegistryAccess p_267165_)  {
+        return this.results.get(0).copy();
     }
 
     @Override
     public ItemStack getResultItem(RegistryAccess p_267052_) {
-        return  this.output.copy();
+        return this.results.get(0).copy();
+    }
+
+    @Override
+    public boolean canCraftInDimensions(int pWidth, int pHeight) {
+        return pWidth * pHeight >= 1;
     }
 
     @Override
@@ -77,42 +83,69 @@ public class FoundryRecipe implements Recipe<Container> {
         }
 
         public static final Type INSTANCE = new Type();
-        public static final String ID = "foundry";
+        public static final String ID = "kiln";
     }
 
     private static class Serializer implements RecipeSerializer<FoundryRecipe> {
 
-        public static final ToolUseRecipe.Serializer INSTANCE = new ToolUseRecipe.Serializer();
+        public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(Neolith.MODID, "foundry");
+                new ResourceLocation(Neolith.MODID, "kiln");
 
         @Override
         public FoundryRecipe fromJson(ResourceLocation recipeID, JsonObject json) {
             var group = GsonHelper.getAsString(json, "group", "");
-            var input = Ingredient.fromJson(json.get("input"));
-            var count = GsonHelper.getAsInt(json, "count");
-            var outputResLoc = GsonHelper.getAsString(json, "output");
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(json, "output"));
             var heat = GsonHelper.getAsInt(json, "heat");
-            return new FoundryRecipe(recipeID, group, heat, input, output);
+
+            NonNullList<Ingredient> inputs = NonNullList.create();
+            var ingrArr = GsonHelper.getAsJsonArray(json, "inputs");
+            for (JsonElement ingrElt : ingrArr) {
+                Ingredient ingredient = Ingredient.fromJson(ingrElt);
+                if (!ingredient.isEmpty()) {
+                    inputs.add(ingredient);
+                }
+            }
+            if (!(1 <= inputs.size() && inputs.size() <= MAX_INPUTS)) {
+                throw new JsonParseException("must have between 1 and 3 inputs to a kiln recipe but got " + inputs.size());
+            }
+
+            NonNullList<ItemStack> outputs = NonNullList.create();
+            var outputArr = GsonHelper.getAsJsonArray(json, "outputs");
+            for (int i = 0; i < outputArr.size(); i++) {
+                JsonElement outElt = outputArr.get(i);
+                if (!(outElt instanceof JsonObject outObj)) {
+                    throw new JsonParseException("outputs[" + i + "] was not a JsonObject");
+                }
+                ItemStack output = ShapedRecipe.itemStackFromJson(outObj);
+                outputs.add(output);
+            }
+            if (!(1 <= outputs.size() && outputs.size() <= MAX_OUTPUTS)) {
+                throw new JsonParseException("must have between 1 and 2 outputs to a kiln recipe but got " + outputs.size());
+            }
+
+            return new FoundryRecipe(recipeID, group, heat, inputs, outputs);
         }
 
         @Nullable
         @Override
         public FoundryRecipe fromNetwork(ResourceLocation id, FriendlyByteBuf buf) {
             var group = buf.readUtf();
-            var input = Ingredient.fromNetwork(buf);
-            var output = buf.readItem();
             var heat = buf.readInt();
-            return new FoundryRecipe(id, group, heat, input, output);
+
+            NonNullList<Ingredient> inputs = buf.readCollection(NonNullList::createWithCapacity,
+                    Ingredient::fromNetwork);
+            NonNullList<ItemStack> output = buf.readCollection(NonNullList::createWithCapacity,
+                    FriendlyByteBuf::readItem);
+            return new FoundryRecipe(id, group, heat, inputs, output);
         }
 
         @Override
         public void toNetwork(FriendlyByteBuf buf, FoundryRecipe recipe) {
             buf.writeUtf(recipe.group);
-            recipe.input.toNetwork(buf);
-            buf.writeItem(recipe.output);
             buf.writeInt(recipe.heat);
+
+            buf.writeCollection(recipe.ingredients, (fbb, ingr) -> ingr.toNetwork(fbb));
+            buf.writeCollection(recipe.results, FriendlyByteBuf::writeItem);
         }
     }
 }

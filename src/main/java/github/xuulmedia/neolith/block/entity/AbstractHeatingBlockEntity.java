@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.block.workstation.FoundryBlock;
+import github.xuulmedia.neolith.block.workstation.ForgeBlock;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
 import github.xuulmedia.neolith.util.HeatingFuelContainer;
 import net.minecraft.core.BlockPos;
@@ -10,9 +10,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
-import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -179,8 +177,8 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
         tile.heat += delta;
 
         var newLit = tile.fuelTicksLeft > 0;
-        if (newLit != state.getValue(FoundryBlock.LIT)) {
-            world.setBlockAndUpdate(pos, state.setValue(FoundryBlock.LIT, newLit));
+        if (newLit != state.getValue(ForgeBlock.LIT)) {
+            world.setBlockAndUpdate(pos, state.setValue(ForgeBlock.LIT, newLit));
         }
 
         tile.setChanged();

@@ -29,9 +29,9 @@ public class ModItems {
 
 
     /*Crops*/
-//    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = ITEMS.register("medicine_seeds",
-//            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
-//                    new Item.Properties()));
+    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = ITEMS.register("medicine_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
+                    new Item.Properties()));
 
     public static final RegistryObject<Item> MEDICINE_PLANT = ITEMS.register("medicine_plant",
             () -> new Item(new Item.Properties()
@@ -363,7 +363,7 @@ public class ModItems {
                 entries.accept(ModBlocks.MANUAL_GRINDER.get());
                 entries.accept(ModBlocks.FLINT_STATION.get());
                 entries.accept(ModBlocks.FOUNDRY.get());
-                entries.accept(ModBlocks.KILN.get());
+                entries.accept(ModBlocks.FORGE.get());
                 entries.accept(ModBlocks.CAMPFIRE.get());
                 entries.accept(SPINDLE.get());
                 entries.accept(BASKET.get());

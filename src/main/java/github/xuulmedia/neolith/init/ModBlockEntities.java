@@ -3,8 +3,8 @@ package github.xuulmedia.neolith.init;
 import github.xuulmedia.neolith.Neolith;
 
 
-import github.xuulmedia.neolith.block.entity.FoundryBlockEntity;
-import github.xuulmedia.neolith.block.entity.KilnBlockEntity;
+import github.xuulmedia.neolith.block.entity.ForgeBE;
+import github.xuulmedia.neolith.block.entity.FoundryBE;
 import github.xuulmedia.neolith.block.entity.ManualGrinderBlockEntity;
 
 import github.xuulmedia.neolith.block.entity.ModCampfireBlockEntity;
@@ -24,11 +24,11 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<ModCampfireBlockEntity>> CAMPFIRE = BLOCK_ENTITIES.register("campfire",
             () -> BlockEntityType.Builder.of(ModCampfireBlockEntity::new, ModBlocks.CAMPFIRE.get()).build(null));
 
-    public static final RegistryObject<BlockEntityType<FoundryBlockEntity>> FOUNDRY = BLOCK_ENTITIES.register("foundry",
-        () -> BlockEntityType.Builder.of(FoundryBlockEntity::new, ModBlocks.FOUNDRY.get()).build(null));
+    public static final RegistryObject<BlockEntityType<ForgeBE>> FORGE = BLOCK_ENTITIES.register("forge",
+        () -> BlockEntityType.Builder.of(ForgeBE::new, ModBlocks.FORGE.get()).build(null));
 
-    public static final RegistryObject<BlockEntityType<KilnBlockEntity>> KILN = BLOCK_ENTITIES.register("kiln",
-            () -> BlockEntityType.Builder.of(KilnBlockEntity::new, ModBlocks.KILN.get()).build(null));
+    public static final RegistryObject<BlockEntityType<FoundryBE>> FOUNDRY = BLOCK_ENTITIES.register("kiln",
+            () -> BlockEntityType.Builder.of(FoundryBE::new, ModBlocks.FOUNDRY.get()).build(null));
 
 
 }

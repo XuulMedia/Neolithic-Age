@@ -1,8 +1,8 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.gui.menu.KilnMenu;
+import github.xuulmedia.neolith.gui.menu.FoundryMenu;
 import github.xuulmedia.neolith.init.ModBlockEntities;
-import github.xuulmedia.neolith.recipe.KilnRecipe;
+import github.xuulmedia.neolith.recipe.FoundryRecipe;
 import github.xuulmedia.neolith.util.HeatingFuelContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -19,8 +19,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.IntFunction;
 
-public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuProvider {
-    public static final String DISPLAY_NAME = "Kiln";
+public class FoundryBE extends AbstractHeatingBlockEntity implements MenuProvider {
+    public static final String DISPLAY_NAME = "Foundry";
 
     public static final int SLOT_FUEL = 0;
     public static final int SLOT_INPUT0 = 1;
@@ -31,8 +31,8 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
 
     public static final int NUM_SLOTS = 6; // this must be a match with the number in the block MENU
 
-    public KilnBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.KILN.get(), pPos, pBlockState);
+    public FoundryBE(BlockPos pPos, BlockState pBlockState) {
+        super(ModBlockEntities.FOUNDRY.get(), pPos, pBlockState);
         this.itemHandler = new ItemStackHandler(NUM_SLOTS) {
             @Override
             protected void onContentsChanged(int slot) {
@@ -53,11 +53,11 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
     @Nullable
     @Override
     public AbstractContainerMenu createMenu(int id, Inventory pPlayerInventory, Player pPlayer) {
-        return new KilnMenu(id, pPlayerInventory, this, this.data);
+        return new FoundryMenu(id, pPlayerInventory, this, this.data);
     }
 
 
-    public static void tick(Level world, BlockPos pos, BlockState state, KilnBlockEntity tile) {
+    public static void tick(Level world, BlockPos pos, BlockState state, FoundryBE tile) {
         var ersatzInv = new HeatingFuelContainer(tile.itemHandler.getSlots()) {
             @Override
             public int getFuelSlot() {
@@ -72,22 +72,22 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
 
         var recman = world.getRecipeManager();
 
-        var recipeMatch = recman.getRecipeFor(KilnRecipe.Type.INSTANCE, ersatzInv, world);
+        var recipeMatch = recman.getRecipeFor(FoundryRecipe.Type.INSTANCE, ersatzInv, world);
         var recipeOk = false;
 
         if (recipeMatch.isPresent()) {
             var recipe = recipeMatch.get();
 
-            if (recipeMatches(recipe, idx -> tile.itemHandler.getStackInSlot(KilnBlockEntity.SLOT_INPUT0 + idx))
+            if (recipeMatches(recipe, idx -> tile.itemHandler.getStackInSlot(FoundryBE.SLOT_INPUT0 + idx))
                 && recipe.heat <= tile.heat) {
 
                 boolean outMatches = true;
 //                System.out.println(recipe.outputs.size());
-                for (int i = 0; i < KilnRecipe.MAX_OUTPUTS; i++) {
-                    var stackHere = tile.itemHandler.getStackInSlot(KilnBlockEntity.SLOT_OUTPUT0 + i);
+                for (int i = 0; i < FoundryRecipe.MAX_OUTPUTS; i++) {
+                    var stackHere = tile.itemHandler.getStackInSlot(FoundryBE.SLOT_OUTPUT0 + i);
                     ItemStack outAttempt;
-                    if (i < recipe.outputs.size()) {
-                        outAttempt = recipe.outputs.get(i);
+                    if (i < recipe.results.size()) {
+                        outAttempt = recipe.results.get(i);
                     } else {
                         outAttempt = ItemStack.EMPTY;
                     }
@@ -110,14 +110,14 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
                 if (tile.progress > tile.maxProgress) {
                     tile.progress = 0;
 
-                    for (int i = 0; i < KilnRecipe.MAX_INPUTS; i++) {
-                        tile.itemHandler.getStackInSlot(KilnBlockEntity.SLOT_INPUT0 + i).shrink(1);
+                    for (int i = 0; i < FoundryRecipe.MAX_INPUTS; i++) {
+                        tile.itemHandler.getStackInSlot(FoundryBE.SLOT_INPUT0 + i).shrink(1);
                     }
-                    for (int i = 0; i < recipe.outputs.size(); i++) {
-                        var stackHere = tile.itemHandler.getStackInSlot(KilnBlockEntity.SLOT_OUTPUT0 + i);
-                        var outAttempt = recipe.outputs.get(i);
+                    for (int i = 0; i < recipe.results.size(); i++) {
+                        var stackHere = tile.itemHandler.getStackInSlot(FoundryBE.SLOT_OUTPUT0 + i);
+                        var outAttempt = recipe.results.get(i);
                         if (stackHere.isEmpty()) {
-                            tile.itemHandler.setStackInSlot(KilnBlockEntity.SLOT_OUTPUT0 + i, outAttempt.copy());
+                            tile.itemHandler.setStackInSlot(FoundryBE.SLOT_OUTPUT0 + i, outAttempt.copy());
                         } else {
                             stackHere.grow(outAttempt.getCount());
                         }
@@ -138,7 +138,7 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
      * The index to {@code getItem} is 0-based, 0 is the first input slot.
      */
     @Nullable
-    public static KilnRecipe getAttemptedRecipe(List<KilnRecipe> recipes, IntFunction<ItemStack> getItem) {
+    public static FoundryRecipe getAttemptedRecipe(List<FoundryRecipe> recipes, IntFunction<ItemStack> getItem) {
         for (var recipe : recipes) {
             if (recipeMatches(recipe, getItem)) {
                 return recipe;
@@ -147,12 +147,12 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
         return null;
     }
 
-    public static boolean recipeMatches(KilnRecipe recipe, IntFunction<ItemStack> getItem) {
+    public static boolean recipeMatches(FoundryRecipe recipe, IntFunction<ItemStack> getItem) {
         // Make sure each ingredient is satisfied exactly once
         int usedBitmask = 0;
         int satisfiedCount = 0;
-        for (var ingr : recipe.inputs) {
-            for (int i = 0; i < KilnRecipe.MAX_INPUTS; i++) {
+        for (var ingr : recipe.ingredients) {
+            for (int i = 0; i < FoundryRecipe.MAX_INPUTS; i++) {
                 if ((usedBitmask & (1 << i)) != 0) {
                     continue;
                 }
@@ -163,7 +163,7 @@ public class KilnBlockEntity extends AbstractHeatingBlockEntity implements MenuP
                 }
             }
         }
-        return satisfiedCount == recipe.inputs.size();
+        return satisfiedCount == recipe.ingredients.size();
     }
 
 
