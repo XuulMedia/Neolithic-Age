@@ -39,6 +39,8 @@ public abstract class AbstractHeatRecipe implements Recipe<Container> {
         return this.group;
     }
 
+    public int getHeatRequired() {return this.heatRequired;};
+
     public int getCookingHeat() {return this.heatRequired;  }
     public int getCookingTime() {
         return this.cookingTime;

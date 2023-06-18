@@ -41,16 +41,13 @@ public class ForgeRecipe extends AbstractHeatRecipe {
     }
 
     public ItemStack getResult(){
-        return  this.results.get(0);
+        return  this.results.get(0).copy();
     }
 
     public Ingredient getIngredient() {
         return  this.ingredients.get(0);
     }
 
-    public int getHeat(){
-        return this.heatRequired;
-    }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
@@ -80,7 +77,7 @@ public class ForgeRecipe extends AbstractHeatRecipe {
         @Override
         public ForgeRecipe fromJson(ResourceLocation recipeID, JsonObject json) {
             String group = GsonHelper.getAsString(json, "group", "");
-            int heatReq = GsonHelper.getAsInt(json, "heat");
+            int heatReq = GsonHelper.getAsInt(json, "heatRequired");
 
             NonNullList<Ingredient> ingredients = ingredientsFromJson(GsonHelper.getAsJsonArray(json, "ingredients"));
             NonNullList<ItemStack> results = resultsFromJson(GsonHelper.getAsJsonArray(json, "results"));

@@ -20,8 +20,8 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ForgeRecipe>> FORGE_SERIZALIZER = RECIPES.register(
             "forge", () -> ForgeRecipe.SERIALIZER);
 
-//    public static final RegistryObject<RecipeSerializer<FlintStationRecipe>> FLINT_STATION_SERIALIZER = RECIPES.register(
-//            "flint_station", () -> FlintStationRecipe.Serializer.INSTANCE);
+    public static final RegistryObject<RecipeSerializer<FlintStationRecipe>> FLINT_STATION_SERIALIZER = RECIPES.register(
+            "flint_station", () -> FlintStationRecipe.SERIALIZER);
 
 
 

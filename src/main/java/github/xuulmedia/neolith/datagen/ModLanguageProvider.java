@@ -17,9 +17,9 @@ public class ModLanguageProvider extends LanguageProvider {
 //        add("itemGroup." + Flint.FLINT_TAB, "Stone Age");
 //        add("itemGroup." + Flint.METAL_TAB, "Metal Age");
 
-        add("container.flint.foundry.heat","%s degrees");
-        add("container.flint.foundry.heat.target","Fuel max temperature: %s degrees");
-        add("container.flint.foundry.heat.too_cold", "Too cold! Requires %s degrees");
+        add("container.neolith.forge.heat","%s degrees");
+        add("container.neolith.forge.heat.target","Fuel max temperature: %s degrees");
+        add("container.neolith.forge.heat.too_cold", "Too cold! Requires %s degrees");
         add("fuel.no_shift", "Press SHIFT for info");
 
         add("container.flint_station", "Knapping");

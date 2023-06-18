@@ -11,6 +11,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.player.Inventory;
+import org.jetbrains.annotations.Debug;
 import org.jetbrains.annotations.Nullable;
 
 public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
@@ -21,6 +22,7 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
     private final int topPos ;
     private final int imageWidth;
     private final int imageHeight;
+
 
 
 
@@ -43,7 +45,7 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
     public void render(GuiGraphics gui, int mouseX, int mouseY, float delta) {
         this.renderBackground(gui);
         super.render(gui, mouseX, mouseY, delta);
-        super.renderTooltip(gui, mouseX, mouseY);
+        this.renderTooltip(gui, mouseX, mouseY);
     }
 
     @Override
@@ -66,7 +68,7 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
         float litProgress = this.menu.fuelProportion();
         if (litProgress > 0) {
             int scaledLitProgress = (int)(litProgress * 13f);
-            gui.blit(TEXTURE, x + fireBarRenderLeftPos, y + fireBarRenderTopPos + 12 - scaledLitProgress, fireBarLeftPos, 12 - fireBarTopPos, 14, 1 + scaledLitProgress);
+            gui.blit(TEXTURE, x + fireBarRenderLeftPos, y + fireBarRenderTopPos + 12 - scaledLitProgress, fireBarLeftPos, 12 - scaledLitProgress, 14, 1 + scaledLitProgress);
         }
 
         /*Progress Arrow*/
@@ -125,18 +127,18 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
         int y = (height - imageHeight) / 2;
         if (mx >= x + 45 && mx <= x + 50 && my >= y + 22 && my <= y + 63) {
 
-            gui.renderTooltip(this.font, Component.translatable("container.flint.foundry.heat", this.menu.heat()), mx, my);
+            gui.renderTooltip(this.font, Component.translatable("container.neolith.forge.heat", this.menu.heat()), mx, my);
         } else if (mx >= x + 56 && mx <= x + 70 && my >= y + 36 && my <= y + 50 && this.menu.isBurningFuel()) {
-            gui.renderTooltip(this.font, Component.translatable("container.flint.foundry.heat.target", this.menu.targetHeat()),  mx, my);
+            gui.renderTooltip(this.font, Component.translatable("container.neolith.forge.heat.target", this.menu.targetHeat()),  mx, my);
         } else if (mx >= x + 76 && mx <= x + 87 && my >= y + 19 && my <= y + 30 && this.isTooColdToCook()) {
-            gui.renderTooltip(this.font, Component.translatable("container.flint.foundry.heat.too_cold", this.heatRequiredToCook), mx, my);
+            gui.renderTooltip(this.font, Component.translatable("container.neolith.forge.heat.too_cold", this.heatRequiredToCook), mx, my);
         } else if (this.menu.getCarried().isEmpty() && this.hoveredSlot != null && this.hoveredSlot.hasItem()) {
             gui.renderTooltip(this.font, this.hoveredSlot.getItem(), mx, my);
         } else if (!this.menu.getCarried().isEmpty()
                 && this.hoveredSlot != null && this.hoveredSlot.index == ForgeBE.SLOT_FUEL) {
             var fuelTemp = this.menu.maxHeatOf(this.menu.getCarried());
             if (fuelTemp != null) {
-                gui.renderTooltip(this.font,Component.translatable("container.flint.foundry.heat.target", fuelTemp), mx, my);
+                gui.renderTooltip(this.font,Component.translatable("container.neolith.forge.heat.target", fuelTemp), mx, my);
             }
         }
     }

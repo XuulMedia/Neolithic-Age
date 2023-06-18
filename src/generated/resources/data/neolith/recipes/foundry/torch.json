@@ -1,0 +1,9 @@
+{
+  "type": "neolith:forge",
+  "count": 2,
+  "heat": 300,
+  "input": {
+    "item": "minecraft:stick"
+  },
+  "output": "minecraft:torch"
+}

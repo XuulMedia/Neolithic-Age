@@ -182,7 +182,7 @@ public class ForgeMenu extends AbstractContainerMenu {
 
         for (var recipe : this.recipes) {
             if (recipe.getIngredient().test(input)) {
-                return recipe.getHeat();
+                return recipe.getHeatRequired();
             }
         }
 

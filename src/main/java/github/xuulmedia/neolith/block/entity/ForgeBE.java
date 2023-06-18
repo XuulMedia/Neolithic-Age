@@ -10,10 +10,14 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
+import org.jline.utils.Log;
 
 public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider {
     public static final String DISPLAY_NAME = "Forge";
@@ -51,48 +55,49 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
     }
 
 
-    public static void tick(Level world, BlockPos pos, BlockState state, ForgeBE tile) {
-        var ersatzInv = new HeatingFuelContainer(tile.itemHandler.getSlots()) {
+    public static void tick(Level level, BlockPos pos, BlockState state, ForgeBE forgeBE) {
+        HeatingFuelContainer ersatzInv = new HeatingFuelContainer(forgeBE.itemHandler.getSlots()) {
             @Override
             public int getFuelSlot() {
                 return SLOT_FUEL;
             }
         };
-        for (int i = 0; i < tile.itemHandler.getSlots(); i++) {
-            ersatzInv.setItem(i, tile.itemHandler.getStackInSlot(i));
+
+        for (int i = 0; i < forgeBE.itemHandler.getSlots(); i++) {
+            ersatzInv.setItem(i, forgeBE.itemHandler.getStackInSlot(i));
         }
+        AbstractHeatingBlockEntity.tickHeat(level, pos, state, forgeBE, ersatzInv);
 
-        AbstractHeatingBlockEntity.tickHeat(world, pos, state, tile, ersatzInv);
+        RecipeManager recipeManager = level.getRecipeManager();
+        var recipeMatch = recipeManager.getRecipeFor(ForgeRecipe.Type.INSTANCE, ersatzInv, level);
+        ItemStack currentOutputStack = forgeBE.itemHandler.getStackInSlot(SLOT_OUTPUT);
 
-        var recman = world.getRecipeManager();
-
-        var recipeMatch = recman.getRecipeFor(ForgeRecipe.Type.INSTANCE, ersatzInv, world);
-        var presentOutputStack = tile.itemHandler.getStackInSlot(SLOT_OUTPUT);
-        var recipeOk = false;
+        boolean recipeOk = false;
         if (recipeMatch.isPresent()) {
             var recipe = recipeMatch.get();
 
-            if (recipe.getIngredient().test(tile.itemHandler.getStackInSlot(SLOT_INPUT))
-                    && recipe.getHeat() <= tile.heat
-                    && (presentOutputStack.isEmpty() || recipe.getResult().is(presentOutputStack.getItem()))
-                    && presentOutputStack.getMaxStackSize() >= presentOutputStack.getCount() + recipe.getResult().getCount()) {
+            if (recipe.getIngredient().test(forgeBE.itemHandler.getStackInSlot(SLOT_INPUT))
+                    && recipe.getHeatRequired() <= forgeBE.heat
+                    && (currentOutputStack.isEmpty() || recipe.getResult().is(currentOutputStack.getItem()))
+                    && currentOutputStack.getMaxStackSize() >= currentOutputStack.getCount() + recipe.getResult().getCount()) {
                 recipeOk = true;
             }
-        }
-        if (recipeOk) {
+            if (recipeOk) {
 
-            tile.progress += 1;
-            if (tile.progress > recipeMatch.get().getCookingTime()) {
-                tile.progress = 0;
-                if (presentOutputStack.isEmpty()) {
-                    tile.itemHandler.setStackInSlot(SLOT_OUTPUT, recipeMatch.get().getResult());
-                } else {
-                    presentOutputStack.grow(recipeMatch.get().getResult().getCount());
+                forgeBE.progress += 1;
+                if (forgeBE.progress > recipeMatch.get().getCookingTime()) {
+                    forgeBE.progress = 0;
+                    if (currentOutputStack.isEmpty()) {
+                        forgeBE.itemHandler.setStackInSlot(SLOT_OUTPUT, recipeMatch.get().getResult());
+                    } else {
+                        currentOutputStack.grow(recipeMatch.get().getResult().getCount());
+                    }
+                    forgeBE.itemHandler.getStackInSlot(SLOT_INPUT).shrink(1);
                 }
-                tile.itemHandler.getStackInSlot(SLOT_INPUT).shrink(1);
+            } else {
+                forgeBE.progress = 0;
             }
-        } else {
-            tile.progress = 0;
+
         }
     }
 }

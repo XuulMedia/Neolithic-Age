@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_flint": {
+    "has_foundry": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:flint"
+              "neolith:foundry"
             ]
           }
         ]
@@ -15,21 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "neolith:flint_axe_head"
+        "recipe": "neolith:foundry/dirt_to_diamond"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_flint",
+      "has_foundry",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:flint_axe_head"
+      "neolith:foundry/dirt_to_diamond"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

@@ -14,6 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class FlintStationRecipe  implements Recipe<Container> {
+    public static final Serializer SERIALIZER = new Serializer();
+
     protected final Ingredient ingredient;
     protected final ItemStack result;
     protected final ResourceLocation id;
@@ -74,8 +76,8 @@ public class FlintStationRecipe  implements Recipe<Container> {
         public static final String ID = "flint_station";
     }
 
-    public static class Serializer implements RecipeSerializer<FlintStationRecipe> {
-        public static final ManualGrinderRecipe.Serializer INSTANCE = new ManualGrinderRecipe.Serializer();
+    private static class Serializer implements RecipeSerializer<FlintStationRecipe> {
+
         public static final ResourceLocation ID = new ResourceLocation(Neolith.MODID, "flint_station");
 
 

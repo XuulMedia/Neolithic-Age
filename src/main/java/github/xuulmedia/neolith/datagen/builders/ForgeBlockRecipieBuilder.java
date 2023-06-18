@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public class StoveRecipeBuilder implements RecipeBuilder {
+public class ForgeBlockRecipieBuilder implements RecipeBuilder {
     private final Ingredient input;
     private final Item result;
     private final int count;
@@ -28,7 +28,7 @@ public class StoveRecipeBuilder implements RecipeBuilder {
     @Nullable
     private String group;
 
-    public StoveRecipeBuilder(Ingredient input, Item result, int count, int heat) {
+    public ForgeBlockRecipieBuilder(Ingredient input, Item result, int count, int heat) {
         this.input = input;
         this.result = result;
         this.count = count;

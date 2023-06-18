@@ -14,7 +14,7 @@ public class CustomRecipeBuilder extends SingleItemRecipeBuilder {
     }
 
     public static SingleItemRecipeBuilder flintstation(Ingredient pIngredient, ItemLike pResult, int pCount) {
-        return new SingleItemRecipeBuilder(RecipeCategory.MISC, FlintStationRecipe.Serializer.INSTANCE, pIngredient, pResult, pCount);
+        return new SingleItemRecipeBuilder(RecipeCategory.MISC, FlintStationRecipe.SERIALIZER, pIngredient, pResult, pCount);
     }
 
 
