@@ -27,8 +27,8 @@ public final class ModMenuTypes {
             registerMenuType(FlintStationMenu::new, "flint_station_menu");
     public static final RegistryObject<MenuType<ForgeMenu>> FORGE_MENU =
             registerMenuType(ForgeMenu::new,"forge_menu");
-    public static final RegistryObject<MenuType<github.xuulmedia.neolith.gui.menu.FoundryMenu>> FOUNDRY_MENU =
-            registerMenuType(github.xuulmedia.neolith.gui.menu.FoundryMenu::new,"foundry_menu");
+    public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY_MENU =
+            registerMenuType(FoundryMenu::new,"foundry_menu");
 
     public static final RegistryObject<MenuType<BasketMenu>> BASKET_MENU = MENUS.register("basket_menu",
             () -> IForgeMenuType.create(BasketMenu::createClientMenu));

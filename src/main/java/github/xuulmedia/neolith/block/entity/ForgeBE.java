@@ -13,11 +13,16 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
+import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.Nullable;
 import org.jline.utils.Log;
+
+import java.util.List;
+import java.util.Optional;
+import java.util.function.IntFunction;
 
 public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider {
     public static final String DISPLAY_NAME = "Forge";
@@ -62,42 +67,92 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
                 return SLOT_FUEL;
             }
         };
-
         for (int i = 0; i < forgeBE.itemHandler.getSlots(); i++) {
             ersatzInv.setItem(i, forgeBE.itemHandler.getStackInSlot(i));
         }
-        AbstractHeatingBlockEntity.tickHeat(level, pos, state, forgeBE, ersatzInv);
 
         RecipeManager recipeManager = level.getRecipeManager();
-        var recipeMatch = recipeManager.getRecipeFor(ForgeRecipe.Type.INSTANCE, ersatzInv, level);
+        RecipeType<ForgeRecipe> type = ForgeRecipe.Type.INSTANCE;
+        Optional<ForgeRecipe> match = recipeManager.getRecipeFor(type, ersatzInv, level);
+
+        AbstractHeatingBlockEntity.tickHeat(level, pos, state, forgeBE, ersatzInv);
         ItemStack currentOutputStack = forgeBE.itemHandler.getStackInSlot(SLOT_OUTPUT);
 
         boolean recipeOk = false;
-        if (recipeMatch.isPresent()) {
-            var recipe = recipeMatch.get();
-
-            if (recipe.getIngredient().test(forgeBE.itemHandler.getStackInSlot(SLOT_INPUT))
-                    && recipe.getHeatRequired() <= forgeBE.heat
-                    && (currentOutputStack.isEmpty() || recipe.getResult().is(currentOutputStack.getItem()))
-                    && currentOutputStack.getMaxStackSize() >= currentOutputStack.getCount() + recipe.getResult().getCount()) {
+        if(match.isPresent()){
+            ForgeRecipe recipe = match.get();
+            if(recipe.getIngredient().test(currentOutputStack)
+                    && canInsertItemIntoOutputSlot(forgeBE, match.get().getResultItem(level.registryAccess()))
+                    && isHeatHighEnough(forgeBE, match)){
                 recipeOk = true;
             }
-            if (recipeOk) {
+        }
 
-                forgeBE.progress += 1;
-                if (forgeBE.progress > recipeMatch.get().getCookingTime()) {
-                    forgeBE.progress = 0;
-                    if (currentOutputStack.isEmpty()) {
-                        forgeBE.itemHandler.setStackInSlot(SLOT_OUTPUT, recipeMatch.get().getResult());
-                    } else {
-                        currentOutputStack.grow(recipeMatch.get().getResult().getCount());
-                    }
-                    forgeBE.itemHandler.getStackInSlot(SLOT_INPUT).shrink(1);
-                }
-            } else {
+        if(recipeOk){
+            forgeBE.progress++;
+            if(forgeBE.progress > forgeBE.maxProgress) {
                 forgeBE.progress = 0;
-            }
+                if(currentOutputStack.isEmpty()){
+                    forgeBE.itemHandler.setStackInSlot(SLOT_OUTPUT, match.get().getResultItem(level.registryAccess()));
+                } else if(canInsertItemIntoOutputSlot(forgeBE, match.get().getResultItem(level.registryAccess())) && canInsertAmountIntoOutputSlot(ersatzInv)){
+                    currentOutputStack.grow(1);
+                }
+                forgeBE.itemHandler.getStackInSlot(SLOT_INPUT).shrink(1);
+           }
 
         }
     }
+
+
+    private static boolean hasRecipe(ForgeBE entity, Level level, HeatingFuelContainer container) {
+        Optional<ForgeRecipe> match = level.getRecipeManager()
+                .getRecipeFor(ForgeRecipe.Type.INSTANCE, container, level);
+
+        return match.isPresent() && canInsertAmountIntoOutputSlot(container)
+                && canInsertItemIntoOutputSlot(entity, match.get().getResultItem(level.registryAccess()))
+                && isHeatHighEnough(entity, match);
+    }
+
+    private static boolean canInsertItemIntoOutputSlot(ForgeBE entity, ItemStack resultItem){
+        return entity.itemHandler.getStackInSlot(SLOT_OUTPUT).isEmpty() || entity.itemHandler.getStackInSlot(SLOT_OUTPUT).getItem() == resultItem.getItem();
+    }
+    private static boolean canInsertAmountIntoOutputSlot(HeatingFuelContainer  container) {
+        return container.getItem(SLOT_OUTPUT).getMaxStackSize() > container.getItem(SLOT_OUTPUT).getCount();
+    }
+
+    private static boolean isHeatHighEnough(ForgeBE entity, Optional<ForgeRecipe> match){
+      return  match.get().getHeatRequired() <= entity.heat;
+    }
+
+
+
+
+//    @Nullable
+//    public static ForgeRecipe getAttemptedRecipe(List<ForgeRecipe> recipes, IntFunction<ItemStack> getItem) {
+//        for (var recipe : recipes) {
+//            if (recipeMatches(recipe, getItem)) {
+//                return recipe;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    public static boolean recipeMatches(ForgeRecipe recipe, IntFunction<ItemStack> getItem) {
+//        // Make sure each ingredient is satisfied exactly once
+//        int usedBitmask = 0;
+//        int satisfiedCount = 0;
+//        for (var ingr : recipe.getIngredients()) {
+//            for (int i = 0; i < 1; i++) {
+//                if ((usedBitmask & (1 << i)) != 0) {
+//                    continue;
+//                }
+//                var stack = getItem.apply(i);
+//                if (ingr.test(stack)) {
+//                    usedBitmask |= (1 << i);
+//                    satisfiedCount += 1;
+//                }
+//            }
+//        }
+//        return satisfiedCount == recipe.getIngredients().size();
+//    }
 }

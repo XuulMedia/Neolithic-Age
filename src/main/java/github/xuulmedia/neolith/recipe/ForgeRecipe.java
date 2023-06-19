@@ -1,9 +1,10 @@
 package github.xuulmedia.neolith.recipe;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import com.google.gson.*;
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.entity.ForgeBE;
+import github.xuulmedia.neolith.init.ModRecipes;
+import github.xuulmedia.neolith.util.HeatingFuelContainer;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -18,17 +19,21 @@ import net.minecraft.world.item.crafting.ShapedRecipe;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
 public class ForgeRecipe extends AbstractHeatRecipe {
     public static final Serializer SERIALIZER = new Serializer();
 
     public ForgeRecipe(ResourceLocation id, String group, int heatRequired, NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience, int cookingTime) {
-        super(id, group, heatRequired, ingredients, results, experience, cookingTime);
+        super(Type.INSTANCE, id, group, heatRequired, ingredients, results, experience, cookingTime);
     }
 
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
         return this.ingredients.get(0).test(pContainer.getItem(ForgeBE.SLOT_INPUT));
     }
+
 
     @Override
     public ItemStack assemble(Container p_44001_, RegistryAccess p_267165_) {
@@ -63,28 +68,38 @@ public class ForgeRecipe extends AbstractHeatRecipe {
     public static class Type implements RecipeType<ForgeRecipe> {
         private Type() {
         }
-        public static final Type INSTANCE = new Type();
+        public static final ForgeRecipe.Type INSTANCE = new ForgeRecipe.Type();
         public static final String ID = "forge";
     }
 
     private static class Serializer implements RecipeSerializer<ForgeRecipe> {
-
         public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
-                new ResourceLocation(Neolith.MODID, "forge");
+                new ResourceLocation(Neolith.MODID, "forge_recipe");
 
-        /* ForgeRecipe(RecipeType<?> type, ResourceLocation id, String group, int heatRequired, NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience, int cookingTime) {*/
         @Override
         public ForgeRecipe fromJson(ResourceLocation recipeID, JsonObject json) {
             String group = GsonHelper.getAsString(json, "group", "");
             int heatReq = GsonHelper.getAsInt(json, "heatRequired");
 
             NonNullList<Ingredient> ingredients = ingredientsFromJson(GsonHelper.getAsJsonArray(json, "ingredients"));
-            NonNullList<ItemStack> results = resultsFromJson(GsonHelper.getAsJsonArray(json, "results"));
-            float xp = GsonHelper.getAsFloat(json, "experience", 0.0F);
-            int cookTime = GsonHelper.getAsInt(json, "cookingtime", 200);
+            NonNullList<ItemStack> results = NonNullList.create();
 
-            return new ForgeRecipe(recipeID, group, heatReq, ingredients, results, xp, cookTime);
+            var outputArr = GsonHelper.getAsJsonArray(json, "results");
+            for (int i = 0; i < outputArr.size(); i++) {
+                JsonElement outElt = outputArr.get(i);
+                if (!(outElt instanceof JsonObject outObj)) {
+                    throw new JsonParseException("results[" + i + "] was not a JsonObject");
+                }
+                ItemStack output = ShapedRecipe.itemStackFromJson(outObj);
+                results.add(output);}
+
+
+
+            float experience = GsonHelper.getAsFloat(json, "experience", 0.0F);
+            int cookingtime = GsonHelper.getAsInt(json, "cookingtime", 200);
+
+            return new ForgeRecipe(recipeID, group, heatReq, ingredients, results, experience, cookingtime);
         }
 
 
@@ -117,22 +132,23 @@ public class ForgeRecipe extends AbstractHeatRecipe {
             NonNullList<Ingredient> nonnulllist = NonNullList.create();
             for(int i = 0; i < pIngredientArray.size(); ++i) {
                 Ingredient ingredient = Ingredient.fromJson(pIngredientArray.get(i), false);
-                if (true || !ingredient.isEmpty()) {
-                    nonnulllist.add(ingredient);
-                }
+                nonnulllist.add(ingredient);
             }
+            if (nonnulllist.isEmpty()) {
+                throw new JsonParseException("No ingredients for shapeless recipe");}
             return nonnulllist;
         }
 
-        private static NonNullList<ItemStack> resultsFromJson(JsonArray outputArray) {
-            NonNullList<ItemStack> nonnulllist = NonNullList.create();
-            for(int i = 0; i < nonnulllist.size(); ++i) {
-                ItemStack item = ShapedRecipe.itemStackFromJson(outputArray.get(i).getAsJsonObject());
-                nonnulllist.add(item);
-            }
-            return nonnulllist;
-        }
-
+//        private static NonNullList<ItemStack> resultsFromJson(JsonArray outputArray) {
+//            NonNullList<ItemStack> nonnulllist = NonNullList.create();
+//            for(int i = 0; i < nonnulllist.size(); ++i) {
+//                ItemStack item = ShapedRecipe.itemStackFromJson(outputArray.get(i).getAsJsonObject());
+//                nonnulllist.add(item);
+//            }
+//            if (nonnulllist.isEmpty()) {
+//                throw new JsonParseException("No ingredients for shapeless recipe");}
+//            return nonnulllist;
+//        }
 
 
 
