@@ -83,17 +83,7 @@ public class ForgeRecipe extends AbstractHeatRecipe {
             int heatReq = GsonHelper.getAsInt(json, "heatRequired");
 
             NonNullList<Ingredient> ingredients = ingredientsFromJson(GsonHelper.getAsJsonArray(json, "ingredients"));
-            NonNullList<ItemStack> results = NonNullList.create();
-
-            var outputArr = GsonHelper.getAsJsonArray(json, "results");
-            for (int i = 0; i < outputArr.size(); i++) {
-                JsonElement outElt = outputArr.get(i);
-                if (!(outElt instanceof JsonObject outObj)) {
-                    throw new JsonParseException("results[" + i + "] was not a JsonObject");
-                }
-                ItemStack output = ShapedRecipe.itemStackFromJson(outObj);
-                results.add(output);}
-
+            NonNullList<ItemStack> results = resultsFromJson(GsonHelper.getAsJsonArray(json, "results"));
 
 
             float experience = GsonHelper.getAsFloat(json, "experience", 0.0F);
@@ -101,7 +91,6 @@ public class ForgeRecipe extends AbstractHeatRecipe {
 
             return new ForgeRecipe(recipeID, group, heatReq, ingredients, results, experience, cookingtime);
         }
-
 
         @Nullable
         @Override
@@ -126,31 +115,5 @@ public class ForgeRecipe extends AbstractHeatRecipe {
             buffer.writeFloat(recipe.experience);
             buffer.writeVarInt(recipe.cookingTime);
         }
-
-
-        private static NonNullList<Ingredient> ingredientsFromJson(JsonArray pIngredientArray) {
-            NonNullList<Ingredient> nonnulllist = NonNullList.create();
-            for(int i = 0; i < pIngredientArray.size(); ++i) {
-                Ingredient ingredient = Ingredient.fromJson(pIngredientArray.get(i), false);
-                nonnulllist.add(ingredient);
-            }
-            if (nonnulllist.isEmpty()) {
-                throw new JsonParseException("No ingredients for shapeless recipe");}
-            return nonnulllist;
-        }
-
-//        private static NonNullList<ItemStack> resultsFromJson(JsonArray outputArray) {
-//            NonNullList<ItemStack> nonnulllist = NonNullList.create();
-//            for(int i = 0; i < nonnulllist.size(); ++i) {
-//                ItemStack item = ShapedRecipe.itemStackFromJson(outputArray.get(i).getAsJsonObject());
-//                nonnulllist.add(item);
-//            }
-//            if (nonnulllist.isEmpty()) {
-//                throw new JsonParseException("No ingredients for shapeless recipe");}
-//            return nonnulllist;
-//        }
-
-
-
     }
 }

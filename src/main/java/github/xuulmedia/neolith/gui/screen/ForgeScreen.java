@@ -23,9 +23,6 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
     private final int imageWidth;
     private final int imageHeight;
 
-
-
-
     public ForgeScreen(ForgeMenu pMenu, Inventory pPlayerInventory,
                        Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
@@ -101,7 +98,7 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
         int tooColdRenderTopPos = 19;
 
         if (this.isTooColdToCook()) {
-            gui.blit(TEXTURE, x+ tooColdRenderLeftPos, y + tooColdRenderTopPos, tooColdPropLeftPos, tooColdPropTopPos, 12, 12);
+            gui.blit(TEXTURE, x + tooColdRenderLeftPos, y + tooColdRenderTopPos, tooColdPropLeftPos, tooColdPropTopPos, 12, 12);
         }
 
 

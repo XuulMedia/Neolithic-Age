@@ -32,7 +32,6 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
 
     public static final int STACK_SIZE = 3; // this must be a match with the number in the block MENU
 
-
     public ForgeBE(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.FORGE.get(), pWorldPosition, pBlockState);
         this.itemHandler = new ItemStackHandler(STACK_SIZE) {
@@ -81,20 +80,21 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
         boolean recipeOk = false;
         if(match.isPresent()){
             ForgeRecipe recipe = match.get();
-            if(recipe.getIngredient().test(currentOutputStack)
-                    && canInsertItemIntoOutputSlot(forgeBE, match.get().getResultItem(level.registryAccess()))
-                    && isHeatHighEnough(forgeBE, match)){
+            boolean ingredientTest = recipe.getIngredient().test(forgeBE.itemHandler.getStackInSlot(SLOT_INPUT));
+            boolean canInsertItem = canInsertItemIntoOutputSlot(forgeBE, match.get().getResultItem(level.registryAccess()));
+            boolean spaceCheck = canInsertAmountIntoOutputSlot(forgeBE);
+            boolean heatCheck = isHeatHighEnough(forgeBE, match);
+            if(ingredientTest && canInsertItem && heatCheck && spaceCheck){
                 recipeOk = true;
             }
         }
-
         if(recipeOk){
             forgeBE.progress++;
             if(forgeBE.progress > forgeBE.maxProgress) {
                 forgeBE.progress = 0;
                 if(currentOutputStack.isEmpty()){
                     forgeBE.itemHandler.setStackInSlot(SLOT_OUTPUT, match.get().getResultItem(level.registryAccess()));
-                } else if(canInsertItemIntoOutputSlot(forgeBE, match.get().getResultItem(level.registryAccess())) && canInsertAmountIntoOutputSlot(ersatzInv)){
+                } else{
                     currentOutputStack.grow(1);
                 }
                 forgeBE.itemHandler.getStackInSlot(SLOT_INPUT).shrink(1);
@@ -102,57 +102,15 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
 
         }
     }
-
-
-    private static boolean hasRecipe(ForgeBE entity, Level level, HeatingFuelContainer container) {
-        Optional<ForgeRecipe> match = level.getRecipeManager()
-                .getRecipeFor(ForgeRecipe.Type.INSTANCE, container, level);
-
-        return match.isPresent() && canInsertAmountIntoOutputSlot(container)
-                && canInsertItemIntoOutputSlot(entity, match.get().getResultItem(level.registryAccess()))
-                && isHeatHighEnough(entity, match);
-    }
-
     private static boolean canInsertItemIntoOutputSlot(ForgeBE entity, ItemStack resultItem){
         return entity.itemHandler.getStackInSlot(SLOT_OUTPUT).isEmpty() || entity.itemHandler.getStackInSlot(SLOT_OUTPUT).getItem() == resultItem.getItem();
     }
-    private static boolean canInsertAmountIntoOutputSlot(HeatingFuelContainer  container) {
-        return container.getItem(SLOT_OUTPUT).getMaxStackSize() > container.getItem(SLOT_OUTPUT).getCount();
+    private static boolean canInsertAmountIntoOutputSlot(ForgeBE entity) {
+        return entity.itemHandler.getStackInSlot(SLOT_OUTPUT).getMaxStackSize() > entity.itemHandler.getStackInSlot(SLOT_OUTPUT).getCount();
     }
 
     private static boolean isHeatHighEnough(ForgeBE entity, Optional<ForgeRecipe> match){
       return  match.get().getHeatRequired() <= entity.heat;
     }
 
-
-
-
-//    @Nullable
-//    public static ForgeRecipe getAttemptedRecipe(List<ForgeRecipe> recipes, IntFunction<ItemStack> getItem) {
-//        for (var recipe : recipes) {
-//            if (recipeMatches(recipe, getItem)) {
-//                return recipe;
-//            }
-//        }
-//        return null;
-//    }
-//
-//    public static boolean recipeMatches(ForgeRecipe recipe, IntFunction<ItemStack> getItem) {
-//        // Make sure each ingredient is satisfied exactly once
-//        int usedBitmask = 0;
-//        int satisfiedCount = 0;
-//        for (var ingr : recipe.getIngredients()) {
-//            for (int i = 0; i < 1; i++) {
-//                if ((usedBitmask & (1 << i)) != 0) {
-//                    continue;
-//                }
-//                var stack = getItem.apply(i);
-//                if (ingr.test(stack)) {
-//                    usedBitmask |= (1 << i);
-//                    satisfiedCount += 1;
-//                }
-//            }
-//        }
-//        return satisfiedCount == recipe.getIngredients().size();
-//    }
 }

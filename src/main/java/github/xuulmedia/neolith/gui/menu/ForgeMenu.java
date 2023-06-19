@@ -11,6 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -37,13 +38,12 @@ public class ForgeMenu extends AbstractContainerMenu {
 
     public ForgeMenu(int id, Inventory inventory, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.FORGE_MENU.get(), id);
-        checkContainerSize(inventory, 3);
+        checkContainerSize(inventory, STACK_SIZE);
         blockEntity = (ForgeBE) entity;
         this.level = inventory.player.level();
         this.data = data;
 
-        addPlayerInventory(inventory);
-        addPlayerHotbar(inventory);
+
 
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
@@ -54,10 +54,14 @@ public class ForgeMenu extends AbstractContainerMenu {
 
         this.addDataSlots(data);
 
+        addPlayerInventory(inventory);
+        addPlayerHotbar(inventory);
+
         RecipeManager recipeManager = this.level.getRecipeManager();
         this.fuels = recipeManager.getAllRecipesFor(HeatingFuelRecipe.Type.INSTANCE);
         this.recipes = recipeManager.getAllRecipesFor(ForgeRecipe.Type.INSTANCE);
     }
+
 
     @Override
     public boolean stillValid(Player pPlayer) {
@@ -175,17 +179,13 @@ public class ForgeMenu extends AbstractContainerMenu {
     }
 
     public @Nullable Integer heatReqdToCookInput() {
-        var input = this.getSlot(ForgeBE.SLOT_INPUT).getItem();
-        if (input.isEmpty()) {
+        ItemStack input = this.getSlot(ForgeBE.SLOT_INPUT).getItem();
+        if(input.isEmpty() ){
             return null;
         }
-
-        for (var recipe : this.recipes) {
-            if (recipe.getIngredient().test(input)) {
-                return recipe.getHeatRequired();
-            }
+        for(var recipe : this.recipes){
+            return recipe.getHeatRequired();
         }
-
         return null;
     }
 
