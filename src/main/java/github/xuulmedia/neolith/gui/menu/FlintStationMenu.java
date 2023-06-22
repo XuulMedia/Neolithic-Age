@@ -32,8 +32,8 @@ public class FlintStationMenu extends AbstractContainerMenu {
     public final Container container = new SimpleContainer(1) {
         public void setChanged() {
             super.setChanged();
-            github.xuulmedia.neolith.gui.menu.FlintStationMenu.this.slotsChanged(this);
-            github.xuulmedia.neolith.gui.menu.FlintStationMenu.this.slotUpdateListener.run();
+            FlintStationMenu.this.slotsChanged(this);
+            FlintStationMenu.this.slotUpdateListener.run();
         }
     };
     final ResultContainer resultContainer = new ResultContainer();
@@ -54,16 +54,16 @@ public class FlintStationMenu extends AbstractContainerMenu {
 
             public void onTake(Player p_150672_, ItemStack p_150673_) {
                 p_150673_.onCraftedBy(p_150672_.level(), p_150672_, p_150673_.getCount());
-                github.xuulmedia.neolith.gui.menu.FlintStationMenu.this.resultContainer.awardUsedRecipes(p_150672_, this.getRelevantItems());
-                ItemStack itemstack = github.xuulmedia.neolith.gui.menu.FlintStationMenu.this.inputSlot.remove(1);
+                FlintStationMenu.this.resultContainer.awardUsedRecipes(p_150672_, this.getRelevantItems());
+                ItemStack itemstack = FlintStationMenu.this.inputSlot.remove(1);
                 if (!itemstack.isEmpty()) {
-                    github.xuulmedia.neolith.gui.menu.FlintStationMenu.this.setupResultSlot();
+                    FlintStationMenu.this.setupResultSlot();
                 }
                 super.onTake(p_150672_, p_150673_);
             }
 
             private List<ItemStack> getRelevantItems() {
-                return List.of(github.xuulmedia.neolith.gui.menu.FlintStationMenu.this.inputSlot.getItem());
+                return List.of(FlintStationMenu.this.inputSlot.getItem());
             }
         });
 

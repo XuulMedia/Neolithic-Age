@@ -2,18 +2,21 @@ package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.item.*;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.network.chat.Component;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraftforge.fml.common.Mod;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Supplier;
+
+import static github.xuulmedia.neolith.init.ModCreativeTabs.addToMetalAgeTab;
+import static github.xuulmedia.neolith.init.ModCreativeTabs.addToStoneAgeTab;
+
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Neolith.MODID);
-    public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Neolith.MODID);
+
 
     public static final int LOW_HEAT_WOOD = 250;
     public static final int MED_HEAT_WOOD = 350;
@@ -21,315 +24,51 @@ public class ModItems {
     public static final int NETHER_HEAT_WOOD = 650;
 
 
-    /*PLANTS*/
-    public static final RegistryObject<Item> PLANT_FIBRE = ITEMS.register("plant_fibre",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRAIDED_PLANT_FIBRE = ITEMS.register("braided_plant_fibre",
-            () -> new Item(new Item.Properties()));
-
-
-    /*Crops*/
-    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = ITEMS.register("medicine_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
-                    new Item.Properties()));
-
-    public static final RegistryObject<Item> MEDICINE_PLANT = ITEMS.register("medicine_plant",
-            () -> new Item(new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
-
-
-    /*Wool*/
-    public static final RegistryObject<Item> WOOL = ITEMS.register("wool",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> YARN = ITEMS.register("yarn",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<SpindleItem> SPINDLE = ITEMS.register("spindle",
+    /*Stone age tools*/
+    public static final RegistryObject<SwordItem> FLINT_KNIFE = registerStoneAgeItem("flint_knife",
+            () -> new SwordItem(ModToolMaterials.FLINT, 4, 1.6f, new Item.Properties().durability(50 * 2))); //double durability because sword takes 2 when mining with it
+    public static final RegistryObject<PickaxeItem> FLINT_PICK = registerStoneAgeItem("flint_pickaxe",
+            () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().durability(50)));
+    public static final RegistryObject<ShovelItem> FLINT_SHOVEL = registerStoneAgeItem("flint_shovel",
+            () -> new ShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().durability(50)));
+    public static final RegistryObject<AxeItem> FLINT_AXE = registerStoneAgeItem("flint_axe",
+            () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().durability(50)));
+    public static final RegistryObject<HoeItem> FLINT_HOE = registerStoneAgeItem("flint_hoe",
+            () -> new HoeItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
+    public static final RegistryObject<SawItem> FLINT_SAW = registerStoneAgeItem("flint_saw",
+            () -> new SawItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
+    public static final RegistryObject<HammerItem> STONE_HAMMER = registerStoneAgeItem("stone_hammer",
+            () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().durability(50)));
+    public static final RegistryObject<TridentItem> STONE_SPEAR = registerStoneAgeItem("stone_spear",
+            () -> new TridentItem(new Item.Properties().durability(50)));
+    public static final RegistryObject<FireStarterItem> BASIC_FIRESTARTER = registerStoneAgeItem("firestarter",
+            () -> new FireStarterItem(new Item.Properties().durability(2)));
+    public static final RegistryObject<SpindleItem> SPINDLE = registerStoneAgeItem("spindle",
             () -> new SpindleItem(ModToolMaterials.FLINT, new Item.Properties().durability(100)));
 
-
     /*Containers*/
-
-    public static final RegistryObject<BasketItem> BASKET = ITEMS.register("basket",
+    public static final RegistryObject<BasketItem> BASKET = registerStoneAgeItem("basket",
             () -> new BasketItem(new Item.Properties().stacksTo(1)));
 
-
     /*HIDES*/
-    public static final RegistryObject<Item> HIDE_SMALL = ITEMS.register("hide_small",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HIDE_MEDIUM = ITEMS.register("hide_medium",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> HIDE_LARGE = ITEMS.register("hide_large",
-            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> HIDE_SMALL = registerStandardStoneAgeItem("hide_small");
+    public static final RegistryObject<Item> HIDE_MEDIUM = registerStandardStoneAgeItem("hide_medium");
+    public static final RegistryObject<Item> HIDE_LARGE = registerStandardStoneAgeItem("hide_large");
 
     /*Clay Objects*/
-    public static final RegistryObject<Item> UNFIRED_CLAY_JUG = ITEMS.register("unfired_clay_jug",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = ITEMS.register("unfired_clay_bucket",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> UNFIRED_CLAY_BOTTLE = ITEMS.register("unfired_clay_bottle",
-            () -> new Item(new Item.Properties()));
-
-
-    public static final RegistryObject<BottleItem> CLAY_VIAL = ITEMS.register("clay_vial",
+    public static final RegistryObject<Item> UNFIRED_CLAY_JUG = registerStandardStoneAgeItem("unfired_clay_jug");
+    public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = registerStandardStoneAgeItem("unfired_clay_bucket");
+    public static final RegistryObject<Item> UNFIRED_CLAY_BOTTLE = registerStandardStoneAgeItem("unfired_clay_bottle");
+    public static final RegistryObject<BottleItem> CLAY_VIAL = registerStoneAgeItem("clay_vial",
             () -> new BottleItem(new Item.Properties()));
 
-
-
-    /*TOOLS*/
-    //Req Material, Damage, attack speed and repair item
-
-    public static final RegistryObject<SwordItem> BRONZE_SWORD = ITEMS.register("bronze_sword",
-            () -> new SwordItem(ModToolMaterials.BRONZE, 6, 1.6f, new Item.Properties()));
-
-    public static final RegistryObject<PickaxeItem> BRONZE_PICK = ITEMS.register("bronze_pick",
-            () -> new PickaxeItem(ModToolMaterials.BRONZE, 4, 1.2f, new Item.Properties()));
-
-    public static final RegistryObject<ModShovelItem> BRONZE_SHOVEL = ITEMS.register("bronze_shovel",
-            () -> new ModShovelItem(ModToolMaterials.BRONZE, 2.25f, 1.0f, new Item.Properties()));
-
-    public static final RegistryObject<AxeItem> BRONZE_AXE = ITEMS.register("bronze_axe",
-            () -> new AxeItem(ModToolMaterials.BRONZE, 9, 0.9f, new Item.Properties()));
-
-    public static final RegistryObject<HoeItem> BRONZE_HOE = ITEMS.register("bronze_hoe",
-            () -> new HoeItem(ModToolMaterials.BRONZE, 1, 3.0f, new Item.Properties()));
-
-
-    public static final RegistryObject<SwordItem> FLINT_KNIFE = ITEMS.register("flint_knife",
-            () -> new SwordItem(ModToolMaterials.FLINT, 4, 1.6f, new Item.Properties().durability(50 * 2))); //double durability because sword takes 2 when mining with it
-
-    public static final RegistryObject<PickaxeItem> FLINT_PICK = ITEMS.register("flint_pickaxe",
-            () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().durability(50)));
-
-    public static final RegistryObject<ShovelItem> FLINT_SHOVEL = ITEMS.register("flint_shovel",
-            () -> new ShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().durability(50)));
-
-    public static final RegistryObject<AxeItem> FLINT_AXE = ITEMS.register("flint_axe",
-            () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().durability(50)));
-
-    public static final RegistryObject<HoeItem> FLINT_HOE = ITEMS.register("flint_hoe",
-            () -> new HoeItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
-
-    public static final RegistryObject<SawItem> FLINT_SAW = ITEMS.register("flint_saw",
-            () -> new SawItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
-
-    public static final RegistryObject<HammerItem> STONE_HAMMER = ITEMS.register("stone_hammer",
-            () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().durability(50)));
-
-    public static final RegistryObject<TridentItem> STONE_SPEAR = ITEMS.register("stone_spear",
-            () -> new TridentItem(new Item.Properties().durability(50)));
-
-    public static final RegistryObject<FireStarterItem> BASIC_FIRESTARTER = ITEMS.register("firestarter",
-            () -> new FireStarterItem(new Item.Properties().durability(2)));
-
-
     /*TOOLHEADS*/
-    public static final RegistryObject<Item> FLINT_BLADE = ITEMS.register("flint_blade",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> FLINT_PICK_HEAD = ITEMS.register("flint_pick_head",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> FLINT_SHOVEL_HEAD = ITEMS.register("flint_shovel_head",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> FLINT_AXE_HEAD = ITEMS.register("flint_axe_head",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> FLINT_HOE_HEAD = ITEMS.register("flint_hoe_head",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> FLINT_SAW_HEAD = ITEMS.register("flint_saw_head",
-            () -> new Item(new Item.Properties()));
-
-
-
-
-    /*Armor*/
-
-    public static final RegistryObject<ArmorItem> BRONZE_HELMET = ITEMS.register("bronze_helmet",
-            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.HELMET, new Item.Properties()));
-
-    public static final RegistryObject<ArmorItem> BRONZE_CHEST = ITEMS.register("bronze_chest",
-            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
-
-    public static final RegistryObject<ArmorItem> BRONZE_LEGS = ITEMS.register("bronze_legs",
-            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
-
-    public static final RegistryObject<ArmorItem> BRONZE_BOOTS = ITEMS.register("bronze_boots",
-            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.BOOTS, new Item.Properties()));
-
-
-    /*FOOD*/
-    public static final RegistryObject<Item> SALVE = ITEMS.register("salve",
-            () -> new Item(new Item.Properties().food((ModFoods.SALVE))));
-
-
-    /*ORE CHUNKS*/
-    public static final RegistryObject<Item> RAW_TIN = ITEMS.register("raw_tin",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> RAW_SILVER = ITEMS.register("raw_silver",
-            () -> new Item(new Item.Properties()));
-
-
-    /*Ingots*/
-    public static final RegistryObject<Item> INGOT_TIN = ITEMS.register("ingot_tin",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> INGOT_BRONZE = ITEMS.register("ingot_bronze",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> INGOT_STEEL = ITEMS.register("ingot_steel",
-            () -> new Item(new Item.Properties()));
-
-    public static final RegistryObject<Item> INGOT_SILVER = ITEMS.register("ingot_silver",
-            () -> new Item(new Item.Properties()));
-
-
-    /*Nuggets*/
-    public static final RegistryObject<Item> NUGGET_COPPER = ITEMS.register("nugget_copper",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NUGGET_TIN = ITEMS.register("nugget_tin",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NUGGET_BRONZE = ITEMS.register("nugget_bronze",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NUGGET_STEEL = ITEMS.register("nugget_steel",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> NUGGET_SILVER = ITEMS.register("nugget_silver",
-            () -> new Item(new Item.Properties()));
-
-
-    /*Dusts*/
-    public static final RegistryObject<Item> DUST_IRON = ITEMS.register("dust_iron",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_GOLD = ITEMS.register("dust_gold",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_COPPER = ITEMS.register("dust_copper",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_TIN = ITEMS.register("dust_tin",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_BRONZE = ITEMS.register("dust_bronze",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_STEEL = ITEMS.register("dust_steel",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_SILVER = ITEMS.register("dust_silver",
-            () -> new Item(new Item.Properties()));
-
-    /*STONE CHUNKS*/
-
-
-    public static final RegistryObject<Item> CHUNK_STONE = ITEMS.register("chunk_stone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_ANDESITE = ITEMS.register("chunk_andesite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_DEEPSLATE = ITEMS.register("chunk_deepslate",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_SANDSTONE = ITEMS.register("chunk_sandstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_DRIPSTONE = ITEMS.register("chunk_dripstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_DIORITE = ITEMS.register("chunk_diorite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_GRANITE = ITEMS.register("chunk_granite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_BASALT = ITEMS.register("chunk_basalt",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_TUFF = ITEMS.register("chunk_tuff",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_NETHERRACK = ITEMS.register("chunk_netherrack",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_BLACKSTONE = ITEMS.register("chunk_blackstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_CALCITE = ITEMS.register("chunk_calcite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CHUNK_ENDSTONE = ITEMS.register("chunk_endstone",
-            () -> new Item(new Item.Properties()));
-
-
-    /*STONE DUSTS*/
-
-
-    public static final RegistryObject<Item> DUST_STONE = ITEMS.register("dust_stone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_ANDESITE = ITEMS.register("dust_andesite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_DEEPSLATE = ITEMS.register("dust_deepslate",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_DRIPSTONE = ITEMS.register("dust_dripstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_SANDSTONE = ITEMS.register("dust_sandstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_DIORITE = ITEMS.register("dust_diorite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_GRANITE = ITEMS.register("dust_granite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_BASALT = ITEMS.register("dust_basalt",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_TUFF = ITEMS.register("dust_tuff",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_NETHERRACK = ITEMS.register("dust_netherrack",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_BLACKSTONE = ITEMS.register("dust_blackstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_CALCITE = ITEMS.register("dust_calcite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> DUST_ENDSTONE = ITEMS.register("dust_endstone",
-            () -> new Item(new Item.Properties()));
-
-    /*Stone Clay*/
-    public static final RegistryObject<Item> CLAY_STONE = ITEMS.register("clay_stone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_ANDESITE = ITEMS.register("clay_andesite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_DEEPSLATE = ITEMS.register("clay_deepslate",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_DRIPSTONE = ITEMS.register("clay_dripstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_SANDSTONE = ITEMS.register("clay_sandstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_DIORITE = ITEMS.register("clay_diorite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_GRANITE = ITEMS.register("clay_granite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_BASALT = ITEMS.register("clay_basalt",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_TUFF = ITEMS.register("clay_tuff",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_NETHERRACK = ITEMS.register("clay_netherrack",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_BLACKSTONE = ITEMS.register("clay_blackstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_CALCITE = ITEMS.register("clay_calcite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> CLAY_ENDSTONE = ITEMS.register("clay_endstone",
-            () -> new Item(new Item.Properties()));
-
-    /*STONE BRICKS*/
-    public static final RegistryObject<Item> BRICK_STONE = ITEMS.register("brick_stone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_ANDESITE = ITEMS.register("brick_andesite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_DEEPSLATE = ITEMS.register("brick_deepslate",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_DRIPSTONE = ITEMS.register("brick_dripstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_SANDSTONE = ITEMS.register("brick_sandstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_DIORITE = ITEMS.register("brick_diorite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_GRANITE = ITEMS.register("brick_granite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_BASALT = ITEMS.register("brick_basalt",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_TUFF = ITEMS.register("brick_tuff",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_NETHERRACK = ITEMS.register("brick_netherrack",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_BLACKSTONE = ITEMS.register("brick_blackstone",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_CALCITE = ITEMS.register("brick_calcite",
-            () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> BRICK_ENDSTONE = ITEMS.register("brick_endstone",
-            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> FLINT_BLADE = registerStandardStoneAgeItem("flint_blade");
+    public static final RegistryObject<Item> FLINT_PICK_HEAD = registerStandardStoneAgeItem("flint_pick_head");
+    public static final RegistryObject<Item> FLINT_SHOVEL_HEAD = registerStandardStoneAgeItem("flint_shovel_head");
+    public static final RegistryObject<Item> FLINT_AXE_HEAD = registerStandardStoneAgeItem("flint_axe_head");
+    public static final RegistryObject<Item> FLINT_HOE_HEAD = registerStandardStoneAgeItem("flint_hoe_head");
+    public static final RegistryObject<Item> FLINT_SAW_HEAD = registerStandardStoneAgeItem("flint_saw_head");
 
     /*Logs*/
     public static final RegistryObject<FuelItem> LOG_OAK = createFuelItem("log_oak", HIGH_HEAT_WOOD, new Item.Properties());
@@ -353,198 +92,142 @@ public class ModItems {
     public static final RegistryObject<FuelItem> PLANK_WARPED = createFuelItem("plank_warped", NETHER_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> PLANK_CRIMSON = createFuelItem("plank_crimson", NETHER_HEAT_WOOD, new Item.Properties());
 
+    /*STONE CHUNKS*/
+    public static final RegistryObject<Item> CHUNK_STONE = registerStandardStoneAgeItem("chunk_stone");
+    public static final RegistryObject<Item> CHUNK_ANDESITE = registerStandardStoneAgeItem("chunk_andesite");
+    public static final RegistryObject<Item> CHUNK_DEEPSLATE = registerStandardStoneAgeItem("chunk_deepslate");
+    public static final RegistryObject<Item> CHUNK_SANDSTONE = registerStandardStoneAgeItem("chunk_sandstone");
+    public static final RegistryObject<Item> CHUNK_DRIPSTONE = registerStandardStoneAgeItem("chunk_dripstone");
+    public static final RegistryObject<Item> CHUNK_DIORITE = registerStandardStoneAgeItem("chunk_diorite");
+    public static final RegistryObject<Item> CHUNK_GRANITE = registerStandardStoneAgeItem("chunk_granite");
+    public static final RegistryObject<Item> CHUNK_BASALT = registerStandardStoneAgeItem("chunk_basalt");
+    public static final RegistryObject<Item> CHUNK_TUFF = registerStandardStoneAgeItem("chunk_tuff");
+    public static final RegistryObject<Item> CHUNK_NETHERRACK = registerStandardStoneAgeItem("chunk_netherrack");
+    public static final RegistryObject<Item> CHUNK_BLACKSTONE = registerStandardStoneAgeItem("chunk_blackstone");
+    public static final RegistryObject<Item> CHUNK_CALCITE = registerStandardStoneAgeItem("chunk_calcite");
+    public static final RegistryObject<Item> CHUNK_ENDSTONE = registerStandardStoneAgeItem("chunk_endstone");
 
-    //CreativeModeTabs
-    public static final RegistryObject<CreativeModeTab> STONE_AGE_TAB = CREATIVE_MODE_TABS.register((Neolith.MODID + "stone_age"), () -> CreativeModeTab.builder()
-            .title(Component.translatable("stoneAge." + Neolith.MODID))
-            .icon(() -> CHUNK_STONE.get().getDefaultInstance())
-            .displayItems((enabledFeatures, entries) -> {
-                entries.accept(ModBlocks.FLINT_NODE.get());
-                entries.accept(ModBlocks.MANUAL_GRINDER.get());
-                entries.accept(ModBlocks.FLINT_STATION.get());
-                entries.accept(ModBlocks.FOUNDRY.get());
-                entries.accept(ModBlocks.FORGE.get());
-                entries.accept(ModBlocks.CAMPFIRE.get());
-                entries.accept(SPINDLE.get());
-                entries.accept(BASKET.get());
+    /*STONE DUSTS*/
+    public static final RegistryObject<Item> DUST_STONE = registerStandardStoneAgeItem("dust_stone");
+    public static final RegistryObject<Item> DUST_ANDESITE = registerStandardStoneAgeItem("dust_andesite");
+    public static final RegistryObject<Item> DUST_DEEPSLATE = registerStandardStoneAgeItem("dust_deepslate");
+    public static final RegistryObject<Item> DUST_DRIPSTONE = registerStandardStoneAgeItem("dust_dripstone");
+    public static final RegistryObject<Item> DUST_SANDSTONE = registerStandardStoneAgeItem("dust_sandstone");
+    public static final RegistryObject<Item> DUST_DIORITE = registerStandardStoneAgeItem("dust_diorite");
+    public static final RegistryObject<Item> DUST_GRANITE = registerStandardStoneAgeItem("dust_granite");
+    public static final RegistryObject<Item> DUST_BASALT = registerStandardStoneAgeItem("dust_basalt");
+    public static final RegistryObject<Item> DUST_TUFF = registerStandardStoneAgeItem("dust_tuff");
+    public static final RegistryObject<Item> DUST_NETHERRACK = registerStandardStoneAgeItem("dust_netherrack");
+    public static final RegistryObject<Item> DUST_BLACKSTONE = registerStandardStoneAgeItem("dust_blackstone");
+    public static final RegistryObject<Item> DUST_CALCITE = registerStandardStoneAgeItem("dust_calcite");
+    public static final RegistryObject<Item> DUST_ENDSTONE = registerStandardStoneAgeItem("dust_endstone");
+
+    /*Stone Clay*/
+    public static final RegistryObject<Item> CLAY_STONE = registerStandardStoneAgeItem("clay_stone");
+    public static final RegistryObject<Item> CLAY_ANDESITE = registerStandardStoneAgeItem("clay_andesite");
+    public static final RegistryObject<Item> CLAY_DEEPSLATE = registerStandardStoneAgeItem("clay_deepslate");
+    public static final RegistryObject<Item> CLAY_DRIPSTONE = registerStandardStoneAgeItem("clay_dripstone");
+    public static final RegistryObject<Item> CLAY_SANDSTONE = registerStandardStoneAgeItem("clay_sandstone");
+    public static final RegistryObject<Item> CLAY_DIORITE = registerStandardStoneAgeItem("clay_diorite");
+    public static final RegistryObject<Item> CLAY_GRANITE = registerStandardStoneAgeItem("clay_granite");
+    public static final RegistryObject<Item> CLAY_BASALT = registerStandardStoneAgeItem("clay_basalt");
+    public static final RegistryObject<Item> CLAY_TUFF = registerStandardStoneAgeItem("clay_tuff");
+    public static final RegistryObject<Item> CLAY_NETHERRACK = registerStandardStoneAgeItem("clay_netherrack");
+    public static final RegistryObject<Item> CLAY_BLACKSTONE = registerStandardStoneAgeItem("clay_blackstone");
+    public static final RegistryObject<Item> CLAY_CALCITE = registerStandardStoneAgeItem("clay_calcite");
+    public static final RegistryObject<Item> CLAY_ENDSTONE = registerStandardStoneAgeItem("clay_endstone");
+
+    /*STONE BRICKS*/
+    public static final RegistryObject<Item> BRICK_STONE = registerStandardStoneAgeItem("brick_stone");
+    public static final RegistryObject<Item> BRICK_ANDESITE = registerStandardStoneAgeItem("brick_andesite");
+    public static final RegistryObject<Item> BRICK_DEEPSLATE = registerStandardStoneAgeItem("brick_deepslate");
+    public static final RegistryObject<Item> BRICK_DRIPSTONE = registerStandardStoneAgeItem("brick_dripstone");
+    public static final RegistryObject<Item> BRICK_SANDSTONE = registerStandardStoneAgeItem("brick_sandstone");
+    public static final RegistryObject<Item> BRICK_DIORITE = registerStandardStoneAgeItem("brick_diorite");
+    public static final RegistryObject<Item> BRICK_GRANITE = registerStandardStoneAgeItem("brick_granite");
+    public static final RegistryObject<Item> BRICK_BASALT = registerStandardStoneAgeItem("brick_basalt");
+    public static final RegistryObject<Item> BRICK_TUFF = registerStandardStoneAgeItem("brick_tuff");
+    public static final RegistryObject<Item> BRICK_NETHERRACK = registerStandardStoneAgeItem("brick_netherrack");
+    public static final RegistryObject<Item> BRICK_BLACKSTONE = registerStandardStoneAgeItem("brick_blackstone");
+    public static final RegistryObject<Item> BRICK_CALCITE = registerStandardStoneAgeItem("brick_calcite");
+    public static final RegistryObject<Item> BRICK_ENDSTONE = registerStandardStoneAgeItem("brick_endstone");
+
+    /*Wool*/
+    public static final RegistryObject<Item> WOOL = registerStandardStoneAgeItem("wool");
+    public static final RegistryObject<Item> YARN = registerStandardStoneAgeItem("yarn");
+
+    /*PLANTS*/
+    public static final RegistryObject<Item> PLANT_FIBRE = registerStandardStoneAgeItem("plant_fibre");
+    public static final RegistryObject<Item> BRAIDED_PLANT_FIBRE = registerStandardStoneAgeItem("braided_plant_fibre");
+
+    /*FOOD*/
+    public static final RegistryObject<Item> SALVE = registerStoneAgeItem("salve",
+            () -> new Item(new Item.Properties().food((ModFoods.SALVE))));
+
+    /*Crops*/
+    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = registerStoneAgeItem("medicine_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
+                    new Item.Properties())));
+    public static final RegistryObject<Item> MEDICINE_PLANT = registerStoneAgeItem("medicine_plant",
+            () -> new Item(new Item.Properties()
+                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build()))));
+
+    /*TOOLS*/
+    //Req Material, Damage, attack speed and repair item
+    public static final RegistryObject<SwordItem> BRONZE_SWORD = registerMetalAgeItem("bronze_sword",
+            () -> new SwordItem(ModToolMaterials.BRONZE, 6, 1.6f, new Item.Properties()));
+    public static final RegistryObject<PickaxeItem> BRONZE_PICK = registerMetalAgeItem("bronze_pick",
+            () -> new PickaxeItem(ModToolMaterials.BRONZE, 4, 1.2f, new Item.Properties()));
+    public static final RegistryObject<ModShovelItem> BRONZE_SHOVEL = registerMetalAgeItem("bronze_shovel",
+            () -> new ModShovelItem(ModToolMaterials.BRONZE, 2.25f, 1.0f, new Item.Properties()));
+    public static final RegistryObject<AxeItem> BRONZE_AXE = registerMetalAgeItem("bronze_axe",
+            () -> new AxeItem(ModToolMaterials.BRONZE, 9, 0.9f, new Item.Properties()));
+    public static final RegistryObject<HoeItem> BRONZE_HOE = registerMetalAgeItem("bronze_hoe",
+            () -> new HoeItem(ModToolMaterials.BRONZE, 1, 3.0f, new Item.Properties()));
 
 
-                entries.accept(ModBlocks.COBBLESTONE.get());
-                entries.accept(ModBlocks.BASALT_COBBLESTONE.get());
-                entries.accept(ModBlocks.DEEPSLATE_COBBLESTONE.get());
-                entries.accept(ModBlocks.NETHERRACK_COBBLESTONE.get());
-                entries.accept(ModBlocks.SANDSTONE_COBBLESTONE.get());
-                entries.accept(ModBlocks.BLACKSTONE_COBBLESTONE.get());
-                entries.accept(ModBlocks.ENDSTONE_COBBLESTONE.get());
-                entries.accept(ModBlocks.GRANITE_COBBLESTONE.get());
-                entries.accept(ModBlocks.TUFF_COBBLESTONE.get());
-                entries.accept(ModBlocks.ANDESITE_COBBLESTONE.get());
-                entries.accept(ModBlocks.DIORITE_COBBLESTONE.get());
-                entries.accept(ModBlocks.CALCITE_COBBLESTONE.get());
+    /*Armor*/
 
-                entries.accept(ModBlocks.STONE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.BASALT_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.DEEPSLATE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.NETHERRACK_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.SANDSTONE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.BLACKSTONE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.ENDSTONE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.GRANITE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.TUFF_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.ANDESITE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.DIORITE_BRICK_BLOCK.get());
-                entries.accept(ModBlocks.CALCITE_BRICK_BLOCK.get());
+    public static final RegistryObject<ArmorItem> BRONZE_HELMET = registerMetalAgeItem("bronze_helmet",
+            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.HELMET, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> BRONZE_CHEST = registerMetalAgeItem("bronze_chest",
+            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> BRONZE_LEGS = registerMetalAgeItem("bronze_legs",
+            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+    public static final RegistryObject<ArmorItem> BRONZE_BOOTS = registerMetalAgeItem("bronze_boots",
+            () -> new ArmorItem(ModArmorMaterial.BRONZE, ArmorItem.Type.BOOTS, new Item.Properties()));
 
-                entries.accept(ModBlocks.THATCH.get());
-                entries.accept(ModBlocks.TORCH.get());
+    /*ORE CHUNKS*/
+    public static final RegistryObject<Item> RAW_TIN = registerStandardMetalAgeItem("raw_tin");
+    public static final RegistryObject<Item> RAW_SILVER = registerStandardMetalAgeItem("raw_silver");
 
-                entries.accept(PLANT_FIBRE.get());
-                entries.accept(BRAIDED_PLANT_FIBRE.get());
-                entries.accept(MEDICINE_PLANT.get());
-                entries.accept(WOOL.get());
-                entries.accept(YARN.get());
+    /*Ingots*/
+    public static final RegistryObject<Item> INGOT_TIN = registerStandardMetalAgeItem("ingot_tin");
+    public static final RegistryObject<Item> INGOT_BRONZE = registerStandardMetalAgeItem("ingot_bronze");
+    public static final RegistryObject<Item> INGOT_STEEL = registerStandardMetalAgeItem("ingot_steel");
+    public static final RegistryObject<Item> INGOT_SILVER = registerStandardMetalAgeItem("ingot_silver");
+
+    /*Nuggets*/
+    public static final RegistryObject<Item> NUGGET_COPPER = registerStandardMetalAgeItem("nugget_copper");
+    public static final RegistryObject<Item> NUGGET_TIN = registerStandardMetalAgeItem("nugget_tin");
+    public static final RegistryObject<Item> NUGGET_BRONZE = registerStandardMetalAgeItem("nugget_bronze");
+    public static final RegistryObject<Item> NUGGET_STEEL = registerStandardMetalAgeItem("nugget_steel");
+    public static final RegistryObject<Item> NUGGET_SILVER = registerStandardMetalAgeItem("nugget_silver");
+
+    /*Dusts*/
+    public static final RegistryObject<Item> DUST_IRON = registerStandardMetalAgeItem("dust_iron");
+    public static final RegistryObject<Item> DUST_GOLD = registerStandardMetalAgeItem("dust_gold");
+    public static final RegistryObject<Item> DUST_COPPER = registerStandardMetalAgeItem("dust_copper");
+    public static final RegistryObject<Item> DUST_TIN = registerStandardMetalAgeItem("dust_tin");
+    public static final RegistryObject<Item> DUST_BRONZE = registerStandardMetalAgeItem("dust_bronze");
+    public static final RegistryObject<Item> DUST_STEEL = registerStandardMetalAgeItem("dust_steel");
+    public static final RegistryObject<Item> DUST_SILVER = registerStandardMetalAgeItem("dust_silver");
 
 
-                entries.accept(HIDE_SMALL.get());
-                entries.accept(HIDE_MEDIUM.get());
-                entries.accept(HIDE_LARGE.get());
-                entries.accept(UNFIRED_CLAY_JUG.get());
-                entries.accept(UNFIRED_CLAY_BUCKET.get());
-                entries.accept(UNFIRED_CLAY_BOTTLE.get());
-                entries.accept(CLAY_VIAL.get());
-                entries.accept(BASIC_FIRESTARTER.get());
-                entries.accept(FLINT_KNIFE.get());
-                entries.accept(FLINT_PICK.get());
-                entries.accept(FLINT_SHOVEL.get());
-                entries.accept(FLINT_AXE.get());
-                entries.accept(FLINT_HOE.get());
-                entries.accept(FLINT_SAW.get());
-                entries.accept(STONE_HAMMER.get());
-                entries.accept(STONE_SPEAR.get());
 
-                entries.accept(FLINT_BLADE.get());
-                entries.accept(FLINT_PICK_HEAD.get());
-                entries.accept(FLINT_SHOVEL_HEAD.get());
-                entries.accept(FLINT_AXE_HEAD.get());
-                entries.accept(FLINT_HOE_HEAD.get());
-                entries.accept(FLINT_SAW_HEAD.get());
 
-                entries.accept(SALVE.get());
 
-                entries.accept(CHUNK_STONE.get());
-                entries.accept(CHUNK_ANDESITE.get());
-                entries.accept(CHUNK_DEEPSLATE.get());
-                entries.accept(CHUNK_SANDSTONE.get());
-                entries.accept(CHUNK_DRIPSTONE.get());
-                entries.accept(CHUNK_DIORITE.get());
-                entries.accept(CHUNK_GRANITE.get());
-                entries.accept(CHUNK_BASALT.get());
-                entries.accept(CHUNK_TUFF.get());
-                entries.accept(CHUNK_NETHERRACK.get());
-                entries.accept(CHUNK_BLACKSTONE.get());
-                entries.accept(CHUNK_CALCITE.get());
-                entries.accept(CHUNK_ENDSTONE.get());
-                entries.accept(DUST_STONE.get());
-                entries.accept(DUST_ANDESITE.get());
-                entries.accept(DUST_DEEPSLATE.get());
-                entries.accept(DUST_DRIPSTONE.get());
-                entries.accept(DUST_SANDSTONE.get());
-                entries.accept(DUST_DIORITE.get());
-                entries.accept(DUST_GRANITE.get());
-                entries.accept(DUST_BASALT.get());
-                entries.accept(DUST_TUFF.get());
-                entries.accept(DUST_NETHERRACK.get());
-                entries.accept(DUST_BLACKSTONE.get());
-                entries.accept(DUST_CALCITE.get());
-                entries.accept(DUST_ENDSTONE.get());
-                entries.accept(CLAY_STONE.get());
-                entries.accept(CLAY_ANDESITE.get());
-                entries.accept(CLAY_DEEPSLATE.get());
-                entries.accept(CLAY_DRIPSTONE.get());
-                entries.accept(CLAY_SANDSTONE.get());
-                entries.accept(CLAY_DIORITE.get());
-                entries.accept(CLAY_GRANITE.get());
-                entries.accept(CLAY_BASALT.get());
-                entries.accept(CLAY_TUFF.get());
-                entries.accept(CLAY_NETHERRACK.get());
-                entries.accept(CLAY_BLACKSTONE.get());
-                entries.accept(CLAY_CALCITE.get());
-                entries.accept(CLAY_ENDSTONE.get());
-                entries.accept(BRICK_STONE.get());
-                entries.accept(BRICK_ANDESITE.get());
-                entries.accept(BRICK_DEEPSLATE.get());
-                entries.accept(BRICK_DRIPSTONE.get());
-                entries.accept(BRICK_SANDSTONE.get());
-                entries.accept(BRICK_DIORITE.get());
-                entries.accept(BRICK_GRANITE.get());
-                entries.accept(BRICK_BASALT.get());
-                entries.accept(BRICK_TUFF.get());
-                entries.accept(BRICK_NETHERRACK.get());
-                entries.accept(BRICK_BLACKSTONE.get());
-                entries.accept(BRICK_CALCITE.get());
-                entries.accept(BRICK_ENDSTONE.get());
-                entries.accept(LOG_OAK.get());
-                entries.accept(LOG_SPRUCE.get());
-                entries.accept(LOG_BIRCH.get());
-                entries.accept(LOG_JUNGLE.get());
-                entries.accept(LOG_ACACIA.get());
-                entries.accept(LOG_DARK_OAK.get());
-                entries.accept(LOG_MANGROVE.get());
-                entries.accept(LOG_WARPED.get());
-                entries.accept(LOG_CRIMSON.get());
-                entries.accept(PLANK_OAK.get());
-                entries.accept(PLANK_SPRUCE.get());
-                entries.accept(PLANK_BIRCH.get());
-                entries.accept(PLANK_JUNGLE.get());
-                entries.accept(PLANK_ACACIA.get());
-                entries.accept(PLANK_DARK_OAK.get());
-                entries.accept(PLANK_MANGROVE.get());
-                entries.accept(PLANK_WARPED.get());
-                entries.accept(PLANK_CRIMSON.get());
 
-            }).build());
-
-    public static final RegistryObject<CreativeModeTab> METAL_AGE_TAB = CREATIVE_MODE_TABS.register((Neolith.MODID + "metal_age"), () -> CreativeModeTab.builder()
-            .title(Component.translatable("bronze_age" + Neolith.MODID))
-            .icon(() -> INGOT_BRONZE.get().getDefaultInstance())
-            .displayItems((enabledFeatures, entries) -> {
-                        entries.accept(ModBlocks.ORE_TIN.get());
-                        entries.accept(ModBlocks.ORE_SILVER.get());
-                        entries.accept(ModBlocks.BLOCK_TIN.get());
-                        entries.accept(ModBlocks.BLOCK_SILVER.get());
-                        entries.accept(ModBlocks.BLOCK_BRONZE.get());
-                        entries.accept(ModBlocks.BLOCK_STEEL.get());
-
-                        entries.accept(BRONZE_SWORD.get());
-                        entries.accept(BRONZE_PICK.get());
-                        entries.accept(BRONZE_SHOVEL.get());
-                        entries.accept(BRONZE_AXE.get());
-                        entries.accept(BRONZE_HOE.get());
-
-                        entries.accept(RAW_TIN.get());
-                        entries.accept(RAW_SILVER.get());
-                        entries.accept(INGOT_TIN.get());
-                        entries.accept(INGOT_BRONZE.get());
-                        entries.accept(INGOT_STEEL.get());
-                        entries.accept(INGOT_SILVER.get());
-                        entries.accept(NUGGET_COPPER.get());
-                        entries.accept(NUGGET_TIN.get());
-                        entries.accept(NUGGET_BRONZE.get());
-                        entries.accept(NUGGET_STEEL.get());
-                        entries.accept(NUGGET_SILVER.get());
-                        entries.accept(DUST_IRON.get());
-                        entries.accept(DUST_GOLD.get());
-                        entries.accept(DUST_COPPER.get());
-                        entries.accept(DUST_TIN.get());
-                        entries.accept(DUST_BRONZE.get());
-                        entries.accept(DUST_STEEL.get());
-                        entries.accept(DUST_SILVER.get());
-
-                entries.accept(BRONZE_HELMET.get());
-                entries.accept(BRONZE_CHEST.get());
-                entries.accept(BRONZE_LEGS.get());
-                entries.accept(BRONZE_BOOTS.get());
-                    }).build());
 
 
     /*Heat Values for wood*/
@@ -567,8 +250,30 @@ public class ModItems {
 
     /*Helpers*/
     public static <I extends Item> RegistryObject<FuelItem> createFuelItem(String name, int heat, Item.Properties itemProperties) {
-        return ITEMS.register(name, () -> new FuelItem(itemProperties, heat, name));
+        return addToStoneAgeTab(ITEMS.register(name, () -> new FuelItem(itemProperties, heat, name)));
     }
+    public static  RegistryObject<Item> registerStandardStoneAgeItem(String name){
+        return addToStoneAgeTab(ITEMS.register(name,
+                () -> new Item(new Item.Properties())));
+    }
+    public static  RegistryObject<Item> registerStandardMetalAgeItem(String name){
+        return addToMetalAgeTab(ITEMS.register(name,
+                () -> new Item(new Item.Properties())));
+    }
+
+    private static <I extends Item> RegistryObject<I> registerStoneAgeItem(String name, Supplier<I> item){
+        return addToStoneAgeTab(ITEMS.register(name, item));
+    }
+    private static <I extends Item> RegistryObject<I> registerMetalAgeItem(String name, Supplier<I> item){
+        return addToMetalAgeTab(ITEMS.register(name, item));
+    }
+
+//    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Item.Properties itemProperties) {
+//        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+//        registerBlockItem(name, toReturn, itemProperties);
+//        return toReturn;
+//    }
+
 
 
 }

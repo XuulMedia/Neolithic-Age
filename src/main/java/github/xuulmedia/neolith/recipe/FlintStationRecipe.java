@@ -20,7 +20,6 @@ public class FlintStationRecipe  implements Recipe<Container> {
     protected final ItemStack result;
     protected final ResourceLocation id;
 
-
     public FlintStationRecipe(ResourceLocation id, Ingredient ingredient, ItemStack result) {
         this.id = id;
         this.ingredient = ingredient;
@@ -59,12 +58,12 @@ public class FlintStationRecipe  implements Recipe<Container> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return ManualGrinderRecipe.Serializer.INSTANCE;
+        return FlintStationRecipe.SERIALIZER;
     }
 
     @Override
     public RecipeType<?> getType() {
-        return ManualGrinderRecipe.Type.INSTANCE;
+        return FlintStationRecipe.Type.INSTANCE;
     }
 
 

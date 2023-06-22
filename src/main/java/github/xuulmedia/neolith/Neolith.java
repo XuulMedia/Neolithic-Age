@@ -28,7 +28,7 @@ public class Neolith {
         ModBlocks.BLOCKS.register(bus);
         ModBlocks.VANILLA_BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
-        ModItems.CREATIVE_MODE_TABS.register(bus);
+        ModCreativeTabs.CREATIVE_MODE_TABS.register(bus);
         MinecraftForge.EVENT_BUS.register(ModEvents.class);
         ModBlockEntities.BLOCK_ENTITIES.register(bus);
         ModMenuTypes.MENUS.register(bus);

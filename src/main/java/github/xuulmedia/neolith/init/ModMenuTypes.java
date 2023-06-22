@@ -30,6 +30,9 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<FoundryMenu>> FOUNDRY_MENU =
             registerMenuType(FoundryMenu::new,"foundry_menu");
 
+    public static final RegistryObject<MenuType<WorkBenchMenu>> WORK_BENCH_MENU =
+            registerMenuType(WorkBenchMenu::new,"workbench_menu");
+
     public static final RegistryObject<MenuType<BasketMenu>> BASKET_MENU = MENUS.register("basket_menu",
             () -> IForgeMenuType.create(BasketMenu::createClientMenu));
 
@@ -41,6 +44,8 @@ public final class ModMenuTypes {
         MenuScreens.register(ModMenuTypes.FORGE_MENU.get(), ForgeScreen::new);
         MenuScreens.register(ModMenuTypes.FOUNDRY_MENU.get(), FoundryScreen::new);
         MenuScreens.register(ModMenuTypes.BASKET_MENU.get(), BasketScreen::new);
+
+        MenuScreens.register(ModMenuTypes.WORK_BENCH_MENU.get(), WorkBenchScreen::new);
     }
 
 

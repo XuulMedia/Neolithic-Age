@@ -32,8 +32,7 @@ public class ManualGrinderMenu  extends AbstractContainerMenu {
         this.level = inventory.player.level();
         this.data = data;
 
-        addPlayerInventory(inventory);
-        addPlayerHotbar(inventory);
+
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 12, 15));
@@ -42,6 +41,8 @@ public class ManualGrinderMenu  extends AbstractContainerMenu {
         });
 
         addDataSlots(data);
+        addPlayerInventory(inventory);
+        addPlayerHotbar(inventory);
     }
 
     @Override

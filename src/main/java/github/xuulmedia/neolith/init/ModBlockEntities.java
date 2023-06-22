@@ -3,11 +3,8 @@ package github.xuulmedia.neolith.init;
 import github.xuulmedia.neolith.Neolith;
 
 
-import github.xuulmedia.neolith.block.entity.ForgeBE;
-import github.xuulmedia.neolith.block.entity.FoundryBE;
-import github.xuulmedia.neolith.block.entity.ManualGrinderBlockEntity;
+import github.xuulmedia.neolith.block.entity.*;
 
-import github.xuulmedia.neolith.block.entity.ModCampfireBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -29,6 +26,10 @@ public class ModBlockEntities {
 
     public static final RegistryObject<BlockEntityType<FoundryBE>> FOUNDRY = BLOCK_ENTITIES.register("kiln",
             () -> BlockEntityType.Builder.of(FoundryBE::new, ModBlocks.FOUNDRY.get()).build(null));
+
+
+    public static final RegistryObject<BlockEntityType<WorkBenchBE>> WORK_BENCH = BLOCK_ENTITIES.register("workbench",
+            () -> BlockEntityType.Builder.of(WorkBenchBE::new, ModBlocks.WORK_BENCH.get()).build(null));
 
 
 }
