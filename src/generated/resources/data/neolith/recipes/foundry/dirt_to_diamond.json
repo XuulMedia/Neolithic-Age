@@ -1,0 +1,9 @@
+{
+  "type": "neolith:forge_recipe",
+  "count": 1,
+  "heat": 1000,
+  "input": {
+    "item": "minecraft:dirt"
+  },
+  "output": "minecraft:diamond"
+}

@@ -7,15 +7,14 @@ import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
 
 public class ModLanguageProvider extends LanguageProvider {
-
     public ModLanguageProvider(PackOutput output, String locale) {
         super(output, Neolith.MODID, locale);
     }
 
     @Override
     protected void addTranslations() {
-//        add("itemGroup." + Flint.FLINT_TAB, "Stone Age");
-//        add("itemGroup." + Flint.METAL_TAB, "Metal Age");
+        add("itemGroup.stone_age." + Neolith.MODID, "Stone Age");
+        add("itemGroup.metal_age." + Neolith.MODID, "Bronze Age");
 
         add("container.neolith.forge.heat","%s degrees");
         add("container.neolith.forge.heat.target","Fuel max temperature: %s degrees");
@@ -29,7 +28,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add(ModBlocks.ORE_TIN.get(), "Tin Ore");
         add(ModBlocks.ORE_SILVER.get(), "Nether Silver Ore");
-//        add(ModBlocks.FLINT_NODE.get(), "Flint Nodule");
+        add(ModBlocks.FLINT_NODE.get(), "Flint Nodule");
 
         add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
         add(ModItems.BRAIDED_PLANT_FIBRE.get(), "Braided Plant Fibre");

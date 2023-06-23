@@ -52,7 +52,7 @@ public class WorkBenchMenu extends AbstractContainerMenu {
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler,0, 142, 23));
-        };
+        });
 
         this.addSlot(new Slot(this.resultSlots, 0, 142, 23));
 

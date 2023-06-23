@@ -17,7 +17,6 @@ import static github.xuulmedia.neolith.init.ModCreativeTabs.addToStoneAgeTab;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Neolith.MODID);
 
-
     public static final int LOW_HEAT_WOOD = 250;
     public static final int MED_HEAT_WOOD = 350;
     public static final int HIGH_HEAT_WOOD = 500;
@@ -30,7 +29,7 @@ public class ModItems {
     public static final RegistryObject<PickaxeItem> FLINT_PICK = registerStoneAgeItem("flint_pickaxe",
             () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().durability(50)));
     public static final RegistryObject<ShovelItem> FLINT_SHOVEL = registerStoneAgeItem("flint_shovel",
-            () -> new ShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().durability(50)));
+            () -> new ModShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().durability(50)));
     public static final RegistryObject<AxeItem> FLINT_AXE = registerStoneAgeItem("flint_axe",
             () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().durability(50)));
     public static final RegistryObject<HoeItem> FLINT_HOE = registerStoneAgeItem("flint_hoe",
@@ -165,12 +164,12 @@ public class ModItems {
             () -> new Item(new Item.Properties().food((ModFoods.SALVE))));
 
     /*Crops*/
-    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = registerStoneAgeItem("medicine_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
-                    new Item.Properties())));
+//    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = registerStoneAgeItem("medicine_seeds",
+//            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
+//                    new Item.Properties()));
     public static final RegistryObject<Item> MEDICINE_PLANT = registerStoneAgeItem("medicine_plant",
             () -> new Item(new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build()))));
+                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
 
     /*TOOLS*/
     //Req Material, Damage, attack speed and repair item
@@ -261,10 +260,10 @@ public class ModItems {
                 () -> new Item(new Item.Properties())));
     }
 
-    private static <I extends Item> RegistryObject<I> registerStoneAgeItem(String name, Supplier<I> item){
+    public static <I extends Item> RegistryObject<I> registerStoneAgeItem(String name, Supplier<I> item){
         return addToStoneAgeTab(ITEMS.register(name, item));
     }
-    private static <I extends Item> RegistryObject<I> registerMetalAgeItem(String name, Supplier<I> item){
+    public static <I extends Item> RegistryObject<I> registerMetalAgeItem(String name, Supplier<I> item){
         return addToMetalAgeTab(ITEMS.register(name, item));
     }
 

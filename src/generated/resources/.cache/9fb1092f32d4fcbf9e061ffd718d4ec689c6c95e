@@ -1,4 +1,4 @@
-// 1.20	2023-06-17T16:49:05.0347527	Recipes
+// 1.20	2023-06-22T19:00:50.8118854	Recipes
 236e31c50080e2ec81d239f4a42657f9c484213f data/minecraft/advancements/recipes/building_blocks/chest.json
 c96bcf1f118718fdce2131de2dcefd57662e1fcf data/minecraft/advancements/recipes/misc/crafting_table.json
 261fafec7a8d9dc4b2a89fb8443e6154a9e36c56 data/minecraft/recipes/chest.json
@@ -149,9 +149,9 @@ c1326a06d62a05703d599f5e0d44a8f9fc421b6a data/neolith/recipes/flint_saw_head.jso
 71d94156683bc79fa59a9174ba9f5705a86332f1 data/neolith/recipes/flint_shovel.json
 87d703f1c4b850ce8f00026d1a78c2b3c0aa50f5 data/neolith/recipes/flint_shovel_head.json
 92fb364b2082ae10b0f3b297550547b746b705fa data/neolith/recipes/flint_station.json
-45d252258e7b5782fadf3f23750a9caa25b90295 data/neolith/recipes/foundry/dirt_to_diamond.json
-0dbdebcdfc7dbed7d71f215c5f63886538869ef4 data/neolith/recipes/foundry/glass.json
-cd547071122bfd08b76527c019d144b2f07c906f data/neolith/recipes/foundry/torch.json
+5cae6ae7e49859af37b55b58c5f9a94b5550e15c data/neolith/recipes/foundry/dirt_to_diamond.json
+9d6eed2f7270b8cbfe4f078aed19329f684775a5 data/neolith/recipes/foundry/glass.json
+5273b94b889c47af6daa151d539744bc620254f3 data/neolith/recipes/foundry/torch.json
 43e2d11f34a7bf6998508eff194a6fbf9655d561 data/neolith/recipes/ingot_bronze_from_block_bronze.json
 5eab2d4de0512d50d5ca8e03adbdc5a49d423edf data/neolith/recipes/ingot_bronze_from_nugget_bronze.json
 d38649ea0150b1324aec2c8247e8894b87826a86 data/neolith/recipes/ingot_silver_from_blasting_ore_nether_silver.json
