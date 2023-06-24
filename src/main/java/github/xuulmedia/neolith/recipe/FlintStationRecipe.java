@@ -2,6 +2,7 @@ package github.xuulmedia.neolith.recipe;
 
 import com.google.gson.JsonObject;
 import github.xuulmedia.neolith.Neolith;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -13,47 +14,37 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 
-public class FlintStationRecipe  implements Recipe<Container> {
+public class FlintStationRecipe  extends AbstractNeolithItemCraft{
     public static final Serializer SERIALIZER = new Serializer();
 
-    protected final Ingredient ingredient;
-    protected final ItemStack result;
-    protected final ResourceLocation id;
+    protected int SLOT_INPUT = 0;
+    protected int SLOT_RESULT = 1;
 
-    public FlintStationRecipe(ResourceLocation id, Ingredient ingredient, ItemStack result) {
-        this.id = id;
-        this.ingredient = ingredient;
-        this.result = result;
+    public FlintStationRecipe(ResourceLocation id, String group, NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience) {
+        super(ForgeRecipe.Type.INSTANCE, id, group, ingredients, results, experience);
     }
 
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
-        return false;
+        return this.ingredients.get(0).test(pContainer.getItem(SLOT_INPUT));
     }
 
     @Override
     public ItemStack assemble(Container p_44001_, RegistryAccess p_267165_) {
-        return this.result.copy();
-    }
-
-    @Override
-    public boolean canCraftInDimensions(int pWidth, int pHeight) {
-        return true;
+        return this.results.get(0).copy();
     }
 
     @Override
     public ItemStack getResultItem(RegistryAccess p_267052_) {
-        return this.result;
+        return this.results.get(0).copy();
     }
 
-    @Override
-    public boolean isSpecial() {
-        return true;
+    public ItemStack getResult(){
+        return  this.results.get(0).copy();
     }
 
-    @Override
-    public ResourceLocation getId() {
-        return this.id;
+    public Ingredient getIngredient() {
+        return  this.ingredients.get(0);
     }
 
     @Override
@@ -76,36 +67,39 @@ public class FlintStationRecipe  implements Recipe<Container> {
     }
 
     private static class Serializer implements RecipeSerializer<FlintStationRecipe> {
-
-        public static final ResourceLocation ID = new ResourceLocation(Neolith.MODID, "flint_station");
-
+        public static final Serializer INSTANCE = new Serializer();
+        public static final ResourceLocation ID =
+                new ResourceLocation(Neolith.MODID, "flint_station");
 
         @Override
-        public FlintStationRecipe fromJson(ResourceLocation pRecipeId, JsonObject pSerializedRecipe) {
-            ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
+        public FlintStationRecipe fromJson(ResourceLocation recipeID, JsonObject json) {
+            String group = GsonHelper.getAsString(json, "group", "");
 
-            Ingredient ingredient;
-            if (GsonHelper.isArrayNode(pSerializedRecipe, "ingredient")) {
-                ingredient = Ingredient.fromJson(GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredient"), false);
-            } else {
-                ingredient = Ingredient.fromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "ingredient"), false);
-            }
+            NonNullList<Ingredient> ingredients = ingredientsFromJson(GsonHelper.getAsJsonArray(json, "ingredients"));
+            NonNullList<ItemStack> results = resultsFromJson(GsonHelper.getAsJsonArray(json, "results"));
 
-            return new FlintStationRecipe(pRecipeId, ingredient, output);
+            float experience = GsonHelper.getAsFloat(json, "experience", 0.0F);
+            return new FlintStationRecipe(recipeID, group, ingredients, results, experience);
+        }
 
+        @Nullable
+        @Override
+        public FlintStationRecipe fromNetwork(ResourceLocation recipeID, FriendlyByteBuf buffer) {
+            String group = buffer.readUtf();
+            NonNullList<Ingredient> ingredients = buffer.readCollection(NonNullList::createWithCapacity,
+                    Ingredient::fromNetwork);
+            NonNullList<ItemStack> results = buffer.readCollection(NonNullList::createWithCapacity,
+                    FriendlyByteBuf::readItem);
+            float xp = buffer.readFloat();
+            return new FlintStationRecipe(recipeID, group,  ingredients, results, xp);
         }
 
         @Override
-        public @Nullable FlintStationRecipe fromNetwork(ResourceLocation pRecipeId, FriendlyByteBuf pBuffer) {
-            ItemStack output = pBuffer.readItem();
-            Ingredient ingredient = Ingredient.fromNetwork(pBuffer);
-            return new FlintStationRecipe(pRecipeId, ingredient, output);
-        }
-
-        @Override
-        public void toNetwork(FriendlyByteBuf pBuffer, FlintStationRecipe pRecipe) {
-            pBuffer.writeItem(pRecipe.result);
-            pRecipe.ingredient.toNetwork(pBuffer);
+        public void toNetwork(FriendlyByteBuf buffer, FlintStationRecipe recipe) {
+            buffer.writeUtf(recipe.group);
+            buffer.writeCollection(recipe.ingredients, (fbb, ingr) -> ingr.toNetwork(fbb));
+            buffer.writeCollection(recipe.results, FriendlyByteBuf::writeItem);
+            buffer.writeFloat(recipe.experience);
         }
     }
 

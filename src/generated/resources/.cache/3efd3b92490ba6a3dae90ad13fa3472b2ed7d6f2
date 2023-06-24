@@ -1,4 +1,4 @@
-// 1.20	2023-06-22T19:00:50.8098833	Item Models: neolith
+// 1.20	2023-06-23T21:30:38.9830691	Item Models: neolith
 618efee55ad7b4fc2ce52019624a21c6c1509462 assets/neolith/models/item/basket.json
 7c067dd4b0f73d43220b5e20cd426b915302df8a assets/neolith/models/item/braided_plant_fibre.json
 97d9f319085e9806a6e040c4d6dc88e44c80f440 assets/neolith/models/item/brick_basalt.json
@@ -18,29 +18,37 @@ f9e1bd21a4797c16cfd1242cd335d328519b0056 assets/neolith/models/item/chunk_diorit
 ee695389e51ea843da422c5a844858e0e02fa950 assets/neolith/models/item/chunk_dripstone.json
 20dbb741139b59f5f2dd3b60dc9518db208f5701 assets/neolith/models/item/chunk_granite.json
 248ce83149b568e21bf8be4c54bf119024ec0268 assets/neolith/models/item/chunk_netherrack.json
+80932a28a19e624277cb62c80fa134538cb45c04 assets/neolith/models/item/chunk_red_sandstone.json
 137fa439dcc38a6ae96fd48e509cf397e7bdf19e assets/neolith/models/item/chunk_sandstone.json
 9e5b013f7d254c8ebfbb0f9a8702be14df614a49 assets/neolith/models/item/chunk_stone.json
 dad899c8126570a7e894ce4f9bf1a0463b1f558e assets/neolith/models/item/chunk_tuff.json
+97acadb7d04170a54d15ebf9254f3c9a72810cf9 assets/neolith/models/item/clay_andesite.json
+1a3cc1d5e7e3a2a0cd02b48fd2053cf2ea68d12c assets/neolith/models/item/clay_basalt.json
 5feb82776718d9878d772aec7072dbad19a8b36a assets/neolith/models/item/clay_blackstone.json
 01648a0465a36c7f456b1ec258859d6e478e1d86 assets/neolith/models/item/clay_calcite.json
+accc2d776253aa4550521c5989b9504d41a51c1f assets/neolith/models/item/clay_deepslate.json
+e7d64ff4d99524b862750ed3e80a6268bf1fa059 assets/neolith/models/item/clay_diorite.json
+2bee0d2da51e557adb34967626715bd6c14ec8f3 assets/neolith/models/item/clay_dripstone.json
 df76fb82443fe819d0bd14719d0ed108bcaa8d0f assets/neolith/models/item/clay_netherrack.json
 8c2960ab29a366dbe4e7175528d115761e0ba82f assets/neolith/models/item/clay_sandstone.json
-62e289d63466a657eaddca363f2f17c5a8f71ce2 assets/neolith/models/item/dust_andesite.json
 7454ba9c94fe5cf773b7a748e84c980307884df8 assets/neolith/models/item/dust_basalt.json
 0b8593b9f93219f71afe01d11c72b83557378b0c assets/neolith/models/item/dust_bronze.json
 493ec32c29d9fdc1911ca80c5195c7123cc60af5 assets/neolith/models/item/dust_calcite.json
 3e280c550f3add1c77e8ae6a29f68cb103dcc149 assets/neolith/models/item/dust_copper.json
 add3811807498c2bd6ebb7dbf0e7c21bec1fc5dd assets/neolith/models/item/dust_deepslate.json
 bc364be759296146d7defa41a4b4455928686565 assets/neolith/models/item/dust_diorite.json
+178c43a5ed56a62b6a953ae33cbacaa0682c08f3 assets/neolith/models/item/dust_dripstone.json
 3a82784651a24afb3f8ba923297992445f362ac4 assets/neolith/models/item/dust_gold.json
 85393a41142f3425a9dcde47269938fcfe0ba75d assets/neolith/models/item/dust_granite.json
 446e09b4b49b645ef675abcd6bc8a6e440f41cd0 assets/neolith/models/item/dust_iron.json
 4ac26bd2e9e00a1c2bdeb4097445578a2079bf54 assets/neolith/models/item/dust_netherrack.json
+241c076f24c91834a28f1d783406960f0417603c assets/neolith/models/item/dust_red_sandstone.json
 9e636f3f8ecb7f0045039e7d78231af4be96b2c9 assets/neolith/models/item/dust_sandstone.json
 a1cacb6424b24cb8bdd8f2152fafb3a271489062 assets/neolith/models/item/dust_silver.json
 8bc0e0213101933ccea77aad71eed389ee2b3135 assets/neolith/models/item/dust_steel.json
 edd7ae6e2e001dd02a4d3997361d0308b8299fb2 assets/neolith/models/item/dust_stone.json
 8850cd903fbbb6e17c95ed24a5a547f398a45707 assets/neolith/models/item/dust_tin.json
+78cf20c7fda33c345deb3fc1b48df436d258ce5b assets/neolith/models/item/dust_tuff.json
 fdc81fc71f1614fa28f0a524ed12c316d3d0463c assets/neolith/models/item/firestarter.json
 4eb727b069e89cf3de41778b613301fc352e98c5 assets/neolith/models/item/flint_axe.json
 80a11e9c94ca8b9415372f89b8208e2e26af67e9 assets/neolith/models/item/flint_axe_head.json

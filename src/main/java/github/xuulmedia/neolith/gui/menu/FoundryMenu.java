@@ -45,8 +45,6 @@ public class FoundryMenu extends AbstractContainerMenu {
         this.data = data;
         this.cachedRecipe = null;
 
-        addPlayerInventory(inventory);
-        addPlayerHotbar(inventory);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new FuelSlot(handler, FoundryBE.SLOT_FUEL, 56, 53));
@@ -66,7 +64,8 @@ public class FoundryMenu extends AbstractContainerMenu {
             }
         });
 
-
+        addPlayerInventory(inventory);
+        addPlayerHotbar(inventory);
 
         this.addDataSlots(data);
 

@@ -1,0 +1,14 @@
+{
+  "type": "neolith:flint_station",
+  "ingredients": [
+    {
+      "item": "minecraft:flint"
+    }
+  ],
+  "results": [
+    {
+      "item": "neolith:flint_blade"
+    }
+  ],
+  "experience": 10
+}

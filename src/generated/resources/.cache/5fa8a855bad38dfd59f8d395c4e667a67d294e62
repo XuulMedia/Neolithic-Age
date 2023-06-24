@@ -1,7 +1,8 @@
-// 1.20	2023-06-12T20:27:11.6190917	Tags for minecraft:item mod id neolith
+// 1.20	2023-06-23T21:30:38.9820691	Tags for minecraft:item mod id neolith
 619cd8e9f1432f538906cb8d56ba685c53903466 data/forge/tags/items/ingots.json
 ae85d71226674b389fca8594509c647e35135317 data/neolith/tags/items/bindings.json
-6b0dde2b784a04ad769c0f1a56ffcd9f3447504f data/neolith/tags/items/clay.json
+0d8eee712bb389d691d4516496b5622a56c13fa8 data/neolith/tags/items/brick.json
+79a237be43c1adbae42507a8ed31dbe7806a0c75 data/neolith/tags/items/clay.json
 4077d773276a80fa0eef7d724e5a302524a2bfab data/neolith/tags/items/dousers.json
 e152fc509cde1daa6d075f33e17fbb7d10e20d38 data/neolith/tags/items/hammers.json
 d2ccb97ae2e79bf09f8b4f64a0814a7cef64e5b9 data/neolith/tags/items/knives.json
@@ -11,4 +12,5 @@ d2ccb97ae2e79bf09f8b4f64a0814a7cef64e5b9 data/neolith/tags/items/knives.json
 b0dfdb0e4ea41bd1c2ab143289f2f86aa67a0382 data/neolith/tags/items/plant_fibre.json
 803759dd74afd8b0a5dca2a01f870977bd3d4824 data/neolith/tags/items/saws.json
 4077d773276a80fa0eef7d724e5a302524a2bfab data/neolith/tags/items/shovels.json
-9ec0159638c735c12460085baa54726f35e25400 data/neolith/tags/items/stone_chunks.json
+07462ae7878a618bb4a7a05c50e6117c58c6479f data/neolith/tags/items/stone_chunks.json
+53baa69fd7597e008d6fdafc832836a5c4f53ccf data/neolith/tags/items/stone_dusts.json

@@ -15,7 +15,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
@@ -26,6 +25,13 @@ import org.jetbrains.annotations.Nullable;
 
 public class WorkBenchBE extends BlockEntity implements MenuProvider {
     public static final String DISPLAY_NAME = "Work Bench";
+
+    public static final int RESULT_SLOT = 0;
+    public static final int CRAFTING_SLOTS_START = 1;
+    public static final int CRAFTING_SLOTS_END = 9;
+    public static final int STORAGE_SLOTS_START = 10;
+    public static final int STORAGE_SLOTS_END = 19;
+
     public static final int NUM_SLOTS = 19; // this must be a match with the number in the block MENU
     protected final ContainerData data;
     private int progress = 0;
@@ -38,6 +44,15 @@ public class WorkBenchBE extends BlockEntity implements MenuProvider {
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
+
+    protected int GetResultSlot() {
+        return RESULT_SLOT;
+    }
+
+//    protected int GetCraftingSlots(){ return CRAFTING_SLOTS.length};
+
+
+
     public WorkBenchBE(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.WORK_BENCH.get(), pPos, pBlockState);
         this.data = new ContainerData() {
@@ -48,14 +63,12 @@ public class WorkBenchBE extends BlockEntity implements MenuProvider {
                     default -> 0;
                 };
             }
-
             @Override
             public void set(int index, int value) {
                 switch (index) {
                     case 0 -> WorkBenchBE.this.progress = value;
                 }
             }
-
             @Override
             public int getCount() {
                 return 1;

@@ -1,15 +1,18 @@
 {
   "values": [
-    "neolith:chunk_stone",
     "neolith:chunk_andesite",
-    "neolith:chunk_deepslate",
-    "neolith:chunk_dripstone",
-    "neolith:chunk_diorite",
-    "neolith:chunk_granite",
     "neolith:chunk_basalt",
-    "neolith:chunk_tuff",
-    "neolith:chunk_netherrack",
     "neolith:chunk_blackstone",
-    "neolith:chunk_calcite"
+    "neolith:chunk_calcite",
+    "neolith:chunk_deepslate",
+    "neolith:chunk_diorite",
+    "neolith:chunk_dripstone",
+    "neolith:chunk_granite",
+    "neolith:chunk_netherrack",
+    "neolith:chunk_red_sandstone",
+    "neolith:chunk_sandstone",
+    "neolith:chunk_stone",
+    "neolith:chunk_tuff",
+    "neolith:chunk_endstone"
   ]
 }

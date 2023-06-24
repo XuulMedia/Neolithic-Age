@@ -17,9 +17,14 @@ public class ModTags {
     public static final TagKey<Item> LOGS = createItemTag("logs");
     public static final TagKey<Item> PLANKS = createItemTag("planks");
     public static final TagKey<Item> STONE_CHUNKS = createItemTag("stone_chunks");
+    public static final TagKey<Item> STONE_DUSTS = createItemTag("stone_dusts");
+    public static final TagKey<Item> CLAY = createItemTag("clay");
+    public static final TagKey<Item> BRICKS = createItemTag("brick");
+
+
     public static final TagKey<Item> BINDINGS = createItemTag("bindings");
     public static final TagKey<Item> PLANT_FIBRE = createItemTag("plant_fibre");
-    public static final TagKey<Item> CLAY = createItemTag("clay");
+
 
     /*For items that can light and put out campfires and torches*/
     public static final TagKey<Item> LIGHTERS = createItemTag("lighters");

@@ -16,9 +16,9 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 
 public class FlintStationMenu extends AbstractContainerMenu {
+    private final Level level;
     private final ContainerLevelAccess access;
     private final DataSlot selectedRecipeIndex = DataSlot.standalone();
-    private final Level level;
     private List<FlintStationRecipe> recipes = Lists.newArrayList();
 
 
@@ -52,14 +52,14 @@ public class FlintStationMenu extends AbstractContainerMenu {
                 return false;
             }
 
-            public void onTake(Player p_150672_, ItemStack p_150673_) {
-                p_150673_.onCraftedBy(p_150672_.level(), p_150672_, p_150673_.getCount());
-                FlintStationMenu.this.resultContainer.awardUsedRecipes(p_150672_, this.getRelevantItems());
+            public void onTake(Player player, ItemStack stack) {
+                stack.onCraftedBy(player.level(), player, stack.getCount());
+                FlintStationMenu.this.resultContainer.awardUsedRecipes(player, this.getRelevantItems());
                 ItemStack itemstack = FlintStationMenu.this.inputSlot.remove(1);
                 if (!itemstack.isEmpty()) {
                     FlintStationMenu.this.setupResultSlot();
                 }
-                super.onTake(p_150672_, p_150673_);
+                super.onTake(player, stack);
             }
 
             private List<ItemStack> getRelevantItems() {
@@ -131,10 +131,12 @@ public class FlintStationMenu extends AbstractContainerMenu {
         if (!this.recipes.isEmpty() && this.isValidRecipeIndex(this.selectedRecipeIndex.get())) {
             FlintStationRecipe flintStationRecipe = this.recipes.get(this.selectedRecipeIndex.get());
             ItemStack itemstack = flintStationRecipe.assemble(this.container, this.level.registryAccess());
+
             if (itemstack.isItemEnabled(this.level.enabledFeatures())) {
                 this.resultContainer.setRecipeUsed(flintStationRecipe);
                 this.resultSlot.set(itemstack);
             } else {
+                this.resultSlot.set(ItemStack.EMPTY);
                 this.resultSlot.set(ItemStack.EMPTY);
             }
         } else {

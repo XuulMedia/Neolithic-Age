@@ -24,10 +24,10 @@ public class ModRecipes {
     public static final RegistryObject<RecipeSerializer<ForgeRecipe>> FORGE_SERIZALIZER = RECIPES.register(
             "forge_recipe", () -> ForgeRecipe.SERIALIZER);
 
-    public static final RegistryObject<RecipeSerializer<?>> FLINT_STATION_SERIALIZER = RECIPES.register("flint_station",
-            () -> FlintStationRecipe.SERIALIZER);
-    public static final RegistryObject<RecipeSerializer<HeatingFuelRecipe>> HEATING_FUEL_RECIPE = RECIPES.register("heating_fuel",
-            () -> HeatingFuelRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<FlintStationRecipe>> FLINT_STATION_SERIALIZER = RECIPES.register(
+            "flint_station",  () -> FlintStationRecipe.SERIALIZER);
+    public static final RegistryObject<RecipeSerializer<HeatingFuelRecipe>> HEATING_FUEL_RECIPE = RECIPES.register(
+            "heating_fuel",   () -> HeatingFuelRecipe.SERIALIZER);
 
 
 }

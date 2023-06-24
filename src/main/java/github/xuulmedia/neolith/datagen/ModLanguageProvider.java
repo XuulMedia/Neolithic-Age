@@ -16,8 +16,8 @@ public class ModLanguageProvider extends LanguageProvider {
         add("itemGroup.stone_age." + Neolith.MODID, "Stone Age");
         add("itemGroup.metal_age." + Neolith.MODID, "Bronze Age");
 
-        add("container.neolith.forge.heat","%s degrees");
-        add("container.neolith.forge.heat.target","Fuel max temperature: %s degrees");
+        add("container.neolith.forge.heat", "%s degrees");
+        add("container.neolith.forge.heat.target", "Fuel max temperature: %s degrees");
         add("container.neolith.forge.heat.too_cold", "Too cold! Requires %s degrees");
         add("fuel.no_shift", "Press SHIFT for info");
 
@@ -40,7 +40,6 @@ public class ModLanguageProvider extends LanguageProvider {
 
 //        add(ModItems.MEDICINE_PLANT_SEEDS.get(), "Herbal Seed");
 //        add(ModItems.MEDICINE_PLANT.get(), "Medical Herb");
-
 
 
 //        add(ModItems.BASKET.get(), "Basket");
@@ -83,6 +82,88 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.FLINT_HOE_HEAD.get(), "Flint Hoe Head");
         add(ModItems.FLINT_SAW_HEAD.get(), "Flint Saw Head");
 
+        add(ModItems.LOG_ACACIA.get(),"Acacia Log");
+        add(ModItems.LOG_BIRCH.get(),"Birch Log");
+//        add(ModItems.LOG_CHERRY.get(),"Cherry Log");
+        add(ModItems.LOG_DARK_OAK.get(),"Dark_oak Log");
+        add(ModItems.LOG_JUNGLE.get(),"Jungle Log");
+        add(ModItems.LOG_MANGROVE.get(),"Mangrove Log");
+        add(ModItems.LOG_OAK.get(),"Oak Log");
+        add(ModItems.LOG_SPRUCE.get(),"Spruce Log");
+        add(ModItems.LOG_WARPED.get(),"Warped Log");
+        add(ModItems.LOG_CRIMSON.get(),"Crimson Log");
+
+        add(ModItems.PLANK_ACACIA.get(),"Acacia Plank");
+        add(ModItems.PLANK_BIRCH.get(),"Birch Plank");
+//        add(ModItems.PLANK_CHERRY.get(),"Cherry Plank");
+        add(ModItems.PLANK_DARK_OAK.get(),"Dark_oak Plank");
+        add(ModItems.PLANK_JUNGLE.get(),"Jungle Plank");
+        add(ModItems.PLANK_MANGROVE.get(),"Mangrove Plank");
+        add(ModItems.PLANK_OAK.get(),"Oak Plank");
+        add(ModItems.PLANK_SPRUCE.get(),"Spruce Plank");
+        add(ModItems.PLANK_WARPED.get(),"Warped Plank");
+        add(ModItems.PLANK_CRIMSON.get(),"Crimson Plank");
+
+        add(ModItems.CHUNK_ANDESITE.get(), "Andesite Chunk");
+        add(ModItems.CHUNK_BASALT.get(), "Basalt Chunk");
+        add(ModItems.CHUNK_BLACKSTONE.get(), "Blackstone Chunk");
+        add(ModItems.CHUNK_CALCITE.get(), "Calcite Chunk");
+        add(ModItems.CHUNK_DEEPSLATE.get(), "Deepslate Chunk");
+        add(ModItems.CHUNK_DIORITE.get(), "Diorite Chunk");
+        add(ModItems.CHUNK_DRIPSTONE.get(), "Dripstone Chunk");
+        add(ModItems.CHUNK_GRANITE.get(), "Granite Chunk");
+        add(ModItems.CHUNK_NETHERRACK.get(), "Netherrack Chunk");
+        add(ModItems.CHUNK_RED_SANDSTONE.get(), "Red_sandstone Chunk");
+        add(ModItems.CHUNK_SANDSTONE.get(), "Sandstone Chunk");
+        add(ModItems.CHUNK_STONE.get(), "Stone Chunk");
+        add(ModItems.CHUNK_TUFF.get(), "Tuff Chunk");
+        add(ModItems.CHUNK_ENDSTONE.get(), "Endstone Chunk");
+
+        add(ModItems.DUST_ANDESITE.get(), "Andesite Dust");
+        add(ModItems.DUST_BASALT.get(), "Basalt Dust");
+        add(ModItems.DUST_BLACKSTONE.get(), "Blackstone Dust");
+        add(ModItems.DUST_CALCITE.get(), "Calcite Dust");
+        add(ModItems.DUST_DEEPSLATE.get(), "Deepslate Dust");
+        add(ModItems.DUST_DIORITE.get(), "Diorite Dust");
+        add(ModItems.DUST_DRIPSTONE.get(), "Dripstone Dust");
+        add(ModItems.DUST_GRANITE.get(), "Granite Dust");
+        add(ModItems.DUST_NETHERRACK.get(), "Netherrack Dust");
+        add(ModItems.DUST_RED_SANDSTONE.get(), "Red_sandstone Dust");
+        add(ModItems.DUST_SANDSTONE.get(), "Sandstone Dust");
+        add(ModItems.DUST_STONE.get(), "Stone Dust");
+        add(ModItems.DUST_TUFF.get(), "Tuff Dust");
+        add(ModItems.DUST_ENDSTONE.get(), "Endstone Dust");
+
+        add(ModItems.CLAY_ANDESITE.get(), "Andesite Clay");
+        add(ModItems.CLAY_BASALT.get(), "Basalt Clay");
+        add(ModItems.CLAY_BLACKSTONE.get(), "Blackstone Clay");
+        add(ModItems.CLAY_CALCITE.get(), "Calcite Clay");
+        add(ModItems.CLAY_DEEPSLATE.get(), "Deepslate Clay");
+        add(ModItems.CLAY_DIORITE.get(), "Diorite Clay");
+        add(ModItems.CLAY_DRIPSTONE.get(), "Dripstone Clay");
+        add(ModItems.CLAY_GRANITE.get(), "Granite Clay");
+        add(ModItems.CLAY_NETHERRACK.get(), "Netherrack Clay");
+        add(ModItems.CLAY_RED_SANDSTONE.get(), "Red_sandstone Clay");
+        add(ModItems.CLAY_SANDSTONE.get(), "Sandstone Clay");
+        add(ModItems.CLAY_STONE.get(), "Stone Clay");
+        add(ModItems.CLAY_TUFF.get(), "Tuff Clay");
+        add(ModItems.CLAY_ENDSTONE.get(), "Endstone Clay");
+
+        add(ModItems.BRICK_ANDESITE.get(), "Andesite Brick");
+        add(ModItems.BRICK_BASALT.get(), "Basalt Brick");
+        add(ModItems.BRICK_BLACKSTONE.get(), "Blackstone Brick");
+        add(ModItems.BRICK_CALCITE.get(), "Calcite Brick");
+        add(ModItems.BRICK_DEEPSLATE.get(), "Deepslate Brick");
+        add(ModItems.BRICK_DIORITE.get(), "Diorite Brick");
+        add(ModItems.BRICK_DRIPSTONE.get(), "Dripstone Brick");
+        add(ModItems.BRICK_GRANITE.get(), "Granite Brick");
+        add(ModItems.BRICK_NETHERRACK.get(), "Netherrack Brick");
+        add(ModItems.BRICK_RED_SANDSTONE.get(), "Red_sandstone Brick");
+        add(ModItems.BRICK_SANDSTONE.get(), "Sandstone Brick");
+        add(ModItems.BRICK_STONE.get(), "Stone Brick");
+        add(ModItems.BRICK_TUFF.get(), "Tuff Brick");
+        add(ModItems.BRICK_ENDSTONE.get(), "Endstone Brick");
+
 
 
         add(ModBlocks.COBBLESTONE.get(), "Cobblestone");
@@ -98,7 +179,6 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.DIORITE_COBBLESTONE.get(), "Diorite Cobblestone");
         add(ModBlocks.CALCITE_COBBLESTONE.get(), "Calcite Cobblestone");
 
-
         add(ModBlocks.BASALT_BRICK_BLOCK.get(), "Basalt Bricks");
         add(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(), "Deepslate Bricks");
         add(ModBlocks.NETHERRACK_BRICK_BLOCK.get(), "Netherrack Bricks");
@@ -111,47 +191,14 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.DIORITE_BRICK_BLOCK.get(), "Diorite Bricks");
         add(ModBlocks.CALCITE_BRICK_BLOCK.get(), "Calcite Bricks");
 
-        add(ModItems.DUST_STONE.get(), "Stone Dust");
-        add(ModItems.DUST_BASALT.get(), "Basalt Dust");
-        add(ModItems.DUST_DEEPSLATE.get(), "Deepslate Dust");
-        add(ModItems.DUST_NETHERRACK.get(), "Netherrack Dust");
-        add(ModItems.DUST_DRIPSTONE.get(), "Dripstone Dust");
-        add(ModItems.DUST_SANDSTONE.get(), "Sandstone Dust");
-        add(ModItems.DUST_BLACKSTONE.get(), "Blackstone Dust");
-        add(ModItems.DUST_ENDSTONE.get(), "Endstone Dust");
-        add(ModItems.DUST_GRANITE.get(), "Granite Dust");
-        add(ModItems.DUST_TUFF.get(), "Tuff Dust");
-        add(ModItems.DUST_ANDESITE.get(), "Andesite Dust");
-        add(ModItems.DUST_DIORITE.get(), "Diorite Dust");
-        add(ModItems.DUST_CALCITE.get(), "Calcite Dust");
-
-
         add(ModBlocks.BLOCK_TIN.get(), "Tin Block");
         add(ModBlocks.BLOCK_SILVER.get(), "Silver Block");
         add(ModBlocks.BLOCK_BRONZE.get(), "Bronze Block");
         add(ModBlocks.BLOCK_STEEL.get(), "Steel Block");
 
-        /*Logs + Plnaks + Fuels*/
 
-        add(ModItems.LOG_OAK.get(), "Oak Log");
-        add(ModItems.LOG_SPRUCE.get(), "Spruce Log");
-        add(ModItems.LOG_BIRCH.get(), "Birch Log");
-        add(ModItems.LOG_JUNGLE.get(), "Jungle Log");
-        add(ModItems.LOG_ACACIA.get(), "Acacia Log");
-        add(ModItems.LOG_DARK_OAK.get(), "Dark Oak Log");
-        add(ModItems.LOG_MANGROVE.get(), "Mangrove Log");
-        add(ModItems.LOG_WARPED.get(), "Warped Log");
-        add(ModItems.LOG_CRIMSON.get(), "Crimson Log");
 
-        add(ModItems.PLANK_OAK.get(), "Oak Plank");
-        add(ModItems.PLANK_SPRUCE.get(), "Spruce Plank");
-        add(ModItems.PLANK_BIRCH.get(), "Birch Plank");
-        add(ModItems.PLANK_JUNGLE.get(), "Jungle Plank");
-        add(ModItems.PLANK_ACACIA.get(), "Acacia Plank");
-        add(ModItems.PLANK_DARK_OAK.get(), "Dark Oak Plank");
-        add(ModItems.PLANK_MANGROVE.get(), "Mangrove Plank");
-        add(ModItems.PLANK_WARPED.get(), "Warped Plank");
-        add(ModItems.PLANK_CRIMSON.get(), "Crimson Plank");
+
 
 
         /*Show heatvalue on mouseover*/
@@ -176,71 +223,29 @@ public class ModLanguageProvider extends LanguageProvider {
         add("heat.level." + ModItems.PLANK_WARPED.get(), ModItems.PLANK_WARPED.get().getHeat() + " degrees");
         add("heat.level." + ModItems.PLANK_CRIMSON.get(), ModItems.PLANK_CRIMSON.get().getHeat() + " degrees");
 
-        add(ModItems.INGOT_TIN.get(),"Tin Ingot");
-        add(ModItems.INGOT_BRONZE.get(),"Bronze Ingot");
-        add(ModItems.INGOT_SILVER.get(),"Silver Ingot");
-        add(ModItems.INGOT_STEEL.get(),"Steel Ingot");
+        add(ModItems.INGOT_TIN.get(), "Tin Ingot");
+        add(ModItems.INGOT_BRONZE.get(), "Bronze Ingot");
+        add(ModItems.INGOT_SILVER.get(), "Silver Ingot");
+        add(ModItems.INGOT_STEEL.get(), "Steel Ingot");
 
         add(ModItems.NUGGET_COPPER.get(), "Copper Nugget");
-        add(ModItems.NUGGET_TIN.get(),"Tin Nugget");
+        add(ModItems.NUGGET_TIN.get(), "Tin Nugget");
         add(ModItems.NUGGET_BRONZE.get(), "Bronze Nugget");
-        add(ModItems.NUGGET_SILVER.get(),"Silver Nugget");
-        add(ModItems.NUGGET_STEEL.get(),"Steel Nugget");
+        add(ModItems.NUGGET_SILVER.get(), "Silver Nugget");
+        add(ModItems.NUGGET_STEEL.get(), "Steel Nugget");
 
-        add(ModItems.DUST_IRON.get(),"Iron Dust");
-        add(ModItems.DUST_GOLD.get(),"Gold Dust");
-        add(ModItems.DUST_COPPER.get(),"Copper Dust");
-        add(ModItems.DUST_TIN.get(),"Tin Dust");
+        add(ModItems.DUST_IRON.get(), "Iron Dust");
+        add(ModItems.DUST_GOLD.get(), "Gold Dust");
+        add(ModItems.DUST_COPPER.get(), "Copper Dust");
+        add(ModItems.DUST_TIN.get(), "Tin Dust");
         add(ModItems.DUST_BRONZE.get(), "Bronze Dust");
-        add(ModItems.DUST_SILVER.get(),"Silver Dust");
-        add(ModItems.DUST_STEEL.get(),"Steel Dust");
+        add(ModItems.DUST_SILVER.get(), "Silver Dust");
+        add(ModItems.DUST_STEEL.get(), "Steel Dust");
 
-        add(ModItems.CHUNK_STONE.get(),"Stone Chunk");
-        add(ModItems.CHUNK_ANDESITE.get(),"Andesite Chunk");
-        add(ModItems.CHUNK_DEEPSLATE.get(),"Deepslate Chunk");
-        add(ModItems.CHUNK_DRIPSTONE.get(),"Dripstone Chunk");
-        add(ModItems.CHUNK_SANDSTONE.get(),"Sandstone Chunk");
-        add(ModItems.CHUNK_DIORITE.get(),"Diorite Chunk");
-        add(ModItems.CHUNK_GRANITE.get(),"Granite Chunk");
-        add(ModItems.CHUNK_BASALT.get(),"Basalt Chunk");
-        add(ModItems.CHUNK_TUFF.get(),"Tuff Chunk");
-        add(ModItems.CHUNK_NETHERRACK.get(),"Netherrack Chunk");
-        add(ModItems.CHUNK_BLACKSTONE.get(),"Blackstone Chunk");
-        add(ModItems.CHUNK_CALCITE.get(),"Calcite Chunk");
-        add(ModItems.CHUNK_ENDSTONE.get(),"Endstone Chunk");
 
-        add(ModItems.BRICK_STONE.get(),"Stone Brick");
-        add(ModItems.BRICK_ANDESITE.get(),"Andesite Brick");
-        add(ModItems.BRICK_DEEPSLATE.get(),"Deepslate Brick");
-        add(ModItems.BRICK_DRIPSTONE.get(),"Dripstone Brick");
-        add(ModItems.BRICK_SANDSTONE.get(),"SandStone Brick");
-        add(ModItems.BRICK_DIORITE.get(),"Diorite Brick");
-        add(ModItems.BRICK_GRANITE.get(),"Granite Brick");
-        add(ModItems.BRICK_BASALT.get(),"Basalt Brick");
-        add(ModItems.BRICK_TUFF.get(),"Tuff Brick");
-        add(ModItems.BRICK_NETHERRACK.get(),"Netherrack Brick");
-        add(ModItems.BRICK_BLACKSTONE.get(),"Blackstone Brick");
-        add(ModItems.BRICK_CALCITE.get(),"Calcite Brick");
-        add(ModItems.BRICK_ENDSTONE.get(),"Endstone Brick");
-
-        add(ModItems.CLAY_STONE.get(),"Stone Clay");
-        add(ModItems.CLAY_ANDESITE.get(),"Andesite Clay");
-        add(ModItems.CLAY_DEEPSLATE.get(),"Deepslate Clay");
-        add(ModItems.CLAY_DRIPSTONE.get(),"Dripstone Clay");
-        add(ModItems.CLAY_DIORITE.get(),"Diorite Clay");
-        add(ModItems.CLAY_GRANITE.get(),"Granite Clay");
-        add(ModItems.CLAY_BASALT.get(),"Basalt Clay");
-        add(ModItems.CLAY_TUFF.get(),"Tuff Clay");
-        add(ModItems.CLAY_NETHERRACK.get(),"Netherrack Clay");
-        add(ModItems.CLAY_BLACKSTONE.get(),"Blackstone Clay");
-        add(ModItems.CLAY_CALCITE.get(),"Calcite Clay");
-        add(ModItems.CLAY_ENDSTONE.get(),"Endstone Clay");
 
 
     }
-
-
-
 
 
 }

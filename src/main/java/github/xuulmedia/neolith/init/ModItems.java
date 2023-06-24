@@ -70,85 +70,92 @@ public class ModItems {
     public static final RegistryObject<Item> FLINT_SAW_HEAD = registerStandardStoneAgeItem("flint_saw_head");
 
     /*Logs*/
+    public static final RegistryObject<FuelItem> LOG_ACACIA = createFuelItem("log_acacia", LOW_HEAT_WOOD, new Item.Properties());
+    public static final RegistryObject<FuelItem> LOG_BIRCH = createFuelItem("log_birch", MED_HEAT_WOOD, new Item.Properties());
+    //cherry
+    public static final RegistryObject<FuelItem> LOG_DARK_OAK = createFuelItem("log_dark_oak", MED_HEAT_WOOD, new Item.Properties());
+    public static final RegistryObject<FuelItem> LOG_JUNGLE = createFuelItem("log_jungle", LOW_HEAT_WOOD, new Item.Properties());
+    public static final RegistryObject<FuelItem> LOG_MANGROVE = createFuelItem("log_mangrove", HIGH_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> LOG_OAK = createFuelItem("log_oak", HIGH_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> LOG_SPRUCE = createFuelItem("log_spruce", LOW_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> LOG_BIRCH = createFuelItem("log_birch", MED_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> LOG_JUNGLE = createFuelItem("log_jungle", LOW_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> LOG_ACACIA = createFuelItem("log_acacia", LOW_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> LOG_DARK_OAK = createFuelItem("log_dark_oak", MED_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> LOG_MANGROVE = createFuelItem("log_mangrove", HIGH_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> LOG_WARPED = createFuelItem("log_warped", NETHER_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> LOG_CRIMSON = createFuelItem("log_crimson", NETHER_HEAT_WOOD, new Item.Properties());
 
     /*Planks*/
+    public static final RegistryObject<FuelItem> PLANK_ACACIA = createFuelItem("plank_acacia", LOW_HEAT_WOOD, new Item.Properties());
+    public static final RegistryObject<FuelItem> PLANK_BIRCH = createFuelItem("plank_birch", MED_HEAT_WOOD, new Item.Properties());
+    //cherry
+    public static final RegistryObject<FuelItem> PLANK_DARK_OAK = createFuelItem("plank_dark_oak", MED_HEAT_WOOD, new Item.Properties());
+    public static final RegistryObject<FuelItem> PLANK_JUNGLE = createFuelItem("plank_jungle", LOW_HEAT_WOOD, new Item.Properties());
+    public static final RegistryObject<FuelItem> PLANK_MANGROVE = createFuelItem("plank_mangrove", HIGH_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> PLANK_OAK = createFuelItem("plank_oak", HIGH_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> PLANK_SPRUCE = createFuelItem("plank_spruce", LOW_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> PLANK_BIRCH = createFuelItem("plank_birch", MED_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> PLANK_JUNGLE = createFuelItem("plank_jungle", LOW_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> PLANK_ACACIA = createFuelItem("plank_acacia", LOW_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> PLANK_DARK_OAK = createFuelItem("plank_dark_oak", MED_HEAT_WOOD, new Item.Properties());
-    public static final RegistryObject<FuelItem> PLANK_MANGROVE = createFuelItem("plank_mangrove", HIGH_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> PLANK_WARPED = createFuelItem("plank_warped", NETHER_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<FuelItem> PLANK_CRIMSON = createFuelItem("plank_crimson", NETHER_HEAT_WOOD, new Item.Properties());
 
+
     /*STONE CHUNKS*/
-    public static final RegistryObject<Item> CHUNK_STONE = registerStandardStoneAgeItem("chunk_stone");
     public static final RegistryObject<Item> CHUNK_ANDESITE = registerStandardStoneAgeItem("chunk_andesite");
-    public static final RegistryObject<Item> CHUNK_DEEPSLATE = registerStandardStoneAgeItem("chunk_deepslate");
-    public static final RegistryObject<Item> CHUNK_SANDSTONE = registerStandardStoneAgeItem("chunk_sandstone");
-    public static final RegistryObject<Item> CHUNK_DRIPSTONE = registerStandardStoneAgeItem("chunk_dripstone");
-    public static final RegistryObject<Item> CHUNK_DIORITE = registerStandardStoneAgeItem("chunk_diorite");
-    public static final RegistryObject<Item> CHUNK_GRANITE = registerStandardStoneAgeItem("chunk_granite");
     public static final RegistryObject<Item> CHUNK_BASALT = registerStandardStoneAgeItem("chunk_basalt");
-    public static final RegistryObject<Item> CHUNK_TUFF = registerStandardStoneAgeItem("chunk_tuff");
-    public static final RegistryObject<Item> CHUNK_NETHERRACK = registerStandardStoneAgeItem("chunk_netherrack");
     public static final RegistryObject<Item> CHUNK_BLACKSTONE = registerStandardStoneAgeItem("chunk_blackstone");
     public static final RegistryObject<Item> CHUNK_CALCITE = registerStandardStoneAgeItem("chunk_calcite");
+    public static final RegistryObject<Item> CHUNK_DEEPSLATE = registerStandardStoneAgeItem("chunk_deepslate");
+    public static final RegistryObject<Item> CHUNK_DIORITE = registerStandardStoneAgeItem("chunk_diorite");
+    public static final RegistryObject<Item> CHUNK_DRIPSTONE = registerStandardStoneAgeItem("chunk_dripstone");
+    public static final RegistryObject<Item> CHUNK_GRANITE = registerStandardStoneAgeItem("chunk_granite");
+    public static final RegistryObject<Item> CHUNK_NETHERRACK = registerStandardStoneAgeItem("chunk_netherrack");
+    public static final RegistryObject<Item> CHUNK_RED_SANDSTONE = registerStandardStoneAgeItem("chunk_red_sandstone");
+    public static final RegistryObject<Item> CHUNK_SANDSTONE = registerStandardStoneAgeItem("chunk_sandstone");
+    public static final RegistryObject<Item> CHUNK_STONE = registerStandardStoneAgeItem("chunk_stone");
+    public static final RegistryObject<Item> CHUNK_TUFF = registerStandardStoneAgeItem("chunk_tuff");
     public static final RegistryObject<Item> CHUNK_ENDSTONE = registerStandardStoneAgeItem("chunk_endstone");
 
     /*STONE DUSTS*/
-    public static final RegistryObject<Item> DUST_STONE = registerStandardStoneAgeItem("dust_stone");
     public static final RegistryObject<Item> DUST_ANDESITE = registerStandardStoneAgeItem("dust_andesite");
-    public static final RegistryObject<Item> DUST_DEEPSLATE = registerStandardStoneAgeItem("dust_deepslate");
-    public static final RegistryObject<Item> DUST_DRIPSTONE = registerStandardStoneAgeItem("dust_dripstone");
-    public static final RegistryObject<Item> DUST_SANDSTONE = registerStandardStoneAgeItem("dust_sandstone");
-    public static final RegistryObject<Item> DUST_DIORITE = registerStandardStoneAgeItem("dust_diorite");
-    public static final RegistryObject<Item> DUST_GRANITE = registerStandardStoneAgeItem("dust_granite");
     public static final RegistryObject<Item> DUST_BASALT = registerStandardStoneAgeItem("dust_basalt");
-    public static final RegistryObject<Item> DUST_TUFF = registerStandardStoneAgeItem("dust_tuff");
-    public static final RegistryObject<Item> DUST_NETHERRACK = registerStandardStoneAgeItem("dust_netherrack");
     public static final RegistryObject<Item> DUST_BLACKSTONE = registerStandardStoneAgeItem("dust_blackstone");
     public static final RegistryObject<Item> DUST_CALCITE = registerStandardStoneAgeItem("dust_calcite");
+    public static final RegistryObject<Item> DUST_DEEPSLATE = registerStandardStoneAgeItem("dust_deepslate");
+    public static final RegistryObject<Item> DUST_DIORITE = registerStandardStoneAgeItem("dust_diorite");
+    public static final RegistryObject<Item> DUST_DRIPSTONE = registerStandardStoneAgeItem("dust_dripstone");
+    public static final RegistryObject<Item> DUST_GRANITE = registerStandardStoneAgeItem("dust_granite");
+    public static final RegistryObject<Item> DUST_NETHERRACK = registerStandardStoneAgeItem("dust_netherrack");
+    public static final RegistryObject<Item> DUST_RED_SANDSTONE = registerStandardStoneAgeItem("dust_red_sandstone");
+    public static final RegistryObject<Item> DUST_SANDSTONE = registerStandardStoneAgeItem("dust_sandstone");
+    public static final RegistryObject<Item> DUST_STONE = registerStandardStoneAgeItem("dust_stone");
+    public static final RegistryObject<Item> DUST_TUFF = registerStandardStoneAgeItem("dust_tuff");
     public static final RegistryObject<Item> DUST_ENDSTONE = registerStandardStoneAgeItem("dust_endstone");
 
     /*Stone Clay*/
-    public static final RegistryObject<Item> CLAY_STONE = registerStandardStoneAgeItem("clay_stone");
     public static final RegistryObject<Item> CLAY_ANDESITE = registerStandardStoneAgeItem("clay_andesite");
-    public static final RegistryObject<Item> CLAY_DEEPSLATE = registerStandardStoneAgeItem("clay_deepslate");
-    public static final RegistryObject<Item> CLAY_DRIPSTONE = registerStandardStoneAgeItem("clay_dripstone");
-    public static final RegistryObject<Item> CLAY_SANDSTONE = registerStandardStoneAgeItem("clay_sandstone");
-    public static final RegistryObject<Item> CLAY_DIORITE = registerStandardStoneAgeItem("clay_diorite");
-    public static final RegistryObject<Item> CLAY_GRANITE = registerStandardStoneAgeItem("clay_granite");
     public static final RegistryObject<Item> CLAY_BASALT = registerStandardStoneAgeItem("clay_basalt");
-    public static final RegistryObject<Item> CLAY_TUFF = registerStandardStoneAgeItem("clay_tuff");
-    public static final RegistryObject<Item> CLAY_NETHERRACK = registerStandardStoneAgeItem("clay_netherrack");
     public static final RegistryObject<Item> CLAY_BLACKSTONE = registerStandardStoneAgeItem("clay_blackstone");
     public static final RegistryObject<Item> CLAY_CALCITE = registerStandardStoneAgeItem("clay_calcite");
+    public static final RegistryObject<Item> CLAY_DEEPSLATE = registerStandardStoneAgeItem("clay_deepslate");
+    public static final RegistryObject<Item> CLAY_DIORITE = registerStandardStoneAgeItem("clay_diorite");
+    public static final RegistryObject<Item> CLAY_DRIPSTONE = registerStandardStoneAgeItem("clay_dripstone");
+    public static final RegistryObject<Item> CLAY_GRANITE = registerStandardStoneAgeItem("clay_granite");
+    public static final RegistryObject<Item> CLAY_NETHERRACK = registerStandardStoneAgeItem("clay_netherrack");
+    public static final RegistryObject<Item> CLAY_RED_SANDSTONE = registerStandardStoneAgeItem("clay_red_sandstone");
+    public static final RegistryObject<Item> CLAY_SANDSTONE = registerStandardStoneAgeItem("clay_sandstone");
+    public static final RegistryObject<Item> CLAY_STONE = registerStandardStoneAgeItem("clay_stone");
+    public static final RegistryObject<Item> CLAY_TUFF = registerStandardStoneAgeItem("clay_tuff");
     public static final RegistryObject<Item> CLAY_ENDSTONE = registerStandardStoneAgeItem("clay_endstone");
 
     /*STONE BRICKS*/
-    public static final RegistryObject<Item> BRICK_STONE = registerStandardStoneAgeItem("brick_stone");
     public static final RegistryObject<Item> BRICK_ANDESITE = registerStandardStoneAgeItem("brick_andesite");
-    public static final RegistryObject<Item> BRICK_DEEPSLATE = registerStandardStoneAgeItem("brick_deepslate");
-    public static final RegistryObject<Item> BRICK_DRIPSTONE = registerStandardStoneAgeItem("brick_dripstone");
-    public static final RegistryObject<Item> BRICK_SANDSTONE = registerStandardStoneAgeItem("brick_sandstone");
-    public static final RegistryObject<Item> BRICK_DIORITE = registerStandardStoneAgeItem("brick_diorite");
-    public static final RegistryObject<Item> BRICK_GRANITE = registerStandardStoneAgeItem("brick_granite");
     public static final RegistryObject<Item> BRICK_BASALT = registerStandardStoneAgeItem("brick_basalt");
-    public static final RegistryObject<Item> BRICK_TUFF = registerStandardStoneAgeItem("brick_tuff");
-    public static final RegistryObject<Item> BRICK_NETHERRACK = registerStandardStoneAgeItem("brick_netherrack");
     public static final RegistryObject<Item> BRICK_BLACKSTONE = registerStandardStoneAgeItem("brick_blackstone");
     public static final RegistryObject<Item> BRICK_CALCITE = registerStandardStoneAgeItem("brick_calcite");
+    public static final RegistryObject<Item> BRICK_DEEPSLATE = registerStandardStoneAgeItem("brick_deepslate");
+    public static final RegistryObject<Item> BRICK_DIORITE = registerStandardStoneAgeItem("brick_diorite");
+    public static final RegistryObject<Item> BRICK_DRIPSTONE = registerStandardStoneAgeItem("brick_dripstone");
+    public static final RegistryObject<Item> BRICK_GRANITE = registerStandardStoneAgeItem("brick_granite");
+    public static final RegistryObject<Item> BRICK_NETHERRACK = registerStandardStoneAgeItem("brick_netherrack");
+    public static final RegistryObject<Item> BRICK_RED_SANDSTONE = registerStandardStoneAgeItem("brick_red_sandstone");
+    public static final RegistryObject<Item> BRICK_SANDSTONE = registerStandardStoneAgeItem("brick_sandstone");
+    public static final RegistryObject<Item> BRICK_STONE = registerStandardStoneAgeItem("brick_stone");
+    public static final RegistryObject<Item> BRICK_TUFF = registerStandardStoneAgeItem("brick_tuff");
     public static final RegistryObject<Item> BRICK_ENDSTONE = registerStandardStoneAgeItem("brick_endstone");
 
     /*Wool*/

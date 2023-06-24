@@ -1,0 +1,18 @@
+{
+  "values": [
+    "neolith:brick_andesite",
+    "neolith:brick_basalt",
+    "neolith:brick_blackstone",
+    "neolith:brick_calcite",
+    "neolith:brick_deepslate",
+    "neolith:brick_diorite",
+    "neolith:brick_dripstone",
+    "neolith:brick_granite",
+    "neolith:brick_netherrack",
+    "neolith:brick_red_sandstone",
+    "neolith:brick_sandstone",
+    "neolith:brick_stone",
+    "neolith:brick_tuff",
+    "neolith:brick_endstone"
+  ]
+}

@@ -16,6 +16,7 @@ import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.CraftingRecipe;
 import net.minecraft.world.item.crafting.Recipe;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -32,9 +33,9 @@ public class WorkBenchMenu extends AbstractContainerMenu {
     private final ContainerData data;
     private final ContainerLevelAccess access;
     private final Player player;
-    private final CraftingContainer craftSlots = new TransientCraftingContainer(this, 3, 3);
-    private final ResultContainer resultSlots = new ResultContainer();
-    private  final SimpleContainer storageSlots =new SimpleContainer(9);
+//    private final CraftingContainer craftSlots = new TransientCraftingContainer(this, 3, 3);
+//    private final ResultContainer resultSlots = new ResultContainer();
+//    private  final SimpleContainer storageSlots =new SimpleContainer(9);
     public static final int NUM_SLOTS = 19; // this must be a match with the number in the BE
 
     public WorkBenchMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
@@ -51,28 +52,24 @@ public class WorkBenchMenu extends AbstractContainerMenu {
         this.access = ContainerLevelAccess.NULL;
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler,0, 142, 23));
-        });
-
-        this.addSlot(new Slot(this.resultSlots, 0, 142, 23));
-
-        //Add grid
-        for (int i = 0; i < 3; ++i) {
-            for (int j = 0; j < 3; ++j) {
-                this.addSlot(new Slot(this.craftSlots, j + i * 3 , 48 + j * 18, 5+ i * 18));
+            this.addSlot(new ModResultSlot(handler,0, 142, 23));
+            //grid
+            for (int i = 0; i < 3; ++i) {
+                for (int j = 0; j < 3; ++j) {
+                    this.addSlot(new SlotItemHandler(handler, 1+ (j + i * 3) , 48 + j * 18, 5+ i * 18));
+                }
             }
-        }
-
-        //add storage row
-        for (int j = 0; j<9; j++){
-            this.addSlot(new Slot(this.storageSlots, j , 8 + (j * 18), 61));
-        }
+            //add storage row
+            for (int j = 0; j<9; j++){
+                this.addSlot(new SlotItemHandler(handler,10 + j , 8 + (j * 18), 61));
+            }
+        });
 
             addDataSlots(data);
             addPlayerInventory(inventory);
             addPlayerHotbar(inventory);
 
-
+        RecipeManager recipeManager = inventory.player.level().getRecipeManager();
 
     }
 
@@ -96,24 +93,16 @@ public class WorkBenchMenu extends AbstractContainerMenu {
             serverplayer.connection.send(new ClientboundContainerSetSlotPacket(pMenu.containerId, pMenu.incrementStateId(), 0, itemstack));
         }
     }
-    public void slotsChanged(Container pInventory) {
-        this.access.execute((p_39386_, p_39387_) -> {
-            slotChangedCraftingGrid(this, p_39386_, this.player, this.craftSlots, this.resultSlots);
-        });
-    }
 
-    public void fillCraftSlotsStackedContents(StackedContents pItemHelper) {
-        this.craftSlots.fillStackedContents(pItemHelper);
-    }
 
 //    public void clearCraftingContent() {
 //        this.craftSlots.clearContent();
 //        this.resultSlots.clearContent();
 //    }
 
-    public boolean recipeMatches(Recipe<? super CraftingContainer> pRecipe) {
-        return pRecipe.matches(this.craftSlots, this.player.level());
-    }
+//    public boolean recipeMatches(Recipe<? super CraftingContainer> pRecipe) {
+//        return pRecipe.matches(this.craftSlots, this.player.level());
+//    }
 
 
 

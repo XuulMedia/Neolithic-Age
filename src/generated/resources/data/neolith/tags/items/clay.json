@@ -1,19 +1,19 @@
 {
   "values": [
     "neolith:clay_andesite",
-    "neolith:clay_stone",
-    "neolith:clay_andesite",
-    "neolith:clay_deepslate",
-    "neolith:clay_dripstone",
-    "neolith:clay_sandstone",
-    "neolith:clay_diorite",
-    "neolith:clay_granite",
     "neolith:clay_basalt",
-    "neolith:clay_tuff",
-    "neolith:clay_netherrack",
     "neolith:clay_blackstone",
-    "neolith:clay_endstone",
     "neolith:clay_calcite",
+    "neolith:clay_deepslate",
+    "neolith:clay_diorite",
+    "neolith:clay_dripstone",
+    "neolith:clay_granite",
+    "neolith:clay_netherrack",
+    "neolith:clay_red_sandstone",
+    "neolith:clay_sandstone",
+    "neolith:clay_stone",
+    "neolith:clay_tuff",
+    "neolith:clay_endstone",
     "minecraft:clay_ball"
   ]
 }
