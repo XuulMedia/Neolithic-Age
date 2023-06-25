@@ -21,7 +21,6 @@ public class FlintStationMenu extends AbstractContainerMenu {
     private final DataSlot selectedRecipeIndex = DataSlot.standalone();
     private List<FlintStationRecipe> recipes = Lists.newArrayList();
 
-
     private ItemStack input = ItemStack.EMPTY;
     final Slot inputSlot;
     final Slot resultSlot;
@@ -42,10 +41,15 @@ public class FlintStationMenu extends AbstractContainerMenu {
         this(pContainerId, pPlayerInventory, ContainerLevelAccess.NULL);
     }
 
-    public FlintStationMenu(int pContainerId, Inventory pPlayerInventory, final ContainerLevelAccess pAccess) {
+    public FlintStationMenu(int pContainerId, Inventory inventory, final ContainerLevelAccess pAccess) {
         super(ModMenuTypes.FLINT_STATION_MENU.get(), pContainerId);
         this.access = pAccess;
-        this.level = pPlayerInventory.player.level();
+        this.level = inventory.player.level();
+
+
+
+
+
         this.inputSlot = this.addSlot(new Slot(this.container, 0, 20, 33));
         this.resultSlot = this.addSlot(new Slot(this.resultContainer, 1, 143, 33) {
             public boolean mayPlace(ItemStack p_40362_) {
@@ -67,8 +71,8 @@ public class FlintStationMenu extends AbstractContainerMenu {
             }
         });
 
-        addPlayerInventory(pPlayerInventory);
-        addPlayerHotbar(pPlayerInventory);
+        addPlayerInventory(inventory);
+        addPlayerHotbar(inventory);
 
         this.addDataSlot(this.selectedRecipeIndex);
     }

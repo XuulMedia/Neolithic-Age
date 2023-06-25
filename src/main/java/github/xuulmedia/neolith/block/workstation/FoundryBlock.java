@@ -4,6 +4,8 @@ import github.xuulmedia.neolith.block.entity.FoundryBE;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.Container;
+import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -60,8 +62,8 @@ public class FoundryBlock extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof FoundryBE be) {
-                be.drops();
+            if (blockEntity instanceof FoundryBE) {
+                Containers.dropContents(pLevel, pPos, (Container) blockEntity);
             }
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }

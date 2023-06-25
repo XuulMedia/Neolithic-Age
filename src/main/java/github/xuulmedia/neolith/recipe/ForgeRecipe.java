@@ -56,7 +56,7 @@ public class ForgeRecipe extends AbstractHeatRecipe {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return SERIALIZER.INSTANCE;
+        return SERIALIZER;
     }
 
     @Override
@@ -73,7 +73,7 @@ public class ForgeRecipe extends AbstractHeatRecipe {
     }
 
     private static class Serializer implements RecipeSerializer<ForgeRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
+
         public static final ResourceLocation ID =
                 new ResourceLocation(Neolith.MODID, "forge_recipe");
 

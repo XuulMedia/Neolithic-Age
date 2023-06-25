@@ -1,5 +1,6 @@
 package github.xuulmedia.neolith.datagen.builders;
 
+import github.xuulmedia.neolith.init.ModRecipes;
 import github.xuulmedia.neolith.recipe.FlintStationRecipe;
 
 import net.minecraft.data.recipes.RecipeCategory;
@@ -14,7 +15,7 @@ public class CustomRecipeBuilder extends SingleItemRecipeBuilder {
     }
 
     public static SingleItemRecipeBuilder flintstation(Ingredient pIngredient, ItemLike pResult, int pCount) {
-        return new SingleItemRecipeBuilder(RecipeCategory.MISC, FlintStationRecipe.SERIALIZER, pIngredient, pResult, pCount);
+        return new SingleItemRecipeBuilder(RecipeCategory.MISC, ModRecipes.FLINT_STATION_SERIALIZER.get(), pIngredient, pResult, pCount);
     }
 
 

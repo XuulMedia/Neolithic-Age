@@ -13,20 +13,15 @@ import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
-
 public class FlintStationRecipe  extends AbstractNeolithItemCraft{
     public static final Serializer SERIALIZER = new Serializer();
-
-    protected int SLOT_INPUT = 0;
-    protected int SLOT_RESULT = 1;
-
     public FlintStationRecipe(ResourceLocation id, String group, NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience) {
-        super(ForgeRecipe.Type.INSTANCE, id, group, ingredients, results, experience);
+        super(Type.INSTANCE, id, group, ingredients, results, experience);
     }
 
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
-        return this.ingredients.get(0).test(pContainer.getItem(SLOT_INPUT));
+        return this.ingredients.get(0).test(pContainer.getItem(0));
     }
 
     @Override
@@ -39,35 +34,29 @@ public class FlintStationRecipe  extends AbstractNeolithItemCraft{
         return this.results.get(0).copy();
     }
 
-    public ItemStack getResult(){
-        return  this.results.get(0).copy();
-    }
-
     public Ingredient getIngredient() {
         return  this.ingredients.get(0);
     }
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return FlintStationRecipe.SERIALIZER;
+        return SERIALIZER;
     }
 
     @Override
     public RecipeType<?> getType() {
-        return FlintStationRecipe.Type.INSTANCE;
+        return Type.INSTANCE;
     }
 
 
     public static class Type implements RecipeType<FlintStationRecipe> {
         private Type() {
         }
-
         public static final FlintStationRecipe.Type INSTANCE = new FlintStationRecipe.Type();
         public static final String ID = "flint_station";
     }
 
     private static class Serializer implements RecipeSerializer<FlintStationRecipe> {
-        public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
                 new ResourceLocation(Neolith.MODID, "flint_station");
 

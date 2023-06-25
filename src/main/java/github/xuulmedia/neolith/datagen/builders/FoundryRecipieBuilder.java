@@ -73,7 +73,6 @@ public class FoundryRecipieBuilder implements RecipeBuilder {
                 .rewards(AdvancementRewards.Builder.recipe(pRecipeId))
                 .requirements(RequirementsStrategy.OR);
         pFinishedRecipeConsumer.accept(new Result(
-                CraftingBookCategory.MISC,
                 pRecipeId,
                 this.group == null ? "" : this.group,
                 this.heat,
@@ -86,7 +85,7 @@ public class FoundryRecipieBuilder implements RecipeBuilder {
 
     public static class Result implements FinishedRecipe {
 
-        private final CraftingBookCategory category;
+
         private final ResourceLocation id;
         private final String group;
         public final int heat;
@@ -95,9 +94,8 @@ public class FoundryRecipieBuilder implements RecipeBuilder {
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(CraftingBookCategory category, ResourceLocation id, String group, int heat, NonNullList<Ingredient> ingredients,
+        public Result( ResourceLocation id, String group, int heat, NonNullList<Ingredient> ingredients,
                       NonNullList<ItemStack> results, Advancement.Builder advancement, ResourceLocation advancementId) {
-            this.category = category;
             this.id = id;
             this.group = group;
             this.heat = heat;
@@ -109,7 +107,7 @@ public class FoundryRecipieBuilder implements RecipeBuilder {
 
         @Override
         public void serializeRecipeData(JsonObject pJson) {
-            pJson.addProperty("category", this.category.getSerializedName());
+//            pJson.addProperty("category", this.category.getSerializedName());
             if (!this.group.isEmpty()) {
                 pJson.addProperty("group", this.group);
             }
@@ -121,15 +119,17 @@ public class FoundryRecipieBuilder implements RecipeBuilder {
             }
             pJson.add("ingredients", ingredientsArray);
 
-
             JsonArray resultsArray = new JsonArray();
             for (ItemStack result : this.results) {{
                 JsonObject results = new JsonObject();
                 results.addProperty("item", BuiltInRegistries.ITEM.getKey(result.getItem()).toString());
-                results.addProperty("count", result.getCount());
+//                results.addProperty("count", result.getCount());
                 resultsArray.add(results);
             }}
             pJson.add("results", resultsArray);
+
+            pJson.addProperty("heat", this.heat);
+            pJson.addProperty("heat", this.heat);
         }
 
         @Override

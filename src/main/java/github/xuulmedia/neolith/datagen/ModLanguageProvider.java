@@ -84,7 +84,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add(ModItems.LOG_ACACIA.get(),"Acacia Log");
         add(ModItems.LOG_BIRCH.get(),"Birch Log");
-//        add(ModItems.LOG_CHERRY.get(),"Cherry Log");
+        add(ModItems.LOG_CHERRY.get(),"Cherry Log");
         add(ModItems.LOG_DARK_OAK.get(),"Dark_oak Log");
         add(ModItems.LOG_JUNGLE.get(),"Jungle Log");
         add(ModItems.LOG_MANGROVE.get(),"Mangrove Log");
@@ -95,7 +95,7 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add(ModItems.PLANK_ACACIA.get(),"Acacia Plank");
         add(ModItems.PLANK_BIRCH.get(),"Birch Plank");
-//        add(ModItems.PLANK_CHERRY.get(),"Cherry Plank");
+        add(ModItems.PLANK_CHERRY.get(),"Cherry Plank");
         add(ModItems.PLANK_DARK_OAK.get(),"Dark_oak Plank");
         add(ModItems.PLANK_JUNGLE.get(),"Jungle Plank");
         add(ModItems.PLANK_MANGROVE.get(),"Mangrove Plank");
@@ -196,30 +196,26 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModBlocks.BLOCK_BRONZE.get(), "Bronze Block");
         add(ModBlocks.BLOCK_STEEL.get(), "Steel Block");
 
-
-
-
-
-
         /*Show heatvalue on mouseover*/
-
+        add("heat.level." + ModItems.LOG_ACACIA.get(), ModItems.LOG_ACACIA.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.LOG_BIRCH.get(), ModItems.LOG_BIRCH.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.LOG_CHERRY.get(), ModItems.LOG_CHERRY.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.LOG_DARK_OAK.get(), ModItems.LOG_DARK_OAK.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.LOG_JUNGLE.get(), ModItems.LOG_JUNGLE.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.LOG_MANGROVE.get(), ModItems.LOG_MANGROVE.get().getHeat() + " degrees");
         add("heat.level." + ModItems.LOG_OAK.get(), ModItems.LOG_OAK.get().getHeat() + " degrees");
         add("heat.level." + ModItems.LOG_SPRUCE.get(), ModItems.LOG_SPRUCE.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.LOG_BIRCH.get(), ModItems.LOG_BIRCH.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.LOG_JUNGLE.get(), ModItems.LOG_JUNGLE.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.LOG_ACACIA.get(), ModItems.LOG_ACACIA.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.LOG_DARK_OAK.get(), ModItems.LOG_DARK_OAK.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.LOG_MANGROVE.get(), ModItems.LOG_MANGROVE.get().getHeat() + " degrees");
         add("heat.level." + ModItems.LOG_WARPED.get(), ModItems.LOG_WARPED.get().getHeat() + " degrees");
         add("heat.level." + ModItems.LOG_CRIMSON.get(), ModItems.LOG_CRIMSON.get().getHeat() + " degrees");
 
+        add("heat.level." + ModItems.PLANK_ACACIA.get(), ModItems.PLANK_ACACIA.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.PLANK_BIRCH.get(), ModItems.PLANK_BIRCH.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.PLANK_CHERRY.get(), ModItems.PLANK_CHERRY.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.PLANK_DARK_OAK.get(), ModItems.PLANK_DARK_OAK.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.PLANK_JUNGLE.get(), ModItems.PLANK_JUNGLE.get().getHeat() + " degrees");
+        add("heat.level." + ModItems.PLANK_MANGROVE.get(), ModItems.PLANK_MANGROVE.get().getHeat() + " degrees");
         add("heat.level." + ModItems.PLANK_OAK.get(), ModItems.PLANK_OAK.get().getHeat() + " degrees");
         add("heat.level." + ModItems.PLANK_SPRUCE.get(), ModItems.PLANK_SPRUCE.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.PLANK_BIRCH.get(), ModItems.PLANK_BIRCH.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.PLANK_JUNGLE.get(), ModItems.PLANK_JUNGLE.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.PLANK_ACACIA.get(), ModItems.PLANK_ACACIA.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.PLANK_DARK_OAK.get(), ModItems.PLANK_DARK_OAK.get().getHeat() + " degrees");
-        add("heat.level." + ModItems.PLANK_MANGROVE.get(), ModItems.PLANK_MANGROVE.get().getHeat() + " degrees");
         add("heat.level." + ModItems.PLANK_WARPED.get(), ModItems.PLANK_WARPED.get().getHeat() + " degrees");
         add("heat.level." + ModItems.PLANK_CRIMSON.get(), ModItems.PLANK_CRIMSON.get().getHeat() + " degrees");
 
@@ -246,6 +242,5 @@ public class ModLanguageProvider extends LanguageProvider {
 
 
     }
-
 
 }

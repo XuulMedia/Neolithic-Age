@@ -53,25 +53,27 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DUST_IRON.get(), "dusts");
         simpleItem(ModItems.DUST_GOLD.get(), "dusts");
 
-        simpleItem(ModItems.LOG_OAK.get(), "logs");
-        simpleItem(ModItems.LOG_SPRUCE.get(), "logs");
-        simpleItem(ModItems.LOG_BIRCH.get(), "logs");
-        simpleItem(ModItems.LOG_JUNGLE.get(), "logs");
-        simpleItem(ModItems.LOG_ACACIA.get(), "logs");
-        simpleItem(ModItems.LOG_DARK_OAK.get(), "logs");
-        // simpleItem(ModItems.LOG_MANGROVE.get(), "logs");
-        simpleItem(ModItems.LOG_WARPED.get(), "logs");
-        simpleItem(ModItems.LOG_CRIMSON.get(), "logs");
+        simpleItem(ModItems.LOG_ACACIA.get(), "wood/logs");
+        simpleItem(ModItems.LOG_BIRCH.get(), "wood/logs");
+        simpleItem(ModItems.LOG_CHERRY.get(), "wood/logs");
+        simpleItem(ModItems.LOG_DARK_OAK.get(), "wood/logs");
+        simpleItem(ModItems.LOG_JUNGLE.get(), "wood/logs");
+        simpleItem(ModItems.LOG_MANGROVE.get(), "wood/logs");
+        simpleItem(ModItems.LOG_OAK.get(), "wood/logs");
+        simpleItem(ModItems.LOG_SPRUCE.get(), "wood/logs");
+        simpleItem(ModItems.LOG_WARPED.get(), "wood/logs");
+        simpleItem(ModItems.LOG_CRIMSON.get(), "wood/logs");
 
-        simpleItem(ModItems.PLANK_OAK.get(), "planks");
-        simpleItem(ModItems.PLANK_SPRUCE.get(), "planks");
-        simpleItem(ModItems.PLANK_BIRCH.get(), "planks");
-        simpleItem(ModItems.PLANK_JUNGLE.get(), "planks");
-        simpleItem(ModItems.PLANK_ACACIA.get(), "planks");
-        simpleItem(ModItems.PLANK_DARK_OAK.get(), "planks");
-        // simpleItem(ModItems.PLANK_MANGROVE.get(), "planks");
-        simpleItem(ModItems.PLANK_CRIMSON.get(), "planks");
-        simpleItem(ModItems.PLANK_WARPED.get(), "planks");
+        simpleItem(ModItems.PLANK_ACACIA.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_BIRCH.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_CHERRY.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_DARK_OAK.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_JUNGLE.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_MANGROVE.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_OAK.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_SPRUCE.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_WARPED.get(), "wood/planks");
+        simpleItem(ModItems.PLANK_CRIMSON.get(), "wood/planks");
 
         simpleItem(ModItems.CHUNK_ANDESITE.get(), "stone/chunks");
         simpleItem(ModItems.CHUNK_BASALT.get(), "stone/chunks");
@@ -89,7 +91,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 //        simpleItem(ModItems.CHUNK_ENDSTONE.get(), "stone/chunks");
 
         simpleItem(ModItems.DUST_BASALT.get(), "stone/dusts");
-//        simpleItem(ModItems.DUST_BLACKSTONE.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_BLACKSTONE.get(), "stone/dusts");
         simpleItem(ModItems.DUST_CALCITE.get(), "stone/dusts");
         simpleItem(ModItems.DUST_DEEPSLATE.get(), "stone/dusts");
         simpleItem(ModItems.DUST_DIORITE.get(), "stone/dusts");
@@ -109,30 +111,28 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CLAY_DEEPSLATE.get(), "stone/clay");
         simpleItem(ModItems.CLAY_DIORITE.get(), "stone/clay");
         simpleItem(ModItems.CLAY_DRIPSTONE.get(), "stone/clay");
-//        simpleItem(ModItems.CLAY_GRANITE.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_GRANITE.get(), "stone/clay");
         simpleItem(ModItems.CLAY_NETHERRACK.get(), "stone/clay");
-//        simpleItem(ModItems.CLAY_RED_SANDSTONE.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_RED_SANDSTONE.get(), "stone/clay");
         simpleItem(ModItems.CLAY_SANDSTONE.get(), "stone/clay");
-//        simpleItem(ModItems.CLAY_STONE.get(), "stone/clay");
-//        simpleItem(ModItems.CLAY_TUFF.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_STONE.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_TUFF.get(), "stone/clay");
 //        simpleItem(ModItems.CLAY_ENDSTONE.get(), "stone/clay");
 
-//        simpleItem(ModItems.BRICK_ANDESITE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_ANDESITE.get(), "stone/bricks");
         simpleItem(ModItems.BRICK_BASALT.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_BLACKSTONE.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_CALCITE.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_DEEPSLATE.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_DIORITE.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_DRIPSTONE.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_GRANITE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_BLACKSTONE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_CALCITE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_DEEPSLATE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_DIORITE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_DRIPSTONE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_GRANITE.get(), "stone/bricks");
         simpleItem(ModItems.BRICK_NETHERRACK.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_RED_SANDSTONE.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_SANDSTONE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_RED_SANDSTONE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_SANDSTONE.get(), "stone/bricks");
         simpleItem(ModItems.BRICK_STONE.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_TUFF.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_TUFF.get(), "stone/bricks");
 //        simpleItem(ModItems.BRICK_ENDSTONE.get(), "stone/bricks");
-
-
 
 
 //        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_JUG.get()).getPath(),

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_endstone_with_hammer_from_chunk_endstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haschunk_endstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:chunk_endstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haschunk_endstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_endstone_with_hammer_from_chunk_endstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

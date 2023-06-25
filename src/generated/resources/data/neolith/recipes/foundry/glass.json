@@ -1,9 +1,0 @@
-{
-  "type": "neolith:forge_recipe",
-  "count": 1,
-  "heat": 500,
-  "input": {
-    "tag": "minecraft:sand"
-  },
-  "output": "minecraft:glass"
-}

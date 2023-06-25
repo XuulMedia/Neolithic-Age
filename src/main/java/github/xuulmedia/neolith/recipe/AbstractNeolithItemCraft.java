@@ -34,9 +34,7 @@ public abstract class AbstractNeolithItemCraft implements Recipe<Container> {
         this.results = results;
         this.experience = experience;
     }
-
-
-
+    
     public boolean canCraftInDimensions(int pWidth, int pHeight) {
         return true;
     }

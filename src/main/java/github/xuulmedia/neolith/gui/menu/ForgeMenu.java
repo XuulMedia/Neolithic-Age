@@ -1,27 +1,28 @@
 package github.xuulmedia.neolith.gui.menu;
 
 import github.xuulmedia.neolith.block.entity.ForgeBE;
-import github.xuulmedia.neolith.gui.slot.ModResultSlot;
 import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModMenuTypes;
 import github.xuulmedia.neolith.recipe.ForgeRecipe;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.Container;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.*;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+
+import static github.xuulmedia.neolith.block.entity.ForgeBE.SLOT_COUNT;
+import static github.xuulmedia.neolith.block.entity.ForgeBE.SLOT_INPUT;
 
 public class ForgeMenu extends AbstractContainerMenu {
     public final ForgeBE blockEntity;
@@ -43,19 +44,15 @@ public class ForgeMenu extends AbstractContainerMenu {
         this.level = inventory.player.level();
         this.data = data;
 
-
-
-
-        this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, ForgeBE.SLOT_INPUT, 56, 17));
-            this.addSlot(new FuelSlot(handler, ForgeBE.SLOT_FUEL, 56, 53));
-            this.addSlot(new ModResultSlot(handler, ForgeBE.SLOT_OUTPUT, 116, 35));
-        });
+        this.addSlot(new SlotItemHandler(blockEntity.getInputItems(), ForgeBE.SLOT_INPUT, 56, 17));
+        this.addSlot(new SlotItemHandler(blockEntity.getFuelItems(), ForgeBE.SLOT_FUEL, 56, 53));
+        this.addSlot(new SlotItemHandler(blockEntity.getOutputItems(), ForgeBE.SLOT_OUTPUT, 116, 35));
 
         this.addDataSlots(data);
 
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);
+
 
         RecipeManager recipeManager = this.level.getRecipeManager();
         this.fuels = recipeManager.getAllRecipesFor(HeatingFuelRecipe.Type.INSTANCE);
@@ -68,54 +65,6 @@ public class ForgeMenu extends AbstractContainerMenu {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()), pPlayer, ModBlocks.FORGE.get());
     }
 
-    @Override
-    public ItemStack quickMoveStack(Player pPlayer, int pIndex) {
-        ItemStack out = ItemStack.EMPTY;
-        Slot hoveredSlot = this.slots.get(pIndex);
-        if (hoveredSlot != null && hoveredSlot.hasItem()) {
-            ItemStack hoveredItem = hoveredSlot.getItem();
-            out = hoveredItem.copy();
-            if (pIndex == ForgeBE.SLOT_OUTPUT) {
-                if (!this.moveItemStackTo(hoveredItem, 3, 39, true)) {
-                    return ItemStack.EMPTY;
-                }
-
-                hoveredSlot.onQuickCraft(hoveredItem, out);
-            } else if (pIndex != 1 && pIndex != 0) {
-                if (this.isFuel(hoveredItem)) {
-                    if (!this.moveItemStackTo(hoveredItem, 1, 2, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (this.isInputtable(hoveredItem)) {
-                    if (!this.moveItemStackTo(hoveredItem, 0, 1, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (pIndex >= 3 && pIndex < 30) {
-                    if (!this.moveItemStackTo(hoveredItem, 30, 39, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (pIndex >= 30 && pIndex < 39 && !this.moveItemStackTo(hoveredItem, 3, 30, false)) {
-                    return ItemStack.EMPTY;
-                }
-            } else if (!this.moveItemStackTo(hoveredItem, 3, 39, false)) {
-                return ItemStack.EMPTY;
-            }
-
-            if (hoveredItem.isEmpty()) {
-                hoveredSlot.set(ItemStack.EMPTY);
-            } else {
-                hoveredSlot.setChanged();
-            }
-
-            if (hoveredItem.getCount() == out.getCount()) {
-                return ItemStack.EMPTY;
-            }
-
-            hoveredSlot.onTake(pPlayer, hoveredItem);
-        }
-
-        return out;
-    }
 
     private boolean isFuel(ItemStack stack) {
         for (var fuel : this.fuels) {
@@ -180,13 +129,74 @@ public class ForgeMenu extends AbstractContainerMenu {
 
     public @Nullable Integer heatReqdToCookInput() {
         ItemStack input = this.getSlot(ForgeBE.SLOT_INPUT).getItem();
-        if(input.isEmpty() ){
+        if (input.isEmpty()) {
             return null;
         }
-        for(var recipe : this.recipes){
+        for (var recipe : this.recipes) {
             return recipe.getHeatRequired();
         }
         return null;
+    }
+
+
+    //QUICK MOVE CODE CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
+    private static final int HOTBAR_SLOT_COUNT = 9;
+    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
+    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
+    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
+    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
+    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
+    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
+
+    @Override
+    public ItemStack quickMoveStack(Player playerIn, int index) {
+        Slot sourceSlot = slots.get(index);
+        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
+        ItemStack sourceStack = sourceSlot.getItem();
+        ItemStack copyOfSourceStack = sourceStack.copy();
+
+        // Check if the slot clicked is one of the vanilla container slots
+        if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
+            // This is a vanilla container slot so merge the stack into the tile inventory
+            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
+                    + SLOT_COUNT, false)) {
+                return ItemStack.EMPTY;  // EMPTY_ITEM
+            }
+        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + SLOT_COUNT) {
+            // This is a TE slot so merge the stack into the players inventory
+            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+                return ItemStack.EMPTY;
+            }
+        } else {
+            System.out.println("Invalid slotIndex:" + index);
+            return ItemStack.EMPTY;
+        }
+        // If stack size == 0 (the entire stack was moved) set slot contents to null
+        if (sourceStack.getCount() == 0) {
+            sourceSlot.set(ItemStack.EMPTY);
+        } else {
+            sourceSlot.setChanged();
+        }
+        sourceSlot.onTake(playerIn, sourceStack);
+        return copyOfSourceStack;
+    }
+
+
+
+    //HELPERS
+
+    private void addPlayerInventory(Inventory playerInventory) {
+        for (int i = 0; i < 3; ++i) {
+            for (int l = 0; l < 9; ++l) {
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
+            }
+        }
+    }
+
+    private void addPlayerHotbar(Inventory playerInventory) {
+        for (int i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+        }
     }
 
     private class FuelSlot extends SlotItemHandler {
@@ -207,16 +217,5 @@ public class ForgeMenu extends AbstractContainerMenu {
 
 
     /*Helpers for quick stack and player inventory*/
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
-            }
-        }
-    }
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
-        }
-    }
+
 }

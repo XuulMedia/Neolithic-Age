@@ -23,7 +23,6 @@ public class ForgeBlockRecipieBuilder implements RecipeBuilder {
     private final Item result;
     private final int count;
     private final int heat;
-
     private final Advancement.Builder advancement;
     @Nullable
     private String group;
@@ -70,7 +69,7 @@ public class ForgeBlockRecipieBuilder implements RecipeBuilder {
                 this.count,
                 this.heat,
                 this.advancement,
-                new ResourceLocation(pRecipeId.getNamespace(), "recipes/foundry/" + pRecipeId.getPath())));
+                new ResourceLocation(pRecipeId.getNamespace(), "recipes/forge/" + pRecipeId.getPath())));
 
     }
 

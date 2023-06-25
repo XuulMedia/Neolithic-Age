@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "neolith:item/logs/log_oak"
+    "layer0": "neolith:item/wood/logs/log_oak"
   }
 }

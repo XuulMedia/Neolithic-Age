@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "neolith:item/planks/plank_warped"
+    "layer0": "neolith:item/wood/planks/plank_warped"
   }
 }

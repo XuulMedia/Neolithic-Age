@@ -6,6 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Container;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
@@ -21,9 +22,12 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraft.world.level.block.Block;
 import org.jetbrains.annotations.Nullable;
 
-public class WorkBenchBE extends BlockEntity implements MenuProvider {
+import javax.annotation.Nonnull;
+
+public class WorkBenchBE extends AbstractNeolithBlockEntity {
     public static final String DISPLAY_NAME = "Work Bench";
 
     public static final int RESULT_SLOT = 0;
@@ -35,26 +39,12 @@ public class WorkBenchBE extends BlockEntity implements MenuProvider {
     public static final int NUM_SLOTS = 19; // this must be a match with the number in the block MENU
     protected final ContainerData data;
     private int progress = 0;
-    private final ItemStackHandler itemHandler = new ItemStackHandler(NUM_SLOTS) {
-        @Override
-        protected void onContentsChanged(int slot) {
-            setChanged();
-        }
-    };
-
-    private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
-
-
-    protected int GetResultSlot() {
-        return RESULT_SLOT;
-    }
-
-//    protected int GetCraftingSlots(){ return CRAFTING_SLOTS.length};
-
-
 
     public WorkBenchBE(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.WORK_BENCH.get(), pPos, pBlockState);
+        itemHandler = createItemHandler(NUM_SLOTS);
+
+
         this.data = new ContainerData() {
             @Override
             public int get(int index) {
@@ -88,44 +78,38 @@ public class WorkBenchBE extends BlockEntity implements MenuProvider {
     }
 
     @Override
-    public <T> LazyOptional<T> getCapability(Capability<T> cap, @Nullable Direction side) {
-        if(cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
+    public CompoundTag getUpdateTag() {
+        CompoundTag tag = super.getUpdateTag();
+        saveClientData(tag);
+        return tag;
+    }
+
+    @Override
+    public void handleUpdateTag(CompoundTag tag) {
+        if (tag != null) {
+            loadClientData(tag);
         }
-        return super.getCapability(cap, side);
-    }
-
-    @Override
-    public void onLoad() {
-        super.onLoad();
-        lazyItemHandler = LazyOptional.of(() -> itemHandler);
-    }
-
-    @Override
-    public void invalidateCaps() {
-        super.invalidateCaps();
-        lazyItemHandler.invalidate();
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
-        tag.put("inventory", itemHandler.serializeNBT());
-
         super.saveAdditional(tag);
+        saveClientData(tag);
+    }
+
+    private void saveClientData(CompoundTag tag) {
+        tag.put(DISPLAY_NAME, itemHandler.serializeNBT());
     }
 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-        itemHandler.deserializeNBT(tag.getCompound("inventory"));
+        loadClientData(tag);
     }
 
-    public void drops() {
-        Container inventory = new SimpleContainer(itemHandler.getSlots());
-        for (int i = 0; i < itemHandler.getSlots(); i++) {
-            inventory.setItem(i, itemHandler.getStackInSlot(i));
+    private void loadClientData(CompoundTag tag) {
+        if (tag.contains(DISPLAY_NAME)) {
+            itemHandler.deserializeNBT(tag.getCompound(DISPLAY_NAME));
         }
-
-        Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:dust_blackstone"
+    },
+    {
+      "item": "neolith:dust_blackstone"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    }
+  ],
+  "result": {
+    "item": "neolith:brick_blackstone"
+  }
+}

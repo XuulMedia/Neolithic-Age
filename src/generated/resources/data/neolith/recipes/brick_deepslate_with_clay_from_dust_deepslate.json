@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:dust_deepslate"
+    },
+    {
+      "item": "neolith:dust_deepslate"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    }
+  ],
+  "result": {
+    "item": "neolith:brick_deepslate"
+  }
+}

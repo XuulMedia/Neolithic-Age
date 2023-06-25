@@ -3,6 +3,7 @@ package github.xuulmedia.neolith.block.entity;
 import github.xuulmedia.neolith.gui.menu.FoundryMenu;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.recipe.FoundryRecipe;
+import github.xuulmedia.neolith.util.AdaptedItemHandler;
 import github.xuulmedia.neolith.util.HeatingFuelContainer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -13,7 +14,10 @@ import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.ItemStackHandler;
+import net.minecraftforge.items.wrapper.CombinedInvWrapper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -29,16 +33,40 @@ public class FoundryBE extends AbstractHeatingBlockEntity implements MenuProvide
     public static final int SLOT_OUTPUT0 = 4;
     public static final int SLOT_OUTPUT1 = 5;
 
-    public static final int NUM_SLOTS = 6; // this must be a match with the number in the block MENU
+    public static final int SLOT_INPUT_COUNT = 1;
+    public static final int SLOT_FUEL_COUNT = 1;
+    public static final int SLOT_OUTPUT_COUNT = 1;
+
+    public static final int SLOT_COUNT  = SLOT_INPUT_COUNT + SLOT_FUEL_COUNT + SLOT_OUTPUT_COUNT;
 
     public FoundryBE(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.FOUNDRY.get(), pPos, pBlockState);
-        this.itemHandler = new ItemStackHandler(NUM_SLOTS) {
+        this.inputItems = createItemHandler(SLOT_INPUT_COUNT);
+        this.fuelItems = createItemHandler(SLOT_FUEL_COUNT);
+        this.outputItems = createItemHandler(SLOT_OUTPUT_COUNT);
+        this.lazyItemHandler =  LazyOptional.of(() -> new CombinedInvWrapper(inputItems, inputItems, outputItems, fuelItems));
+
+
+        this.inputItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(inputItems) {
             @Override
-            protected void onContentsChanged(int slot) {
-                setChanged();
+            public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
+                return ItemStack.EMPTY;
             }
-        };
+        });
+
+        this.outputItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(outputItems) {
+            @Override
+            public @NotNull ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+                return stack;
+            }
+        });
+
+        this.fuelItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(fuelItems) {
+            @Override
+            public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
+                return ItemStack.EMPTY;
+            }
+        });
     }
     @Override
     protected int getFuelSlotIndex() {
@@ -58,14 +86,14 @@ public class FoundryBE extends AbstractHeatingBlockEntity implements MenuProvide
 
 
     public static void tick(Level world, BlockPos pos, BlockState state, FoundryBE tile) {
-        var ersatzInv = new HeatingFuelContainer(tile.itemHandler.getSlots()) {
+        var ersatzInv = new HeatingFuelContainer(tile.fuelItems.getSlots()) {
             @Override
             public int getFuelSlot() {
                 return SLOT_FUEL;
             }
         };
-        for (int i = 0; i < tile.itemHandler.getSlots(); i++) {
-            ersatzInv.setItem(i, tile.itemHandler.getStackInSlot(i));
+        for (int i = 0; i < tile.fuelItems.getSlots(); i++) {
+            ersatzInv.setItem(i, tile.fuelItems.getStackInSlot(i));
         }
 
         AbstractHeatingBlockEntity.tickHeat(world, pos, state, tile, ersatzInv);
@@ -78,13 +106,13 @@ public class FoundryBE extends AbstractHeatingBlockEntity implements MenuProvide
         if (recipeMatch.isPresent()) {
             var recipe = recipeMatch.get();
 
-            if (recipeMatches(recipe, idx -> tile.itemHandler.getStackInSlot(FoundryBE.SLOT_INPUT0 + idx))
+            if (recipeMatches(recipe, idx -> tile.inputItems.getStackInSlot(FoundryBE.SLOT_INPUT0 + idx))
                 && recipe.heat <= tile.heat) {
 
                 boolean outMatches = true;
 //                System.out.println(recipe.outputs.size());
                 for (int i = 0; i < FoundryRecipe.MAX_OUTPUTS; i++) {
-                    var stackHere = tile.itemHandler.getStackInSlot(FoundryBE.SLOT_OUTPUT0 + i);
+                    var stackHere = tile.outputItems.getStackInSlot(FoundryBE.SLOT_OUTPUT0 + i);
                     ItemStack outAttempt;
                     if (i < recipe.results.size()) {
                         outAttempt = recipe.results.get(i);
@@ -111,13 +139,13 @@ public class FoundryBE extends AbstractHeatingBlockEntity implements MenuProvide
                     tile.progress = 0;
 
                     for (int i = 0; i < FoundryRecipe.MAX_INPUTS; i++) {
-                        tile.itemHandler.getStackInSlot(FoundryBE.SLOT_INPUT0 + i).shrink(1);
+                        tile.inputItems.getStackInSlot(FoundryBE.SLOT_INPUT0 + i).shrink(1);
                     }
                     for (int i = 0; i < recipe.results.size(); i++) {
-                        var stackHere = tile.itemHandler.getStackInSlot(FoundryBE.SLOT_OUTPUT0 + i);
+                        var stackHere = tile.outputItems.getStackInSlot(FoundryBE.SLOT_OUTPUT0 + i);
                         var outAttempt = recipe.results.get(i);
                         if (stackHere.isEmpty()) {
-                            tile.itemHandler.setStackInSlot(FoundryBE.SLOT_OUTPUT0 + i, outAttempt.copy());
+                            tile.outputItems.setStackInSlot(FoundryBE.SLOT_OUTPUT0 + i, outAttempt.copy());
                         } else {
                             stackHere.grow(outAttempt.getCount());
                         }
