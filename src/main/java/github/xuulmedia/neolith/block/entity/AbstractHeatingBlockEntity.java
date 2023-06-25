@@ -8,11 +8,11 @@ import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.Mth;
-import net.minecraft.world.CompoundContainer;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -41,7 +41,7 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
 
     private static final String TAG_INVENTORY = "inventory";
     private static final String TAG_INPUT_INVENTORY = "inputInventory";
-    private static final String TAG_OUTPUT_INVENTORY = "outputInventory";
+    private static final String TAG_RESULT_INVENTORY = "resultInventory";
     private static final String TAG_FUEL_INVENTORY = "fuelInventory";
     private static final String TAG_HEAT = "heat";
     private static final String TAG_TARGET_HEAT = "targetHeat";
@@ -50,13 +50,12 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
     private static final String TAG_PROGRESS = "progress";
     private static final String TAG_MAX_PROGRESS = "maxProgress";
 
-//    protected ItemStackHandler items;
     protected ItemStackHandler inputItems;
-    protected ItemStackHandler outputItems;
+    protected ItemStackHandler resultItems;
     protected ItemStackHandler fuelItems;
     protected LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     protected LazyOptional<IItemHandler> inputItemHandler = LazyOptional.empty();;
-    protected LazyOptional<IItemHandler> outputItemHandler = LazyOptional.empty();;
+    protected LazyOptional<IItemHandler> resultItemHandler = LazyOptional.empty();;
     protected LazyOptional<IItemHandler> fuelItemHandler = LazyOptional.empty();;
 
     protected final ContainerData data;
@@ -117,7 +116,7 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
             if (side == null) {
                 return lazyItemHandler.cast();
             } else if (side == Direction.DOWN) {
-                return outputItemHandler.cast();
+                return resultItemHandler.cast();
             } else if (side == Direction.UP) {
                 return fuelItemHandler.cast();
             } else {
@@ -133,22 +132,20 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
         this.lazyItemHandler.invalidate();
         this.inputItemHandler.invalidate();
         this.fuelItemHandler.invalidate();
-        this.outputItemHandler.invalidate();
+        this.resultItemHandler.invalidate();
     }
 
 
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
-        return
-                ClientboundBlockEntityDataPacket.create(this);
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
-
         tag.put(TAG_INPUT_INVENTORY, this.inputItems.serializeNBT());
-        tag.put(TAG_OUTPUT_INVENTORY, this.outputItems.serializeNBT());
+        tag.put(TAG_RESULT_INVENTORY, this.resultItems.serializeNBT());
         tag.put(TAG_FUEL_INVENTORY, this.fuelItems.serializeNBT());
         tag.putInt(TAG_HEAT, this.heat);
         tag.putInt(TAG_TARGET_HEAT, this.targetHeat);
@@ -163,12 +160,9 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
-
         this.inputItems.deserializeNBT(tag.getCompound(TAG_INPUT_INVENTORY));
-        this.outputItems.deserializeNBT(tag.getCompound(TAG_OUTPUT_INVENTORY));
+        this.resultItems.deserializeNBT(tag.getCompound(TAG_RESULT_INVENTORY));
         this.fuelItems.deserializeNBT(tag.getCompound(TAG_FUEL_INVENTORY));
-
-
         this.heat = tag.getInt(TAG_HEAT);
         this.targetHeat = tag.getInt(TAG_TARGET_HEAT);
         this.fuelTicksLeft = tag.getInt(TAG_FUEL_LEFT);
@@ -177,67 +171,57 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
         this.maxProgress = tag.getInt(TAG_MAX_PROGRESS);
     }
 
-
-//    @Override
-//    public void onLoad() {
-//        super.onLoad();
-//        this.lazyItemHandler = LazyOptional.of(() -> this.items);
-//    }
-
     public void drops() {
         SimpleContainer inputInv = new SimpleContainer(inputItems.getSlots());
         for (int i = 0; i < inputItems.getSlots(); i++) {
             inputInv.setItem(i, inputItems.getStackInSlot(i));
         }
-        SimpleContainer outputInv = new SimpleContainer(outputItems.getSlots());
-        for (int i = 0; i < outputItems.getSlots(); i++) {
-            outputInv.setItem(i, outputItems.getStackInSlot(i));
+        SimpleContainer outputInv = new SimpleContainer(resultItems.getSlots());
+        for (int i = 0; i < resultItems.getSlots(); i++) {
+            outputInv.setItem(i, resultItems.getStackInSlot(i));
         }
         SimpleContainer fuelInv = new SimpleContainer(fuelItems.getSlots());
         for (int i = 0; i < fuelItems.getSlots(); i++) {
             fuelInv.setItem(i, fuelItems.getStackInSlot(i));
         }
 
-//        CompoundContainer inv = new CompoundContainer(inputInv,outputInv);
-//        CompoundContainer inventory = new CompoundContainer(inv,fuelInv);
-
-
         Containers.dropContents(this.level, this.worldPosition, inputInv);
         Containers.dropContents(this.level, this.worldPosition, outputInv);
         Containers.dropContents(this.level, this.worldPosition, fuelInv);
     }
 
-    public static void tickHeat(Level world, BlockPos pos, BlockState state, AbstractHeatingBlockEntity tile,
+    public static void tickHeat(Level world, BlockPos pos, BlockState state, AbstractHeatingBlockEntity blockEntity,
                                 HeatingFuelContainer ersatzInv) {
-        var recman = world.getRecipeManager();
+        RecipeManager recipeManager = world.getRecipeManager();
 
-        if (tile.fuelTicksLeft > 0) {
-            tile.fuelTicksLeft--;
+
+        if (blockEntity.fuelTicksLeft > 0) {
+            blockEntity.fuelTicksLeft--;
         } else {
-            var fuelMatch = recman.getRecipeFor(HeatingFuelRecipe.Type.INSTANCE, ersatzInv, world);
+            var fuelMatch = recipeManager.getRecipeFor(HeatingFuelRecipe.Type.INSTANCE, ersatzInv, world);
             if (fuelMatch.isPresent()) {
                 var fuel = fuelMatch.get();
-                tile.fuelItems.getStackInSlot(tile.getFuelSlotIndex()).shrink(1);
-                tile.targetHeat = fuel.maxHeat;
-                tile.fuelTicksLeft = tile.maxFuelTicksLeft = fuel.burnTime;
+               blockEntity.fuelItems.getStackInSlot(blockEntity.getFuelSlotIndex()).shrink(1);
+                blockEntity.targetHeat = fuel.maxHeat;
+                blockEntity.fuelTicksLeft = blockEntity.maxFuelTicksLeft = fuel.burnTime;
             } else {
-                tile.targetHeat = ROOM_TEMP;
-                tile.fuelTicksLeft = 0;
-                tile.maxFuelTicksLeft = -1;
+                blockEntity.targetHeat = ROOM_TEMP;
+                blockEntity.fuelTicksLeft = 0;
+                blockEntity.maxFuelTicksLeft = -1;
             }
         }
 
-        var delta = Mth.clamp(tile.targetHeat - tile.heat,
-                -(tile.maxFuelTicksLeft >= 0 ? DELTA_HEAT_COOL : DELTA_HEAT_COLD),
+        var delta = Mth.clamp(blockEntity.targetHeat - blockEntity.heat,
+                -(blockEntity.maxFuelTicksLeft >= 0 ? DELTA_HEAT_COOL : DELTA_HEAT_COLD),
                 DELTA_HEAT_UP);
-        tile.heat += delta;
+        blockEntity.heat += delta;
 
-        var newLit = tile.fuelTicksLeft > 0;
+        var newLit = blockEntity.fuelTicksLeft > 0;
         if (newLit != state.getValue(ForgeBlock.LIT)) {
             world.setBlockAndUpdate(pos, state.setValue(ForgeBlock.LIT, newLit));
         }
 
-        tile.setChanged();
+        blockEntity.setChanged();
     }
 
     @Nonnull
@@ -256,8 +240,8 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
         return inputItems;
     }
 
-    public ItemStackHandler getOutputItems() {
-        return outputItems;
+    public ItemStackHandler getResultItems() {
+        return resultItems;
     }
 
     public ItemStackHandler getFuelItems() {
