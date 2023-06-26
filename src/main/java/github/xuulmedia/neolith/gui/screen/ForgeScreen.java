@@ -18,13 +18,10 @@ public class ForgeScreen extends AbstractContainerScreen<ForgeMenu> {
     private static final ResourceLocation TEXTURE =
             new ResourceLocation(Neolith.MODID, "textures/gui/forge_gui.png");
     private @Nullable Integer heatRequiredToCook;
-    private final int leftPos;
-    private final int topPos ;
     private final int imageWidth;
     private final int imageHeight;
 
-    public ForgeScreen(ForgeMenu pMenu, Inventory pPlayerInventory,
-                       Component pTitle) {
+    public ForgeScreen(ForgeMenu pMenu, Inventory pPlayerInventory, Component pTitle) {
         super(pMenu, pPlayerInventory, pTitle);
         this.heatRequiredToCook = this.menu.heatReqdToCookInput();
         this.leftPos = 0;

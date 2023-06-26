@@ -31,13 +31,13 @@ public abstract class AbstractNeolithMenu extends AbstractContainerMenu {
     }
     protected void addSlotRange(ItemStackHandler inventory , int numSlots, int xPos, int yPos, int dx) {
         for (int i = 0; i < numSlots; i++) {
-            addSlot(new SlotItemHandler(inventory, 0, xPos, yPos));
+            addSlot(new SlotItemHandler(inventory, i, xPos, yPos));
             xPos += dx;
         }
     }
 
     protected void addSlotBox(ItemStackHandler inventory, int numRows, int numCols, int xPos, int yPos, int dx, int dy){
-        for (int j = 0 ; j < numRows ; j++) {
+        for (int j = 0 ; j < numRows; j++) {
             addSlotRange(inventory, numCols, xPos, yPos,  dx);
             yPos+= dy;
         }

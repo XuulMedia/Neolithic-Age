@@ -1,5 +1,6 @@
 package github.xuulmedia.neolith.block.workstation;
 
+import github.xuulmedia.neolith.block.entity.ForgeBE;
 import github.xuulmedia.neolith.block.entity.FoundryBE;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
@@ -27,6 +28,11 @@ import org.jetbrains.annotations.Nullable;
 public class FoundryBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
+
+    public static final String HEAT_MESSAGE ="container.flint.foundry.heat";
+    public static final String HEAT_TARGET_MESSAGE ="container.flint.foundry.heat.target";
+    public static final String TOO_COLD_MESSAGE ="container.neolith.foundry.heat.too_cold";
+
 
     public FoundryBlock(Properties props) {
         super(props);
@@ -58,30 +64,39 @@ public class FoundryBlock extends BaseEntityBlock {
         return RenderShape.MODEL;
     }
 
+    @Nullable
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state,
+                                                                  BlockEntityType<T> type) {
+        return createTickerHelper(type, ModBlockEntities.FOUNDRY.get(), FoundryBE::tick);
+    }
+
+
     @Override
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
-        if (pState.getBlock() != pNewState.getBlock()) {
+        if (!pState.is(pNewState.getBlock())) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof FoundryBE) {
-                Containers.dropContents(pLevel, pPos, (Container) blockEntity);
+            if (blockEntity instanceof FoundryBE fbe) {
+                fbe.drops();
             }
             super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
         }
+
     }
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-
-        if (pLevel.isClientSide) {
-            return InteractionResult.SUCCESS;
-        } else {
+        if(!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if (entity instanceof FoundryBE) {
-                NetworkHooks.openScreen((ServerPlayer) pPlayer, (FoundryBE) entity, pPos);
+            if(entity instanceof FoundryBE) {
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (FoundryBE)entity, pPos);
+            } else {
+                throw new IllegalStateException("Our Container provider is missing!");
             }
-            return InteractionResult.CONSUME;
         }
+        return InteractionResult.sidedSuccess(pLevel.isClientSide());
     }
+
 
     @Nullable
     @Override
@@ -90,11 +105,7 @@ public class FoundryBlock extends BaseEntityBlock {
         return new FoundryBE(pPos, pState);
     }
 
-    @Nullable
-    @Override
-    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
-        return createTickerHelper(type, ModBlockEntities.FOUNDRY.get(), FoundryBE::tick);
-    }
+
 
 
 }

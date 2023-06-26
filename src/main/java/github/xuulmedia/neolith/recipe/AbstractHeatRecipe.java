@@ -80,6 +80,17 @@ public abstract class AbstractHeatRecipe implements Recipe<Container> {
         return outputArray;
     }
 
+    public int getIngredientSize() {
+        return ingredients.size();
+    }
+    public int getResultSize() {
+        return results.size();
+    }
+
+    public ItemStack getResultInSlot(int slot){
+        return  results.get(slot);
+    }
+
 
 
 }

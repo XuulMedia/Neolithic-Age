@@ -37,7 +37,7 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
     public static final int SLOT_COUNT  = SLOT_INPUT_COUNT + SLOT_FUEL_COUNT + SLOT_RESULT_COUNT;
     public ForgeBE(BlockPos pWorldPosition, BlockState pBlockState) {
         super(ModBlockEntities.FORGE.get(), pWorldPosition, pBlockState);
-//        this.itemHandler = createItemHandler(STACK_SIZE);
+
         this.inputItems = createItemHandler(SLOT_INPUT_COUNT);
         this.fuelItems = createItemHandler(SLOT_FUEL_COUNT);
         this.resultItems = createItemHandler(SLOT_RESULT_COUNT);
@@ -78,53 +78,55 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
     public Component getDisplayName() {
         return Component.translatable(DISPLAY_NAME);
     }
-    public static void tick(Level level, BlockPos pos, BlockState state, ForgeBE forgeBE) {
-        HeatingFuelContainer heatContainer = new HeatingFuelContainer(forgeBE.fuelItems.getSlots()) {
+    public static void tick(Level level, BlockPos pos, BlockState state, ForgeBE entity) {
+        HeatingFuelContainer heatContainer = new HeatingFuelContainer(entity.fuelItems.getSlots()) {
             @Override
             public int getFuelSlot() {
                 return SLOT_FUEL;
             }
         };
 
-        for (int i = 0; i < forgeBE.fuelItems.getSlots(); i++) {
-            heatContainer.setItem(i, forgeBE.fuelItems.getStackInSlot(i));
+        for (int i = 0; i < entity.fuelItems.getSlots(); i++) {
+            heatContainer.setItem(i, entity.fuelItems.getStackInSlot(i));
         }
-        SimpleContainer inputContainer = new SimpleContainer(forgeBE.inputItems.getSlots());
-        for (int i = 0; i < forgeBE.inputItems.getSlots(); i++) {
-            inputContainer.setItem(i, forgeBE.inputItems.getStackInSlot(i));
+        SimpleContainer inputContainer = new SimpleContainer(entity.inputItems.getSlots());
+        for (int i = 0; i < entity.inputItems.getSlots(); i++) {
+            inputContainer.setItem(i, entity.inputItems.getStackInSlot(i));
         }
 
         RecipeManager recipeManager = level.getRecipeManager();
         RecipeType<ForgeRecipe> type = ForgeRecipe.Type.INSTANCE;
         Optional<ForgeRecipe> match = recipeManager.getRecipeFor(type, inputContainer, level);
 
-        AbstractHeatingBlockEntity.tickHeat(level, pos, state, forgeBE, heatContainer);
+        AbstractHeatingBlockEntity.tickHeat(level, pos, state, entity, heatContainer);
 
-        ItemStack currentOutputStack = forgeBE.resultItems.getStackInSlot(SLOT_RESULT);
+        ItemStack currentOutputStack = entity.resultItems.getStackInSlot(SLOT_RESULT);
 
         boolean recipeOk = false;
         if(match.isPresent()){
             ForgeRecipe recipe = match.get();
-            boolean ingredientTest = recipe.getIngredient().test(forgeBE.inputItems.getStackInSlot(SLOT_INPUT));
-            boolean canInsertItem = canInsertItemIntoOutputSlot(forgeBE, match.get().getResultItem(level.registryAccess()));
-            boolean heatCheck = isHeatHighEnough(forgeBE, match);
-            boolean spaceCheck = canInsertAmountIntoOutputSlot(forgeBE);
+            boolean ingredientTest = recipe.getIngredient().test(entity.inputItems.getStackInSlot(SLOT_INPUT));
+            boolean canInsertItem = canInsertItemIntoOutputSlot(entity, match.get().getResultItem(level.registryAccess()));
+            boolean heatCheck = isHeatHighEnough(entity, match);
+            boolean spaceCheck = canInsertAmountIntoOutputSlot(entity);
             if(ingredientTest && canInsertItem && heatCheck && spaceCheck){
                 recipeOk = true;
             }
         }
         if(recipeOk){
-            forgeBE.progress++;
-            if(forgeBE.progress > forgeBE.maxProgress) {
-                forgeBE.progress = 0;
+            entity.progress++;
+            if(entity.progress > entity.maxProgress) {
+                entity.progress = 0;
                 if(currentOutputStack.isEmpty()){
-                    forgeBE.resultItems.setStackInSlot(SLOT_RESULT, match.get().getResultItem(level.registryAccess()));
+                    entity.resultItems.setStackInSlot(SLOT_RESULT, match.get().getResultItem(level.registryAccess()));
                 } else{
                     currentOutputStack.grow(1);
                 }
-                forgeBE.inputItems.getStackInSlot(SLOT_INPUT).shrink(1);
+                entity.inputItems.getStackInSlot(SLOT_INPUT).shrink(1);
            }
-
+        }
+        if (!recipeOk) {
+            entity.progress = 0;
         }
     }
     private static boolean canInsertItemIntoOutputSlot(ForgeBE forgeBE, ItemStack resultItem){

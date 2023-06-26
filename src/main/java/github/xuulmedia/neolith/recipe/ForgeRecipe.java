@@ -69,7 +69,6 @@ public class ForgeRecipe extends AbstractHeatRecipe {
         private Type() {
         }
         public static final ForgeRecipe.Type INSTANCE = new ForgeRecipe.Type();
-        public static final String ID = "forge";
     }
 
     private static class Serializer implements RecipeSerializer<ForgeRecipe> {

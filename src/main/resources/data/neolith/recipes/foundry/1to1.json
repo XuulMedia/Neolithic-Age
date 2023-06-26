@@ -1,0 +1,19 @@
+{
+  "type": "neolith:foundry_recipe",
+  "category": "misc",
+  "cookingtime": 45,
+  "experience": 10.0,
+  "group": "e",
+  "heatRequired": 200,
+  "ingredients": [
+    {
+      "item": "minecraft:carrot"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "minecraft:cobblestone"
+    }
+  ]
+}
