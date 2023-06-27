@@ -28,11 +28,6 @@ public abstract class AbstractNeolithScreen<T extends AbstractNeolithMenu> exten
     public void renderHorizontallyScaledComponent(GuiGraphics gui, int x, int y, int leftPos, int topPos, int renderLeftPos, int renderTopPos,  int width, int height, int scaledProgress){
         gui.blit(this.texture, x + renderLeftPos, y + renderTopPos, leftPos, topPos, scaledProgress, height);
     }
-    public void renderTooltipHelper(GuiGraphics gui, int mx, int my, int x, int y, int topLimit, int bottomLimit, int leftLimit, int rightLimit, String key, Object value){
-        if (mx >= x + leftLimit && mx <= x + rightLimit && my >= y + topLimit && my <= y + bottomLimit) {
-            gui.renderTooltip(this.font, Component.translatable(key, value), mx, my);
-        }
-    }
 
     protected int scaleProgress(float progress, float size){
         return (int)(progress * size);

@@ -15,7 +15,6 @@ public abstract class AbstractHeatCookMenu extends AbstractNeolithMenu{
     protected final ContainerData data;
     protected List<HeatingFuelRecipe> fuels;
 
-
     protected AbstractHeatCookMenu(@Nullable MenuType<?> pMenuType, int pContainerId, ContainerData data) {
         super(pMenuType, pContainerId);
         this.data = data;
@@ -52,6 +51,7 @@ public abstract class AbstractHeatCookMenu extends AbstractNeolithMenu{
     public boolean isBurningFuel() {
         return this.data.get(INDEX_MAX_FUEL_LEFT) >= 0;
     }
+
 
     public @Nullable Integer maxHeatOf(ItemStack stack) {
         for (var fuel : this.fuels) {
