@@ -45,10 +45,6 @@ public class FoundryMenu extends AbstractHeatCookMenu {
 
         addSlotRange(blockEntity.getInputItems(), SLOT_INPUT_COUNT, 38, 18, 18);
 
-//        this.addSlot(new SlotItemHandler(blockEntity.getInputItems(), ForgeBE.SLOT_INPUT, 38, 18));
-//        this.addSlot(new SlotItemHandler(blockEntity.getInputItems(), ForgeBE.SLOT_INPUT + 1 , 38 + 18, 18));
-//        this.addSlot(new SlotItemHandler(blockEntity.getInputItems(), ForgeBE.SLOT_INPUT + 2, 38 + (18*2), 18));
-//
         this.addSlot(new SlotItemHandler(blockEntity.getFuelItems(), ForgeBE.SLOT_FUEL, 56, 53));
 
         addSlotRange(blockEntity.getResultItems(), SLOT_RESULT_COUNT, 116, 35, 20);

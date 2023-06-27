@@ -24,11 +24,27 @@ public abstract class AbstractNeolithMenu extends AbstractContainerMenu {
             }
         }
     }
+
+    protected void addPlayerInventory(Inventory playerInventory, int xOffset, int yOffset) {
+        for (int i = 0; i < 3; ++i) {
+            for (int l = 0; l < 9; ++l) {
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, xOffset + 8 + l * 18, yOffset + 86 + i * 18));
+            }
+        }
+    }
+
     protected void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
+
+    protected void addPlayerHotbar(Inventory playerInventory, int xOffset, int yOffset) {
+        for (int i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(playerInventory, i, xOffset + 8 + i * 18, yOffset + 144));
+        }
+    }
+
     protected void addSlotRange(ItemStackHandler inventory , int numSlots, int xPos, int yPos, int dx) {
         for (int i = 0; i < numSlots; i++) {
             addSlot(new SlotItemHandler(inventory, i, xPos, yPos));

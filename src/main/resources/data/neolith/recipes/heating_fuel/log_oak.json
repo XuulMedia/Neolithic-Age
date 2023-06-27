@@ -1,7 +1,7 @@
 {
   "type": "neolith:heating_fuel",
-  "burnTime": 1600,
-  "heat": 500,
+  "burnTime": 300 ,
+  "heat": 1000,
   "input": {
     "item": "neolith:log_oak"
   }
