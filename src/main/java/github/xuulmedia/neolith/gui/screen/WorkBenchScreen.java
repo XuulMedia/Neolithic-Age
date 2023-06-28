@@ -11,7 +11,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
 
-public class WorkBenchScreen extends AbstractContainerScreen<WorkBenchMenu>    {
+public class WorkBenchScreen extends AbstractNeolithScreen<WorkBenchMenu>    {
         private static final ResourceLocation TEXTURE =
                 new ResourceLocation(Neolith.MODID, "textures/gui/work_bench_gui.png");
         private final int leftPos;
@@ -20,7 +20,7 @@ public class WorkBenchScreen extends AbstractContainerScreen<WorkBenchMenu>    {
         private final int imageHeight;
 
         public WorkBenchScreen(WorkBenchMenu pMenu, Inventory pPlayerInventory,Component pTitle) {
-            super(pMenu, pPlayerInventory, pTitle);
+            super(pMenu, pPlayerInventory, pTitle, TEXTURE);
             this.leftPos = 0;
             this.topPos = 0;
             this.imageWidth = 176;

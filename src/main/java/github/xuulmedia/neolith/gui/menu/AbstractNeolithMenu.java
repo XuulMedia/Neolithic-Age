@@ -52,10 +52,14 @@ public abstract class AbstractNeolithMenu extends AbstractContainerMenu {
         }
     }
 
-    protected void addSlotBox(ItemStackHandler inventory, int numRows, int numCols, int xPos, int yPos, int dx, int dy){
-        for (int j = 0 ; j < numRows; j++) {
-            addSlotRange(inventory, numCols, xPos, yPos,  dx);
-            yPos+= dy;
+    protected void addSlotGrid(ItemStackHandler inventory, int numColumns, int numRows, int xPos, int yPos, int dx, int dy) {
+        for (int i = 0; i < numRows; i++) {
+            for (int j = 0; j < numColumns; j++) {
+                int index = i * numColumns + j;
+                addSlot(new SlotItemHandler(inventory, index, xPos + j * dx, yPos + i * dy));
+            }
         }
     }
+
+    
 }

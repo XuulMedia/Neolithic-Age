@@ -7,6 +7,7 @@ import github.xuulmedia.neolith.init.ModMenuTypes;
 import github.xuulmedia.neolith.recipe.FoundryRecipe;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
 import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerData;
@@ -57,7 +58,6 @@ public class FoundryMenu extends AbstractHeatCookMenu {
         RecipeManager recipeManager = this.level.getRecipeManager();
         this.fuels = recipeManager.getAllRecipesFor(HeatingFuelRecipe.Type.INSTANCE);
         this.recipes = recipeManager.getAllRecipesFor(FoundryRecipe.Type.INSTANCE);
-
     }
 
     @Override
@@ -67,14 +67,18 @@ public class FoundryMenu extends AbstractHeatCookMenu {
     }
 
     public @Nullable Integer heatReqdToCookInput() {
-        ItemStack input = this.getSlot(ForgeBE.SLOT_INPUT).getItem();
-        if (input.isEmpty()) {
+        SimpleContainer inputContainer = new SimpleContainer(blockEntity.getInputItems().getSlots());
+        for (int i = 0; i < blockEntity.getInputItems().getSlots(); i++) {
+            inputContainer.setItem(i, blockEntity.getInputItems().getStackInSlot(i));
+        }
+        if(inputContainer.isEmpty()){
             return null;
         }
         for (var recipe : this.recipes) {
             return recipe.getHeatRequired();
         }
         return null;
+
     }
 
     @Override

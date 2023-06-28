@@ -26,16 +26,22 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
-public class WorkBenchBE extends BlockEntity implements MenuProvider {
+public class WorkBenchBE extends AbstractNeolithBlockEntity {
     public static final String DISPLAY_NAME = "Work Bench";
     private static final String TAG_INPUT_INVENTORY = "inputInventory";
     private static final String TAG_RESULT_INVENTORY = "resultInventory";
     private static final String TAG_STORAGE_INVENTORY = "storageInventory";
 
-    public static final int SLOT_RESULT_COUNT = 1;
+
+
     public static final int SLOT_CRAFTING_COUNT = 9;
+
     public static final int SLOT_STORAGE_COUNT = 9;
+
+    public static final int SLOT_RESULT_COUNT = 1;
+
     public static final int SLOT_COUNT = SLOT_RESULT_COUNT + SLOT_CRAFTING_COUNT + SLOT_STORAGE_COUNT;
+
     protected ItemStackHandler resultItems = createItemHandler(SLOT_RESULT_COUNT);
     protected ItemStackHandler craftingItems = createItemHandler(SLOT_CRAFTING_COUNT);
     protected ItemStackHandler storageItems = createItemHandler(SLOT_STORAGE_COUNT);
@@ -52,10 +58,6 @@ public class WorkBenchBE extends BlockEntity implements MenuProvider {
 
     public WorkBenchBE(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.WORK_BENCH.get(), pPos, pBlockState);
-    }
-    @Override
-    public Component getDisplayName() {
-        return Component.translatable(DISPLAY_NAME);
     }
 
     @Override
@@ -124,6 +126,13 @@ public class WorkBenchBE extends BlockEntity implements MenuProvider {
     }
 
 
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable(DISPLAY_NAME);
+    }
+}
+
+
 
 //
 //
@@ -168,15 +177,4 @@ public class WorkBenchBE extends BlockEntity implements MenuProvider {
 
 
     // to abstract
-    @Nonnull
-    protected ItemStackHandler createItemHandler(int slotCount) {
-        return new ItemStackHandler(slotCount) {
-            @Override
-            protected void onContentsChanged(int slot) {
-                setChanged();
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
-            }
-        };
-    }
 
-}

@@ -27,10 +27,6 @@ public class WorkBenchMenu extends AbstractNeolithMenu {
     private final Level level;
     private final ContainerLevelAccess access;
     private final Player player;
-////    private final CraftingContainer craftSlots = new TransientCraftingContainer(this, 3, 3);
-////    private final ResultContainer resultSlots = new ResultContainer();
-////    private  final SimpleContainer storageSlots =new SimpleContainer(9);
-//    public static final int NUM_SLOTS = 19; // this must be a match with the number in the BE
 
     public WorkBenchMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
         this(id, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()));
@@ -42,29 +38,25 @@ public class WorkBenchMenu extends AbstractNeolithMenu {
         blockEntity = (WorkBenchBE) entity;
         this.level = inventory.player.level();
 
-        this.addSlot(new SlotItemHandler(blockEntity.getResultItems(), WorkBenchBE.SLOT_RESULT_COUNT, 116, 35));
-        addSlotBox(blockEntity.getCraftingItems(), 3, 3, 48, 5, 18, 18);
-        addSlotRange(blockEntity.getStorageItems(), 10, 8, 61, 18);
+
+        this.addSlot(new SlotItemHandler(blockEntity.getResultItems(), 0, 116, 35));
+        addSlotGrid(blockEntity.getCraftingItems(), 3, 3, 48, 5, 18, 18);
+        addSlotRange(blockEntity.getStorageItems(), 9, 8, 61, 18);
 
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);
 
-
         this.player = inventory.player;
         this.access = ContainerLevelAccess.NULL;
 
-
-
-
-        RecipeManager recipeManager = inventory.player.level().getRecipeManager();
-
+        RecipeManager recipeManager = this.level.getRecipeManager();
     }
 
     protected static void slotChangedCraftingGrid(AbstractContainerMenu pMenu, Level pLevel, Player pPlayer, CraftingContainer pContainer, ResultContainer pResult) {
         if (!pLevel.isClientSide) {
             ServerPlayer serverplayer = (ServerPlayer) pPlayer;
             ItemStack itemstack = ItemStack.EMPTY;
-            Optional<CraftingRecipe> optional = pLevel.getServer().getRecipeManager().getRecipeFor(RecipeType.CRAFTING, pContainer, pLevel);
+            Optional<CraftingRecipe> optional = pLevel.getRecipeManager().getRecipeFor(RecipeType.CRAFTING, pContainer, pLevel);
             if (optional.isPresent()) {
                 CraftingRecipe craftingrecipe = optional.get();
                 if (pResult.setRecipeUsed(pLevel, serverplayer, craftingrecipe)) {

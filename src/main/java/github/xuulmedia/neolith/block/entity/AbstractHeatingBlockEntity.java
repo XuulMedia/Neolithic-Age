@@ -29,7 +29,7 @@ import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
 
-public abstract class AbstractHeatingBlockEntity extends BlockEntity implements MenuProvider  {
+public abstract class AbstractHeatingBlockEntity extends AbstractNeolithBlockEntity  {
     public static final int ROOM_TEMP = 30;
     public static final int MAX_HEAT = 2100;
     public static final int DELTA_HEAT_UP = 1;
@@ -226,16 +226,6 @@ public abstract class AbstractHeatingBlockEntity extends BlockEntity implements 
         blockEntity.setChanged();
     }
 
-    @Nonnull
-    protected ItemStackHandler createItemHandler(int slotCount) {
-        return new ItemStackHandler(slotCount) {
-            @Override
-            protected void onContentsChanged(int slot) {
-                setChanged();
-                level.sendBlockUpdated(worldPosition, getBlockState(), getBlockState(), Block.UPDATE_ALL);
-            }
-        };
-    }
 
 
     public ItemStackHandler getInputItems() {

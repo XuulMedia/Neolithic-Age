@@ -104,7 +104,7 @@ public class FoundryScreen extends AbstractNeolithScreen<FoundryMenu> {
         TooltipHelper[] tooltipHelpers = new TooltipHelper[] {
                 new TooltipHelper(x + 24, x + 29, y + 22, y + 63, () -> true, () -> Component.translatable("container.neolith.forge.heat", this.menu.heat())),
                 new TooltipHelper(x + 56, x + 70, y + 36, y + 50, this.menu::isBurningFuel, () -> Component.translatable("container.neolith.forge.heat.target", this.menu.targetHeat())),
-                new TooltipHelper(x + 76, x + 87, y + 19, y + 30, this::isTooColdToCook, () -> Component.translatable("container.neolith.forge.heat.too_cold", this.heatRequiredToCook)),
+                new TooltipHelper(x + 92, x + 92+12, y + 19, y + 30, this::isTooColdToCook, () -> Component.translatable("container.neolith.forge.heat.too_cold", this.heatRequiredToCook)),
         };
 
         for (TooltipHelper tooltipHelper : tooltipHelpers) {
