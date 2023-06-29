@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:bricks_basalt_from_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasbrick_basalt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:brick_basalt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasbrick_basalt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:bricks_basalt_from_item"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.block.workstation.ForgeBlock;
+import github.xuulmedia.neolith.block.custom.ForgeBlock;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
 import github.xuulmedia.neolith.util.HeatingFuelContainer;
 import net.minecraft.core.BlockPos;
@@ -10,13 +10,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.util.Mth;
 import net.minecraft.world.Containers;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
@@ -26,8 +23,6 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import javax.annotation.Nonnull;
 
 public abstract class AbstractHeatingBlockEntity extends AbstractNeolithBlockEntity  {
     public static final int ROOM_TEMP = 30;

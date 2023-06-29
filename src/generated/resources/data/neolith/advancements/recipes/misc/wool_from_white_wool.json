@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:wool_from_white_wool"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haswool": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:wool"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haswool",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:wool_from_white_wool"
+    ]
+  },
+  "sends_telemetry_event": false
+}

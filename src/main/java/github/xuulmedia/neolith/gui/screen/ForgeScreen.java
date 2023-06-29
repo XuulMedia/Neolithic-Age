@@ -13,7 +13,7 @@ import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.Nullable;
 
 public class ForgeScreen extends AbstractNeolithScreen<ForgeMenu> {
-    private static final ResourceLocation TEXTURE =
+    public static final ResourceLocation TEXTURE =
             new ResourceLocation(Neolith.MODID, "textures/gui/forge_gui.png");
     private @Nullable Integer heatRequiredToCook;
     private final int imageWidth;

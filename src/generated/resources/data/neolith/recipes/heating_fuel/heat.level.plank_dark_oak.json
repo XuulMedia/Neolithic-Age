@@ -1,0 +1,8 @@
+{
+  "type": "neolith:heating_fuel",
+  "burnTime": 1600,
+  "heat": 350,
+  "input": {
+    "item": "neolith:plank_dark_oak"
+  }
+}

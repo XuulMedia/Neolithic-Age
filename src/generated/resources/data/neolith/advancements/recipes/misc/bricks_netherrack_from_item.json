@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:bricks_netherrack_from_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasbrick_netherrack": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:brick_netherrack"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasbrick_netherrack",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:bricks_netherrack_from_item"
+    ]
+  },
+  "sends_telemetry_event": false
+}

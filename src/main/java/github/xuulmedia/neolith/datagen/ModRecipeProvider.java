@@ -1,12 +1,11 @@
 package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.datagen.builders.CustomRecipeBuilder;
-import github.xuulmedia.neolith.datagen.builders.ForgeBlockRecipieBuilder;
 import github.xuulmedia.neolith.datagen.builders.HeatRecipeBuilder;
 import github.xuulmedia.neolith.datagen.builders.HeatingFuelRecipeBuilder;
-import github.xuulmedia.neolith.init.ModItems;
+import github.xuulmedia.neolith.datagen.builders.NeolithRecipeBuilder;
 import github.xuulmedia.neolith.init.ModBlocks;
+import github.xuulmedia.neolith.init.ModItems;
 import github.xuulmedia.neolith.init.ModTags;
 import github.xuulmedia.neolith.item.FuelItem;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
@@ -15,16 +14,13 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
-
 
 import java.util.function.Consumer;
 
@@ -36,19 +32,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> consumer) {
 
-        final int BURN_TIME_STANDARD = 20 * 10 * 8;
+        //Burn time in ticks * Seconds
+        final int SHORT_BURN_TIME = 20 * 15; // similar to logs
+        final int BURN_TIME_STANDARD = 20 * 80; // similar to coal
+        final int BURN_TIME_LONG = 20 * 120; // similar to blaze Rods
 
+        //block of kelp is 20 * 120
+        //block of coal is 20 * 800
+        //lava bucket is 20x1000
 
 
         /*Flint from gravel*/
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.FLINT)
-                .requires(Blocks.GRAVEL, 3)
-                .unlockedBy("has_gravel", has(Blocks.GRAVEL))
-                .save(consumer, RL("flint_from_gravel"));
+        simpleShapeless(Blocks.GRAVEL, 3, Items.FLINT, consumer);
 
         /*create torches*/
         cookFood(Items.STICK, ModBlocks.TORCH.get(), 10, 100, consumer);
         forgeRecipe(Items.STICK, ModBlocks.TORCH.get(), 100, consumer);
+
+
+        flintStation(Items.FLINT, ModItems.FLINT_BLADE.get(), consumer);
+        flintStation(Items.FLINT, ModItems.FLINT_PICK_HEAD.get(), consumer);
+        flintStation(Items.FLINT, ModItems.FLINT_SHOVEL_HEAD.get(), consumer);
+        flintStation(Items.FLINT, ModItems.FLINT_AXE_HEAD.get(), consumer);
+        flintStation(Items.FLINT, ModItems.FLINT_HOE_HEAD.get(), consumer);
+        flintStation(Items.FLINT, ModItems.FLINT_SAW_HEAD.get(), consumer);
 
         /*metal processing*/
         processOre(RecipeCategory.MISC, ModBlocks.ORE_TIN.get(), ModItems.INGOT_TIN.get(), 1, 100, consumer);
@@ -144,21 +151,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         hammerSmash(Items.RAW_IRON, ModItems.DUST_IRON.get(), consumer);
         hammerSmash(Items.RAW_COPPER, ModItems.DUST_GOLD.get(), consumer);
 
-
-
-
-
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.BRAIDED_PLANT_FIBRE.get())
-                .requires(ModItems.PLANT_FIBRE.get(), 3)
-                .unlockedBy("has_plant_fibre", has(ModItems.PLANT_FIBRE.get()))
-                .save(consumer);
-
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.YARN.get(), 1)
-                .requires(ModItems.WOOL.get())
-
-                .unlockedBy("has_wool", has(ModItems.WOOL.get()))
-                .save(consumer, RL("yarn_from_wool"));
+        simpleShapeless(ModItems.PLANT_FIBRE.get(), 3, ModItems.BRAIDED_PLANT_FIBRE.get(), consumer);
+        simpleShapeless(ModItems.WOOL.get(), 3, ModItems.YARN.get(), consumer);
+        simpleShapeless(ModItems.WOOL.get(), 4, Blocks.WHITE_WOOL, consumer);
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.STRING, 1)
                 .requires(ModItems.YARN.get(), 3)
@@ -166,10 +161,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_yarn", has(ModItems.YARN.get()))
                 .save(consumer, RL("string_from_yarn"));
 
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Blocks.WHITE_WOOL, 1)
-                .requires(ModItems.WOOL.get(), 4)
-                .unlockedBy("has_wool", has(ModItems.WOOL.get()))
-                .save(consumer, RL("wool_block_from_wool"));
 
 
         /*CLAY Containers*/
@@ -328,58 +319,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_stick", has(Items.STICK))
                 .save(consumer);
 
-
-        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_BLADE.get(), 1)
-                .unlockedBy("has_flint", has(Items.FLINT))
-                .save(consumer, RL("blade_from_flint_station"));
-        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_PICK_HEAD.get(), 1)
-                .unlockedBy("has_flint", has(Items.FLINT))
-                .save(consumer);
-        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SHOVEL_HEAD.get(), 1)
-                .unlockedBy("has_flint", has(Items.FLINT))
-                .save(consumer);
-        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_AXE_HEAD.get(), 1)
-                .unlockedBy("has_flint", has(Items.FLINT))
-                .save(consumer);
-        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_HOE_HEAD.get(), 1)
-                .unlockedBy("has_flint", has(Items.FLINT))
-                .save(consumer);
-        CustomRecipeBuilder.flintstation(Ingredient.of(Items.FLINT), ModItems.FLINT_SAW_HEAD.get(), 1)
-                .unlockedBy("has_flint", has(Items.FLINT))
-                .save(consumer);
-
-//        /*Grindstone*/
-//        CustomRecipeBuilder.grindstone(Ingredient.of(ModItems.CHUNK_STONE.get()), ModItems.DUST_STONE.get(), 1)
-//                .unlockedBy("has_stone", has(Items.FLINT))
-//                .save(consumer);
 //
-//
+//        /*Foundry Fuels*/ // maybe bake cook time into the items
 
+        FuelSetup(ModItems.PLANK_OAK.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_SPRUCE.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_BIRCH.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_JUNGLE.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_ACACIA.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_DARK_OAK.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_MANGROVE.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_WARPED.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.PLANK_CRIMSON.get(),BURN_TIME_STANDARD, consumer);
 
-//        /*Foundry Fuels*/
-//        new HeatingFuelRecipeBuilder(Ingredient.of(ItemTags.COALS), 500, 20 * 10 * 8)
-//                .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-//                .save(consumer, RL("heating_fuel/coals"));
-
-//        FuelSetup(ModItems.PLANK_OAK.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_SPRUCE.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_BIRCH.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_JUNGLE.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_ACACIA.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_DARK_OAK.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_MANGROVE.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_WARPED.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.PLANK_CRIMSON.get(),BURN_TIME_STANDARD, consumer);
-//
-//        FuelSetup(ModItems.LOG_OAK.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_SPRUCE.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_BIRCH.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_JUNGLE.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_ACACIA.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_DARK_OAK.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_MANGROVE.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_WARPED.get(),BURN_TIME_STANDARD, consumer);
-//        FuelSetup(ModItems.LOG_CRIMSON.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_OAK.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_SPRUCE.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_BIRCH.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_JUNGLE.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_ACACIA.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_DARK_OAK.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_MANGROVE.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_WARPED.get(),BURN_TIME_STANDARD, consumer);
+        FuelSetup(ModItems.LOG_CRIMSON.get(),BURN_TIME_STANDARD, consumer);
 
 
         // Testing!
@@ -488,6 +449,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, new ResourceLocation(Neolith.MODID, getItemName(block) + "_from_" + getItemName(ingot)));
     }
 
+    private static void simpleShapeless(ItemLike ingredient, int ingredientAmount, ItemLike result, Consumer<FinishedRecipe> consumer){
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result)
+                .requires(ingredient, ingredientAmount)
+                .unlockedBy("has" + getItemName(ingredient), has(ingredient))
+                .save(consumer,  new ResourceLocation(Neolith.MODID, getItemName(ingredient) + "_from_" + getItemName(result)));
+    }
+
 
     private static void createBrickBlock(ItemLike brickItem, ItemLike brickBlock, Consumer<FinishedRecipe> consumer){
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, brickBlock)
@@ -496,8 +464,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('x', brickItem)
                 .unlockedBy("has" + getItemName(brickItem), has(brickItem))
                 .save(consumer, new ResourceLocation(Neolith.MODID, getItemName(brickBlock) + "_from_item"));
-
-
     }
 
     private static void clayFromDust(ItemLike ingredient, ItemLike result, Consumer<FinishedRecipe> consumer) {
@@ -534,6 +500,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, new ResourceLocation(Neolith.MODID, getItemName(result) + "_from_forge"));
     }
 
+    private static void flintStation(ItemLike ingredient, ItemLike result, Consumer<FinishedRecipe> consumer) {
+        NeolithRecipeBuilder.flintKnapping(
+                        NonNullList.of(null, Ingredient.of(ingredient)),
+                        NonNullList.of(null, result.asItem().getDefaultInstance()),
+                        10)
+                .unlockedBy("has_flint", has(ingredient))
+                .save(consumer, new ResourceLocation(Neolith.MODID, getItemName(result) + "_from_knapping"));
+    }
+
 
     private void FuelSetup(FuelItem item, int cookTime, Consumer<FinishedRecipe> recipeConsumer) {
         String s = "heating_fuel/" + item.getName();
@@ -541,5 +516,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_" + item.getName(), has(item))
                 .save(recipeConsumer, RL(s));
     }
+
+//    private void disable(ItemLike result, Consumer<FinishedRecipe> consumer){
+//        ShapelessRecipeBuilderFo
+//    }
 
 }

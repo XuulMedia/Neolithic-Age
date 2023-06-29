@@ -1,0 +1,8 @@
+{
+  "type": "neolith:heating_fuel",
+  "burnTime": 1600,
+  "heat": 250,
+  "input": {
+    "item": "neolith:log_acacia"
+  }
+}

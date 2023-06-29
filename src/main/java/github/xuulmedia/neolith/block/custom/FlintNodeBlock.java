@@ -26,7 +26,6 @@ public class FlintNodeBlock extends FallingBlock {
         return shape;
     }
 
-
     private static final Optional<VoxelShape> SHAPE = Optional.of(makeShape());
 
     @Override

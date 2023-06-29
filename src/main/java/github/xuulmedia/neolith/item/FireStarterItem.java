@@ -1,7 +1,7 @@
 package github.xuulmedia.neolith.item;
 
 import github.xuulmedia.neolith.block.entity.ModCampfireBlockEntity;
-import github.xuulmedia.neolith.block.workstation.ModCampfireBlock;
+import github.xuulmedia.neolith.block.custom.ModCampfireBlock;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;

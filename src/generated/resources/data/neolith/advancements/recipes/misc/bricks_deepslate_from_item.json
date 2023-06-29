@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:bricks_deepslate_from_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasbrick_deepslate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:brick_deepslate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasbrick_deepslate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:bricks_deepslate_from_item"
+    ]
+  },
+  "sends_telemetry_event": false
+}

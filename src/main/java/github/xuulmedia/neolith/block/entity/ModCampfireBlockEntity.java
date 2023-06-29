@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.block.entity;
 
-import github.xuulmedia.neolith.block.workstation.ModCampfireBlock;
+import github.xuulmedia.neolith.block.custom.ModCampfireBlock;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

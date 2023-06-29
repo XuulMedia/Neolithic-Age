@@ -7,6 +7,4 @@ public class CutStoneBlock extends FallingBlock {
         super(pProperties);
     }
 
-
-
 }

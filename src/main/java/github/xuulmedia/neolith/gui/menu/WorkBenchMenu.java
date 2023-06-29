@@ -73,6 +73,7 @@ public class WorkBenchMenu extends AbstractNeolithMenu {
         }
     }
 
+
     @Override
     public boolean stillValid(Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),

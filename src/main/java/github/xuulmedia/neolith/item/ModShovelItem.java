@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.item;
 
-import github.xuulmedia.neolith.block.workstation.ModCampfireBlock;
+import github.xuulmedia.neolith.block.custom.ModCampfireBlock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.sounds.SoundEvents;
@@ -11,7 +11,6 @@ import net.minecraft.world.item.ShovelItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.CampfireBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.gameevent.GameEvent;
 

@@ -32,8 +32,6 @@ public class WorkBenchBE extends AbstractNeolithBlockEntity {
     private static final String TAG_RESULT_INVENTORY = "resultInventory";
     private static final String TAG_STORAGE_INVENTORY = "storageInventory";
 
-
-
     public static final int SLOT_CRAFTING_COUNT = 9;
 
     public static final int SLOT_STORAGE_COUNT = 9;

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:dust_tuff"
+    },
+    {
+      "item": "neolith:dust_tuff"
+    },
+    {
+      "item": "minecraft:clay_ball"
+    }
+  ],
+  "result": {
+    "item": "neolith:clay_tuff"
+  }
+}

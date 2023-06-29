@@ -1,8 +1,19 @@
 {
   "type": "neolith:flint_station",
-  "count": 1,
-  "ingredient": {
-    "item": "minecraft:flint"
-  },
-  "result": "neolith:flint_hoe_head"
+  "category": "misc",
+  "cookingtime": 45,
+  "experience": 10.0,
+  "group": "h",
+  "heatRequired": 200,
+  "ingredients": [
+    {
+      "item": "minecraft:flint"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "neolith:flint_hoe_head"
+    }
+  ]
 }
