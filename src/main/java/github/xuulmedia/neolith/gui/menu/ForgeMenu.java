@@ -13,6 +13,7 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -80,9 +81,15 @@ public class ForgeMenu extends AbstractHeatCookMenu {
         if (input.isEmpty()) {
             return null;
         }
+
         for (var recipe : this.recipes) {
-            return recipe.getHeatRequired();
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                if (ingredient.test(input)) {
+                    return recipe.getHeatRequired();
+                }
+            }
         }
+
         return null;
     }
 

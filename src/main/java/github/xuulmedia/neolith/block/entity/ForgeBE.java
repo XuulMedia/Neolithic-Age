@@ -25,47 +25,49 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider {
-        public static final String DISPLAY_NAME = "Forge";
-        public static final int SLOT_INPUT = 0;
-        public static final int SLOT_INPUT_COUNT = 1;
+    public static final String DISPLAY_NAME = "Forge";
+    public static final int SLOT_INPUT = 0;
+    public static final int SLOT_INPUT_COUNT = 1;
 
-        public static final int SLOT_FUEL = 0;
-        public static final int SLOT_FUEL_COUNT = 1;
+    public static final int SLOT_FUEL = 0;
+    public static final int SLOT_FUEL_COUNT = 1;
 
-        public static final int SLOT_RESULT = 0;
-        public static final int SLOT_RESULT_COUNT = 1;
-        public static final int SLOT_COUNT  = SLOT_INPUT_COUNT + SLOT_FUEL_COUNT + SLOT_RESULT_COUNT;
-        public ForgeBE(BlockPos pWorldPosition, BlockState pBlockState) {
-            super(ModBlockEntities.FORGE.get(), pWorldPosition, pBlockState);
+    public static final int SLOT_RESULT = 0;
+    public static final int SLOT_RESULT_COUNT = 1;
+    public static final int SLOT_COUNT = SLOT_INPUT_COUNT + SLOT_FUEL_COUNT + SLOT_RESULT_COUNT;
 
-            this.inputItems = createItemHandler(SLOT_INPUT_COUNT);
-            this.fuelItems = createItemHandler(SLOT_FUEL_COUNT);
-            this.resultItems = createItemHandler(SLOT_RESULT_COUNT);
-            this.lazyItemHandler =  LazyOptional.of(() -> new CombinedInvWrapper(inputItems, inputItems, resultItems, fuelItems));
+    public ForgeBE(BlockPos pWorldPosition, BlockState pBlockState) {
+        super(ModBlockEntities.FORGE.get(), pWorldPosition, pBlockState);
 
-            this.inputItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(inputItems) {
-                @Override
-                public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
-                    return ItemStack.EMPTY;
-                }
-            });
+        this.inputItems = createItemHandler(SLOT_INPUT_COUNT);
+        this.fuelItems = createItemHandler(SLOT_FUEL_COUNT);
+        this.resultItems = createItemHandler(SLOT_RESULT_COUNT);
+        this.lazyItemHandler = LazyOptional.of(() -> new CombinedInvWrapper(inputItems, inputItems, resultItems, fuelItems));
 
-            this.resultItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(resultItems) {
-                @Override
-                public @NotNull ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-                    return stack;
-                }
-            });
+        this.inputItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(inputItems) {
+            @Override
+            public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
+                return ItemStack.EMPTY;
+            }
+        });
 
-            this.fuelItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(fuelItems) {
-                @Override
-                public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
-                    return ItemStack.EMPTY;
-                }
-            });
+        this.resultItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(resultItems) {
+            @Override
+            public @NotNull ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+                return stack;
+            }
+        });
 
-        }
-        @Override
+        this.fuelItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(fuelItems) {
+            @Override
+            public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
+                return ItemStack.EMPTY;
+            }
+        });
+
+    }
+
+    @Override
     protected int getFuelSlotIndex() {
         return SLOT_FUEL;
     }
@@ -75,9 +77,11 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
     public AbstractContainerMenu createMenu(int pContainerId, Inventory pInventory, Player pPlayer) {
         return new ForgeMenu(pContainerId, pInventory, this, this.data);
     }
+
     public Component getDisplayName() {
         return Component.translatable(DISPLAY_NAME);
     }
+
     public static void tick(Level level, BlockPos pos, BlockState state, ForgeBE entity) {
         HeatingFuelContainer heatContainer = new HeatingFuelContainer(entity.fuelItems.getSlots()) {
             @Override
@@ -103,39 +107,42 @@ public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider 
         ItemStack currentOutputStack = entity.resultItems.getStackInSlot(SLOT_RESULT);
 
         boolean recipeOk = false;
-        if(match.isPresent()){
+        if (match.isPresent()) {
             ForgeRecipe recipe = match.get();
             boolean ingredientTest = recipe.getIngredient().test(entity.inputItems.getStackInSlot(SLOT_INPUT));
             boolean canInsertItem = canInsertItemIntoOutputSlot(entity, match.get().getResultItem(level.registryAccess()));
             boolean heatCheck = isHeatHighEnough(entity, match);
             boolean spaceCheck = canInsertAmountIntoOutputSlot(entity);
-            if(ingredientTest && canInsertItem && heatCheck && spaceCheck){
+            if (ingredientTest && canInsertItem && heatCheck && spaceCheck) {
                 recipeOk = true;
             }
         }
-        if(recipeOk){
+        if (recipeOk) {
             entity.progress++;
-            if(entity.progress > entity.maxProgress) {
+            if (entity.progress > entity.maxProgress) {
                 entity.progress = 0;
-                if(currentOutputStack.isEmpty()){
+                if (currentOutputStack.isEmpty()) {
                     entity.resultItems.setStackInSlot(SLOT_RESULT, match.get().getResultItem(level.registryAccess()));
-                } else{
+                } else {
                     currentOutputStack.grow(1);
                 }
                 entity.inputItems.getStackInSlot(SLOT_INPUT).shrink(1);
-           }
+            }
         }
         if (!recipeOk) {
             entity.progress = 0;
         }
     }
-    private static boolean canInsertItemIntoOutputSlot(ForgeBE forgeBE, ItemStack resultItem){
+
+    private static boolean canInsertItemIntoOutputSlot(ForgeBE forgeBE, ItemStack resultItem) {
         return forgeBE.resultItems.getStackInSlot(SLOT_RESULT).isEmpty() || forgeBE.resultItems.getStackInSlot(SLOT_RESULT).getItem() == resultItem.getItem();
     }
-    private  static boolean canInsertAmountIntoOutputSlot(ForgeBE forgeBE) {
+
+    private static boolean canInsertAmountIntoOutputSlot(ForgeBE forgeBE) {
         return forgeBE.resultItems.getStackInSlot(SLOT_RESULT).getMaxStackSize() > forgeBE.resultItems.getStackInSlot(SLOT_RESULT).getCount();
     }
-    protected static boolean isHeatHighEnough(ForgeBE forgeBE, Optional<ForgeRecipe> match){
-        return  match.get().getHeatRequired() <= forgeBE.heat;
+
+    protected static boolean isHeatHighEnough(ForgeBE forgeBE, Optional<ForgeRecipe> match) {
+        return match.get().getHeatRequired() <= forgeBE.heat;
     }
 }

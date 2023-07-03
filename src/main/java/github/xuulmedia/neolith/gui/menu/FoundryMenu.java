@@ -4,7 +4,6 @@ import github.xuulmedia.neolith.block.entity.ForgeBE;
 import github.xuulmedia.neolith.block.entity.FoundryBE;
 import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModMenuTypes;
-import github.xuulmedia.neolith.recipe.ForgeRecipe;
 import github.xuulmedia.neolith.recipe.FoundryRecipe;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
 import net.minecraft.network.FriendlyByteBuf;
@@ -16,19 +15,16 @@ import net.minecraft.world.inventory.ContainerLevelAccess;
 import net.minecraft.world.inventory.SimpleContainerData;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-import static github.xuulmedia.neolith.block.entity.FoundryBE.SLOT_COUNT;
-import static github.xuulmedia.neolith.block.entity.FoundryBE.SLOT_INPUT;
-import static github.xuulmedia.neolith.block.entity.FoundryBE.SLOT_INPUT_COUNT;
-import static github.xuulmedia.neolith.block.entity.FoundryBE.SLOT_RESULT_COUNT;
+import static github.xuulmedia.neolith.block.entity.FoundryBE.*;
 
 public class FoundryMenu extends AbstractHeatCookMenu {
     public final FoundryBE blockEntity;
@@ -88,22 +84,43 @@ public class FoundryMenu extends AbstractHeatCookMenu {
         for (int i = 0; i < blockEntity.getInputItems().getSlots(); i++) {
             inputContainer.setItem(i, blockEntity.getInputItems().getStackInSlot(i));
         }
-        if(inputContainer.isEmpty()){
+        if (inputContainer.isEmpty()) {
             return null;
         }
-        for (var recipe : this.recipes) {
-            return recipe.getHeatRequired();
-        }
-        return null;
 
-    }private static final int PLAYER_INVENTORY_START = SLOT_COUNT;
+        for (var recipe : this.recipes) {
+            boolean matchesRecipe = true;
+            for (Ingredient ingredient : recipe.getIngredients()) {
+                boolean ingredientMatched = false;
+                for (int i = 0; i < inputContainer.getContainerSize(); i++) {
+                    ItemStack stack = inputContainer.getItem(i);
+                    if (ingredient.test(stack)) {
+                        ingredientMatched = true;
+                        break;
+                    }
+                }
+                if (!ingredientMatched) {
+                    matchesRecipe = false;
+                    break;
+                }
+            }
+            if (matchesRecipe) {
+                return recipe.getHeatRequired();
+            }
+        }
+
+        return null;
+    }
+
+
+
+
+    private static final int PLAYER_INVENTORY_START = SLOT_COUNT;
     private static final int PLAYER_INVENTORY_END = SLOT_COUNT + 27;
     private static final int PLAYER_HOTBAR_START = PLAYER_INVENTORY_END;
     private static final int PLAYER_HOTBAR_END = PLAYER_HOTBAR_START + 9;
 
     private static final int FUEL_START = 3;
-    private static final int OUTPUT_START = 1;
-    private static final int OUTPUT_END = OUTPUT_START + SLOT_RESULT_COUNT;
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
