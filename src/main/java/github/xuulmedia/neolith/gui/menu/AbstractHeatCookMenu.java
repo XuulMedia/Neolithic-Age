@@ -83,7 +83,14 @@ public abstract class AbstractHeatCookMenu extends AbstractNeolithMenu{
     protected abstract int getInputSlotsCount();
     protected abstract int getInputSlotStartIndex();
 
-
+    protected boolean isFuel(ItemStack stack) {
+        for (var fuel : this.fuels) {
+            if (fuel.input.test(stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 }

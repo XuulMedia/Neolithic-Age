@@ -22,7 +22,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 import static github.xuulmedia.neolith.block.entity.ForgeBE.*;
-import static github.xuulmedia.neolith.block.entity.FoundryBE.SLOT_INPUT_COUNT;
 
 public class ForgeMenu extends AbstractHeatCookMenu {
     public final ForgeBE blockEntity;
@@ -87,6 +86,14 @@ public class ForgeMenu extends AbstractHeatCookMenu {
         return null;
     }
 
+    private static final int PLAYER_INVENTORY_START = SLOT_COUNT;
+    private static final int PLAYER_INVENTORY_END = SLOT_COUNT + 27;
+    private static final int PLAYER_HOTBAR_START = PLAYER_INVENTORY_END;
+    private static final int PLAYER_HOTBAR_END = PLAYER_HOTBAR_START + 9;
+
+    private static final int FUEL_START = 1;
+
+
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
         ItemStack returnStack = ItemStack.EMPTY;
@@ -96,25 +103,25 @@ public class ForgeMenu extends AbstractHeatCookMenu {
             ItemStack sourceStack = sourceSlot.getItem();
             returnStack = sourceStack.copy();
 
-            if (index >= 3 && index < 30) {
+            if (index >= PLAYER_INVENTORY_START && index < PLAYER_INVENTORY_END) {
                 // Move from player inventory to furnace inputs
                 if (this.isInputtable(sourceStack)) {
-                    if (!this.moveItemStackTo(sourceStack, 0, 1, false)) {
+                    if (!this.moveItemStackTo(sourceStack, SLOT_INPUT, SLOT_INPUT + 1, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (this.isFuel(sourceStack)) {
-                    if (!this.moveItemStackTo(sourceStack, 1, 2, false)) {
+                    if (!this.moveItemStackTo(sourceStack, FUEL_START, FUEL_START + 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (!this.moveItemStackTo(sourceStack, 30, 39, false)) {
+                } else if (!this.moveItemStackTo(sourceStack, PLAYER_HOTBAR_START, PLAYER_HOTBAR_END, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (index >= 30 && index < 39) {
+            } else if (index >= PLAYER_HOTBAR_START && index < PLAYER_HOTBAR_END) {
                 // Move from player hotbar to furnace
-                if (!this.moveItemStackTo(sourceStack, 3, 30, false)) {
+                if (!this.moveItemStackTo(sourceStack, PLAYER_INVENTORY_START, PLAYER_INVENTORY_END, false)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.moveItemStackTo(sourceStack, 3, 39, false)) {
+            } else if (!this.moveItemStackTo(sourceStack, PLAYER_INVENTORY_START, PLAYER_HOTBAR_END, false)) {
                 return ItemStack.EMPTY;
             }
 
@@ -127,7 +134,6 @@ public class ForgeMenu extends AbstractHeatCookMenu {
 
         return returnStack;
     }
-
     private boolean isInputtable(ItemStack stack) {
         for (ForgeRecipe recipe : recipes) {
             if (recipe.getIngredient().test(stack)) {
@@ -137,50 +143,7 @@ public class ForgeMenu extends AbstractHeatCookMenu {
         return false;
     }
 
-    private boolean isFuel(ItemStack stack) {
-        for (var fuel : this.fuels) {
-            if (fuel.input.test(stack)) {
-                return true;
-            }
-        }
-        return false;
-    }
-//
-//    //TODO this is mostly fixed now just to make fuel work!
-//    @Override
-//    public ItemStack quickMoveStack(Player player, int index) {
-//        ItemStack returnStack = ItemStack.EMPTY;
-//        Slot sourceSlot = this.slots.get(index);
-//        if (sourceSlot.hasItem()) {
-//            ItemStack sourceStack = sourceSlot.getItem();
-//            returnStack = sourceStack.copy(); // need to copy
-//
-//            //Check if we are clicking a mod slot or vanilla inventory
-//            if (index < SLOT_COUNT) {
-//                //This is a vanilla container so we move to the BE inventory
-//
-//                if (!moveItemStackTo(sourceStack, SLOT_COUNT, Inventory.INVENTORY_SIZE + SLOT_COUNT, true)) {
-//                    return ItemStack.EMPTY;
-//
-//                }
-//            }
-//
-//            // Here we pick where to move items into FROM the player inventory
-//            if (!this.moveItemStackTo(sourceStack, SLOT_INPUT, SLOT_INPUT + SLOT_INPUT_COUNT, false)) {
-//                return ItemStack.EMPTY;
-//            }
-//
-//            // If stack size == 0 (the entire stack was moved) set slot contents to null
-//            if (sourceStack.getCount() == 0) {
-//                sourceSlot.set(ItemStack.EMPTY);
-//            } else {
-//                sourceSlot.setChanged();
-//            }
-//            sourceSlot.onTake(player, sourceStack);
-//
-//        }
-//        return returnStack;
-//    }
+
 }
 
 
