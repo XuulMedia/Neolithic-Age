@@ -18,6 +18,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.items.SlotItemHandler;
 import org.jetbrains.annotations.Nullable;
 
@@ -66,6 +67,21 @@ public class FoundryMenu extends AbstractHeatCookMenu {
                 player, ModBlocks.FOUNDRY.get());
     }
 
+    @Override
+    protected int getInputSlotsCount() {
+        return SLOT_INPUT_COUNT;
+    }
+
+    @Override
+    protected int getInputSlotStartIndex() {
+        return FoundryBE.SLOT_INPUT;
+    }
+
+    @Override
+    protected List<FoundryRecipe> getRecipes() {
+        return recipes;
+    }
+
     public @Nullable Integer heatReqdToCookInput() {
         SimpleContainer inputContainer = new SimpleContainer(blockEntity.getInputItems().getSlots());
         for (int i = 0; i < blockEntity.getInputItems().getSlots(); i++) {
@@ -80,6 +96,8 @@ public class FoundryMenu extends AbstractHeatCookMenu {
         return null;
 
     }
+
+
 
     @Override
     public ItemStack quickMoveStack(Player player, int index) {

@@ -74,6 +74,8 @@ public class ModItems {
     public static final RegistryObject<Item> HIDE_MEDIUM = registerStandardStoneAgeItem("hide_medium");
     public static final RegistryObject<Item> HIDE_LARGE = registerStandardStoneAgeItem("hide_large");
 
+    /*TODO cured hide*/
+
     /*Clay Objects*/
     public static final RegistryObject<Item> UNFIRED_CLAY_JUG = registerStandardStoneAgeItem("unfired_clay_jug");
     public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = registerStandardStoneAgeItem("unfired_clay_bucket");

@@ -3,6 +3,7 @@ package github.xuulmedia.neolith.gui.menu;
 import com.google.common.collect.Lists;
 import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModMenuTypes;
+import github.xuulmedia.neolith.init.ModRecipes;
 import github.xuulmedia.neolith.recipe.FlintStationRecipe;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.Container;
@@ -15,7 +16,9 @@ import net.minecraft.world.level.Level;
 
 import java.util.List;
 
-public class FlintStationMenu extends AbstractContainerMenu {
+import static github.xuulmedia.neolith.block.entity.ForgeBE.*;
+
+public class FlintStationMenu extends AbstractNeolithMenu {
     private final Level level;
     private final ContainerLevelAccess access;
     private final DataSlot selectedRecipeIndex = DataSlot.standalone();
@@ -154,62 +157,55 @@ public class FlintStationMenu extends AbstractContainerMenu {
         this.slotUpdateListener = pListener;
     }
 
-    /*Helpers for quick stack and player inventory*/
-    private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 86 + i * 18));
-            }
-        }
-    }
 
-    private void addPlayerHotbar(Inventory playerInventory) {
-        for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
-        }
-    }
-
-
-    //QUICK MOVE CODE CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
-    private static final int HOTBAR_SLOT_COUNT = 9;
-    private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
-    private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
-    private static final int PLAYER_INVENTORY_SLOT_COUNT = PLAYER_INVENTORY_COLUMN_COUNT * PLAYER_INVENTORY_ROW_COUNT;
-    private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
-    private static final int VANILLA_FIRST_SLOT_INDEX = 0;
-    private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int index) {
-        Slot sourceSlot = slots.get(index);
-        if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
-        ItemStack sourceStack = sourceSlot.getItem();
-        ItemStack copyOfSourceStack = sourceStack.copy();
+    public ItemStack quickMoveStack(Player player, int index) {
+        ItemStack returnStack = ItemStack.EMPTY;
+        Slot sourceSlot = this.slots.get(index);
+        if (sourceSlot.hasItem()) {
+            ItemStack sourceStack = sourceSlot.getItem();
+            returnStack = sourceStack.copy();
 
-        // Check if the slot clicked is one of the vanilla container slots
-        if (index < VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT) {
-            // This is a vanilla container slot so merge the stack into the tile inventory
-            if (!moveItemStackTo(sourceStack, TE_INVENTORY_FIRST_SLOT_INDEX, TE_INVENTORY_FIRST_SLOT_INDEX
-                    + STACK_SIZE, false)) {
-                return ItemStack.EMPTY;  // EMPTY_ITEM
+            if (index == 1) { // If the source slot is the output slot
+                sourceStack.getItem().onCraftedBy(sourceStack, player.level(), player);
+                if (!moveItemStackTo(sourceStack, 2, 38, true)) {
+                    return ItemStack.EMPTY;
+                }
+                sourceSlot.onQuickCraft(sourceStack, returnStack);
+            } else if (index == 0) {
+                if (!moveItemStackTo(sourceStack, 2, 38, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (this.level.getRecipeManager().getRecipeFor(FlintStationRecipe.Type.INSTANCE, new SimpleContainer(sourceStack), this.level).isPresent()) {
+                if (!moveItemStackTo(sourceStack, 0, 1, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (index >= 2 && index < 29) {
+                if (!moveItemStackTo(sourceStack, 29, 38, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (index >= 29 && index < 38) {
+                if (!moveItemStackTo(sourceStack, 2, 29, false)) {
+                    return ItemStack.EMPTY;
+                }
             }
-        } else if (index < TE_INVENTORY_FIRST_SLOT_INDEX + STACK_SIZE) {
-            // This is a TE slot so merge the stack into the players inventory
-            if (!moveItemStackTo(sourceStack, VANILLA_FIRST_SLOT_INDEX, VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT, false)) {
+
+            if (sourceStack.isEmpty()) {
+                sourceSlot.set(ItemStack.EMPTY);
+            } else {
+                sourceSlot.setChanged();
+            }
+
+            if (sourceStack.getCount() == returnStack.getCount()) {
                 return ItemStack.EMPTY;
             }
-        } else {
-            System.out.println("Invalid slotIndex:" + index);
-            return ItemStack.EMPTY;
+
+            sourceSlot.onTake(player, sourceStack);
+            this.broadcastChanges();
         }
-        // If stack size == 0 (the entire stack was moved) set slot contents to null
-        if (sourceStack.getCount() == 0) {
-            sourceSlot.set(ItemStack.EMPTY);
-        } else {
-            sourceSlot.setChanged();
-        }
-        sourceSlot.onTake(playerIn, sourceStack);
-        return copyOfSourceStack;
+
+        return returnStack;
     }
 
 

@@ -49,6 +49,7 @@ public class HeatingFuelRecipe implements Recipe<Container> {
         return Type.INSTANCE;
     }
 
+
     @Override
     public boolean matches(Container pContainer, Level pLevel) {
         if (pContainer instanceof HeatingFuelContainer hfc) {
@@ -57,6 +58,7 @@ public class HeatingFuelRecipe implements Recipe<Container> {
             return false;
         }
     }
+
 
     @Override
     public ItemStack assemble(Container container, RegistryAccess registryAccess) {

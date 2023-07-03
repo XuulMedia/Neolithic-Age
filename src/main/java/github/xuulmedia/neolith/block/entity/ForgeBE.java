@@ -25,47 +25,47 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 public class ForgeBE extends AbstractHeatingBlockEntity implements MenuProvider {
-    public static final String DISPLAY_NAME = "Forge";
-    public static final int SLOT_INPUT = 0;
-    public static final int SLOT_INPUT_COUNT = 1;
+        public static final String DISPLAY_NAME = "Forge";
+        public static final int SLOT_INPUT = 0;
+        public static final int SLOT_INPUT_COUNT = 1;
 
-    public static final int SLOT_FUEL = 0;
-    public static final int SLOT_FUEL_COUNT = 1;
+        public static final int SLOT_FUEL = 0;
+        public static final int SLOT_FUEL_COUNT = 1;
 
-    public static final int SLOT_RESULT = 0;
-    public static final int SLOT_RESULT_COUNT = 1;
-    public static final int SLOT_COUNT  = SLOT_INPUT_COUNT + SLOT_FUEL_COUNT + SLOT_RESULT_COUNT;
-    public ForgeBE(BlockPos pWorldPosition, BlockState pBlockState) {
-        super(ModBlockEntities.FORGE.get(), pWorldPosition, pBlockState);
+        public static final int SLOT_RESULT = 0;
+        public static final int SLOT_RESULT_COUNT = 1;
+        public static final int SLOT_COUNT  = SLOT_INPUT_COUNT + SLOT_FUEL_COUNT + SLOT_RESULT_COUNT;
+        public ForgeBE(BlockPos pWorldPosition, BlockState pBlockState) {
+            super(ModBlockEntities.FORGE.get(), pWorldPosition, pBlockState);
 
-        this.inputItems = createItemHandler(SLOT_INPUT_COUNT);
-        this.fuelItems = createItemHandler(SLOT_FUEL_COUNT);
-        this.resultItems = createItemHandler(SLOT_RESULT_COUNT);
-        this.lazyItemHandler =  LazyOptional.of(() -> new CombinedInvWrapper(inputItems, inputItems, resultItems, fuelItems));
+            this.inputItems = createItemHandler(SLOT_INPUT_COUNT);
+            this.fuelItems = createItemHandler(SLOT_FUEL_COUNT);
+            this.resultItems = createItemHandler(SLOT_RESULT_COUNT);
+            this.lazyItemHandler =  LazyOptional.of(() -> new CombinedInvWrapper(inputItems, inputItems, resultItems, fuelItems));
 
-        this.inputItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(inputItems) {
-            @Override
-            public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
-                return ItemStack.EMPTY;
-            }
-        });
+            this.inputItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(inputItems) {
+                @Override
+                public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
+                    return ItemStack.EMPTY;
+                }
+            });
 
-        this.resultItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(resultItems) {
-            @Override
-            public @NotNull ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
-                return stack;
-            }
-        });
+            this.resultItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(resultItems) {
+                @Override
+                public @NotNull ItemStack insertItem(int slot, @NotNull ItemStack stack, boolean simulate) {
+                    return stack;
+                }
+            });
 
-        this.fuelItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(fuelItems) {
-            @Override
-            public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
-                return ItemStack.EMPTY;
-            }
-        });
+            this.fuelItemHandler = LazyOptional.of(() -> new AdaptedItemHandler(fuelItems) {
+                @Override
+                public @NotNull ItemStack extractItem(int slot, int amount, boolean simulate) {
+                    return ItemStack.EMPTY;
+                }
+            });
 
-    }
-    @Override
+        }
+        @Override
     protected int getFuelSlotIndex() {
         return SLOT_FUEL;
     }

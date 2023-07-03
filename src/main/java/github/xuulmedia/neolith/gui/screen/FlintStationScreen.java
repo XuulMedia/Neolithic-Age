@@ -19,8 +19,9 @@ import net.minecraft.world.item.crafting.StonecutterRecipe;
 
 import java.util.List;
 
-public class FlintStationScreen extends AbstractContainerScreen<FlintStationMenu> {
-    private final ResourceLocation TEXTURE = new ResourceLocation(Neolith.MODID,"textures/gui/flint_station_gui.png");
+public class FlintStationScreen extends AbstractNeolithScreen<FlintStationMenu> {
+    private static final ResourceLocation TEXTURE =
+            new ResourceLocation(Neolith.MODID,"textures/gui/flint_station_gui.png");
 
     private static final int SCROLLER_WIDTH = 12;
     private static final int SCROLLER_HEIGHT = 15;
@@ -38,8 +39,8 @@ public class FlintStationScreen extends AbstractContainerScreen<FlintStationMenu
     private boolean displayRecipes;
 
 
-    public FlintStationScreen(FlintStationMenu menu, Inventory inv, Component name) {
-        super(menu, inv, name);
+    public FlintStationScreen(FlintStationMenu menu,  Inventory pPlayerInventory, Component pTitle) {
+        super(menu, pPlayerInventory, pTitle, TEXTURE);
         menu.registerUpdateListener(this::containerChanged);
         --this.titleLabelY;
     }
@@ -56,6 +57,7 @@ public class FlintStationScreen extends AbstractContainerScreen<FlintStationMenu
         int j = this.topPos;
         gui.blit(TEXTURE, i, j, 0, 0, this.imageWidth, this.imageHeight);
         int k = (int)(41.0F * this.scrollOffs);
+
         gui.blit(TEXTURE, i + 119, j + 15 + k, 176 + (this.isScrollBarActive() ? 0 : 12), 0, 12, 15);
         int l = this.leftPos + 52;
         int i1 = this.topPos + 14;

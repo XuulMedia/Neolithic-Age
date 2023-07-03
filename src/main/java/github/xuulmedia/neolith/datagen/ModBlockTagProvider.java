@@ -41,7 +41,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.TUFF_COBBLESTONE.get())
                 .add(ModBlocks.ANDESITE_COBBLESTONE.get())
                 .add(ModBlocks.DIORITE_COBBLESTONE.get())
-                .add(ModBlocks.CALCITE_COBBLESTONE.get());
+                .add(ModBlocks.CALCITE_COBBLESTONE.get())
+                .add(ModBlocks.FLINT_STATION.get());
 
         tag(ModTags.MINEABLE_WITH_HAMMER)
                 .add(Blocks.ANDESITE)
@@ -66,16 +67,20 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
 
 
-        /*TODO create the tool tier for flint and stone*/
 
 
         /*Harvest Levels*/
 
         tag(Tags.Blocks.NEEDS_WOOD_TOOL);
 
-        tag(BlockTags.NEEDS_STONE_TOOL)
+        tag(ModTags.NEEDS_FLINT_TOOL)
                 .add(ModBlocks.ORE_TIN.get())
-                .addTag(BlockTags.LOGS);
+                .addTag(BlockTags.LOGS)
+                .add(ModBlocks.FLINT_STATION.get());
+
+        tag(ModTags.NEEDS_BRONZE_TOOL)
+                .addTag(BlockTags.IRON_ORES);
+
 
         tag(BlockTags.NEEDS_IRON_TOOL);
 

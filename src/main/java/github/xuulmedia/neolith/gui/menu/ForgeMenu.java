@@ -22,6 +22,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 import static github.xuulmedia.neolith.block.entity.ForgeBE.*;
+import static github.xuulmedia.neolith.block.entity.FoundryBE.SLOT_INPUT_COUNT;
 
 public class ForgeMenu extends AbstractHeatCookMenu {
     public final ForgeBE blockEntity;
@@ -31,6 +32,7 @@ public class ForgeMenu extends AbstractHeatCookMenu {
     public ForgeMenu(int id, Inventory inventory, FriendlyByteBuf extraData) {
         this(id, inventory, inventory.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(6));
     }
+
     public ForgeMenu(int id, Inventory inventory, BlockEntity entity, ContainerData data) {
         super(ModMenuTypes.FORGE_MENU.get(), id, data);
 
@@ -58,6 +60,22 @@ public class ForgeMenu extends AbstractHeatCookMenu {
                 pPlayer, ModBlocks.FORGE.get());
     }
 
+    @Override
+    protected int getInputSlotsCount() {
+        return SLOT_INPUT_COUNT;
+    }
+
+    @Override
+    protected int getInputSlotStartIndex() {
+        return ForgeBE.SLOT_INPUT;
+    }
+
+    @Override
+    protected List<ForgeRecipe> getRecipes() {
+        return recipes;
+    }
+
+
     public @Nullable Integer heatReqdToCookInput() {
         ItemStack input = this.getSlot(ForgeBE.SLOT_INPUT).getItem();
         if (input.isEmpty()) {
@@ -69,39 +87,100 @@ public class ForgeMenu extends AbstractHeatCookMenu {
         return null;
     }
 
-//TODO this is mostly fixed now just to make fuel work!
     @Override
     public ItemStack quickMoveStack(Player player, int index) {
         ItemStack returnStack = ItemStack.EMPTY;
         Slot sourceSlot = this.slots.get(index);
-        if (sourceSlot.hasItem()) {
-            ItemStack sourceStack = sourceSlot.getItem();
-            returnStack = sourceStack.copy(); // need to copy
 
-            //Check if we are clicking a mod slot or vanilla inventory
-            if (index < SLOT_COUNT) {
-                //This is a vanilla container so we move to the BE inventory
-                if (!moveItemStackTo(sourceStack, SLOT_COUNT, Inventory.INVENTORY_SIZE + SLOT_COUNT, true)) {
+        if (sourceSlot != null && sourceSlot.hasItem()) {
+            ItemStack sourceStack = sourceSlot.getItem();
+            returnStack = sourceStack.copy();
+
+            if (index >= 3 && index < 30) {
+                // Move from player inventory to furnace inputs
+                if (this.isInputtable(sourceStack)) {
+                    if (!this.moveItemStackTo(sourceStack, 0, 1, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (this.isFuel(sourceStack)) {
+                    if (!this.moveItemStackTo(sourceStack, 1, 2, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (!this.moveItemStackTo(sourceStack, 30, 39, false)) {
                     return ItemStack.EMPTY;
                 }
-            }
-
-            // Here we pick where to move items into FROM the player inventory
-            if (!this.moveItemStackTo(sourceStack, SLOT_INPUT, SLOT_INPUT + SLOT_INPUT_COUNT, false)) {
+            } else if (index >= 30 && index < 39) {
+                // Move from player hotbar to furnace
+                if (!this.moveItemStackTo(sourceStack, 3, 30, false)) {
+                    return ItemStack.EMPTY;
+                }
+            } else if (!this.moveItemStackTo(sourceStack, 3, 39, false)) {
                 return ItemStack.EMPTY;
             }
 
-            // If stack size == 0 (the entire stack was moved) set slot contents to null
-            if (sourceStack.getCount() == 0) {
+            if (sourceStack.isEmpty()) {
                 sourceSlot.set(ItemStack.EMPTY);
             } else {
                 sourceSlot.setChanged();
             }
-            sourceSlot.onTake(player, sourceStack);
-
         }
+
         return returnStack;
     }
+
+    private boolean isInputtable(ItemStack stack) {
+        for (ForgeRecipe recipe : recipes) {
+            if (recipe.getIngredient().test(stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean isFuel(ItemStack stack) {
+        for (var fuel : this.fuels) {
+            if (fuel.input.test(stack)) {
+                return true;
+            }
+        }
+        return false;
+    }
+//
+//    //TODO this is mostly fixed now just to make fuel work!
+//    @Override
+//    public ItemStack quickMoveStack(Player player, int index) {
+//        ItemStack returnStack = ItemStack.EMPTY;
+//        Slot sourceSlot = this.slots.get(index);
+//        if (sourceSlot.hasItem()) {
+//            ItemStack sourceStack = sourceSlot.getItem();
+//            returnStack = sourceStack.copy(); // need to copy
+//
+//            //Check if we are clicking a mod slot or vanilla inventory
+//            if (index < SLOT_COUNT) {
+//                //This is a vanilla container so we move to the BE inventory
+//
+//                if (!moveItemStackTo(sourceStack, SLOT_COUNT, Inventory.INVENTORY_SIZE + SLOT_COUNT, true)) {
+//                    return ItemStack.EMPTY;
+//
+//                }
+//            }
+//
+//            // Here we pick where to move items into FROM the player inventory
+//            if (!this.moveItemStackTo(sourceStack, SLOT_INPUT, SLOT_INPUT + SLOT_INPUT_COUNT, false)) {
+//                return ItemStack.EMPTY;
+//            }
+//
+//            // If stack size == 0 (the entire stack was moved) set slot contents to null
+//            if (sourceStack.getCount() == 0) {
+//                sourceSlot.set(ItemStack.EMPTY);
+//            } else {
+//                sourceSlot.setChanged();
+//            }
+//            sourceSlot.onTake(player, sourceStack);
+//
+//        }
+//        return returnStack;
+//    }
 }
 
 

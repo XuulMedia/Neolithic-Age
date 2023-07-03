@@ -1,8 +1,11 @@
 package github.xuulmedia.neolith.gui.menu;
 
+import github.xuulmedia.neolith.recipe.AbstractHeatRecipe;
 import github.xuulmedia.neolith.recipe.HeatingFuelRecipe;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
@@ -36,6 +39,7 @@ public abstract class AbstractHeatCookMenu extends AbstractNeolithMenu{
         return (float) this.data.get(INDEX_PROGRESS) / (float) maxProgress;
     }
 
+    protected abstract List<? extends AbstractHeatRecipe> getRecipes();
     public float heatProportion() {
         return (float) this.data.get(INDEX_HEAT) / (float) MAX_HEAT;
     }
@@ -53,6 +57,7 @@ public abstract class AbstractHeatCookMenu extends AbstractNeolithMenu{
     }
 
 
+
     public @Nullable Integer maxHeatOf(ItemStack stack) {
         for (var fuel : this.fuels) {
             if (fuel.input.test(stack)) {
@@ -63,9 +68,21 @@ public abstract class AbstractHeatCookMenu extends AbstractNeolithMenu{
     }
 
     protected @Nullable Integer heatReqdToCookInput() {
-
+        for (int i = 0; i < getInputSlotsCount(); i++) {
+            ItemStack input = this.getSlot(getInputSlotStartIndex() + i).getItem();
+            if (!input.isEmpty()) {
+                for (var recipe : getRecipes()) {
+                    if (recipe.matches(input)) { // The Recipe.matches(ItemStack input) method might need adjusting
+                        return recipe.getHeatRequired();
+                    }
+                }
+            }
+        }
         return null;
     }
+    protected abstract int getInputSlotsCount();
+    protected abstract int getInputSlotStartIndex();
+
 
 
 

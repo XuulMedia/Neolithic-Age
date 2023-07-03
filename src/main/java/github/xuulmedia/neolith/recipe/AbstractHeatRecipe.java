@@ -55,6 +55,14 @@ public abstract class AbstractHeatRecipe implements Recipe<Container> {
         return this.id;
     }
 
+    public boolean matches(ItemStack input) {
+        for (Ingredient ingredient : this.ingredients) {
+            if (ingredient.test(input)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     protected static NonNullList<Ingredient> ingredientsFromJson(JsonArray pIngredientArray) {
         NonNullList<Ingredient> nonnulllist = NonNullList.create();

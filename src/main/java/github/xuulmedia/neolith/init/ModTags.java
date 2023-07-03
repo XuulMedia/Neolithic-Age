@@ -34,6 +34,7 @@ public class ModTags {
     /*BlockTags*/
     public static final TagKey<Block> MINEABLE_WITH_HAMMER = createBlockTag("mineable/needs_hammer");
     public static final TagKey<Block> NEEDS_FLINT_TOOL = createBlockTag("requires_flint");
+    public static final TagKey<Block> NEEDS_BRONZE_TOOL = createBlockTag("requires_bronze");
 
 
     /*Helpers*/
