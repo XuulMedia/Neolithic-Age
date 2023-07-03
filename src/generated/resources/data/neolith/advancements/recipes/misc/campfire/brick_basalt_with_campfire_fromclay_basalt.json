@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_clay_basalt": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_basalt"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/brick_basalt_with_campfire_fromclay_basalt"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_clay_basalt",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/brick_basalt_with_campfire_fromclay_basalt"
+    ]
+  },
+  "sends_telemetry_event": false
+}

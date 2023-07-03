@@ -34,7 +34,6 @@ public class NeolithRecipeBuilder implements RecipeBuilder {
     protected String group;
     private final RecipeSerializer<? extends AbstractNeolithItemCraft> serializer;
 
-
     public NeolithRecipeBuilder(NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience,  RecipeSerializer<? extends AbstractNeolithItemCraft> serializer) {
         this.ingredients = ingredients;
         this.results = results;

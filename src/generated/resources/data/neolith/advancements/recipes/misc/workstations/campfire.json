@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:workstations/campfire"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "log": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:log_oak"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "log",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:workstations/campfire"
+    ]
+  },
+  "sends_telemetry_event": false
+}

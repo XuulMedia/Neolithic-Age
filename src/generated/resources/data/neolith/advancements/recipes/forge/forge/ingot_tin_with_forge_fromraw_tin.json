@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/ingot_tin_with_forge_fromraw_tin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasraw_tin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:raw_tin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasraw_tin",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/ingot_tin_with_forge_fromraw_tin"
+    ]
+  },
+  "sends_telemetry_event": true
+}

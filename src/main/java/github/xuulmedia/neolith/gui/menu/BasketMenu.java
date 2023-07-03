@@ -1,7 +1,7 @@
 package github.xuulmedia.neolith.gui.menu;
 
 import github.xuulmedia.neolith.init.ModMenuTypes;
-import github.xuulmedia.neolith.item.BasketItem;
+import github.xuulmedia.neolith.item.custom.BasketItem;
 import github.xuulmedia.neolith.util.ItemBackedContainer;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;

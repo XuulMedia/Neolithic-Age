@@ -1,10 +1,10 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.item.*;
+import github.xuulmedia.neolith.item.ModFoodProperties;
+import github.xuulmedia.neolith.item.custom.*;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -21,6 +21,26 @@ public class ModItems {
     public static final int MED_HEAT_WOOD = 350;
     public static final int HIGH_HEAT_WOOD = 500;
     public static final int NETHER_HEAT_WOOD = 650;
+
+    /*Heat Values for wood*/
+//    High: Apple, Beech, Pecan, OAK, Hickory, Mangrove ironwood
+//    Med: birch, walnut  Birch, Walnut, Larch, Ash,
+//    Low: Elm,  Cedar, Poplar, Pine. Alder, Elm, Mapple, Cherry, acacia
+
+    /*Wood real estimates + Heat Level */
+//    OAK = High Heat
+//    SPRUCE = LOW HEAT
+//    BIRCH = white birch = MED HEAT
+//    JUNGLE = cacao or maybe kapok = LOW HEAT
+//    ACACIA = acacia = LOW
+//    DARK_OAK = black oak (Quercus velutina) = MED HEAT
+//    MANGROVE = HIGH HEAT
+//    CHERRY - LOW HEAT
+//    WARPED Nether woods cant burn normally currently giving them extra high heat instead
+//    CRIMSON
+//    https://theyardable.com/firewood-weight-btu-chart/
+
+/*TODO add woods hickorty, ironwood, elm and walnut*/
 
 
     /*Stone age tools*/
@@ -168,7 +188,7 @@ public class ModItems {
 
     /*FOOD*/
     public static final RegistryObject<Item> SALVE = registerStoneAgeItem("salve",
-            () -> new Item(new Item.Properties().food((ModFoods.SALVE))));
+            () -> new Item(new Item.Properties().food((ModFoodProperties.SALVE))));
 
     /*Crops*/
 //    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = registerStoneAgeItem("medicine_seeds",
@@ -236,22 +256,6 @@ public class ModItems {
 
 
 
-    /*Heat Values for wood*/
-//    High: Apple, Beech, Pecan, OAK, Hickory, Mangrove ironwood
-//    Med: birch, walnut  Birch, Walnut, Larch, Ash,
-//    Low: Elm,  Cedar, Poplar, Pine. Alder, Elm, Mapple, Cherry, acacia
-
-    /*Wood real estimates + Heat Level */
-//    OAK = High Heat
-//    SPRUCE = LOW HEAT
-//    BIRCH = white birch = MED HEAT
-//    JUNGLE = cacao or maybe kapok = LOW HEAT
-//    ACACIA = acacia = LOW
-//    DARK_OAK = black oak (Quercus velutina) = MED HEAT
-//    MANGROVE = HIGH HEAT
-//    WARPED Nether woods cant burn normally currently giving them extra high heat instead
-//    CRIMSON
-//    https://theyardable.com/firewood-weight-btu-chart/
 
 
     /*Helpers*/

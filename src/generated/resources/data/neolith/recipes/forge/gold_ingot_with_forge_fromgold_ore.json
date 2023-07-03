@@ -1,0 +1,18 @@
+{
+  "type": "neolith:forge_recipe",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 10.0,
+  "heatRequired": 350,
+  "ingredients": [
+    {
+      "item": "minecraft:gold_ore"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "minecraft:gold_ingot"
+    }
+  ]
+}

@@ -15,6 +15,9 @@ public class ModRecipes {
         RECIPES.register(eventBus);
     }
 
+    public static final RegistryObject<RecipeSerializer<?>> DISABLE_SERIALIZER = RECIPES.register(
+            "disable", () -> DisableRecipe.SERIALIZER);
+
     public static final RegistryObject<RecipeSerializer<?>> MANUAL_GRINDER_SERIALIZER = RECIPES.register(
             "manual_grinder", () -> ManualGrinderRecipe.Serializer.INSTANCE);
 
@@ -23,7 +26,6 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<FoundryRecipe>> FOUNDRY_SERIZALIZER = RECIPES.register(
             "foundry_recipe", () -> FoundryRecipe.SERIALIZER);
-
 
     public static final RegistryObject<RecipeSerializer<FlintStationRecipe>> FLINT_STATION_SERIALIZER = RECIPES.register(
             "flint_station",  () -> FlintStationRecipe.SERIALIZER);

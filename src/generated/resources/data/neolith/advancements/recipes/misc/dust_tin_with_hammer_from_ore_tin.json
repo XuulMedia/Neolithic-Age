@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_tin_with_hammer_from_ore_tin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasore_tin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:ore_tin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasore_tin",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_tin_with_hammer_from_ore_tin"
+    ]
+  },
+  "sends_telemetry_event": false
+}

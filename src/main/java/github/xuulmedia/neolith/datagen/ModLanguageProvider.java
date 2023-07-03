@@ -23,46 +23,9 @@ public class ModLanguageProvider extends LanguageProvider {
 
         add("container.flint_station", "Knapping");
 //
-//        add(ModBlocks.FLINT_STATION.get(), "Flintknapping Station");
-//        add(ModBlocks.FOUNDRY.get(), "Foundry");
+        add(ModBlocks.FLINT_STATION.get(), "Flintknapping Station");
+        add(ModBlocks.FOUNDRY.get(), "Foundry");
 
-        add(ModBlocks.ORE_TIN.get(), "Tin Ore");
-        add(ModBlocks.ORE_SILVER.get(), "Nether Silver Ore");
-        add(ModBlocks.FLINT_NODE.get(), "Flint Nodule");
-
-        add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
-        add(ModItems.BRAIDED_PLANT_FIBRE.get(), "Braided Plant Fibre");
-        add(ModBlocks.THATCH.get(), "Thatch");
-
-        add(ModItems.WOOL.get(), "Wool");
-        add(ModItems.YARN.get(), "Yarn");
-        add(ModItems.SPINDLE.get(), "Spindle");
-
-//        add(ModItems.MEDICINE_PLANT_SEEDS.get(), "Herbal Seed");
-//        add(ModItems.MEDICINE_PLANT.get(), "Medical Herb");
-
-
-//        add(ModItems.BASKET.get(), "Basket");
-
-        add(ModItems.HIDE_SMALL.get(), "Small Hide");
-        add(ModItems.HIDE_MEDIUM.get(), "Medium Hide");
-        add(ModItems.HIDE_LARGE.get(), "Large Hide");
-
-        add(ModItems.UNFIRED_CLAY_JUG.get(), "Unfired Jug");
-        add(ModItems.UNFIRED_CLAY_BUCKET.get(), "Unfired Clay Bucket");
-        add(ModItems.UNFIRED_CLAY_BOTTLE.get(), "Unfired Clay Bottle");
-
-        add(ModItems.CLAY_VIAL.get(), "Clay Vial");
-
-        add(ModItems.BRONZE_SWORD.get(), "Bronze Sword");
-        add(ModItems.BRONZE_PICK.get(), "Bronze Pick");
-        add(ModItems.BRONZE_SHOVEL.get(), "Bronze Shovel");
-        add(ModItems.BRONZE_AXE.get(), "Bronze Axe");
-        add(ModItems.BRONZE_HOE.get(), "Bronze Hoe");
-        add(ModItems.BRONZE_HELMET.get(), "Bronze Helmet");
-        add(ModItems.BRONZE_CHEST.get(), "Bronze Chest");
-        add(ModItems.BRONZE_LEGS.get(), "Bronze Legs");
-        add(ModItems.BRONZE_BOOTS.get(), "Bronze Boots");
 
         add(ModItems.FLINT_KNIFE.get(), "Flint Knife");
         add(ModItems.FLINT_PICK.get(), "Flint Pick");
@@ -73,6 +36,10 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.STONE_HAMMER.get(), "Stone Hammer");
         add(ModItems.STONE_SPEAR.get(), "Flint Spear");
         add(ModItems.BASIC_FIRESTARTER.get(), "Firestarter");
+
+        add(ModItems.HIDE_SMALL.get(), "Small Hide");
+        add(ModItems.HIDE_MEDIUM.get(), "Medium Hide");
+        add(ModItems.HIDE_LARGE.get(), "Large Hide");
 
 
         add(ModItems.FLINT_BLADE.get(), "Sharp Flint");
@@ -103,6 +70,42 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.PLANK_SPRUCE.get(),"Spruce Plank");
         add(ModItems.PLANK_WARPED.get(),"Warped Plank");
         add(ModItems.PLANK_CRIMSON.get(),"Crimson Plank");
+
+         add(ModBlocks.ORE_TIN.get(), "Tin Ore");
+        add(ModBlocks.ORE_SILVER.get(), "Nether Silver Ore");
+        add(ModBlocks.FLINT_NODE.get(), "Flint Nodule");
+
+        add(ModItems.PLANT_FIBRE.get(), "Plant Fibre");
+        add(ModItems.BRAIDED_PLANT_FIBRE.get(), "Braided Plant Fibre");
+        add(ModBlocks.THATCH.get(), "Thatch");
+
+        add(ModItems.WOOL.get(), "Wool");
+        add(ModItems.YARN.get(), "Yarn");
+        add(ModItems.SPINDLE.get(), "Spindle");
+
+//        add(ModItems.MEDICINE_PLANT_SEEDS.get(), "Herbal Seed");
+//        add(ModItems.MEDICINE_PLANT.get(), "Medical Herb");
+
+
+//        add(ModItems.BASKET.get(), "Basket");
+
+
+        add(ModItems.UNFIRED_CLAY_JUG.get(), "Unfired Jug");
+        add(ModItems.UNFIRED_CLAY_BUCKET.get(), "Unfired Clay Bucket");
+        add(ModItems.UNFIRED_CLAY_BOTTLE.get(), "Unfired Clay Bottle");
+
+        add(ModItems.CLAY_VIAL.get(), "Clay Vial");
+
+        add(ModItems.BRONZE_SWORD.get(), "Bronze Sword");
+        add(ModItems.BRONZE_PICK.get(), "Bronze Pick");
+        add(ModItems.BRONZE_SHOVEL.get(), "Bronze Shovel");
+        add(ModItems.BRONZE_AXE.get(), "Bronze Axe");
+        add(ModItems.BRONZE_HOE.get(), "Bronze Hoe");
+        add(ModItems.BRONZE_HELMET.get(), "Bronze Helmet");
+        add(ModItems.BRONZE_CHEST.get(), "Bronze Chest");
+        add(ModItems.BRONZE_LEGS.get(), "Bronze Legs");
+        add(ModItems.BRONZE_BOOTS.get(), "Bronze Boots");
+
 
         add(ModItems.CHUNK_ANDESITE.get(), "Andesite Chunk");
         add(ModItems.CHUNK_BASALT.get(), "Basalt Chunk");

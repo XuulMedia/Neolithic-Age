@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "tag": "neolith:hammers"
+    },
+    {
+      "item": "neolith:ore_nether_silver"
+    }
+  ],
+  "result": {
+    "item": "neolith:dust_silver"
+  }
+}

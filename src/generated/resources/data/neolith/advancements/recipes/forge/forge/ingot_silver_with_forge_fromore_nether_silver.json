@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/ingot_silver_with_forge_fromore_nether_silver"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasore_nether_silver": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:ore_nether_silver"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasore_nether_silver",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/ingot_silver_with_forge_fromore_nether_silver"
+    ]
+  },
+  "sends_telemetry_event": true
+}

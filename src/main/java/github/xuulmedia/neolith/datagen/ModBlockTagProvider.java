@@ -44,19 +44,22 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.CALCITE_COBBLESTONE.get());
 
         tag(ModTags.MINEABLE_WITH_HAMMER)
-                .add(Blocks.STONE)
-                .add(Blocks.STONE)
                 .add(Blocks.ANDESITE)
-                .add(Blocks.DEEPSLATE)
-                .add(Blocks.SANDSTONE)
-                .add(Blocks.DRIPSTONE_BLOCK)
-                .add(Blocks.DIORITE)
-                .add(Blocks.GRANITE)
                 .add(Blocks.BASALT)
-                .add(Blocks.TUFF)
-                .add(Blocks.NETHERRACK)
                 .add(Blocks.BLACKSTONE)
-                .add(Blocks.CALCITE);
+                .add(Blocks.CALCITE)
+                .add(Blocks.DEEPSLATE)
+                .add(Blocks.DIORITE)
+                .add(Blocks.DRIPSTONE_BLOCK)
+                .add(Blocks.GRANITE)
+                .add(Blocks.NETHERRACK)
+                .add(Blocks.RED_SANDSTONE)
+                .add(Blocks.SANDSTONE)
+                .add(Blocks.STONE)
+                .add(Blocks.TUFF)
+                .add(Blocks.END_STONE)
+                .add(ModBlocks.ORE_TIN.get())
+                .add(ModBlocks.ORE_SILVER.get());
 //
 //        tag(BlockTags.CAMPFIRES)
 //                .add(ModBlocks.CAMPFIRE.get());

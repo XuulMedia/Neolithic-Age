@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_foundry": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:foundry"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:foundry/2to1/ingot_bronze_with_foundry_from_dust_copper_and_dust_tin"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_foundry",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:foundry/2to1/ingot_bronze_with_foundry_from_dust_copper_and_dust_tin"
+    ]
+  },
+  "sends_telemetry_event": true
+}

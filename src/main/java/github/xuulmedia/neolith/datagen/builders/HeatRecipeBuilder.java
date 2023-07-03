@@ -51,6 +51,10 @@ public class HeatRecipeBuilder implements RecipeBuilder {
         return new HeatRecipeBuilder(heatRequired, ingredients, results, experience, cookingTime, ModRecipes.FORGE_SERIZALIZER.get());
     }
 
+    public static HeatRecipeBuilder foundryRecipe(NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, int heatRequired, float experience, int cookingTime){
+        return new HeatRecipeBuilder(heatRequired, ingredients, results, experience, cookingTime, ModRecipes.FOUNDRY_SERIZALIZER.get());
+    }
+
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         this.advancement.addCriterion(pCriterionName, pCriterionTrigger);

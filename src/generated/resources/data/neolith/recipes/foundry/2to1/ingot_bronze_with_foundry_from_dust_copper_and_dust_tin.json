@@ -1,0 +1,21 @@
+{
+  "type": "neolith:foundry_recipe",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 10.0,
+  "heatRequired": 400,
+  "ingredients": [
+    {
+      "item": "neolith:dust_copper"
+    },
+    {
+      "item": "neolith:dust_tin"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "neolith:ingot_bronze"
+    }
+  ]
+}

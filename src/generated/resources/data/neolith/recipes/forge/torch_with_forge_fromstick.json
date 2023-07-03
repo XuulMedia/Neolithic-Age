@@ -1,0 +1,18 @@
+{
+  "type": "neolith:forge_recipe",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 10.0,
+  "heatRequired": 80,
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "neolith:torch"
+    }
+  ]
+}

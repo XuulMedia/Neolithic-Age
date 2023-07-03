@@ -4,17 +4,21 @@ import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.custom.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.grower.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
+import net.minecraft.world.level.material.PushReaction;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -30,20 +34,22 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, Neolith.MODID);
     public static final DeferredRegister<Block> VANILLA_BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, "minecraft");
 
-    public static final RegistryObject<Block> ORE_TIN = registerBlock("ore_tin", ModCreativeTabs.TAB_NAME.METAL_AGE,
-            () -> new Block(BlockBehaviour.Properties.of()
+    public static final RegistryObject<NeolithFallingBlock> ORE_TIN = registerBlock("ore_tin", ModCreativeTabs.TAB_NAME.METAL_AGE,
+            () -> new NeolithFallingBlock(BlockBehaviour.Properties.of()
                     .instrument(NoteBlockInstrument.SNARE)
                     .requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f)
                     .mapColor(MapColor.STONE)
-                    .sound(SoundType.STONE)), new Item.Properties());
-    public static final RegistryObject<Block> ORE_SILVER = registerBlock("ore_nether_silver", ModCreativeTabs.TAB_NAME.METAL_AGE,
-            () -> new Block(BlockBehaviour.Properties.of()
+                    .sound(SoundType.STONE),  UniformInt.of(2,6)),
+            new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> ORE_SILVER = registerBlock("ore_nether_silver", ModCreativeTabs.TAB_NAME.METAL_AGE,
+            () -> new NeolithFallingBlock(BlockBehaviour.Properties.of()
                     .instrument(NoteBlockInstrument.SNARE)
                     .requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f)
                     .mapColor(MapColor.STONE)
-                    .sound(SoundType.NETHER_ORE)), new Item.Properties());
+                    .sound(SoundType.NETHER_ORE), UniformInt.of(2,6)),
+            new Item.Properties());
 
 
     public static final RegistryObject<Block> BLOCK_TIN = registerBlock("block_tin", ModCreativeTabs.TAB_NAME.METAL_AGE,
@@ -141,11 +147,11 @@ public class ModBlocks {
             () -> new ForgeBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
     public static final RegistryObject<FoundryBlock> FOUNDRY = registerBlock("foundry", ModCreativeTabs.TAB_NAME.METAL_AGE,
             () -> new FoundryBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
-    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire", ModCreativeTabs.TAB_NAME.METAL_AGE,
-            () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties().stacksTo(1));
 
     public static final RegistryObject<WorkBenchBlock> WORK_BENCH = registerBlock("workbench", ModCreativeTabs.TAB_NAME.METAL_AGE,
             () -> new WorkBenchBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE)), new Item.Properties());
+    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire", ModCreativeTabs.TAB_NAME.METAL_AGE,
+            () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties().stacksTo(1));
 
 
     /*Plants*/
@@ -167,7 +173,7 @@ public class ModBlocks {
     public static final RegistryObject<RotatedPillarBlock> BIRCH_LOG = registerVanillaBlock("birch_log", () -> createLog(MapColor.SAND, MapColor.QUARTZ));
     public static final RegistryObject<RotatedPillarBlock> JUNGLE_LOG = registerVanillaBlock("jungle_log", () -> createLog(MapColor.DIRT, MapColor.PODZOL));
     public static final RegistryObject<RotatedPillarBlock> ACACIA_LOG = registerVanillaBlock("acacia_log", () -> createLog(MapColor.COLOR_ORANGE, MapColor.STONE));
-    //  public static final RegistryObject<RotatedPillarBlock> CHERRY_LOG = registerVanillaBlock("cherry_log", () -> createLog(MapColor.TERRACOTTA_WHITE, MapColor.TERRACOTTA_GRAY, SoundType.CHERRY_WOOD));
+//      public static final RegistryObject<RotatedPillarBlock> CHERRY_LOG = registerVanillaBlock("cherry_log", () -> createLog(MapColor.TERRACOTTA_WHITE, MapColor.TERRACOTTA_GRAY, SoundType.CHERRY_WOOD));
     public static final RegistryObject<RotatedPillarBlock> DARK_OAK_LOG = registerVanillaBlock("dark_oak_log", () -> createLog(MapColor.COLOR_BROWN, MapColor.COLOR_BROWN));
     public static final RegistryObject<RotatedPillarBlock> MANGROVE_LOG = registerVanillaBlock("mangrove_log", () -> createLog(MapColor.COLOR_BROWN, MapColor.STONE));
     //TODO MAGROVE ROOT
@@ -181,6 +187,7 @@ public class ModBlocks {
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_SPRUCE_LOG = registerVanillaBlock("stripped_spruce_log", () -> createLog(MapColor.PODZOL));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_BIRCH_LOG = registerVanillaBlock("stripped_birch_log", () -> createLog(MapColor.SAND));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_ACACIA_LOG = registerVanillaBlock("stripped_acacia_log", () -> createLog(MapColor.COLOR_ORANGE));
+    public static final RegistryObject<RotatedPillarBlock> STRIPPED_CHERRY_LOG = registerVanillaBlock("stripped_cherry_log", () -> createLog(MapColor.TERRACOTTA_WHITE));
     //TODO CHERRY
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_DARK_OAK_LOG = registerVanillaBlock("stripped_dark_oak_log", () -> createLog(MapColor.COLOR_BROWN));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_JUNGLE_LOG = registerVanillaBlock("stripped_jungle_log", () -> createLog(MapColor.DIRT));
@@ -218,6 +225,15 @@ public class ModBlocks {
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_DARK_OAK_WOOD = registerVanillaBlock("stripped_dark_oak_wood", () -> createLog(MapColor.COLOR_BROWN));
     public static final RegistryObject<RotatedPillarBlock> STRIPPED_MANGROVE_WOOD = registerVanillaBlock("stripped_mangrove_wood", () -> createLog(MapColor.COLOR_RED));
 
+
+    //saplings
+    public static final RegistryObject<Block> OAK_SAPLING = registerVanillaBlock("oak_sapling",() ->  createSapling(new OakTreeGrower()));
+    public static final RegistryObject<Block> SPRUCE_SAPLING = registerVanillaBlock("spruce_sapling", () -> createSapling(new SpruceTreeGrower()));
+    public static final RegistryObject<Block> BIRCH_SAPLING = registerVanillaBlock("birch_sapling", () -> createSapling(new BirchTreeGrower()));
+    public static final RegistryObject<Block> JUNGLE_SAPLING = registerVanillaBlock("jungle_sapling", () -> createSapling(new JungleTreeGrower()));
+    public static final RegistryObject<Block> ACACIA_SAPLING = registerVanillaBlock("acacia_sapling", () -> createSapling(new AcaciaTreeGrower()));
+    public static final RegistryObject<Block> CHERRY_SAPLING = registerVanillaBlock("cherry_sapling",() ->  createSapling(new CherryTreeGrower()));
+    public static final RegistryObject<Block> DARK_OAK_SAPLING = registerVanillaBlock("dark_oak_sapling", () -> createSapling(new DarkOakTreeGrower()));
 
 
 
@@ -331,7 +347,17 @@ BLACK_WOOL*/
                 .strength(2.0F, 3.0F).sound(sound).ignitedByLava().requiresCorrectToolForDrops());
     }
 
+    private static ModSaplingBlock createSapling(AbstractTreeGrower treeGrower){
+            return new ModSaplingBlock(treeGrower, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollission()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.GRASS)
+                    .pushReaction(PushReaction.DESTROY));
 
+
+    }
 
     private static Boolean never(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {
         return false;

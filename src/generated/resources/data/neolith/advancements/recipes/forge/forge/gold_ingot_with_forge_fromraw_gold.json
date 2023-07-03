@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/gold_ingot_with_forge_fromraw_gold"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasraw_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:raw_gold"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasraw_gold",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/gold_ingot_with_forge_fromraw_gold"
+    ]
+  },
+  "sends_telemetry_event": true
+}

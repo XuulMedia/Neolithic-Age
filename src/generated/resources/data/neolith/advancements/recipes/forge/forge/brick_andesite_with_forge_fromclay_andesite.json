@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_andesite_with_forge_fromclay_andesite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_andesite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_andesite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_andesite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_andesite_with_forge_fromclay_andesite"
+    ]
+  },
+  "sends_telemetry_event": true
+}

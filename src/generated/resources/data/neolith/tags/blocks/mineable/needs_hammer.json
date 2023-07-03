@@ -1,17 +1,20 @@
 {
   "values": [
-    "minecraft:stone",
-    "minecraft:stone",
     "minecraft:andesite",
-    "minecraft:deepslate",
-    "minecraft:sandstone",
-    "minecraft:dripstone_block",
-    "minecraft:diorite",
-    "minecraft:granite",
     "minecraft:basalt",
-    "minecraft:tuff",
-    "minecraft:netherrack",
     "minecraft:blackstone",
-    "minecraft:calcite"
+    "minecraft:calcite",
+    "minecraft:deepslate",
+    "minecraft:diorite",
+    "minecraft:dripstone_block",
+    "minecraft:granite",
+    "minecraft:netherrack",
+    "minecraft:red_sandstone",
+    "minecraft:sandstone",
+    "minecraft:stone",
+    "minecraft:tuff",
+    "minecraft:end_stone",
+    "neolith:ore_tin",
+    "neolith:ore_nether_silver"
   ]
 }

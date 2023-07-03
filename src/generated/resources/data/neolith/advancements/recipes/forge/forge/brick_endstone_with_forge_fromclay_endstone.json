@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_endstone_with_forge_fromclay_endstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_endstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_endstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_endstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_endstone_with_forge_fromclay_endstone"
+    ]
+  },
+  "sends_telemetry_event": true
+}

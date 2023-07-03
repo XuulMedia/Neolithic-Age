@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "neolith:block/ore_nether_silver"
+    }
+  }
+}
