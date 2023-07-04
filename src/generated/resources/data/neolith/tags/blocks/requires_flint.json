@@ -2,6 +2,7 @@
   "values": [
     "neolith:ore_tin",
     "#minecraft:logs",
+    "neolith:ore_clay",
     "neolith:flint_station"
   ]
 }

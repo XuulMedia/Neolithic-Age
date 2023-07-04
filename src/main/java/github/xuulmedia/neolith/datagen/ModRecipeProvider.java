@@ -659,7 +659,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         new DisableRecipeBuilder(result.asItem()).save(consumer,
                 new ResourceLocation(getItemName(result) + "_from_blasting_" + getItemName(ingredient)));
 
-
     }
 
     private static void disableCookFood(ItemLike result,  Consumer<FinishedRecipe> consumer){

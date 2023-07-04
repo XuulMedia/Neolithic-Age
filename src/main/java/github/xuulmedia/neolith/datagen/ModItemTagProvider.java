@@ -2,6 +2,7 @@ package github.xuulmedia.neolith.datagen;
 
 
 import github.xuulmedia.neolith.Neolith;
+import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModItems;
 import github.xuulmedia.neolith.init.ModTags;
 import net.minecraft.core.HolderLookup;
@@ -149,7 +150,8 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.LIGHTERS)
                 .add(ModItems.BASIC_FIRESTARTER.get())
                 .add(Items.FLINT_AND_STEEL)
-                .add(Items.CANDLE);
+                .add(Items.CANDLE)
+                .add(ModBlocks.TORCH.get().asItem());
 
         tag(ModTags.DOUSERS)
                 .add(ModItems.FLINT_SHOVEL.get());

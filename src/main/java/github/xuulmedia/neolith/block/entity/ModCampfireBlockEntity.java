@@ -27,7 +27,7 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
-    protected static final  int BURN_MINUITES = 1; // how long in min the fire will burn
+    protected static final  int BURN_MINUITES = 4; // how long in min the fire will burn
     private static final int DELAY = 1200; // 1200 ticks is 60 seconds
     public int maxBurnTime= BURN_MINUITES * DELAY; //should be in minutes
     public int burnTime = maxBurnTime;

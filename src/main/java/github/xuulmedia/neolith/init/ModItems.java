@@ -88,8 +88,21 @@ public class ModItems {
     public static final RegistryObject<Item> UNFIRED_CLAY_JUG = registerStandardStoneAgeItem("unfired_clay_jug");
     public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = registerStandardStoneAgeItem("unfired_clay_bucket");
     public static final RegistryObject<Item> UNFIRED_CLAY_BOTTLE = registerStandardStoneAgeItem("unfired_clay_bottle");
+    public static final RegistryObject<Item> UNFIRED_CLAY_BOWL = registerStandardStoneAgeItem("unfired_clay_bowl");
+
+
+
+    public static final RegistryObject<Item> CLAY_JUG = registerStandardStoneAgeItem("clay_jug"); //Make into a block
+    public static final RegistryObject<Item> CLAY_BUCKET = registerStandardStoneAgeItem("clay_bucket");
+    public static final RegistryObject<Item> CLAY_BOWL = registerStandardStoneAgeItem("clay_bottle");
     public static final RegistryObject<BottleItem> CLAY_VIAL = registerStoneAgeItem("clay_vial",
             () -> new BottleItem(new Item.Properties()));
+
+
+
+
+
+
 
     /*TOOLHEADS*/
     public static final RegistryObject<Item> FLINT_BLADE = registerStandardStoneAgeItem("flint_blade");

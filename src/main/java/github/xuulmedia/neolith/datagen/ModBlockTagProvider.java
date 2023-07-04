@@ -42,6 +42,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.ANDESITE_COBBLESTONE.get())
                 .add(ModBlocks.DIORITE_COBBLESTONE.get())
                 .add(ModBlocks.CALCITE_COBBLESTONE.get())
+                .add(ModBlocks.ORE_CLAY.get())
                 .add(ModBlocks.FLINT_STATION.get());
 
         tag(ModTags.MINEABLE_WITH_HAMMER)
@@ -76,6 +77,7 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(ModTags.NEEDS_FLINT_TOOL)
                 .add(ModBlocks.ORE_TIN.get())
                 .addTag(BlockTags.LOGS)
+                .add(ModBlocks.ORE_CLAY.get())
                 .add(ModBlocks.FLINT_STATION.get());
 
         tag(ModTags.NEEDS_BRONZE_TOOL)
@@ -90,7 +92,8 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_AXE);
         tag(BlockTags.MINEABLE_WITH_HOE);
         tag(BlockTags.MINEABLE_WITH_PICKAXE);
-        tag(BlockTags.MINEABLE_WITH_SHOVEL);
+        tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(ModBlocks.ORE_CLAY.get());
 
         tag(Tags.Blocks.ORES)
                 .add(ModBlocks.ORE_TIN.get());

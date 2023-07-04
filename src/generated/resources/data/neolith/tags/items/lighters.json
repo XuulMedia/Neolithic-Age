@@ -2,6 +2,7 @@
   "values": [
     "neolith:firestarter",
     "minecraft:flint_and_steel",
-    "minecraft:candle"
+    "minecraft:candle",
+    "neolith:torch"
   ]
 }

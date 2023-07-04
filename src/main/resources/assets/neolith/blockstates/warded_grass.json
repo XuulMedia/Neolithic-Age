@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "neolith:block/warded_grass"
+    }
+  }
+}

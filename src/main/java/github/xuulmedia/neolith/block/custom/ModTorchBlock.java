@@ -24,9 +24,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import javax.annotation.Nullable;
 
 public class ModTorchBlock extends TorchBlock {
-    protected static final  int BURN_MINUITES = 5; // how long in min the torchs will burn
+    protected static final int BURN_MIN = 5; // how long in min the torchs will burn
     protected static final int DELAY = 600; // 600 ticks is 30 seconds This is the delay between each tick
-    protected static int BURN_TICKS = 2 * BURN_MINUITES;
+    protected static int BURN_TICKS = 2 * BURN_MIN;
     public int burnTime = BURN_TICKS;
 
     public static final IntegerProperty BURNTIME = IntegerProperty.create("burn_time", 0, BURN_TICKS);
@@ -47,7 +47,7 @@ public class ModTorchBlock extends TorchBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
-        if (!pLevel.isClientSide() && !pState.getValue(LIT) && pPlayer.getItemInHand(pHand).is(ModTags.LIGHTERS)){
+        if (!pLevel.isClientSide() && !pState.getValue(LIT) && pPlayer.getItemInHand(pHand).is(ModTags.LIGHTERS)) {
             pLevel.scheduleTick(pPos, this, DELAY);
             pLevel.setBlock(pPos, pState.cycle(LIT), 3);
         }
@@ -57,12 +57,12 @@ public class ModTorchBlock extends TorchBlock {
     @Override
     public void tick(BlockState state, ServerLevel level, BlockPos blockPos, RandomSource randomSource) {
         System.out.println("TORCH TICK");
-        if(!level.isClientSide &&  level.isRaining() && isNearRain(level,blockPos)){
+        if (!level.isClientSide && level.isRaining() && isNearRain(level, blockPos)) {
             extinguish(state, level, blockPos);
             return;
         }
         int newBurnTime = state.getValue(BURNTIME) - 1;
-        if(newBurnTime <= 0){
+        if (newBurnTime <= 0) {
             state.setValue(LIT, false);
             extinguish(state, level, blockPos);
         } else {
@@ -75,7 +75,7 @@ public class ModTorchBlock extends TorchBlock {
         return level.isRainingAt(blockPos) || level.isRainingAt(blockPos.west()) || level.isRainingAt(blockPos.east()) || level.isRainingAt(blockPos.north()) || level.isRainingAt(blockPos.south());
     }
 
-    public void extinguish(BlockState state, Level level, BlockPos blockPos){
+    public void extinguish(BlockState state, Level level, BlockPos blockPos) {
         level.setBlockAndUpdate(blockPos, state.setValue(LIT, false));
         level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
 

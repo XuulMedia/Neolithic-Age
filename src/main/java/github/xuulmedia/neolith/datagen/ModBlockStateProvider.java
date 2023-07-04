@@ -5,6 +5,7 @@ import github.xuulmedia.neolith.init.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.StairBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -21,6 +22,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.ORE_TIN.get(), "block/ore");
         blockWithItem(ModBlocks.ORE_SILVER.get(), "block/ore");
+        blockWithItem(ModBlocks.ORE_CLAY.get(), "block/ore");
 
         blockWithItem(ModBlocks.BLOCK_TIN.get(), "block");
         blockWithItem(ModBlocks.BLOCK_SILVER.get(), "block");
@@ -70,6 +72,29 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(block, model);
     }
 
+//    private void sideBottomTop(Block block, String folder, String side, String bottom, String top) {
+//        String key = ForgeRegistries.BLOCKS.getKey(block).getPath();
+//
+//        ResourceLocation textureTop = new ResourceLocation(Neolith.MODID, folder + "/" + side);
+//        ResourceLocation textureSide = new ResourceLocation(Neolith.MODID, folder + "/" + bottom);
+//        ResourceLocation textureBottom = new ResourceLocation(Neolith.MODID, folder + "/" + top);
+//
+//
+//
+//        ModelFile model = models().sideBottomTop(key, textureSide, textureTop, textureBottom);
+//        itemModels().getBuilder(key).parent(model);
+//
+//        simpleBlock(block, model);
+//    }
+//    private void stairsBlockInternal(StairBlock block, String baseName, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
+//        ModelFile stairs = models().stairs(baseName, side, bottom, top);
+//        ModelFile stairsInner = models().stairsInner(baseName + "_inner", side, bottom, top);
+//        ModelFile stairsOuter = models().stairsOuter(baseName + "_outer", side, bottom, top);
+//        stairsBlock(block, stairs, stairsInner, stairsOuter);
+//    }
+//
+//
+//    sideBottomTop
 
 //
 //    public ModelFile cubeAll(Block block) {

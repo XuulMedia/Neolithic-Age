@@ -1,4 +1,4 @@
-// 1.20	2023-07-02T21:12:31.8993025	Loot Tables
+// 1.20	2023-07-04T00:15:11.5410449	Loot Tables
 c84087ffdfbce9f5a6fe4b23428d140e8374a552 data/minecraft/loot_tables/blocks/acacia_leaves.json
 6021a7b76b28b70df529b50b318a99f5694e9d68 data/minecraft/loot_tables/blocks/acacia_log.json
 715a31903a424ab11694afc1f664e73b55b09169 data/minecraft/loot_tables/blocks/acacia_planks.json
@@ -91,10 +91,12 @@ ea022bd81994e88a1d698fdfebd6a82490d39902 data/neolith/loot_tables/blocks/forge.j
 218dace712cebde8753ea5afbfa9a2f61e06f60e data/neolith/loot_tables/blocks/granite_cobble.json
 8efccf24f357febc21b30eef2bb4172ef8560bc1 data/neolith/loot_tables/blocks/manual_grinder.json
 969104b97b86e50bfba21c2e079858d5f0defd73 data/neolith/loot_tables/blocks/netherrack_cobble.json
+521a617a9c58308b69a9dc345519a6560d84ff7d data/neolith/loot_tables/blocks/ore_clay.json
 2d04c335123ad5111a957aa79008a560ad4d88d2 data/neolith/loot_tables/blocks/ore_nether_silver.json
 a40addcf46e75fa576a400c1e469a88d1e1fb31d data/neolith/loot_tables/blocks/ore_tin.json
 e2d513368a30249ac6116dccbcf2b3f4aed274d1 data/neolith/loot_tables/blocks/sandstone_cobble.json
 d99e0599b8376f9a6a4253da17ca72fb85442ae3 data/neolith/loot_tables/blocks/thatch.json
 2e710509238cef7a6cead0da70cd99c235d8c96e data/neolith/loot_tables/blocks/torch.json
 f3b86e20dc4f25c188d918148aa559a420fa3ce9 data/neolith/loot_tables/blocks/tuff_cobble.json
+1c1591f582750a64f4b4e1715c18d2163f81a9e0 data/neolith/loot_tables/blocks/warded_grass.json
 47e59c14b5d81efe082e1324169403f4a61a4f5e data/neolith/loot_tables/blocks/workbench.json

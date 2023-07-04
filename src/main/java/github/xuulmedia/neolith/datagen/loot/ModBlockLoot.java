@@ -49,6 +49,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
 
         HammerSmashingTable(ModBlocks.ORE_TIN.get(), ModItems.RAW_TIN.get(), ModItems.DUST_TIN.get(), 1, 3);
         HammerSmashingTable(ModBlocks.ORE_SILVER.get(), ModItems.RAW_SILVER.get(), ModItems.DUST_SILVER.get(), 1, 3);
+        dropOther(ModBlocks.ORE_CLAY.get(), Items.CLAY_BALL);
 
         dropSelf(ModBlocks.BLOCK_TIN.get());
         dropSelf(ModBlocks.BLOCK_SILVER.get());
@@ -84,6 +85,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
         dropOther(ModBlocks.FLINT_NODE.get(), Items.FLINT);
 
         dropSelf(ModBlocks.TORCH.get());
+        dropSelf(ModBlocks.WARDED_GRASS_BLOCK.get());
 
         dropSelf(ModBlocks.MANUAL_GRINDER.get());
         dropSelf(ModBlocks.FLINT_STATION.get());

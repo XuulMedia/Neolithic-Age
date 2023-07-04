@@ -1,4 +1,4 @@
-// 1.20	2023-07-02T12:25:49.8968313	Block States: neolith
+// 1.20	2023-07-04T00:15:11.5390448	Block States: neolith
 e6e50768870ae0ed892da033def8519b4e4b8b94 assets/neolith/blockstates/andesite_cobble.json
 bb767a1054a5e3affcd217c2b067cb01618a705b assets/neolith/blockstates/basalt_cobble.json
 78f1529f981ee93bff0dbae64e45d0914d496aec assets/neolith/blockstates/blackstone_cobble.json
@@ -20,6 +20,7 @@ c999270d98db9f1670fcc842683710959f6593cf assets/neolith/blockstates/calcite_cobb
 00066027bc958506a57700ce21c1d1a15d4d08bf assets/neolith/blockstates/endstone_cobble.json
 0a246d3d83c153c82659e318c1aeb0d19071bcf2 assets/neolith/blockstates/granite_cobble.json
 55ec6a8510621699bff7a38851c9daed692b9888 assets/neolith/blockstates/netherrack_cobble.json
+2080146ee2f02960ba8b951155f207da37a41854 assets/neolith/blockstates/ore_clay.json
 6a9f5e7d921c54c2110dfad31412a17394073fde assets/neolith/blockstates/ore_nether_silver.json
 d117c6b4da9e7e9f7bbcb0e997bc7c9a1c4f9c84 assets/neolith/blockstates/ore_tin.json
 a56af37637cd6cbaaa6a3ec592d108f289a90ad0 assets/neolith/blockstates/sandstone_cobble.json
@@ -45,6 +46,7 @@ d31b0187288e6d8e6528f17f7423f43070daf337 assets/neolith/models/block/bricks_dior
 380916e52b2a3e9ea8991796c8786393c528c5f3 assets/neolith/models/block/endstone_cobble.json
 3009d70a44103038093c13847de715357e56e451 assets/neolith/models/block/granite_cobble.json
 dc9498aba8d7988b8afdbe7bc35958b95748ce70 assets/neolith/models/block/netherrack_cobble.json
+167e6a65938ad64e74b267cf996ac284879e7aa4 assets/neolith/models/block/ore_clay.json
 2a017662de41d6db91d6e700cb7e43c3ddb60486 assets/neolith/models/block/ore_nether_silver.json
 754aaeb6725fa7239135bd871aa457c2a0848c8f assets/neolith/models/block/ore_tin.json
 aba88debd991273219b7b10545e69fcd60bed173 assets/neolith/models/block/sandstone_cobble.json
@@ -70,6 +72,7 @@ cff82d758a07435cca4abf8d9f87284f77c08784 assets/neolith/models/item/cobblestone.
 424e99b7644b69d7e7533000c0adfe577f16305e assets/neolith/models/item/endstone_cobble.json
 9fd9e1f865c3a467d5d42ef795d10625c5dfd33c assets/neolith/models/item/granite_cobble.json
 b203b4b1851fa99cdf197a2934ea047da0c7c163 assets/neolith/models/item/netherrack_cobble.json
+1fa4729d9d3a1824140e0a6e1ed039c8cd4b115e assets/neolith/models/item/ore_clay.json
 c586be8fcda3c159012beeb39086a1e7154abdff assets/neolith/models/item/ore_nether_silver.json
 051be02ede689d224b2cb34c3bd15e1b705ce365 assets/neolith/models/item/ore_tin.json
 c9856f99663a15a3d23a3f7eb29e6a5c877b4958 assets/neolith/models/item/sandstone_cobble.json

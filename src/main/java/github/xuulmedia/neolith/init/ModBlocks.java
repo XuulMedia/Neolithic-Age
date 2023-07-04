@@ -51,6 +51,18 @@ public class ModBlocks {
                     .sound(SoundType.NETHER_ORE), UniformInt.of(2,6)),
             new Item.Properties());
 
+    public static final RegistryObject<`NeolithFallingBlock`> ORE_CLAY = registerBlock("ore_clay", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> new NeolithFallingBlock(BlockBehaviour.Properties.of()
+                    .instrument(NoteBlockInstrument.FLUTE)
+                    .requiresCorrectToolForDrops()
+                    .strength(2.0f, 0.6f)
+                    .mapColor(MapColor.CLAY)
+                    .sound(SoundType.STONE), UniformInt.of(2,6)),
+            new Item.Properties());
+
+
+
+
 
     public static final RegistryObject<Block> BLOCK_TIN = registerBlock("block_tin", ModCreativeTabs.TAB_NAME.METAL_AGE,
             () -> new Block(BlockBehaviour.Properties.of()
@@ -123,7 +135,12 @@ public class ModBlocks {
     public static final RegistryObject<CutStoneBlock> DIORITE_BRICK_BLOCK = registerBlock("bricks_diorite", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
     public static final RegistryObject<CutStoneBlock> CALCITE_BRICK_BLOCK = registerBlock("bricks_calcite", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCutStoneBlock(MapColor.GRASS), new Item.Properties());
+
+
+    public static final RegistryObject<CutStoneBlock> WARDED_GRASS_BLOCK = registerBlock("warded_grass", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
+
 
 
     public static final RegistryObject<FlintNodeBlock> FLINT_NODE = registerBlock("flint_node", ModCreativeTabs.TAB_NAME.STONE_AGE,

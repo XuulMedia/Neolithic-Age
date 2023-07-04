@@ -1,4 +1,10 @@
-// 1.20	2023-07-03T12:50:27.4934696	Registries
+// 1.20	2023-07-03T20:38:07.273472	Registries
 886a1d6e00f94dbf7d7a3b8b9045289c1c408992 data/neolith/forge/biome_modifier/add_flint_node.json
+54f4d007f784c9dfd5b936c75ed0a5e85f6b4c4c data/neolith/forge/biome_modifier/add_nether_silver_ore.json
+7e032b2f02afbeb442fbf9900d39300e17e379f2 data/neolith/forge/biome_modifier/add_tin_ore.json
 bacddfbc05e1c143830fc564e3341d8b2ccafe72 data/neolith/worldgen/configured_feature/flint_node.json
+86fe1968cf84988320453320586c7fcaec975e9e data/neolith/worldgen/configured_feature/nether_silver_ore_key.json
+55e0a2c1700f3b30a44068d3880056407f72557d data/neolith/worldgen/configured_feature/overworld_tin_ore_key.json
 30048531c0ae8931ebbd4f363f92d06f1ad1c426 data/neolith/worldgen/placed_feature/flint_node.json
+4acf4984e7fbd41ef1102561dab2f2d25f5d78c0 data/neolith/worldgen/placed_feature/nether_silver_ore_placed.json
+6f299d691f20253bdbfa746b7ed2b3ce4da3314b data/neolith/worldgen/placed_feature/tin_ore_placed.json
