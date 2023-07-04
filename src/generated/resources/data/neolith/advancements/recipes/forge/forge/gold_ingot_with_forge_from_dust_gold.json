@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/gold_ingot_with_forge_from_dust_gold"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdust_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:dust_gold"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdust_gold",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/gold_ingot_with_forge_from_dust_gold"
+    ]
+  },
+  "sends_telemetry_event": true
+}

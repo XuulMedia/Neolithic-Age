@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_clay_blackstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_blackstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/brick_blackstone_with_campfire_from_clay_blackstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_clay_blackstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/brick_blackstone_with_campfire_from_clay_blackstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

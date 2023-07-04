@@ -4,7 +4,13 @@ import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.item.ModFoodProperties;
 import github.xuulmedia.neolith.item.custom.*;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.GravelBlock;
+import net.minecraft.world.level.block.SoundType;
+import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
+import net.minecraft.world.level.material.MapColor;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -16,6 +22,8 @@ import static github.xuulmedia.neolith.init.ModCreativeTabs.addToStoneAgeTab;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Neolith.MODID);
+    public static final DeferredRegister<Item> VANILLA_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
+
 
     public static final int LOW_HEAT_WOOD = 250;
     public static final int MED_HEAT_WOOD = 350;
@@ -40,7 +48,7 @@ public class ModItems {
 //    CRIMSON
 //    https://theyardable.com/firewood-weight-btu-chart/
 
-/*TODO add woods hickorty, ironwood, elm and walnut*/
+    /*TODO add woods hickorty, ironwood, elm and walnut*/
 
 
     /*Stone age tools*/
@@ -251,6 +259,98 @@ public class ModItems {
     public static final RegistryObject<Item> DUST_STEEL = registerStandardMetalAgeItem("dust_steel");
     public static final RegistryObject<Item> DUST_SILVER = registerStandardMetalAgeItem("dust_silver");
 
+    /***************/
+    /* VANILLA    */
+    /************/
+
+//Danger foods
+    public static final RegistryObject<Item> ROTTEN_FLESH = createVanillaFood("rotten_flesh", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> SPIDER_EYE = createVanillaFood("spider_eye", ModFoodProperties.DANGER);
+    public static final RegistryObject<Item> POISONOUS_POTATO = createVanillaFood("poisonous_potato", ModFoodProperties.DANGER);
+
+            //raw meat
+    public static final RegistryObject<Item> BEEF = createVanillaFood("beef", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> CHICKEN = createVanillaFood("chicken", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> COD = createVanillaFood("cod", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> MUTTON = createVanillaFood("mutton", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> PORKCHOP = createVanillaFood("porkchop", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> PUFFERFISH = createVanillaFood("pufferfish", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> SALMON = createVanillaFood("salmon", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> RABBIT = createVanillaFood("rabbit", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> TROPICAL_FISH = createVanillaFood("tropical_fish", ModFoodProperties.RAW_MEAT);
+
+// LOW FOODS
+    public static final RegistryObject<Item> APPLE = createVanillaFood("apple", ModFoodProperties.RAW_VEG);
+    public static final RegistryObject<Item> BEETROOT = createVanillaFood("beetroot", ModFoodProperties.RAW_VEG);
+    public static final RegistryObject<Item> CARROT = createVanillaFood("carrot", ModFoodProperties.RAW_VEG);
+    public static final RegistryObject<Item> POTATO = createVanillaFood("potato", ModFoodProperties.RAW_VEG);
+    public static final RegistryObject<Item> MELON_SLICE = createVanillaFood("melon_slice", ModFoodProperties.BERRY);
+    public static final RegistryObject<Item> SWEET_BERRIES = createVanillaFood("sweet_berries", ModFoodProperties.BERRY);
+    public static final RegistryObject<Item> GLOW_BERRIES = createVanillaFood("glow_berries", ModFoodProperties.BERRY);
+    public static final RegistryObject<Item> HONEY_BOTTLE = registerVanillaItem("honey_bottle",() ->  new HoneyBottleItem((new Item.Properties())
+            .craftRemainder(Items.GLASS_BOTTLE).food(Foods.HONEY_BOTTLE).stacksTo(16)));
+
+    //Average foods
+    public static final RegistryObject<Item> BAKED_POTATO = createVanillaFood("baked_potato", ModFoodProperties.BASIC);
+    public static final RegistryObject<Item> BREAD = createVanillaFood("bread", ModFoodProperties.BASIC);
+
+    public static final RegistryObject<Item> COOKED_BEEF = createVanillaFood("cooked_beef", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> COOKED_CHICKEN = createVanillaFood("cooked_chicken", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> COOKED_COD = createVanillaFood("cooked_cod", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> COOKED_MUTTON = createVanillaFood("cooked_mutton", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> COOKED_PORKCHOP = createVanillaFood("cooked_porkchop", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> COOKED_SALMON = createVanillaFood("cooked_salmon", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> COOKED_RABBIT = createVanillaFood("cooked_rabbit", ModFoodProperties.COOKED_MEAT_SMALL);
+
+
+    //GOOD FOODs
+//    public static final Item BEETROOT_SOUP = registerItem("beetroot_soup", new BowlFoodItem((new Item.Properties()).stacksTo(1).food(Foods.BEETROOT_SOUP)));
+
+    public static final RegistryObject<Item> BEETROOT_SOUP = registerVanillaItem("beetroot_soup", () -> new BowlFoodItem(new Item.Properties()
+            .stacksTo(1).food(ModFoodProperties.GOOD)));
+    public static final RegistryObject<Item> MUSHROOM_STEW = registerVanillaItem("mushroom_stew", () -> new BowlFoodItem(new Item.Properties()
+            .stacksTo(1).food(ModFoodProperties.GOOD)));
+    public static final RegistryObject<Item> RABBIT_STEW = registerVanillaItem("rabbit_stew", () ->  new BowlFoodItem(new Item.Properties()
+            .stacksTo(1).food(ModFoodProperties.STEW)));
+
+    public static final RegistryObject<Item> PUMPKIN_PIE = createVanillaFood("pumpkin_pie", ModFoodProperties.GOOD);
+
+
+    //MEALS (provide buffs)
+    public static final RegistryObject<Item> SANDWICH = createFood("sandwich", ModFoodProperties.MEAL_WITH_MEAT);
+    public static final RegistryObject<Item> SALAD = createFood("salad", ModFoodProperties.MEAL);
+
+
+
+
+
+
+
+
+
+//    public static final RegistryObject<Item> CHORUS_FRUIT = createVanillaFood("chorus_fruit", ModFoodProperties.BASIC);
+
+
+
+
+    //Special Foods
+
+//    public static final RegistryObject<Item> SUSPICIOUS_STEW = createVanillaFood("suspicious_stew", ModFoodProperties.BASIC);
+
+//    public static final RegistryObject<Item> COOKIE = createVanillaFood("cookie", ModFoodProperties.BASIC);
+//    public static final RegistryObject<Item> DRIED_KELP = createVanillaFood("dried_kelp", ModFoodProperties.BASIC);
+
+    //magic
+//    public static final RegistryObject<Item> ENCHANTED_GOLDEN_APPLE = createVanillaFood("enchanted_golden_apple", ModFoodProperties.BASIC);
+//    public static final RegistryObject<Item> GOLDEN_APPLE = createVanillaFood("golden_apple", ModFoodProperties.BASIC);
+//    public static final RegistryObject<Item> GOLDEN_CARROT = createVanillaFood("golden_carrot", ModFoodProperties.BASIC);
+
+
+
+
+
+
+
 
 
 
@@ -261,31 +361,61 @@ public class ModItems {
 
 
     /*Helpers*/
-    public static <I extends Item> RegistryObject<FuelItem> createFuelItem(String name, int heat, Item.Properties itemProperties) {
+
+    public static <I extends Item> RegistryObject<I> registerStoneAgeItem(String name, Supplier<I> item) {
+        return addToStoneAgeTab(ITEMS.register(name, item));
+    }
+
+    public static <I extends Item> RegistryObject<I> registerMetalAgeItem(String name, Supplier<I> item) {
+        return addToMetalAgeTab(ITEMS.register(name, item));
+    }
+
+
+    private static <I extends Item> RegistryObject<FuelItem> createFuelItem(String name, int heat, Item.Properties itemProperties) {
         return addToStoneAgeTab(ITEMS.register(name, () -> new FuelItem(itemProperties, heat, name)));
     }
-    public static  RegistryObject<Item> registerStandardStoneAgeItem(String name){
+
+    private static RegistryObject<Item> registerStandardStoneAgeItem(String name) {
         return addToStoneAgeTab(ITEMS.register(name,
                 () -> new Item(new Item.Properties())));
     }
-    public static  RegistryObject<Item> registerStandardMetalAgeItem(String name){
+
+    private static RegistryObject<Item> registerStandardMetalAgeItem(String name) {
         return addToMetalAgeTab(ITEMS.register(name,
                 () -> new Item(new Item.Properties())));
     }
 
-    public static <I extends Item> RegistryObject<I> registerStoneAgeItem(String name, Supplier<I> item){
-        return addToStoneAgeTab(ITEMS.register(name, item));
+    public static <I extends Item> RegistryObject<I> registerVanillaItem(String name, Supplier<I> item) {
+        return VANILLA_ITEMS.register(name, item);
     }
-    public static <I extends Item> RegistryObject<I> registerMetalAgeItem(String name, Supplier<I> item){
-        return addToMetalAgeTab(ITEMS.register(name, item));
+
+    private static RegistryObject<Item> createVanillaFood(String name, FoodProperties foodProperties) {
+        return registerVanillaItem(name, () -> new Item(new Item.Properties().food(foodProperties)));
     }
+
+    private static RegistryObject<Item> createFood(String name, FoodProperties foodProperties) {
+        return registerStoneAgeItem(name, () -> new Item(new Item.Properties().food(foodProperties)));
+    }
+
+    private static GravelBlock createConcrete(DyeColor color) {
+        return new GravelBlock(BlockBehaviour.Properties.of()
+                .mapColor(color)
+                .strength(1.8f)
+                .instrument(NoteBlockInstrument.BASEDRUM)
+                .requiresCorrectToolForDrops());
+    }
+
+
+//    private static <T extends Block> RegistryObject<T> registerVanillaBlock(String name, Supplier<T> block) {
+//        RegistryObject<T> toReturn = VANILLA_BLOCKS.register(name, block);
+//        return toReturn;
+//    }
 
 //    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block, Item.Properties itemProperties) {
 //        RegistryObject<T> toReturn = BLOCKS.register(name, block);
 //        registerBlockItem(name, toReturn, itemProperties);
 //        return toReturn;
 //    }
-
 
 
 }

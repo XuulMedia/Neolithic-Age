@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:bricks_tuff_block_from_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasbrick_tuff": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:brick_tuff"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasbrick_tuff",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:bricks_tuff_block_from_item"
+    ]
+  },
+  "sends_telemetry_event": false
+}

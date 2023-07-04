@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_granite_with_forge_from_clay_granite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_granite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_granite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_granite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_granite_with_forge_from_clay_granite"
+    ]
+  },
+  "sends_telemetry_event": true
+}

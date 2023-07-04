@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_stone_with_forge_from_clay_stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_stone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_stone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_stone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_stone_with_forge_from_clay_stone"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_tuff_with_forge_from_clay_tuff"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_tuff": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_tuff"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_tuff",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_tuff_with_forge_from_clay_tuff"
+    ]
+  },
+  "sends_telemetry_event": true
+}

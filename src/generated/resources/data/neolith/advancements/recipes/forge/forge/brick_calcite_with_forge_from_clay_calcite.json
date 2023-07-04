@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_calcite_with_forge_from_clay_calcite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_calcite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_calcite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_calcite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_calcite_with_forge_from_clay_calcite"
+    ]
+  },
+  "sends_telemetry_event": true
+}

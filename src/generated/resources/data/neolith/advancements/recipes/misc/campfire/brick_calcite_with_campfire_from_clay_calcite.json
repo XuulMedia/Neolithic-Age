@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_clay_calcite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_calcite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/brick_calcite_with_campfire_from_clay_calcite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_clay_calcite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/brick_calcite_with_campfire_from_clay_calcite"
+    ]
+  },
+  "sends_telemetry_event": false
+}

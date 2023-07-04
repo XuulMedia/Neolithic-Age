@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/cooked_mutton_with_forge_from_mutton"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasmutton": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:mutton"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasmutton",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/cooked_mutton_with_forge_from_mutton"
+    ]
+  },
+  "sends_telemetry_event": true
+}

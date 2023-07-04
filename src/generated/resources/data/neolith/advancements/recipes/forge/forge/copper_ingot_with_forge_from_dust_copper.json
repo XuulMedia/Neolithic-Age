@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/copper_ingot_with_forge_from_dust_copper"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdust_copper": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:dust_copper"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdust_copper",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/copper_ingot_with_forge_from_dust_copper"
+    ]
+  },
+  "sends_telemetry_event": true
+}

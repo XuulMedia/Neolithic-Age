@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/ingot_steel_with_forge_from_dust_steel"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdust_steel": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:dust_steel"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdust_steel",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/ingot_steel_with_forge_from_dust_steel"
+    ]
+  },
+  "sends_telemetry_event": true
+}

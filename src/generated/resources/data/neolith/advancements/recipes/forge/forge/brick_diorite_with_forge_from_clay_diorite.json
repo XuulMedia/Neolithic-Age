@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_diorite_with_forge_from_clay_diorite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_diorite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_diorite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_diorite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_diorite_with_forge_from_clay_diorite"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_red_sandstone_with_forge_from_clay_red_sandstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_red_sandstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_red_sandstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_red_sandstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_red_sandstone_with_forge_from_clay_red_sandstone"
+    ]
+  },
+  "sends_telemetry_event": true
+}
