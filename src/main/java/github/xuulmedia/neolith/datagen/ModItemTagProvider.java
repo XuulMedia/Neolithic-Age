@@ -97,21 +97,21 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.CHUNK_TUFF.get())
                 .add(ModItems.CHUNK_ENDSTONE.get());
 
-        tag(ModTags.STONE_DUSTS)
-                .add(ModItems.DUST_ANDESITE.get())
-                .add(ModItems.DUST_BASALT.get())
-                .add(ModItems.DUST_BLACKSTONE.get())
-                .add(ModItems.DUST_CALCITE.get())
-                .add(ModItems.DUST_DEEPSLATE.get())
-                .add(ModItems.DUST_DIORITE.get())
-                .add(ModItems.DUST_DRIPSTONE.get())
-                .add(ModItems.DUST_GRANITE.get())
-                .add(ModItems.DUST_NETHERRACK.get())
-                .add(ModItems.DUST_RED_SANDSTONE.get())
-                .add(ModItems.DUST_SANDSTONE.get())
-                .add(ModItems.DUST_STONE.get())
-                .add(ModItems.DUST_TUFF.get())
-                .add(ModItems.DUST_ENDSTONE.get());
+//        tag(ModTags.STONE_DUSTS)
+//                .add(ModItems.DUST_ANDESITE.get())
+//                .add(ModItems.DUST_BASALT.get())
+//                .add(ModItems.DUST_BLACKSTONE.get())
+//                .add(ModItems.DUST_CALCITE.get())
+//                .add(ModItems.DUST_DEEPSLATE.get())
+//                .add(ModItems.DUST_DIORITE.get())
+//                .add(ModItems.DUST_DRIPSTONE.get())
+//                .add(ModItems.DUST_GRANITE.get())
+//                .add(ModItems.DUST_NETHERRACK.get())
+//                .add(ModItems.DUST_RED_SANDSTONE.get())
+//                .add(ModItems.DUST_SANDSTONE.get())
+//                .add(ModItems.DUST_STONE.get())
+//                .add(ModItems.DUST_TUFF.get())
+//                .add(ModItems.DUST_ENDSTONE.get());
 
         tag(ModTags.CLAY)
                 .add(ModItems.CLAY_ANDESITE.get())
@@ -156,6 +156,18 @@ public class ModItemTagProvider extends ItemTagsProvider {
         tag(ModTags.DOUSERS)
                 .add(ModItems.FLINT_SHOVEL.get());
 
+
+        tag(ModTags.DUSTS_STONE_OVERWORLD)
+                .add(ModItems.DUST_ANDESITE.get())
+                .add(ModItems.DUST_BASALT.get())
+                .add(ModItems.DUST_BLACKSTONE.get())
+                .add(ModItems.DUST_CALCITE.get())
+                .add(ModItems.DUST_DEEPSLATE.get())
+                .add(ModItems.DUST_DIORITE.get())
+                .add(ModItems.DUST_DRIPSTONE.get())
+                .add(ModItems.DUST_GRANITE.get())
+                .add(ModItems.DUST_STONE.get())
+                .add(ModItems.DUST_TUFF.get());
 
 
     }

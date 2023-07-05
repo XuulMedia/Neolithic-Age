@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_obsidian_from_dust_gold_and_dust_iron_and_redstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdust_gold": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:dust_gold"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdust_gold",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_obsidian_from_dust_gold_and_dust_iron_and_redstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

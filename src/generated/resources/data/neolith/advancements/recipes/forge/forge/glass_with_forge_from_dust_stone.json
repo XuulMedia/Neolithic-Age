@@ -1,35 +1,35 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "neolith:stick_from_firestarter"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasstick": {
+    "has_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:stick"
+              "neolith:dust_stone"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/glass_with_forge_from_dust_stone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasstick",
+      "has_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:stick_from_firestarter"
+      "neolith:forge/glass_with_forge_from_dust_stone"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

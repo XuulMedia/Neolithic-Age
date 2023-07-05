@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/obsidian_with_forge_from_dust_obsidian"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdust_obsidian": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:dust_obsidian"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdust_obsidian",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/obsidian_with_forge_from_dust_obsidian"
+    ]
+  },
+  "sends_telemetry_event": true
+}

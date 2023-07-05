@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_foundry": {
+    "has_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "neolith:foundry"
+              "neolith:dust_deepslate"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "neolith:foundry/2to1/ingot_bronze_with_foundry_from_dust_copper_and_dust_tin"
+        "recipe": "neolith:forge/glass_with_forge_from_dust_deepslate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_foundry",
+      "has_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:foundry/2to1/ingot_bronze_with_foundry_from_dust_copper_and_dust_tin"
+      "neolith:forge/glass_with_forge_from_dust_deepslate"
     ]
   },
   "sends_telemetry_event": true

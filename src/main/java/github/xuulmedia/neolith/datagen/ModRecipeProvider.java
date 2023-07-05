@@ -86,6 +86,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         disable(Blocks.FURNACE, consumer);
         disable(Blocks.BLAST_FURNACE, consumer);
 
+        disable(Blocks.GLASS, consumer);
+
         disableCookFood(Items.COOKED_BEEF, consumer);
         disableCookFood(Items.COOKED_CHICKEN, consumer);
         disableCookFood(Items.COOKED_COD, consumer);
@@ -125,6 +127,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         flintStation(Items.FLINT, ModItems.FLINT_SAW_HEAD.get(), consumer);
 
         /*metal processing*/
+        shapeless2to1(ModItems.DUST_TIN.get(), 1,ModItems.DUST_COPPER.get(), 1, ModItems.DUST_BRONZE.get(), consumer);
+        shapeless3to1(ModItems.DUST_GOLD.get(), ModItems.DUST_IRON.get(), Items.REDSTONE, ModItems.DUST_OBSIDIAN.get(), consumer);
+
+
         forgeRecipe(ModItems.RAW_TIN.get(), ModItems.INGOT_TIN.get(), 250, STANDARD_SMELT_TIME, consumer);
         forgeRecipe(ModItems.DUST_TIN.get(), ModItems.INGOT_TIN.get(), 250, FAST_SMELT_TIME, consumer);
         forgeRecipe(ModBlocks.ORE_TIN.get(), ModItems.INGOT_TIN.get(), 250, STANDARD_SMELT_TIME, consumer);
@@ -149,6 +155,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         forgeRecipe(ModItems.DUST_SILVER.get(), ModItems.INGOT_SILVER.get(), 400, FAST_SMELT_TIME, consumer);
         forgeRecipe(ModBlocks.ORE_SILVER.get(), ModItems.INGOT_SILVER.get(), 400, STANDARD_SMELT_TIME, consumer);
 
+        forgeRecipe(ModItems.DUST_OBSIDIAN.get(), Blocks.OBSIDIAN, 600, SLOW_SMELT_TIME, consumer);
+        foundryRecipe3to1(ModItems.DUST_GOLD.get(), ModItems.DUST_IRON.get(), Items.REDSTONE, Blocks.OBSIDIAN, 600, SLOW_SMELT_TIME, consumer);
+
 
         foundryRecipe1to1(ModItems.RAW_SILVER.get(), ModItems.INGOT_SILVER.get(), 400, STANDARD_SMELT_TIME, consumer);
         foundryRecipe2to1(ModItems.DUST_COPPER.get(), ModItems.DUST_TIN.get(), ModItems.INGOT_BRONZE.get(), 400, STANDARD_SMELT_TIME, consumer);
@@ -159,6 +168,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         nuggetsIngotsBlocks(RecipeCategory.MISC, ModItems.NUGGET_BRONZE.get(), ModItems.INGOT_BRONZE.get(), ModBlocks.BLOCK_BRONZE.get(), consumer);
         nuggetsIngotsBlocks(RecipeCategory.MISC, ModItems.NUGGET_SILVER.get(), ModItems.INGOT_SILVER.get(), ModBlocks.BLOCK_SILVER.get(), consumer);
         nuggetsIngotsBlocks(RecipeCategory.MISC, ModItems.NUGGET_STEEL.get(), ModItems.INGOT_STEEL.get(), ModBlocks.BLOCK_STEEL.get(), consumer);
+
+        //Other smelting
+        forgeRecipe(ModItems.DUST_SANDSTONE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer); //TODO make a better glass from sand+
+        forgeRecipe(ModItems.DUST_RED_SANDSTONE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+
+        forgeGlass(ModItems.DUST_ANDESITE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_BASALT.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_BLACKSTONE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_CALCITE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_DEEPSLATE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_DIORITE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_DRIPSTONE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_GRANITE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_STONE.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+        forgeGlass(ModItems.DUST_TUFF.get(), Blocks.GLASS, 350, STANDARD_SMELT_TIME, consumer);
+
 
         //Saw plank to board
         sawLog(ModItems.LOG_ACACIA.get(), ModItems.PLANK_ACACIA.get(), consumer);
@@ -336,6 +361,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
 //        /*Crafting Stations*/
+
+
+
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModBlocks.FLINT_STATION.get())
                 .requires(Items.FLINT, 4)
                 .unlockedBy("has_flint", has(Items.FLINT))
@@ -345,7 +374,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("xx")
                 .pattern("xx")
                 .define('x', ModTags.LOGS)
-                .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LOG_OAK.get()))
+                .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(
+                        ModItems.LOG_OAK.get(),
+                        ModItems.LOG_SPRUCE.get(),
+                        ModItems.LOG_BIRCH.get(),
+                        ModItems.LOG_JUNGLE.get(),
+                        ModItems.LOG_ACACIA.get(),
+                        ModItems.LOG_DARK_OAK.get(),
+                        ModItems.LOG_MANGROVE.get(),
+                        ModItems.LOG_WARPED.get(),
+                        ModItems.LOG_CRIMSON.get())) //TODO TAG for HAS
                 .save(consumer);
 
 
@@ -355,7 +393,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('x', ModTags.LOGS)
                 .define('P', ModTags.PLANT_FIBRE)
                 .group("flint")
-                .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(ModItems.LOG_OAK.get()))
+                .unlockedBy("log", InventoryChangeTrigger.TriggerInstance.hasItems(
+                        ModItems.LOG_OAK.get(),
+                        ModItems.LOG_SPRUCE.get(),
+                        ModItems.LOG_BIRCH.get(),
+                        ModItems.LOG_JUNGLE.get(),
+                        ModItems.LOG_ACACIA.get(),
+                        ModItems.LOG_DARK_OAK.get(),
+                        ModItems.LOG_MANGROVE.get(),
+                        ModItems.LOG_WARPED.get(),
+                        ModItems.LOG_CRIMSON.get()))
                 .save(consumer, RL("workstations/campfire"));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModBlocks.FORGE.get())
@@ -365,7 +412,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('x', ModTags.BRICKS)
                 .unlockedBy("bricks", has(ModTags.BRICKS))
                 .save(consumer, RL("workstations/forge"));
-
 
 
 
@@ -491,6 +537,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
 
+
     /*Helpers*/
     private static ResourceLocation RL(String string) {
         return new ResourceLocation(Neolith.MODID, string);
@@ -539,8 +586,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result)
                 .requires(ingredient, ingredientAmount)
                 .unlockedBy("has" + getItemName(ingredient), has(ingredient))
-                .save(consumer, RL(getItemName(ingredient) + "_from_" + getItemName(result)));
+                .save(consumer, RL(getItemName(result) + "_from_" + getItemName(ingredient)));
     }
+
+    private static void shapeless2to1(ItemLike ingredient, int ingredientAmount, ItemLike ingredient2, int ingredient2Amount, ItemLike result, Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result)
+                .requires(ingredient, ingredientAmount)
+                .requires(ingredient2, ingredient2Amount)
+                .unlockedBy("has" + getItemName(ingredient), has(ingredient))
+                .save(consumer, RL(getItemName(result) + "_from_" + getItemName(ingredient) + "_and_" + getItemName(ingredient2)));
+    }
+
+    private static void shapeless3to1(ItemLike ingredient, ItemLike ingredient2, ItemLike ingredient3, ItemLike result, Consumer<FinishedRecipe> consumer) {
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, result)
+                .requires(ingredient, 1)
+                .requires(ingredient2, 1)
+                .requires(ingredient3, 1)
+                .unlockedBy("has" + getItemName(ingredient), has(ingredient))
+                .save(consumer, RL(getItemName(result) + "_from_" + getItemName(ingredient) + "_and_" + getItemName(ingredient2) +"_and_" + getItemName(ingredient3)));
+    }
+
 
 
     private static void createBrickBlock(ItemLike brickItem, ItemLike brickBlock, Consumer<FinishedRecipe> consumer) {
@@ -595,6 +660,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, RL("forge/" + getItemName(result) + "_with_forge_from_" + getItemName(ingredient)));
     }
 
+    private static void forgeGlass(ItemLike ingredient, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
+        HeatRecipeBuilder.forgeStationRecipe(
+                        NonNullList.of(null, Ingredient.of(ingredient)),
+                        NonNullList.of(null, result.asItem().getDefaultInstance()),
+                        heatRequired,
+                        10,
+                        cookTime)
+                .unlockedBy("has_dust", has(ingredient))
+                .save(consumer, RL("forge/" + getItemName(result) + "_with_forge_from_" + getItemName(ingredient)));
+    }
+
 
     private static void foundryRecipe1to1(ItemLike ingredient, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.foundryRecipe(
@@ -615,7 +691,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         10,
                         cookTime)
                 .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-                .save(consumer, RL("foundry/2to1/" + getItemName(result) + "_with_foundry_from_" + getItemName(ingredient1) + "_and_" + getItemName(ingredient2)));
+                .save(consumer, RL("foundry/2to1/" + getItemName(result) + "_from_" + getItemName(ingredient1) + "_and_" + getItemName(ingredient2)));
+    }
+
+
+    private static void foundryRecipe3to1(ItemLike ingredient1, ItemLike ingredient2, ItemLike ingredient3 ,ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
+        HeatRecipeBuilder.foundryRecipe(
+                        NonNullList.of(null, Ingredient.of(ingredient1), Ingredient.of(ingredient2), Ingredient.of(ingredient3)),
+                        NonNullList.of(null, result.asItem().getDefaultInstance()),
+                        heatRequired,
+                        10,
+                        cookTime)
+                .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
+                .save(consumer, RL("foundry/3to1/" + getItemName(result) + "_from_" + getItemName(ingredient1) + "_and_" + getItemName(ingredient2)+ "_and_" +getItemName(ingredient3)));
     }
 
     private static void foundryRecipe2to2(ItemLike ingredient1, ItemLike ingredient2, ItemLike result1, ItemLike result2, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {

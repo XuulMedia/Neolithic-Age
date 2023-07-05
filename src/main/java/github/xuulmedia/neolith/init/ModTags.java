@@ -17,7 +17,7 @@ public class ModTags {
     public static final TagKey<Item> LOGS = createItemTag("logs");
     public static final TagKey<Item> PLANKS = createItemTag("planks");
     public static final TagKey<Item> STONE_CHUNKS = createItemTag("stone_chunks");
-    public static final TagKey<Item> STONE_DUSTS = createItemTag("stone_dusts");
+    public static final TagKey<Item> DUSTS_STONE_OVERWORLD = createItemTag("dusts_stone_overworld");
     public static final TagKey<Item> CLAY = createItemTag("clay");
     public static final TagKey<Item> BRICKS = createItemTag("brick");
 

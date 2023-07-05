@@ -72,6 +72,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.PLANK_CRIMSON.get(),"Crimson Plank");
 
          add(ModBlocks.ORE_TIN.get(), "Tin Ore");
+        add(ModBlocks.ORE_CLAY.get(), "Clay Infused Stone");
         add(ModBlocks.ORE_SILVER.get(), "Nether Silver Ore");
         add(ModBlocks.FLINT_NODE.get(), "Flint Nodule");
 

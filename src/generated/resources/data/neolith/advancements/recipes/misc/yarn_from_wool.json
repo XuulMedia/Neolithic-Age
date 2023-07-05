@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "neolith:plant_fibre_from_braided_plant_fibre"
+        "recipe": "neolith:yarn_from_wool"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "hasplant_fibre": {
+    "haswool": {
       "conditions": {
         "items": [
           {
             "items": [
-              "neolith:plant_fibre"
+              "neolith:wool"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "hasplant_fibre",
+      "haswool",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:plant_fibre_from_braided_plant_fibre"
+      "neolith:yarn_from_wool"
     ]
   },
   "sends_telemetry_event": false

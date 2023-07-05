@@ -51,7 +51,7 @@ public class ModBlocks {
                     .sound(SoundType.NETHER_ORE), UniformInt.of(2,6)),
             new Item.Properties());
 
-    public static final RegistryObject<`NeolithFallingBlock`> ORE_CLAY = registerBlock("ore_clay", ModCreativeTabs.TAB_NAME.STONE_AGE,
+    public static final RegistryObject<NeolithFallingBlock> ORE_CLAY = registerBlock("ore_clay", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> new NeolithFallingBlock(BlockBehaviour.Properties.of()
                     .instrument(NoteBlockInstrument.FLUTE)
                     .requiresCorrectToolForDrops()

@@ -271,6 +271,7 @@ public class ModItems {
     public static final RegistryObject<Item> DUST_BRONZE = registerStandardMetalAgeItem("dust_bronze");
     public static final RegistryObject<Item> DUST_STEEL = registerStandardMetalAgeItem("dust_steel");
     public static final RegistryObject<Item> DUST_SILVER = registerStandardMetalAgeItem("dust_silver");
+    public static final RegistryObject<Item> DUST_OBSIDIAN = registerStandardMetalAgeItem("dust_obsidian");
 
     /***************/
     /* VANILLA    */

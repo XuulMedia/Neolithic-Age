@@ -52,6 +52,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DUST_STEEL.get(), "dusts");
         simpleItem(ModItems.DUST_IRON.get(), "dusts");
         simpleItem(ModItems.DUST_GOLD.get(), "dusts");
+//        simpleItem(ModItems.DUST_OBSIDIAN.get(), "dusts");
 
         simpleItem(ModItems.LOG_ACACIA.get(), "wood/logs");
         simpleItem(ModItems.LOG_BIRCH.get(), "wood/logs");

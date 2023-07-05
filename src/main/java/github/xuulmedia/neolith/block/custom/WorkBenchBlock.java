@@ -18,7 +18,6 @@ import org.jetbrains.annotations.Nullable;
 
 public class WorkBenchBlock extends BaseEntityBlock {
 
-
     public WorkBenchBlock(Properties pProperties) {
         super(Properties.of()
                 .instrument(NoteBlockInstrument.BASEDRUM)

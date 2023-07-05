@@ -8,11 +8,7 @@
     "neolith:dust_diorite",
     "neolith:dust_dripstone",
     "neolith:dust_granite",
-    "neolith:dust_netherrack",
-    "neolith:dust_red_sandstone",
-    "neolith:dust_sandstone",
     "neolith:dust_stone",
-    "neolith:dust_tuff",
-    "neolith:dust_endstone"
+    "neolith:dust_tuff"
   ]
 }

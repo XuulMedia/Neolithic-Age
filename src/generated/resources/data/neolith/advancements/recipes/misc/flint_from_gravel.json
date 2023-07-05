@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "neolith:wool_from_white_wool"
+        "recipe": "neolith:flint_from_gravel"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "haswool": {
+    "hasgravel": {
       "conditions": {
         "items": [
           {
             "items": [
-              "neolith:wool"
+              "minecraft:gravel"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "haswool",
+      "hasgravel",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:wool_from_white_wool"
+      "neolith:flint_from_gravel"
     ]
   },
   "sends_telemetry_event": false

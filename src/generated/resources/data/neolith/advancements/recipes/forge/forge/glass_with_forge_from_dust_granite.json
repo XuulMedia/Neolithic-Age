@@ -1,35 +1,35 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "neolith:gravel_from_flint"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasgravel": {
+    "has_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:gravel"
+              "neolith:dust_granite"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/glass_with_forge_from_dust_granite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasgravel",
+      "has_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:gravel_from_flint"
+      "neolith:forge/glass_with_forge_from_dust_granite"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

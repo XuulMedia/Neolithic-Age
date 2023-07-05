@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_bronze_from_dust_tin_and_dust_copper"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasdust_tin": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:dust_tin"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasdust_tin",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_bronze_from_dust_tin_and_dust_copper"
+    ]
+  },
+  "sends_telemetry_event": false
+}

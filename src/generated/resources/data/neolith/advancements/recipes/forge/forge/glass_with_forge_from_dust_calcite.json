@@ -1,35 +1,35 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "neolith:wool_from_yarn"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "haswool": {
+    "has_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "neolith:wool"
+              "neolith:dust_calcite"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/glass_with_forge_from_dust_calcite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "haswool",
+      "has_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:wool_from_yarn"
+      "neolith:forge/glass_with_forge_from_dust_calcite"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

@@ -1,35 +1,35 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_the_recipe": {
-      "conditions": {
-        "recipe": "neolith:flint_from_flint_blade"
-      },
-      "trigger": "minecraft:recipe_unlocked"
-    },
-    "hasflint": {
+    "has_dust": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:flint"
+              "neolith:dust_diorite"
             ]
           }
         ]
       },
       "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/glass_with_forge_from_dust_diorite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "hasflint",
+      "has_dust",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:flint_from_flint_blade"
+      "neolith:forge/glass_with_forge_from_dust_diorite"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

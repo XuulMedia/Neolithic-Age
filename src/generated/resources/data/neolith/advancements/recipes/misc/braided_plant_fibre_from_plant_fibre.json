@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:braided_plant_fibre_from_plant_fibre"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasplant_fibre": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:plant_fibre"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasplant_fibre",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:braided_plant_fibre_from_plant_fibre"
+    ]
+  },
+  "sends_telemetry_event": false
+}
