@@ -184,8 +184,6 @@ public class ModItems {
     public static final RegistryObject<Item> CLAY_RED_SAND = registerStandardStoneAgeItem("clay_red_sand");
 
 
-
-
     /*STONE BRICKS*/
     public static final RegistryObject<Item> BRICK_STONE = registerStandardStoneAgeItem("brick_stone");
     public static final RegistryObject<Item> BRICK_DEEPSLATE = registerStandardStoneAgeItem("brick_deepslate");

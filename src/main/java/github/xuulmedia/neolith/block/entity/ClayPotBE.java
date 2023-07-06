@@ -4,7 +4,7 @@ import github.xuulmedia.neolith.gui.menu.ClayPotMenu;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.util.AdaptedItemHandler;
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,28 +19,38 @@ import org.jetbrains.annotations.Nullable;
 public class ClayPotBE extends AbstractNeolithBlockEntity {
 
     public static final String DISPLAY_NAME = "Pot";
-    public static final int SLOTS = 0;
-    public static final int SLOT_COUNT = 16;
+    private static final String TAG_INVENTORY = "inventory";
+    public static final int SLOT_COUNT = 15;
     protected ItemStackHandler items = createItemHandler(SLOT_COUNT);
-    protected LazyOptional<IItemHandler> itemHandler = LazyOptional.of(()-> new AdaptedItemHandler(items));;
+    protected LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> new AdaptedItemHandler(items));
+    ;
 
     public ClayPotBE(BlockPos blockPos, BlockState state) {
         super(ModBlockEntities.CLAY_POT.get(), blockPos, state);
     }
+
+
     public void invalidateCaps() {
         super.invalidateCaps();
         itemHandler.invalidate();
     }
+
     @Nullable
     @Override
     public ClientboundBlockEntityDataPacket getUpdatePacket() {
         return ClientboundBlockEntityDataPacket.create(this);
     }
 
+    @Override
+    protected void saveAdditional(CompoundTag tag) {
+        tag.put(TAG_INVENTORY, items.serializeNBT());
+        super.saveAdditional(tag);
+    }
 
     @Override
-    public Component getDisplayName() {
-        return Component.translatable(DISPLAY_NAME);
+    public void load(CompoundTag tag) {
+        super.load(tag);
+        items.deserializeNBT(tag.getCompound(TAG_INVENTORY));
     }
 
     @Nullable
@@ -51,5 +61,11 @@ public class ClayPotBE extends AbstractNeolithBlockEntity {
 
     public ItemStackHandler getItems() {
         return items;
+    }
+
+
+    @Override
+    public Component getDisplayName() {
+        return Component.translatable(DISPLAY_NAME);
     }
 }

@@ -31,13 +31,12 @@ public class ClayPotMenu extends AbstractNeolithMenu{
         blockEntity = (ClayPotBE) entity;
         this.level = inventory.player.level();
 
-        this.addSlotGrid(blockEntity.getItems(), 4,4, 16,15,8,8);
+        this.addSlotGrid(blockEntity.getItems(), 5,3, 44,16,18,18);
         addPlayerInventory(inventory);
         addPlayerHotbar(inventory);
 
         this.player = inventory.player;
         this.access = ContainerLevelAccess.NULL;
-
 
     }
 
