@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_brown_with_hammer_from_chunk_dripstone"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haschunk_dripstone": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:chunk_dripstone"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haschunk_dripstone",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_brown_with_hammer_from_chunk_dripstone"
+    ]
+  },
+  "sends_telemetry_event": false
+}

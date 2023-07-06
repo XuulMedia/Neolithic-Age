@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:bricks_red_sand_block_from_item"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasbrick_red_sand": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:brick_red_sand"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasbrick_red_sand",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:bricks_red_sand_block_from_item"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -4,7 +4,7 @@ import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.custom.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.util.valueproviders.IntProvider;
+import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
@@ -40,7 +40,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f)
                     .mapColor(MapColor.STONE)
-                    .sound(SoundType.STONE),  UniformInt.of(2,6)),
+                    .sound(SoundType.STONE), UniformInt.of(0, 5)),
             new Item.Properties());
     public static final RegistryObject<NeolithFallingBlock> ORE_SILVER = registerBlock("ore_nether_silver", ModCreativeTabs.TAB_NAME.METAL_AGE,
             () -> new NeolithFallingBlock(BlockBehaviour.Properties.of()
@@ -48,7 +48,7 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(3.0f, 3.0f)
                     .mapColor(MapColor.STONE)
-                    .sound(SoundType.NETHER_ORE), UniformInt.of(2,6)),
+                    .sound(SoundType.NETHER_ORE), UniformInt.of(0, 5)),
             new Item.Properties());
 
     public static final RegistryObject<NeolithFallingBlock> ORE_CLAY = registerBlock("ore_clay", ModCreativeTabs.TAB_NAME.STONE_AGE,
@@ -57,11 +57,8 @@ public class ModBlocks {
                     .requiresCorrectToolForDrops()
                     .strength(2.0f, 0.6f)
                     .mapColor(MapColor.CLAY)
-                    .sound(SoundType.STONE), UniformInt.of(2,6)),
+                    .sound(SoundType.STONE), UniformInt.of(0, 2)),
             new Item.Properties());
-
-
-
 
 
     public static final RegistryObject<Block> BLOCK_TIN = registerBlock("block_tin", ModCreativeTabs.TAB_NAME.METAL_AGE,
@@ -79,68 +76,59 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(BLOCK_TIN.get())), new Item.Properties());
 
     /*Stone*/
-    public static final RegistryObject<FallingBlock> COBBLESTONE = registerBlock("cobblestone", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.of()
-                    .requiresCorrectToolForDrops()
-                    .strength(2.0f, 2.0f)
-                    .instrument(NoteBlockInstrument.SNARE)
-                    .isValidSpawn(ModBlocks::never)
-                    .sound(SoundType.STONE)
-                    .mapColor(MapColor.STONE)), new Item.Properties());
-    public static final RegistryObject<GravelBlock> BASALT_COBBLESTONE = registerBlock("basalt_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> DEEPSLATE_COBBLESTONE = registerBlock("deepslate_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> NETHERRACK_COBBLESTONE = registerBlock("netherrack_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> SANDSTONE_COBBLESTONE = registerBlock("sandstone_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> BLACKSTONE_COBBLESTONE = registerBlock("blackstone_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> ENDSTONE_COBBLESTONE = registerBlock("endstone_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> GRANITE_COBBLESTONE = registerBlock("granite_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> TUFF_COBBLESTONE = registerBlock("tuff_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> ANDESITE_COBBLESTONE = registerBlock("andesite_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> DIORITE_COBBLESTONE = registerBlock("diorite_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
-    public static final RegistryObject<GravelBlock> CALCITE_COBBLESTONE = registerBlock("calcite_cobble", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new GravelBlock(BlockBehaviour.Properties.copy(ModBlocks.COBBLESTONE.get())), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_ANDESITE = registerBlock("cobblestone_andesite", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_BASALT = registerBlock("cobblestone_basalt", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_BLACKSTONE = registerBlock("cobblestone_blackstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_CALCITE = registerBlock("cobblestone_calcite", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_DEEPSLATE = registerBlock("cobblestone_deepslate", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_DIORITE = registerBlock("cobblestone_diorite", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_DRIPSTONE = registerBlock("cobblestone_dripstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_GRANITE = registerBlock("cobblestone_granite", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_NETHERRACK = registerBlock("cobblestone_netherrack", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_RED_SANDSTONE = registerBlock("cobblestone_red_sandstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_SANDSTONE = registerBlock("cobblestone_sandstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_STONE = registerBlock("cobblestone_stone", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_TUFF = registerBlock("cobblestone_tuff", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
+    public static final RegistryObject<NeolithFallingBlock> COBBLESTONE_ENDSTONE = registerBlock("cobblestone_endstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCobblestone(MapColor.STONE), new Item.Properties());
 
 
     /*Stone Brick*/
     public static final RegistryObject<CutStoneBlock> STONE_BRICK_BLOCK = registerBlock("bricks_stone", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> BASALT_BRICK_BLOCK = registerBlock("bricks_basalt", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
     public static final RegistryObject<CutStoneBlock> DEEPSLATE_BRICK_BLOCK = registerBlock("bricks_deepslate", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
+            () -> createCutStoneBlock(MapColor.DEEPSLATE), new Item.Properties());
     public static final RegistryObject<CutStoneBlock> NETHERRACK_BRICK_BLOCK = registerBlock("bricks_netherrack", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> SANDSTONE_BRICK_BLOCK = registerBlock("bricks_sandstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> BLACKSTONE_BRICK_BLOCK = registerBlock("bricks_blackstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
+            () -> createCutStoneBlock(MapColor.NETHER), new Item.Properties());
     public static final RegistryObject<CutStoneBlock> ENDSTONE_BRICK_BLOCK = registerBlock("bricks_endstone", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> GRANITE_BRICK_BLOCK = registerBlock("bricks_granite", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> TUFF_BRICK_BLOCK = registerBlock("bricks_tuff", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> ANDESITE_BRICK_BLOCK = registerBlock("bricks_andesite", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> DIORITE_BRICK_BLOCK = registerBlock("bricks_diorite", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-    public static final RegistryObject<CutStoneBlock> CALCITE_BRICK_BLOCK = registerBlock("bricks_calcite", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> createCutStoneBlock(MapColor.GRASS), new Item.Properties());
+    public static final RegistryObject<CutStoneBlock> BROWN_BRICK_BLOCK = registerBlock("bricks_brown", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCutStoneBlock(MapColor.TERRACOTTA_BROWN), new Item.Properties());
+    public static final RegistryObject<CutStoneBlock> WHITE_BRICK_BLOCK = registerBlock("bricks_white", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCutStoneBlock(MapColor.TERRACOTTA_WHITE), new Item.Properties());
+    public static final RegistryObject<CutStoneBlock> BLACK_BRICK_BLOCK = registerBlock("bricks_black", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCutStoneBlock(MapColor.DEEPSLATE), new Item.Properties());
+    public static final RegistryObject<CutStoneBlock> SAND_BRICK_BLOCK = registerBlock("bricks_sand", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCutStoneBlock(MapColor.SAND), new Item.Properties());
+    public static final RegistryObject<CutStoneBlock> RED_SAND_BRICK_BLOCK = registerBlock("bricks_red_sand", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> createCutStoneBlock(MapColor.TERRACOTTA_RED), new Item.Properties());
 
 
     public static final RegistryObject<CutStoneBlock> WARDED_GRASS_BLOCK = registerBlock("warded_grass", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> createCutStoneBlock(MapColor.STONE), new Item.Properties());
-
 
 
     public static final RegistryObject<FlintNodeBlock> FLINT_NODE = registerBlock("flint_node", ModCreativeTabs.TAB_NAME.STONE_AGE,
@@ -171,6 +159,9 @@ public class ModBlocks {
             () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties().stacksTo(1));
 
 
+    public static final RegistryObject<ClayPotBlock> CLAY_POT = registerBlock("clay_pot", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> new ClayPotBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)), new Item.Properties());
+
     /*Plants*/
     public static final RegistryObject<ThatchBlock> THATCH = registerBlock("thatch", ModCreativeTabs.TAB_NAME.METAL_AGE,
             () -> new ThatchBlock(BlockBehaviour.Properties.of().noCollission().strength(4.0F).sound(SoundType.GRASS)), new Item.Properties());
@@ -190,7 +181,7 @@ public class ModBlocks {
     public static final RegistryObject<RotatedPillarBlock> BIRCH_LOG = registerVanillaBlock("birch_log", () -> createLog(MapColor.SAND, MapColor.QUARTZ));
     public static final RegistryObject<RotatedPillarBlock> JUNGLE_LOG = registerVanillaBlock("jungle_log", () -> createLog(MapColor.DIRT, MapColor.PODZOL));
     public static final RegistryObject<RotatedPillarBlock> ACACIA_LOG = registerVanillaBlock("acacia_log", () -> createLog(MapColor.COLOR_ORANGE, MapColor.STONE));
-//      public static final RegistryObject<RotatedPillarBlock> CHERRY_LOG = registerVanillaBlock("cherry_log", () -> createLog(MapColor.TERRACOTTA_WHITE, MapColor.TERRACOTTA_GRAY, SoundType.CHERRY_WOOD));
+    //      public static final RegistryObject<RotatedPillarBlock> CHERRY_LOG = registerVanillaBlock("cherry_log", () -> createLog(MapColor.TERRACOTTA_WHITE, MapColor.TERRACOTTA_GRAY, SoundType.CHERRY_WOOD));
     public static final RegistryObject<RotatedPillarBlock> DARK_OAK_LOG = registerVanillaBlock("dark_oak_log", () -> createLog(MapColor.COLOR_BROWN, MapColor.COLOR_BROWN));
     public static final RegistryObject<RotatedPillarBlock> MANGROVE_LOG = registerVanillaBlock("mangrove_log", () -> createLog(MapColor.COLOR_BROWN, MapColor.STONE));
     //TODO MAGROVE ROOT
@@ -244,13 +235,19 @@ public class ModBlocks {
 
 
     //saplings
-    public static final RegistryObject<Block> OAK_SAPLING = registerVanillaBlock("oak_sapling",() ->  createSapling(new OakTreeGrower()));
-    public static final RegistryObject<Block> SPRUCE_SAPLING = registerVanillaBlock("spruce_sapling", () -> createSapling(new SpruceTreeGrower()));
-    public static final RegistryObject<Block> BIRCH_SAPLING = registerVanillaBlock("birch_sapling", () -> createSapling(new BirchTreeGrower()));
-    public static final RegistryObject<Block> JUNGLE_SAPLING = registerVanillaBlock("jungle_sapling", () -> createSapling(new JungleTreeGrower()));
-    public static final RegistryObject<Block> ACACIA_SAPLING = registerVanillaBlock("acacia_sapling", () -> createSapling(new AcaciaTreeGrower()));
-    public static final RegistryObject<Block> CHERRY_SAPLING = registerVanillaBlock("cherry_sapling",() ->  createSapling(new CherryTreeGrower()));
-    public static final RegistryObject<Block> DARK_OAK_SAPLING = registerVanillaBlock("dark_oak_sapling", () -> createSapling(new DarkOakTreeGrower()));
+    public static final RegistryObject<Block> OAK_SAPLING = registerVanillaBlock("oak_sapling", () -> createResistantSapling(new OakTreeGrower()));
+    public static final RegistryObject<Block> SPRUCE_SAPLING = registerVanillaBlock("spruce_sapling", () -> createResistantSapling(new SpruceTreeGrower()));
+    public static final RegistryObject<Block> BIRCH_SAPLING = registerVanillaBlock("birch_sapling", () -> createResistantSapling(new BirchTreeGrower()));
+    public static final RegistryObject<Block> JUNGLE_SAPLING = registerVanillaBlock("jungle_sapling", () -> createResistantSapling(new JungleTreeGrower()));
+    public static final RegistryObject<Block> ACACIA_SAPLING = registerVanillaBlock("acacia_sapling", () -> createResistantSapling(new AcaciaTreeGrower()));
+    public static final RegistryObject<Block> CHERRY_SAPLING = registerVanillaBlock("cherry_sapling", () -> createResistantSapling(new CherryTreeGrower()));
+    public static final RegistryObject<Block> DARK_OAK_SAPLING = registerVanillaBlock("dark_oak_sapling", () -> createResistantSapling(new DarkOakTreeGrower()));
+
+
+
+
+
+
 
 
 
@@ -327,6 +324,15 @@ BLACK_WOOL*/
         return toReturn;
     }
 
+
+    private static NeolithFallingBlock updateVanillaOre() {
+        return new NeolithFallingBlock(BlockBehaviour.Properties.of()
+                .mapColor(MapColor.STONE)
+                .instrument(NoteBlockInstrument.BASEDRUM)
+                .requiresCorrectToolForDrops()
+                .strength(3.0F, 3.0F),   UniformInt.of(0, 2));
+    }
+
     public static CutStoneBlock createCutStoneBlock(MapColor color) {
         return new CutStoneBlock(BlockBehaviour.Properties.of()
                 .requiresCorrectToolForDrops()
@@ -334,8 +340,16 @@ BLACK_WOOL*/
                 .isValidSpawn(ModBlocks::never)
                 .instrument(NoteBlockInstrument.BASEDRUM)
                 .sound(SoundType.STONE)
-                .mapColor(color)
-        );
+                .mapColor(color));
+    }
+
+    private static NeolithFallingBlock createCobblestone(MapColor color) {
+        return new NeolithFallingBlock(BlockBehaviour.Properties.of()
+                .requiresCorrectToolForDrops()
+                .strength(2.0f, 2.0f)
+                .instrument(NoteBlockInstrument.BASEDRUM)
+                .sound(SoundType.STONE)
+                .mapColor(color), ConstantInt.of(0));
     }
 
     private static GravelBlock createConcrete(DyeColor color) {
@@ -349,32 +363,35 @@ BLACK_WOOL*/
 
     private static RotatedPillarBlock createLog(MapColor topColor, MapColor barkColor) {
         return new RotatedPillarBlock(BlockBehaviour.Properties.of()
-                .mapColor((color) -> {return color.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;})
+                .mapColor((color) -> {
+                    return color.getValue(RotatedPillarBlock.AXIS) == Direction.Axis.Y ? topColor : barkColor;
+                })
                 .instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F)
                 .sound(SoundType.WOOD)
                 .ignitedByLava().
                 requiresCorrectToolForDrops());
     }
+
     private static RotatedPillarBlock createLog(MapColor color) {
-        return createLog(color,color);
+        return createLog(color, color);
     }
+
     private static Block createPlanks(MapColor color, SoundType sound) {
         return new Block(BlockBehaviour.Properties.of().mapColor(color).instrument(NoteBlockInstrument.BASS)
                 .strength(2.0F, 3.0F).sound(sound).ignitedByLava().requiresCorrectToolForDrops());
     }
 
-    private static ModSaplingBlock createSapling(AbstractTreeGrower treeGrower){
-            return new ModSaplingBlock(treeGrower, BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.PLANT)
-                    .noCollission()
-                    .randomTicks()
-                    .instabreak()
-                    .sound(SoundType.GRASS)
-                    .pushReaction(PushReaction.DESTROY));
-
-
+    private static ModSaplingBlock createResistantSapling(AbstractTreeGrower treeGrower) {
+        return new ModSaplingBlock(treeGrower, BlockBehaviour.Properties.of()
+                .mapColor(MapColor.PLANT)
+                .noCollission()
+                .randomTicks()
+                .instabreak()
+                .sound(SoundType.GRASS)
+                .pushReaction(PushReaction.DESTROY));
     }
+
 
     private static Boolean never(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {
         return false;

@@ -25,10 +25,10 @@ public abstract class AbstractNeolithItemCraft implements Recipe<Container> {
     protected final NonNullList<ItemStack> results;
     protected final float experience;
 
-    public AbstractNeolithItemCraft(RecipeType<?> recipeType, ResourceLocation id, String group, NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience) {
+    public AbstractNeolithItemCraft(RecipeType<?> recipeType, ResourceLocation id, String group, NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience, RecipeCategory category) {
         this.id = id;
         this.type = recipeType;
-        this.category = RecipeCategory.MISC;
+        this.category = category;
         this.group = group;
         this.ingredients = ingredients;
         this.results = results;

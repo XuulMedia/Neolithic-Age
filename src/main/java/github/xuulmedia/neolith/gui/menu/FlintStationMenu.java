@@ -157,6 +157,15 @@ public class FlintStationMenu extends AbstractNeolithMenu {
         this.slotUpdateListener = pListener;
     }
 
+    public void removed(Player pPlayer) {
+        super.removed(pPlayer);
+        this.resultContainer.removeItemNoUpdate(1);
+        this.access.execute((p_40313_, p_40314_) -> {
+            this.clearContainer(pPlayer, this.container);
+        });
+    }
+
+
 
 
     @Override

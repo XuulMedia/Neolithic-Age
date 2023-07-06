@@ -53,7 +53,7 @@ public class ModPlacedFeatures {
 
         register(context, CLAY_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_CLAY_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(6,
-                        HeightRangePlacement.uniform(VerticalAnchor.absolute(30), VerticalAnchor.absolute(112))));
+                        HeightRangePlacement.uniform(VerticalAnchor.absolute(45), VerticalAnchor.absolute(112))));
 
         register(context, CLAY_ORE_LARGE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_CLAY_ORE_LARGE_KEY),
                 ModOrePlacement.commonOrePlacement(12,

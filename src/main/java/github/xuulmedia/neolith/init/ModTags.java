@@ -16,10 +16,25 @@ public class ModTags {
     public static final TagKey<Item> SHOVELS = createItemTag("shovels");
     public static final TagKey<Item> LOGS = createItemTag("logs");
     public static final TagKey<Item> PLANKS = createItemTag("planks");
+
+    //Stone stuff
     public static final TagKey<Item> STONE_CHUNKS = createItemTag("stone_chunks");
-    public static final TagKey<Item> DUSTS_STONE_OVERWORLD = createItemTag("dusts_stone_overworld");
+    public static final TagKey<Item> DUSTS_STONE = createItemTag("dusts_stone");
+    public static final TagKey<Item> DUSTS_SANDS = createItemTag("dusts_sand");
     public static final TagKey<Item> CLAY = createItemTag("clay");
     public static final TagKey<Item> BRICKS = createItemTag("brick");
+
+    public static final TagKey<Item> COBBLESTONES = createItemTag("cobblestone");
+    public static final TagKey<Item> BRICK_BLOCKS = createItemTag("brick_blocks");
+
+
+    public static final TagKey<Item> LOW_HEAT_WOOD = createItemTag("low_heat_wood");
+    public static final TagKey<Item> MED_HEAT_WOOD = createItemTag("med_heat_wood");
+    public static final TagKey<Item> HIGH_HEAT_WOOD = createItemTag("high_heat_wood");
+    public static final TagKey<Item> NETHER_HEAT_WOOD = createItemTag("nether_heat_wood");
+
+
+
 
 
     public static final TagKey<Item> BINDINGS = createItemTag("bindings");
@@ -35,6 +50,10 @@ public class ModTags {
     public static final TagKey<Block> MINEABLE_WITH_HAMMER = createBlockTag("mineable/needs_hammer");
     public static final TagKey<Block> NEEDS_FLINT_TOOL = createBlockTag("requires_flint");
     public static final TagKey<Block> NEEDS_BRONZE_TOOL = createBlockTag("requires_bronze");
+
+
+//    Stone Chunks
+
 
 
     /*Helpers*/

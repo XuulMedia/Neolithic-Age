@@ -3,7 +3,6 @@ package github.xuulmedia.neolith.init;
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.gui.menu.*;
 import github.xuulmedia.neolith.gui.screen.*;
-import github.xuulmedia.neolith.gui.screen.FoundryScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -33,8 +32,13 @@ public final class ModMenuTypes {
     public static final RegistryObject<MenuType<WorkBenchMenu>> WORK_BENCH_MENU =
             registerMenuType(WorkBenchMenu::new,"workbench_menu");
 
+    public static final RegistryObject<MenuType<ClayPotMenu>> CLAY_POT_MENU =
+            registerMenuType(ClayPotMenu::new, "clay_pot_menu");
+
     public static final RegistryObject<MenuType<BasketMenu>> BASKET_MENU = MENUS.register("basket_menu",
             () -> IForgeMenuType.create(BasketMenu::createClientMenu));
+
+
 
 
     @OnlyIn(Dist.CLIENT)
@@ -46,6 +50,8 @@ public final class ModMenuTypes {
         MenuScreens.register(ModMenuTypes.BASKET_MENU.get(), BasketScreen::new);
 
         MenuScreens.register(ModMenuTypes.WORK_BENCH_MENU.get(), WorkBenchScreen::new);
+
+        MenuScreens.register(ModMenuTypes.CLAY_POT_MENU.get(), ClayPotScreen::new);
     }
 
 

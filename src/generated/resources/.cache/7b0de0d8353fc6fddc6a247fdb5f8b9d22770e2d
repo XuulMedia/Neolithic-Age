@@ -1,12 +1,12 @@
-// 1.20	2023-07-04T00:17:39.8663812	Tags for minecraft:block mod id neolith
+// 1.20	2023-07-05T22:43:24.4414267	Tags for minecraft:block mod id neolith
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/forge/tags/blocks/needs_wood_tool.json
 4877be22504ac166ccf8ef7f9072f3a169b4555d data/forge/tags/blocks/ores.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/axe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/hoe.json
-2662b30b93fd9c9cb68e44375281cc7805828edd data/minecraft/tags/blocks/mineable/pickaxe.json
+66938ef1b04abcac0f5590957d672e48deec1047 data/minecraft/tags/blocks/mineable/pickaxe.json
 1ca72992ba65c66f730d1b25d222db9e42831727 data/minecraft/tags/blocks/mineable/shovel.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_diamond_tool.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/needs_iron_tool.json
-816ac12ee72b078cf4a0f57eaa0a0872d571a1c4 data/neolith/tags/blocks/mineable/needs_hammer.json
-40f6588626995424e9707c8a35c5bd299e86a0a1 data/neolith/tags/blocks/requires_bronze.json
-ce164f9af22a6b47d6973a674a8747a2ae5bdf64 data/neolith/tags/blocks/requires_flint.json
+c40acca02e949c08614efc09359e2350fa47bd1a data/neolith/tags/blocks/mineable/needs_hammer.json
+eb5cfbbdba73a15b4a8b3fbe2879f2afb970e26e data/neolith/tags/blocks/requires_bronze.json
+9566819077069a5216cda2822578f0048e4f9018 data/neolith/tags/blocks/requires_flint.json

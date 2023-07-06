@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_white_with_forge_from_clay_white"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_white": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_white"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_white",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_white_with_forge_from_clay_white"
+    ]
+  },
+  "sends_telemetry_event": true
+}

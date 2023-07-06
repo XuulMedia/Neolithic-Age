@@ -2,7 +2,7 @@
   "parent": "minecraft:block/orientable",
   "textures": {
     "front": "neolith:block/forge/alloy_smelter_front_lit",
-    "side": "neolith:block/bricks/bricks_andesite",
-    "top": "neolith:block/bricks/bricks_andesite"
+    "side": "neolith:block/bricks/bricks_stone",
+    "top": "neolith:block/bricks/bricks_stone"
   }
 }

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "neolith:flint_node"
+    }
+  ],
+  "result": {
+    "item": "minecraft:flint"
+  }
+}

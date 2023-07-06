@@ -7,6 +7,7 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -56,31 +57,31 @@ public class ModBlockLoot extends VanillaBlockLoot {
         dropSelf(ModBlocks.BLOCK_BRONZE.get());
         dropSelf(ModBlocks.BLOCK_STEEL.get());
 
-        HammerSmashingTable(ModBlocks.COBBLESTONE.get(), ModItems.CHUNK_STONE.get(), ModItems.DUST_STONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.BASALT_COBBLESTONE.get(), ModItems.CHUNK_BASALT.get(), ModItems.DUST_BASALT.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.DEEPSLATE_COBBLESTONE.get(), ModItems.CHUNK_DEEPSLATE.get(), ModItems.DUST_DEEPSLATE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.NETHERRACK_COBBLESTONE.get(), ModItems.CHUNK_NETHERRACK.get(), ModItems.DUST_NETHERRACK.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.SANDSTONE_COBBLESTONE.get(), ModItems.CHUNK_SANDSTONE.get(), ModItems.DUST_SANDSTONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.BLACKSTONE_COBBLESTONE.get(), ModItems.CHUNK_BLACKSTONE.get(), ModItems.DUST_BLACKSTONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.ENDSTONE_COBBLESTONE.get(), ModItems.CHUNK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.GRANITE_COBBLESTONE.get(), ModItems.CHUNK_GRANITE.get(), ModItems.DUST_GRANITE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.TUFF_COBBLESTONE.get(), ModItems.CHUNK_TUFF.get(), ModItems.DUST_TUFF.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.ANDESITE_COBBLESTONE.get(), ModItems.CHUNK_ANDESITE.get(), ModItems.DUST_ANDESITE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.DIORITE_COBBLESTONE.get(), ModItems.CHUNK_DIORITE.get(), ModItems.DUST_DIORITE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.CALCITE_COBBLESTONE.get(), ModItems.CHUNK_CALCITE.get(), ModItems.DUST_CALCITE.get(), 2, 4);
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_ANDESITE.get(), ModItems.CHUNK_ANDESITE.get(), ModItems.DUST_STONE.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_BASALT.get(), ModItems.CHUNK_BASALT.get(), ModItems.DUST_BLACK.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_BLACKSTONE.get(), ModItems.CHUNK_BLACKSTONE.get(), ModItems.DUST_BLACK.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_CALCITE.get(), ModItems.CHUNK_CALCITE.get(), ModItems.DUST_WHITE.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_DEEPSLATE.get(), ModItems.CHUNK_DEEPSLATE.get(), ModItems.DUST_DEEPSLATE.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_DIORITE.get(), ModItems.CHUNK_DIORITE.get(), ModItems.DUST_WHITE.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_DRIPSTONE.get(), ModItems.CHUNK_DRIPSTONE.get(), ModItems.DUST_BROWN.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_GRANITE.get(), ModItems.CHUNK_GRANITE.get(), ModItems.DUST_BROWN.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_NETHERRACK.get(), ModItems.CHUNK_NETHERRACK.get(), ModItems.DUST_NETHERRACK.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_RED_SANDSTONE.get(), ModItems.CHUNK_RED_SANDSTONE.get(), ModItems.DUST_RED_SAND.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_SANDSTONE.get(), ModItems.CHUNK_SANDSTONE.get(), ModItems.DUST_SAND.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_STONE.get(), ModItems.CHUNK_STONE.get(), ModItems.DUST_STONE.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_TUFF.get(), ModItems.CHUNK_TUFF.get(), ModItems.DUST_TUFF.get());
+        breakPlayerStoneBlock(ModBlocks.COBBLESTONE_ENDSTONE.get(), ModItems.CHUNK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get());
 
-        HammerSmashingTable(ModBlocks.STONE_BRICK_BLOCK.get(), ModItems.BRICK_STONE.get(), ModItems.DUST_STONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.BASALT_BRICK_BLOCK.get(), ModItems.BRICK_BASALT.get(), ModItems.DUST_BASALT.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(), ModItems.BRICK_DEEPSLATE.get(), ModItems.DUST_DEEPSLATE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.NETHERRACK_BRICK_BLOCK.get(), ModItems.BRICK_NETHERRACK.get(), ModItems.DUST_NETHERRACK.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.SANDSTONE_BRICK_BLOCK.get(), ModItems.BRICK_SANDSTONE.get(), ModItems.DUST_SANDSTONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.BLACKSTONE_BRICK_BLOCK.get(), ModItems.BRICK_BLACKSTONE.get(), ModItems.DUST_BLACKSTONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.ENDSTONE_BRICK_BLOCK.get(), ModItems.BRICK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.GRANITE_BRICK_BLOCK.get(), ModItems.BRICK_GRANITE.get(), ModItems.DUST_GRANITE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.TUFF_BRICK_BLOCK.get(), ModItems.BRICK_TUFF.get(), ModItems.DUST_TUFF.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.ANDESITE_BRICK_BLOCK.get(), ModItems.BRICK_ANDESITE.get(), ModItems.DUST_ANDESITE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.DIORITE_BRICK_BLOCK.get(), ModItems.BRICK_DIORITE.get(), ModItems.DUST_DIORITE.get(), 2, 4);
-        HammerSmashingTable(ModBlocks.CALCITE_BRICK_BLOCK.get(), ModItems.BRICK_CALCITE.get(), ModItems.DUST_CALCITE.get(), 2, 4);
+        breakPlayerStoneBlock(ModBlocks.STONE_BRICK_BLOCK.get(), ModItems.BRICK_STONE.get(), ModItems.DUST_STONE.get());
+        breakPlayerStoneBlock(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(), ModItems.BRICK_DEEPSLATE.get(), ModItems.DUST_DEEPSLATE.get());
+        breakPlayerStoneBlock(ModBlocks.NETHERRACK_BRICK_BLOCK.get(), ModItems.BRICK_NETHERRACK.get(), ModItems.DUST_NETHERRACK.get());
+        breakPlayerStoneBlock(ModBlocks.ENDSTONE_BRICK_BLOCK.get(), ModItems.BRICK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get());
+        breakPlayerStoneBlock(ModBlocks.BROWN_BRICK_BLOCK.get(), ModItems.BRICK_BROWN.get(), ModItems.DUST_BROWN.get());
+        breakPlayerStoneBlock(ModBlocks.WHITE_BRICK_BLOCK.get(), ModItems.BRICK_WHITE.get(), ModItems.DUST_WHITE.get());
+        breakPlayerStoneBlock(ModBlocks.BLACK_BRICK_BLOCK.get(), ModItems.BRICK_BLACK.get(), ModItems.DUST_BLACK.get());
+        breakPlayerStoneBlock(ModBlocks.SAND_BRICK_BLOCK.get(), ModItems.BRICK_SAND.get(), ModItems.DUST_SAND.get());
+        breakPlayerStoneBlock(ModBlocks.RED_SAND_BRICK_BLOCK.get(), ModItems.BRICK_RED_SAND.get(), ModItems.DUST_RED_SAND.get());
+
 
         dropOther(ModBlocks.FLINT_NODE.get(), Items.FLINT);
 
@@ -92,7 +93,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
         dropSelf(ModBlocks.FORGE.get());
         dropSelf(ModBlocks.FOUNDRY.get());
         dropSelf(ModBlocks.WORK_BENCH.get());
-
+        dropSelf(ModBlocks.CLAY_POT.get());
         dropOther(ModBlocks.CAMPFIRE.get(), Items.STICK);
 
         dropSelf(ModBlocks.THATCH.get());
@@ -154,17 +155,17 @@ public class ModBlockLoot extends VanillaBlockLoot {
 //        leavesSticksSaplingTable(Blocks.WARPED_LEAVES, Items.STICK, Items.WARPED_FUNGUS, JUNGLE_LEAVES_SAPLING_CHANGES);  //nether wart instead o leave and stick
 //        leavesSticksSaplingTable(Blocks.CRIMSON_LEAVES, Items.STICK, Items.CRIMSON_FUNGUS, JUNGLE_LEAVES_SAPLING_CHANGES);
 
-        HammerSmashingTable(Blocks.ANDESITE, ModItems.CHUNK_ANDESITE.get(), ModItems.DUST_ANDESITE.get(), 1, 4);
-        HammerSmashingTable(Blocks.BASALT, ModItems.CHUNK_BASALT.get(), ModItems.DUST_BASALT.get(), 1, 4);
-        HammerSmashingTable(Blocks.BLACKSTONE, ModItems.CHUNK_BLACKSTONE.get(), ModItems.DUST_BLACKSTONE.get(), 1, 4);
-        HammerSmashingTable(Blocks.CALCITE, ModItems.CHUNK_CALCITE.get(), ModItems.DUST_CALCITE.get(), 1, 4);
+        HammerSmashingTable(Blocks.ANDESITE, ModItems.CHUNK_ANDESITE.get(), ModItems.DUST_STONE.get(), 1, 4);
+        HammerSmashingTable(Blocks.BASALT, ModItems.CHUNK_BASALT.get(), ModItems.DUST_BLACK.get(), 1, 4);
+        HammerSmashingTable(Blocks.BLACKSTONE, ModItems.CHUNK_BLACKSTONE.get(), ModItems.DUST_BLACK.get(), 1, 4);
+        HammerSmashingTable(Blocks.CALCITE, ModItems.CHUNK_CALCITE.get(), ModItems.DUST_WHITE.get(), 1, 4);
         HammerSmashingTable(Blocks.DEEPSLATE, ModItems.CHUNK_DEEPSLATE.get(), ModItems.DUST_DEEPSLATE.get(), 1, 4);
-        HammerSmashingTable(Blocks.DIORITE, ModItems.CHUNK_DIORITE.get(), ModItems.DUST_DIORITE.get(), 1, 4);
-        HammerSmashingTable(Blocks.DRIPSTONE_BLOCK, ModItems.CHUNK_DRIPSTONE.get(), ModItems.DUST_DRIPSTONE.get(), 1, 4);
-        HammerSmashingTable(Blocks.GRANITE, ModItems.CHUNK_GRANITE.get(), ModItems.DUST_GRANITE.get(), 1, 4);
+        HammerSmashingTable(Blocks.DIORITE, ModItems.CHUNK_DIORITE.get(), ModItems.DUST_WHITE.get(), 1, 4);
+        HammerSmashingTable(Blocks.DRIPSTONE_BLOCK, ModItems.CHUNK_DRIPSTONE.get(), ModItems.DUST_BROWN.get(), 1, 4);
+        HammerSmashingTable(Blocks.GRANITE, ModItems.CHUNK_GRANITE.get(), ModItems.DUST_BROWN.get(), 1, 4);
         HammerSmashingTable(Blocks.NETHERRACK, ModItems.CHUNK_NETHERRACK.get(), ModItems.DUST_NETHERRACK.get(), 1, 4);
-        HammerSmashingTable(Blocks.RED_SANDSTONE, ModItems.CHUNK_RED_SANDSTONE.get(), ModItems.DUST_RED_SANDSTONE.get(), 1, 4);
-        HammerSmashingTable(Blocks.SANDSTONE, ModItems.CHUNK_SANDSTONE.get(), ModItems.DUST_SANDSTONE.get(), 1, 4);
+        HammerSmashingTable(Blocks.RED_SANDSTONE, ModItems.CHUNK_RED_SANDSTONE.get(), ModItems.DUST_RED_SAND.get(), 1, 4);
+        HammerSmashingTable(Blocks.SANDSTONE, ModItems.CHUNK_SANDSTONE.get(), ModItems.DUST_SAND.get(), 1, 4);
         HammerSmashingTable(Blocks.STONE, ModItems.CHUNK_STONE.get(), ModItems.DUST_STONE.get(), 1, 4);
         HammerSmashingTable(Blocks.TUFF, ModItems.CHUNK_TUFF.get(), ModItems.DUST_TUFF.get(), 1, 4);
         HammerSmashingTable(Blocks.END_STONE, ModItems.CHUNK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get(), 1, 4);
@@ -275,6 +276,18 @@ public class ModBlockLoot extends VanillaBlockLoot {
         this.add(block, LootTable.lootTable().withPool(builder));
     }
 
+    protected void breakPlayerStoneBlock(Block block, Item chunk, Item dust) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(AlternativesEntry.alternatives(
+                                LootItem.lootTableItem(block).when(HAS_SILK_TOUCH),
+                                LootItem.lootTableItem(dust).when(HAS_HAMMER)
+                                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(4))),
+                                LootItem.lootTableItem(chunk)
+                                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(4)))
+                                        .apply(ApplyExplosionDecay.explosionDecay())));
+        this.add(block, LootTable.lootTable().withPool(builder));
+    }
     protected void createSilkTouchTable(Block block, Item lootItem, float min, float max) {
         LootPool.Builder builder = LootPool.lootPool()
                 .setRolls(ConstantValue.exactly(1))

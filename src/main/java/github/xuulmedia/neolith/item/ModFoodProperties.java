@@ -9,7 +9,7 @@ public class ModFoodProperties {
             .saturationMod(0)
             .alwaysEat()
             .fast()
-            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, sec(3)), 1)
+            .effect(() -> new MobEffectInstance(MobEffects.REGENERATION, sec(3), 3), 1)
             .build();
 
     /*HAZARD TIER*/
@@ -17,15 +17,15 @@ public class ModFoodProperties {
             .nutrition(2)
             .saturationMod(0)
             .effect(new MobEffectInstance(MobEffects.HUNGER, sec(30), 0), 1)
-            .effect(new MobEffectInstance(MobEffects.POISON, sec(60), 1), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.POISON, sec(12), 0), 1.0F)
             .build();
 
     public static final FoodProperties RAW_MEAT = new FoodProperties.Builder()
             .nutrition(2)
             .saturationMod(0)
             .effect(new MobEffectInstance(MobEffects.HUNGER, sec(30), 0), 1.0F)
-            .effect(new MobEffectInstance(MobEffects.POISON, sec(60), 1), 1.0F)
-            .effect(new MobEffectInstance(MobEffects.CONFUSION, sec(15), 0), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.POISON, sec(1), 0), 1.0F)
+            .effect(new MobEffectInstance(MobEffects.CONFUSION, sec(8), 0), 1.0F)
             .meat()
             .build();
 

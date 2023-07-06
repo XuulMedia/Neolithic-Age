@@ -30,34 +30,33 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLOCK_STEEL.get(), "block");
 //        simpleBlock(ModBlocks.THATCH.get());
 
-        blockWithItem(ModBlocks.ANDESITE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.BASALT_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.BLACKSTONE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.CALCITE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.DEEPSLATE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.DIORITE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.ENDSTONE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.GRANITE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.NETHERRACK_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.SANDSTONE_COBBLESTONE.get(), "block/cobble");
-        blockWithItem(ModBlocks.TUFF_COBBLESTONE.get(), "block/cobble");
+        //cobblestone
+        blockWithItem(ModBlocks.COBBLESTONE_ANDESITE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_BASALT.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_BLACKSTONE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_CALCITE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_DEEPSLATE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_DIORITE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_DRIPSTONE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_GRANITE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_NETHERRACK.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_RED_SANDSTONE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_SANDSTONE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_STONE.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_TUFF.get(), "block/cobble");
+        blockWithItem(ModBlocks.COBBLESTONE_ENDSTONE.get(), "block/cobble");
 
-
-//        makeCrop(ModBlocks.MEDICINE_CROP.get(), "medicine_crop_stage","medicine_crop_stage");
-
+        //Bricks
         blockWithItem(ModBlocks.STONE_BRICK_BLOCK.get(), "block/bricks");
-//        simpleCube(ModBlocks.BASALT_BRICK_BLOCK.get(),"block/bricks/bricks_XX");
-//        simpleCube(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(),"block/bricks/bricks_XX");
-//        blockWithItem(ModBlocks.NETHERRACK_BRICK_BLOCK.get(),"block/bricks");
-        blockWithItem(ModBlocks.SANDSTONE_BRICK_BLOCK.get(), "block/bricks");
-//        simpleCube(ModBlocks.BLACKSTONE_BRICK_BLOCK.get(),"block/bricks/bricks_XX");
-        blockWithItem(ModBlocks.GRANITE_BRICK_BLOCK.get(), "block/bricks");
-//        simpleCube(ModBlocks.TUFF_BRICK_BLOCK.get(),"block/bricks/bricks_XX");
-        blockWithItem(ModBlocks.ANDESITE_BRICK_BLOCK.get(), "block/bricks");
-        blockWithItem(ModBlocks.DIORITE_BRICK_BLOCK.get(), "block/bricks");
-        blockWithItem(ModBlocks.CALCITE_BRICK_BLOCK.get(), "block/bricks");
-        blockWithItem(ModBlocks.ENDSTONE_BRICK_BLOCK.get(), "block/bricks");
+        blockWithItem(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.NETHERRACK_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.ENDSTONE_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.BROWN_BRICK_BLOCK.get(), "block/bricks");
+        blockWithItem(ModBlocks.WHITE_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.BLACK_BRICK_BLOCK.get(), "block/bricks");
+        blockWithItem(ModBlocks.SAND_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.RED_SAND_BRICK_BLOCK.get(), "block/bricks");
+
 
     }
 

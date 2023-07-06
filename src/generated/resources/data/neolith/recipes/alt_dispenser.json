@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "/": {
+      "item": "minecraft:stick"
+    },
+    "D": {
+      "item": "minecraft:dispenser"
+    },
+    "s": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    " /s",
+    "/Ds",
+    " /s"
+  ],
+  "result": {
+    "item": "minecraft:dispenser"
+  },
+  "show_notification": true
+}

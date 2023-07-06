@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:flint_from_flint_node"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasflint_node": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:flint_node"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasflint_node",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:flint_from_flint_node"
+    ]
+  },
+  "sends_telemetry_event": false
+}

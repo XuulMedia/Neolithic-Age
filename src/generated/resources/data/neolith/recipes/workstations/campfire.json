@@ -1,7 +1,6 @@
 {
   "type": "minecraft:crafting_shaped",
   "category": "misc",
-  "group": "flint",
   "key": {
     "P": {
       "tag": "neolith:plant_fibre"

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_sand_with_forge_from_clay_sand"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_sand": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_sand"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_sand",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_sand_with_forge_from_clay_sand"
+    ]
+  },
+  "sends_telemetry_event": true
+}

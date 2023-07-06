@@ -39,20 +39,8 @@
               "functions": [
                 {
                   "add": false,
-                  "count": {
-                    "type": "minecraft:uniform",
-                    "max": 4.0,
-                    "min": 2.0
-                  },
+                  "count": 4.0,
                   "function": "minecraft:set_count"
-                },
-                {
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:uniform_bonus_count",
-                  "function": "minecraft:apply_bonus",
-                  "parameters": {
-                    "bonusMultiplier": 1
-                  }
                 }
               ],
               "name": "neolith:dust_deepslate"
@@ -62,20 +50,8 @@
               "functions": [
                 {
                   "add": false,
-                  "count": {
-                    "type": "minecraft:uniform",
-                    "max": 4.0,
-                    "min": 2.0
-                  },
+                  "count": 4.0,
                   "function": "minecraft:set_count"
-                },
-                {
-                  "enchantment": "minecraft:fortune",
-                  "formula": "minecraft:uniform_bonus_count",
-                  "function": "minecraft:apply_bonus",
-                  "parameters": {
-                    "bonusMultiplier": 1
-                  }
                 },
                 {
                   "function": "minecraft:explosion_decay"

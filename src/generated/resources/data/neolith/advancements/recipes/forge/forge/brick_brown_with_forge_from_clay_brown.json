@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_brown_with_forge_from_clay_brown"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_brown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_brown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_brown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_brown_with_forge_from_clay_brown"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -57,14 +57,16 @@ public class FireStarterItem extends Item {
             resetCounter(level,blockpos);
             level.setBlock(blockpos, blockstate.setValue(BlockStateProperties.LIT, Boolean.valueOf(true)), 11);
             level.gameEvent(player, GameEvent.BLOCK_CHANGE, blockpos);
-            if (player != null) {
-                pContext.getItemInHand().hurtAndBreak(1, player, (p_41303_) -> {
-                    p_41303_.broadcastBreakEvent(pContext.getHand());
-                });
+
             }
+        if (player != null) {
+            pContext.getItemInHand().hurtAndBreak(1, player, (p_41303_) -> {
+                p_41303_.broadcastBreakEvent(pContext.getHand());
+            });
+        }
 
             return InteractionResult.sidedSuccess(level.isClientSide());
-        }
+
     }
 
     public void resetCounter(BlockGetter level, BlockPos pos) {

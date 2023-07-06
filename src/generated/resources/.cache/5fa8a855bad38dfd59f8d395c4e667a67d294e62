@@ -1,14 +1,21 @@
-// 1.20	2023-07-04T21:35:31.680334	Tags for minecraft:item mod id neolith
+// 1.20	2023-07-05T21:45:50.7048828	Tags for minecraft:item mod id neolith
 619cd8e9f1432f538906cb8d56ba685c53903466 data/forge/tags/items/ingots.json
 ae85d71226674b389fca8594509c647e35135317 data/neolith/tags/items/bindings.json
-0d8eee712bb389d691d4516496b5622a56c13fa8 data/neolith/tags/items/brick.json
-79a237be43c1adbae42507a8ed31dbe7806a0c75 data/neolith/tags/items/clay.json
+93ea544fa10cc9fc65ac8cbdfbcfb8774ae4d424 data/neolith/tags/items/brick.json
+660ebed4eb0ce58520dc8ba71eb826e539bbc842 data/neolith/tags/items/brick_blocks.json
+a3cf3e4bd21dfa45a650b4ddb344a1dc2f543bff data/neolith/tags/items/clay.json
+7d9e4689ad9d7e8d9e7b2dd96527c96676750515 data/neolith/tags/items/cobblestone.json
 4077d773276a80fa0eef7d724e5a302524a2bfab data/neolith/tags/items/dousers.json
-5dccac60df793909d1fc06e14ad73dc900da3e79 data/neolith/tags/items/dusts_stone_overworld.json
+2ecd5a10991cad0679b4b7fb47d6936a43a6395b data/neolith/tags/items/dusts_sand.json
+4921a70d0df5debec98fe3409615695f70da27ca data/neolith/tags/items/dusts_stone.json
 e152fc509cde1daa6d075f33e17fbb7d10e20d38 data/neolith/tags/items/hammers.json
+393021a74183ee8ffbf883a3a07b6868cdf5b52b data/neolith/tags/items/high_heat_wood.json
 d2ccb97ae2e79bf09f8b4f64a0814a7cef64e5b9 data/neolith/tags/items/knives.json
 9cbbcf66c6742b29f3fe7c133c492eaff4cc1bf7 data/neolith/tags/items/lighters.json
 5c8216f4e9b1731e343deb6c44b4d5b164868206 data/neolith/tags/items/logs.json
+350f7b9faafa7ced9bfd701fc65684e0391f5814 data/neolith/tags/items/low_heat_wood.json
+7e742cd968670daaa7ee8b15a606afcd99ab5ab3 data/neolith/tags/items/med_heat_wood.json
+3b2752b7469afdc2cdfdb5a09710254d100d5c56 data/neolith/tags/items/nether_heat_wood.json
 4600c13713657fc6038cbbd6b45c6baa93a7de3f data/neolith/tags/items/planks.json
 b0dfdb0e4ea41bd1c2ab143289f2f86aa67a0382 data/neolith/tags/items/plant_fibre.json
 803759dd74afd8b0a5dca2a01f870977bd3d4824 data/neolith/tags/items/saws.json

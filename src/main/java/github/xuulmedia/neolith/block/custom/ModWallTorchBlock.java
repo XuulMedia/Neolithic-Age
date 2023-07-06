@@ -71,7 +71,7 @@ public class ModWallTorchBlock extends ModTorchBlock {
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return getShape(pState);
+        return AABBS.get(pState.getValue(FACING));
     }
 
     public static VoxelShape getShape(BlockState pState) {

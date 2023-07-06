@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_clay_brown": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_brown"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/brick_brown_with_campfire_from_clay_brown"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_clay_brown",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/brick_brown_with_campfire_from_clay_brown"
+    ]
+  },
+  "sends_telemetry_event": false
+}

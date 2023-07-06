@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_white_with_hammer_from_chunk_calcite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haschunk_calcite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:chunk_calcite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haschunk_calcite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_white_with_hammer_from_chunk_calcite"
+    ]
+  },
+  "sends_telemetry_event": false
+}

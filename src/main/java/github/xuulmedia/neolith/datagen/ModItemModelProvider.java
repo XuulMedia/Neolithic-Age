@@ -89,51 +89,39 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CHUNK_SANDSTONE.get(), "stone/chunks");
         simpleItem(ModItems.CHUNK_STONE.get(), "stone/chunks");
         simpleItem(ModItems.CHUNK_TUFF.get(), "stone/chunks");
-//        simpleItem(ModItems.CHUNK_ENDSTONE.get(), "stone/chunks");
+        simpleItem(ModItems.CHUNK_ENDSTONE.get(), "stone/chunks");
 
-        simpleItem(ModItems.DUST_BASALT.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_BLACKSTONE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_CALCITE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_DEEPSLATE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_DIORITE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_DRIPSTONE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_GRANITE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_NETHERRACK.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_RED_SANDSTONE.get(), "stone/dusts");
-        simpleItem(ModItems.DUST_SANDSTONE.get(), "stone/dusts");
         simpleItem(ModItems.DUST_STONE.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_DEEPSLATE.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_NETHERRACK.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_ENDSTONE.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_BROWN.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_WHITE.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_BLACK.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_SAND.get(), "stone/dusts");
         simpleItem(ModItems.DUST_TUFF.get(), "stone/dusts");
-//        simpleItem(ModItems.DUST_ENDSTONE.get(), "stone/dusts");
+        simpleItem(ModItems.DUST_RED_SAND.get(), "stone/dusts");
 
-        simpleItem(ModItems.CLAY_ANDESITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_BASALT.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_BLACKSTONE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_CALCITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_DEEPSLATE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_DIORITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_DRIPSTONE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_GRANITE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_NETHERRACK.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_RED_SANDSTONE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_SANDSTONE.get(), "stone/clay");
         simpleItem(ModItems.CLAY_STONE.get(), "stone/clay");
-        simpleItem(ModItems.CLAY_TUFF.get(), "stone/clay");
-//        simpleItem(ModItems.CLAY_ENDSTONE.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_DEEPSLATE.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_NETHERRACK.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_ENDSTONE.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_BROWN.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_WHITE.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_BLACK.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_SAND.get(), "stone/clay");
+        simpleItem(ModItems.CLAY_RED_SAND.get(), "stone/clay");
 
-        simpleItem(ModItems.BRICK_ANDESITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_BASALT.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_BLACKSTONE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_CALCITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_DEEPSLATE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_DIORITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_DRIPSTONE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_GRANITE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_NETHERRACK.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_RED_SANDSTONE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_SANDSTONE.get(), "stone/bricks");
         simpleItem(ModItems.BRICK_STONE.get(), "stone/bricks");
-        simpleItem(ModItems.BRICK_TUFF.get(), "stone/bricks");
-//        simpleItem(ModItems.BRICK_ENDSTONE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_DEEPSLATE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_NETHERRACK.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_ENDSTONE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_BROWN.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_WHITE.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_BLACK.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_SAND.get(), "stone/bricks");
+        simpleItem(ModItems.BRICK_RED_SAND.get(), "stone/bricks");
+
 
 
 //        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_JUG.get()).getPath(),

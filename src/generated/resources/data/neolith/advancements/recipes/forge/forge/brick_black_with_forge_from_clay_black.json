@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/brick_black_with_forge_from_clay_black"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasclay_black": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:clay_black"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasclay_black",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/brick_black_with_forge_from_clay_black"
+    ]
+  },
+  "sends_telemetry_event": true
+}

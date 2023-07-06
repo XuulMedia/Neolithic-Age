@@ -30,18 +30,31 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.BLOCK_SILVER.get())
                 .add(ModBlocks.BLOCK_BRONZE.get())
                 .add(ModBlocks.BLOCK_STEEL.get())
-                .add(ModBlocks.COBBLESTONE.get())
-                .add(ModBlocks.BASALT_COBBLESTONE.get())
-                .add(ModBlocks.DEEPSLATE_COBBLESTONE.get())
-                .add(ModBlocks.NETHERRACK_COBBLESTONE.get())
-                .add(ModBlocks.SANDSTONE_COBBLESTONE.get())
-                .add(ModBlocks.BLACKSTONE_COBBLESTONE.get())
-                .add(ModBlocks.ENDSTONE_COBBLESTONE.get())
-                .add(ModBlocks.GRANITE_COBBLESTONE.get())
-                .add(ModBlocks.TUFF_COBBLESTONE.get())
-                .add(ModBlocks.ANDESITE_COBBLESTONE.get())
-                .add(ModBlocks.DIORITE_COBBLESTONE.get())
-                .add(ModBlocks.CALCITE_COBBLESTONE.get())
+
+                .add(ModBlocks.COBBLESTONE_ANDESITE.get())
+                .add(ModBlocks.COBBLESTONE_BASALT.get())
+                .add(ModBlocks.COBBLESTONE_BLACKSTONE.get())
+                .add(ModBlocks.COBBLESTONE_CALCITE.get())
+                .add(ModBlocks.COBBLESTONE_DEEPSLATE.get())
+                .add(ModBlocks.COBBLESTONE_DIORITE.get())
+                .add(ModBlocks.COBBLESTONE_DRIPSTONE.get())
+                .add(ModBlocks.COBBLESTONE_GRANITE.get())
+                .add(ModBlocks.COBBLESTONE_NETHERRACK.get())
+                .add(ModBlocks.COBBLESTONE_RED_SANDSTONE.get())
+                .add(ModBlocks.COBBLESTONE_SANDSTONE.get())
+                .add(ModBlocks.COBBLESTONE_STONE.get())
+                .add(ModBlocks.COBBLESTONE_TUFF.get())
+                .add(ModBlocks.COBBLESTONE_ENDSTONE.get())
+                .add(ModBlocks.STONE_BRICK_BLOCK.get())
+                .add(ModBlocks.DEEPSLATE_BRICK_BLOCK.get())
+                .add(ModBlocks.NETHERRACK_BRICK_BLOCK.get())
+                .add(ModBlocks.ENDSTONE_BRICK_BLOCK.get())
+                .add(ModBlocks.BROWN_BRICK_BLOCK.get())
+                .add(ModBlocks.WHITE_BRICK_BLOCK.get())
+                .add(ModBlocks.BLACK_BRICK_BLOCK.get())
+                .add(ModBlocks.SAND_BRICK_BLOCK.get())
+                .add(ModBlocks.RED_SAND_BRICK_BLOCK.get())
+
                 .add(ModBlocks.ORE_CLAY.get())
                 .add(ModBlocks.FLINT_STATION.get());
 
@@ -60,6 +73,20 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.STONE)
                 .add(Blocks.TUFF)
                 .add(Blocks.END_STONE)
+                .add(ModBlocks.COBBLESTONE_ANDESITE.get())
+                .add(ModBlocks.COBBLESTONE_BASALT.get())
+                .add(ModBlocks.COBBLESTONE_BLACKSTONE.get())
+                .add(ModBlocks.COBBLESTONE_CALCITE.get())
+                .add(ModBlocks.COBBLESTONE_DEEPSLATE.get())
+                .add(ModBlocks.COBBLESTONE_DIORITE.get())
+                .add(ModBlocks.COBBLESTONE_DRIPSTONE.get())
+                .add(ModBlocks.COBBLESTONE_GRANITE.get())
+                .add(ModBlocks.COBBLESTONE_NETHERRACK.get())
+                .add(ModBlocks.COBBLESTONE_RED_SANDSTONE.get())
+                .add(ModBlocks.COBBLESTONE_SANDSTONE.get())
+                .add(ModBlocks.COBBLESTONE_STONE.get())
+                .add(ModBlocks.COBBLESTONE_TUFF.get())
+                .add(ModBlocks.COBBLESTONE_ENDSTONE.get())
                 .add(ModBlocks.ORE_TIN.get())
                 .add(ModBlocks.ORE_SILVER.get());
 //
@@ -72,16 +99,19 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         /*Harvest Levels*/
 
-        tag(Tags.Blocks.NEEDS_WOOD_TOOL);
+        tag(Tags.Blocks.NEEDS_WOOD_TOOL)
+                .remove(Blocks.COAL_ORE);
 
         tag(ModTags.NEEDS_FLINT_TOOL)
                 .add(ModBlocks.ORE_TIN.get())
+                .add(Blocks.COPPER_ORE)
                 .addTag(BlockTags.LOGS)
                 .add(ModBlocks.ORE_CLAY.get())
                 .add(ModBlocks.FLINT_STATION.get());
 
         tag(ModTags.NEEDS_BRONZE_TOOL)
-                .addTag(BlockTags.IRON_ORES);
+                .addTag(BlockTags.IRON_ORES)
+                .addTag(BlockTags.COAL_ORES);
 
 
         tag(BlockTags.NEEDS_IRON_TOOL);

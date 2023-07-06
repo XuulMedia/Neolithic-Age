@@ -4,6 +4,7 @@ import com.google.gson.JsonObject;
 import github.xuulmedia.neolith.Neolith;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
@@ -16,7 +17,7 @@ import org.jetbrains.annotations.Nullable;
 public class FlintStationRecipe  extends AbstractNeolithItemCraft{
     public static final Serializer SERIALIZER = new Serializer();
     public FlintStationRecipe(ResourceLocation id, String group, NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience) {
-        super(Type.INSTANCE, id, group, ingredients, results, experience);
+        super(Type.INSTANCE, id, group, ingredients, results, experience, RecipeCategory.TOOLS);
     }
 
     @Override

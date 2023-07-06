@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:campfire_cooking",
+  "category": "food",
+  "cookingtime": 600,
+  "experience": 3.0,
+  "ingredient": {
+    "item": "neolith:clay_red_sand"
+  },
+  "result": "neolith:brick_red_sand"
+}

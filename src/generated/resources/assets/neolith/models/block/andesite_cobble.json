@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "neolith:block/cobble/andesite_cobble"
-  }
-}

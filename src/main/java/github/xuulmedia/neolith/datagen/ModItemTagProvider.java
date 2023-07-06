@@ -81,6 +81,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.PLANK_WARPED.get())
                 .add(ModItems.PLANK_CRIMSON.get());
 
+
         tag(ModTags.STONE_CHUNKS)
                 .add(ModItems.CHUNK_ANDESITE.get())
                 .add(ModItems.CHUNK_BASALT.get())
@@ -97,54 +98,72 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.CHUNK_TUFF.get())
                 .add(ModItems.CHUNK_ENDSTONE.get());
 
-//        tag(ModTags.STONE_DUSTS)
-//                .add(ModItems.DUST_ANDESITE.get())
-//                .add(ModItems.DUST_BASALT.get())
-//                .add(ModItems.DUST_BLACKSTONE.get())
-//                .add(ModItems.DUST_CALCITE.get())
-//                .add(ModItems.DUST_DEEPSLATE.get())
-//                .add(ModItems.DUST_DIORITE.get())
-//                .add(ModItems.DUST_DRIPSTONE.get())
-//                .add(ModItems.DUST_GRANITE.get())
-//                .add(ModItems.DUST_NETHERRACK.get())
-//                .add(ModItems.DUST_RED_SANDSTONE.get())
-//                .add(ModItems.DUST_SANDSTONE.get())
-//                .add(ModItems.DUST_STONE.get())
-//                .add(ModItems.DUST_TUFF.get())
-//                .add(ModItems.DUST_ENDSTONE.get());
+        tag(ModTags.DUSTS_STONE)
+                .add(ModItems.DUST_STONE.get())
+                .add(ModItems.DUST_DEEPSLATE.get())
+                .add(ModItems.DUST_NETHERRACK.get())
+                .add(ModItems.DUST_ENDSTONE.get())
+                .add(ModItems.DUST_BROWN.get())
+                .add(ModItems.DUST_WHITE.get())
+                .add(ModItems.DUST_BLACK.get())
+                .add(ModItems.DUST_SAND.get())
+                .add(ModItems.DUST_RED_SAND.get())
+                .add(ModItems.DUST_TUFF.get());
+
+        tag(ModTags.DUSTS_SANDS)
+                .add(ModItems.DUST_SAND.get())
+                .add(ModItems.DUST_RED_SAND.get())
+                .add(ModItems.DUST_TUFF.get());
 
         tag(ModTags.CLAY)
-                .add(ModItems.CLAY_ANDESITE.get())
-                .add(ModItems.CLAY_BASALT.get())
-                .add(ModItems.CLAY_BLACKSTONE.get())
-                .add(ModItems.CLAY_CALCITE.get())
-                .add(ModItems.CLAY_DEEPSLATE.get())
-                .add(ModItems.CLAY_DIORITE.get())
-                .add(ModItems.CLAY_DRIPSTONE.get())
-                .add(ModItems.CLAY_GRANITE.get())
-                .add(ModItems.CLAY_NETHERRACK.get())
-                .add(ModItems.CLAY_RED_SANDSTONE.get())
-                .add(ModItems.CLAY_SANDSTONE.get())
                 .add(ModItems.CLAY_STONE.get())
-                .add(ModItems.CLAY_TUFF.get())
+                .add(ModItems.CLAY_DEEPSLATE.get())
+                .add(ModItems.CLAY_NETHERRACK.get())
                 .add(ModItems.CLAY_ENDSTONE.get())
+                .add(ModItems.CLAY_BROWN.get())
+                .add(ModItems.CLAY_WHITE.get())
+                .add(ModItems.CLAY_BLACK.get())
+                .add(ModItems.CLAY_SAND.get())
+                .add(ModItems.CLAY_RED_SAND.get())
                 .add(Items.CLAY_BALL);
 
         tag(ModTags.BRICKS)
-                .add(ModItems.BRICK_ANDESITE.get())
-                .add(ModItems.BRICK_BASALT.get())
-                .add(ModItems.BRICK_BLACKSTONE.get())
-                .add(ModItems.BRICK_CALCITE.get())
-                .add(ModItems.BRICK_DEEPSLATE.get())
-                .add(ModItems.BRICK_DIORITE.get())
-                .add(ModItems.BRICK_DRIPSTONE.get())
-                .add(ModItems.BRICK_GRANITE.get())
-                .add(ModItems.BRICK_NETHERRACK.get())
-                .add(ModItems.BRICK_RED_SANDSTONE.get())
-                .add(ModItems.BRICK_SANDSTONE.get())
                 .add(ModItems.BRICK_STONE.get())
-                .add(ModItems.BRICK_TUFF.get())
-                .add(ModItems.BRICK_ENDSTONE.get());
+                .add(ModItems.BRICK_DEEPSLATE.get())
+                .add(ModItems.BRICK_NETHERRACK.get())
+                .add(ModItems.BRICK_ENDSTONE.get())
+                .add(ModItems.BRICK_BROWN.get())
+                .add(ModItems.BRICK_WHITE.get())
+                .add(ModItems.BRICK_BLACK.get())
+                .add(ModItems.BRICK_SAND.get())
+                .add(ModItems.BRICK_RED_SAND.get());
+
+        tag(ModTags.COBBLESTONES)
+                .add(ModBlocks.COBBLESTONE_ANDESITE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_BASALT.get().asItem())
+                .add(ModBlocks.COBBLESTONE_BLACKSTONE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_CALCITE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_DEEPSLATE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_DIORITE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_DRIPSTONE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_GRANITE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_NETHERRACK.get().asItem())
+                .add(ModBlocks.COBBLESTONE_RED_SANDSTONE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_SANDSTONE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_STONE.get().asItem())
+                .add(ModBlocks.COBBLESTONE_TUFF.get().asItem())
+                .add(ModBlocks.COBBLESTONE_ENDSTONE.get().asItem());
+
+        tag(ModTags.BRICK_BLOCKS)
+                .add(ModBlocks.STONE_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.DEEPSLATE_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.NETHERRACK_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.ENDSTONE_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.BROWN_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.WHITE_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.BLACK_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.SAND_BRICK_BLOCK.get().asItem())
+                .add(ModBlocks.RED_SAND_BRICK_BLOCK.get().asItem());
 
 
         tag(ModTags.LIGHTERS)
@@ -157,17 +176,32 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ModItems.FLINT_SHOVEL.get());
 
 
-        tag(ModTags.DUSTS_STONE_OVERWORLD)
-                .add(ModItems.DUST_ANDESITE.get())
-                .add(ModItems.DUST_BASALT.get())
-                .add(ModItems.DUST_BLACKSTONE.get())
-                .add(ModItems.DUST_CALCITE.get())
-                .add(ModItems.DUST_DEEPSLATE.get())
-                .add(ModItems.DUST_DIORITE.get())
-                .add(ModItems.DUST_DRIPSTONE.get())
-                .add(ModItems.DUST_GRANITE.get())
-                .add(ModItems.DUST_STONE.get())
-                .add(ModItems.DUST_TUFF.get());
+
+        tag(ModTags.LOW_HEAT_WOOD)
+                .add(ModItems.LOG_ACACIA.get())
+                .add(ModItems.LOG_JUNGLE.get())
+                .add(ModItems.PLANK_ACACIA.get())
+                .add(ModItems.PLANK_JUNGLE.get());
+
+        tag(ModTags.MED_HEAT_WOOD)
+                .add(ModItems.LOG_BIRCH.get())
+                .add(ModItems.LOG_CHERRY.get())
+                .add(ModItems.LOG_DARK_OAK.get())
+                .add(ModItems.PLANK_BIRCH.get())
+                .add(ModItems.PLANK_CHERRY.get())
+                .add(ModItems.PLANK_DARK_OAK.get());
+
+        tag(ModTags.HIGH_HEAT_WOOD)
+                .add(ModItems.LOG_MANGROVE.get())
+                .add(ModItems.LOG_OAK.get())
+                .add(ModItems.PLANK_MANGROVE.get())
+                .add(ModItems.PLANK_OAK.get());
+
+        tag(ModTags.NETHER_HEAT_WOOD)
+                .add(ModItems.LOG_WARPED.get())
+                .add(ModItems.LOG_CRIMSON.get())
+                .add(ModItems.PLANK_WARPED.get())
+                .add(ModItems.PLANK_CRIMSON.get());
 
 
     }

@@ -31,5 +31,7 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<WorkBenchBE>> WORK_BENCH = BLOCK_ENTITIES.register("workbench",
             () -> BlockEntityType.Builder.of(WorkBenchBE::new, ModBlocks.WORK_BENCH.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<ClayPotBE>> CLAY_POT = BLOCK_ENTITIES.register("clay_pot",
+            () -> BlockEntityType.Builder.of(ClayPotBE::new, ModBlocks.CLAY_POT.get()).build(null));
 
 }

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dust_white_with_hammer_from_chunk_diorite"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haschunk_diorite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:chunk_diorite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haschunk_diorite",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dust_white_with_hammer_from_chunk_diorite"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -73,7 +73,6 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
         }
 
         int newBurnTime = blockEntity.burnTime - 1;
-        System.out.println("burn time " + newBurnTime);
         if(newBurnTime <= 0){
             level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
