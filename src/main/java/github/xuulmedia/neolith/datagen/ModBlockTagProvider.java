@@ -18,9 +18,10 @@ import java.util.concurrent.CompletableFuture;
 
 public class ModBlockTagProvider extends BlockTagsProvider {
 
-    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider,  @Nullable ExistingFileHelper existingFileHelper) {
+    public ModBlockTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> lookupProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, lookupProvider, Neolith.MODID, existingFileHelper);
     }
+
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
@@ -89,18 +90,62 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(ModBlocks.COBBLESTONE_ENDSTONE.get())
                 .add(ModBlocks.ORE_TIN.get())
                 .add(ModBlocks.ORE_SILVER.get());
-//
-//        tag(BlockTags.CAMPFIRES)
-//                .add(ModBlocks.CAMPFIRE.get());
 
+//        tag(BlockTags.MINEABLE_WITH_AXE);
+//        tag(BlockTags.MINEABLE_WITH_HOE);
 
+        tag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .add(ModBlocks.ORE_CLAY.get());
 
 
 
         /*Harvest Levels*/
 
-        tag(Tags.Blocks.NEEDS_WOOD_TOOL)
-                .remove(Blocks.COAL_ORE);
+        tag(BlockTags.NEEDS_STONE_TOOL)
+                .remove(Blocks.COAL_ORE)
+                .remove(Blocks.IRON_BLOCK)
+                .remove(Blocks.RAW_IRON_BLOCK)
+                .remove(Blocks.IRON_ORE)
+                .remove(Blocks.DEEPSLATE_IRON_ORE)
+                .remove(Blocks.LAPIS_BLOCK)
+                .remove(Blocks.LAPIS_ORE)
+                .remove(Blocks.DEEPSLATE_LAPIS_ORE)
+                .remove(Blocks.COPPER_BLOCK)
+                .remove(Blocks.RAW_COPPER_BLOCK)
+                .remove(Blocks.COPPER_ORE)
+                .remove(Blocks.DEEPSLATE_COPPER_ORE)
+                .remove(Blocks.CUT_COPPER_SLAB)
+                .remove(Blocks.CUT_COPPER_STAIRS)
+                .remove(Blocks.CUT_COPPER)
+                .remove(Blocks.WEATHERED_COPPER)
+                .remove(Blocks.WEATHERED_CUT_COPPER_SLAB)
+                .remove(Blocks.WEATHERED_CUT_COPPER_STAIRS)
+                .remove(Blocks.WEATHERED_CUT_COPPER)
+                .remove(Blocks.OXIDIZED_COPPER)
+                .remove(Blocks.OXIDIZED_CUT_COPPER_SLAB)
+                .remove(Blocks.OXIDIZED_CUT_COPPER_STAIRS)
+                .remove(Blocks.OXIDIZED_CUT_COPPER)
+                .remove(Blocks.EXPOSED_COPPER)
+                .remove(Blocks.EXPOSED_CUT_COPPER_SLAB)
+                .remove(Blocks.EXPOSED_CUT_COPPER_STAIRS)
+                .remove(Blocks.EXPOSED_CUT_COPPER)
+                .remove(Blocks.WAXED_COPPER_BLOCK)
+                .remove(Blocks.WAXED_CUT_COPPER_SLAB)
+                .remove(Blocks.WAXED_CUT_COPPER_STAIRS)
+                .remove(Blocks.WAXED_CUT_COPPER)
+                .remove(Blocks.WAXED_WEATHERED_COPPER)
+                .remove(Blocks.WAXED_WEATHERED_CUT_COPPER_SLAB)
+                .remove(Blocks.WAXED_WEATHERED_CUT_COPPER_STAIRS)
+                .remove(Blocks.WAXED_WEATHERED_CUT_COPPER)
+                .remove(Blocks.WAXED_EXPOSED_COPPER)
+                .remove(Blocks.WAXED_EXPOSED_CUT_COPPER_SLAB)
+                .remove(Blocks.WAXED_EXPOSED_CUT_COPPER_STAIRS)
+                .remove(Blocks.WAXED_EXPOSED_CUT_COPPER)
+                .remove(Blocks.WAXED_OXIDIZED_COPPER)
+                .remove(Blocks.WAXED_OXIDIZED_CUT_COPPER_SLAB)
+                .remove(Blocks.WAXED_OXIDIZED_CUT_COPPER_STAIRS)
+                .remove(Blocks.WAXED_OXIDIZED_CUT_COPPER)
+                .remove(Blocks.LIGHTNING_ROD);
 
         tag(ModTags.NEEDS_FLINT_TOOL)
                 .add(ModBlocks.ORE_TIN.get())
@@ -111,27 +156,30 @@ public class ModBlockTagProvider extends BlockTagsProvider {
 
         tag(ModTags.NEEDS_BRONZE_TOOL)
                 .addTag(BlockTags.IRON_ORES)
-                .addTag(BlockTags.COAL_ORES);
+                .addTags(BlockTags.LAPIS_ORES)
+                .add(Blocks.NETHER_QUARTZ_ORE)
+                .add(Blocks.DEEPSLATE);
 
 
-        tag(BlockTags.NEEDS_IRON_TOOL);
+        tag(BlockTags.NEEDS_IRON_TOOL)
+                .addTag(BlockTags.GOLD_ORES)
+                .addTag(BlockTags.REDSTONE_ORES)
+                .addTag(BlockTags.COAL_ORES)
+                .add(Blocks.NETHERRACK);
 
-        tag(BlockTags.NEEDS_DIAMOND_TOOL);
+        tag(ModTags.NEEDS_STEEL_TOOL)
+                .addTag(BlockTags.DIAMOND_ORES)
+                .addTags(BlockTags.EMERALD_ORES)
+                .add(ModBlocks.ORE_SILVER.get())
+                .add(Blocks.END_STONE);
 
 
-        tag(BlockTags.MINEABLE_WITH_AXE);
-        tag(BlockTags.MINEABLE_WITH_HOE);
-        tag(BlockTags.MINEABLE_WITH_PICKAXE);
-        tag(BlockTags.MINEABLE_WITH_SHOVEL)
-                .add(ModBlocks.ORE_CLAY.get());
 
-        tag(Tags.Blocks.ORES)
-                .add(ModBlocks.ORE_TIN.get());
+
+
 
 
     }
-
-
 
 
 }

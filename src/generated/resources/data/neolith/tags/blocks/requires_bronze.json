@@ -1,6 +1,8 @@
 {
   "values": [
     "#minecraft:iron_ores",
-    "#minecraft:coal_ores"
+    "#minecraft:lapis_ores",
+    "minecraft:nether_quartz_ore",
+    "minecraft:deepslate"
   ]
 }

@@ -285,6 +285,24 @@ public class ModItems {
     /* VANILLA    */
     /************/
 
+
+    public static final RegistryObject<?> WOODEN_SWORD = registerVanillaItem("wooden_sword", () ->  new SwordItem(Tiers.WOOD, 3, -2.4F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_SHOVEL = registerVanillaItem("wooden_shovel", () ->  new ShovelItem(Tiers.WOOD, 1.5F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_PICKAXE = registerVanillaItem("wooden_pickaxe", () ->  new PickaxeItem(Tiers.WOOD, 1, -2.8F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_AXE = registerVanillaItem("wooden_axe", () ->  new AxeItem(Tiers.WOOD, 6.0F, -3.2F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_HOE = registerVanillaItem("wooden_hoe", () ->  new HoeItem(Tiers.WOOD, 0, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_SWORD = registerVanillaItem("stone_sword", () ->  new SwordItem(Tiers.STONE, 3, -2.4F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_SHOVEL = registerVanillaItem("stone_shovel", () ->  new ShovelItem(Tiers.STONE, 1.5F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_PICKAXE = registerVanillaItem("stone_pickaxe", () ->  new PickaxeItem(Tiers.STONE, 1, -2.8F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_AXE = registerVanillaItem("stone_axe", () ->  new AxeItem(Tiers.STONE, 7.0F, -3.2F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_HOE = registerVanillaItem("stone_hoe", () ->  new HoeItem(Tiers.STONE, -1, -2.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_SWORD = registerVanillaItem("golden_sword", () ->  new SwordItem(Tiers.GOLD, 3, -2.4F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_SHOVEL = registerVanillaItem("golden_shovel", () ->  new ShovelItem(Tiers.GOLD, 1.5F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_PICKAXE = registerVanillaItem("golden_pickaxe", () ->  new PickaxeItem(Tiers.GOLD, 1, -2.8F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_AXE = registerVanillaItem("golden_axe", () ->  new AxeItem(Tiers.GOLD, 6.0F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_HOE = registerVanillaItem("golden_hoe", () ->  new HoeItem(Tiers.GOLD, 0, -3.0F, new Item.Properties().durability(1)));
+
+
 //Danger foods
     public static final RegistryObject<Item> ROTTEN_FLESH = createVanillaFood("rotten_flesh", ModFoodProperties.RAW_MEAT);
     public static final RegistryObject<Item> SPIDER_EYE = createVanillaFood("spider_eye", ModFoodProperties.DANGER);
