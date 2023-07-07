@@ -46,16 +46,20 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(Items.WEEPING_VINES);
 
         tag(ModTags.HAMMERS)
-                .add(ModItems.STONE_HAMMER.get());
+                .add(ModItems.STONE_HAMMER.get())
+                .add(ModItems.BRONZE_HAMMER.get());
 
         tag(ModTags.SAWS)
-                .add(ModItems.FLINT_SAW.get());
+                .add(ModItems.FLINT_SAW.get())
+                .add(ModItems.BRONZE_SAW.get());
 
         tag(ModTags.KNIVES)
-                .add(ModItems.FLINT_KNIFE.get());
+                .add(ModItems.FLINT_KNIFE.get())
+                .add(ModItems.BRONZE_KNIFE.get());
 
         tag(ModTags.SHOVELS)
-                .add(ModItems.FLINT_SHOVEL.get());
+                .add(ModItems.FLINT_SHOVEL.get())
+                .add(ModItems.BRONZE_SHOVEL.get());
 
 
 

@@ -193,12 +193,12 @@ public class ModLanguageProvider extends LanguageProvider {
 
 //        add(ModItems.BASKET.get(), "Basket");
 
-        add(ModItems.UNFIRED_CLAY_JUG.get(), "Unfired Jug");
+        add(ModItems.UNFIRED_CLAY_POT.get(), "Unfired Jug");
         add(ModItems.UNFIRED_CLAY_BUCKET.get(), "Unfired Clay Bucket");
         add(ModItems.UNFIRED_CLAY_BOTTLE.get(), "Unfired Clay Bottle");
         add(ModItems.UNFIRED_CLAY_BOWL.get(), "Unfired Clay Bowl");
 
-        add(ModItems.CLAY_VIAL.get(), "Clay Vial");
+        add(ModItems.CLAY_BOTTLE.get(), "Clay Vial");
         add(ModItems.CLAY_BOWL.get(), "Clay Bowl");
 
         add(ModItems.BRONZE_SWORD.get(), "Bronze Sword");

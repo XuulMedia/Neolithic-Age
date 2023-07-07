@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "neolith:item/tools/toolhead_flint_pickaxe"
+    "layer0": "neolith:item/tools/flint/flint_pick_head"
   }
 }

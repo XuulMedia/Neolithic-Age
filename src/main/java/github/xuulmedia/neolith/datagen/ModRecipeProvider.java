@@ -9,8 +9,6 @@ import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModItems;
 import github.xuulmedia.neolith.init.ModTags;
 import github.xuulmedia.neolith.item.custom.FuelItem;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
-import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.core.NonNullList;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -47,6 +45,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         // high wood - 500
 
         //Items normally take 200 ticks or 10 seconds * 20 tick
+        final int VERY_SLOW_SMELT_TIME = 20 * 45;
         final int SLOW_SMELT_TIME = 20 * 30;
         final int STANDARD_SMELT_TIME = 20 * 10;
         final int FAST_SMELT_TIME = 20 * 5;
@@ -91,7 +90,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         disable(Blocks.CLAY, consumer);
 
 
-
         disableCookFood(Items.COOKED_BEEF, consumer);
         disableCookFood(Items.COOKED_CHICKEN, consumer);
         disableCookFood(Items.COOKED_COD, consumer);
@@ -133,7 +131,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         flintStation(Items.FLINT, ModItems.FLINT_SAW_HEAD.get(), consumer);
 
         /*metal processing*/
-        shapeless2to1(ModItems.DUST_TIN.get(), 1,ModItems.DUST_COPPER.get(), 1, ModItems.DUST_BRONZE.get(), consumer);
+        shapeless2to1(ModItems.DUST_TIN.get(), 1, ModItems.DUST_COPPER.get(), 1, ModItems.DUST_BRONZE.get(), consumer);
         shapeless3to1(ModItems.DUST_GOLD.get(), ModItems.DUST_IRON.get(), Items.REDSTONE, ModItems.DUST_OBSIDIAN.get(), consumer);
 
 
@@ -228,15 +226,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         forgeRecipe(ModItems.CLAY_SAND.get(), ModItems.BRICK_SAND.get(), 250, STANDARD_SMELT_TIME, consumer);
         forgeRecipe(ModItems.CLAY_RED_SAND.get(), ModItems.BRICK_RED_SAND.get(), 250, STANDARD_SMELT_TIME, consumer);
 
-        campfireCook(ModItems.CLAY_STONE.get(), ModItems.BRICK_STONE.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_DEEPSLATE.get(), ModItems.BRICK_DEEPSLATE.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_NETHERRACK.get(), ModItems.BRICK_NETHERRACK.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_ENDSTONE.get(), ModItems.BRICK_ENDSTONE.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_BROWN.get(), ModItems.BRICK_BROWN.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_WHITE.get(), ModItems.BRICK_WHITE.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_BLACK.get(), ModItems.BRICK_BLACK.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_SAND.get(), ModItems.BRICK_SAND.get(),3,SLOW_SMELT_TIME, consumer);
-        campfireCook(ModItems.CLAY_RED_SAND.get(), ModItems.BRICK_RED_SAND.get(),3,SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_STONE.get(), ModItems.BRICK_STONE.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_DEEPSLATE.get(), ModItems.BRICK_DEEPSLATE.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_NETHERRACK.get(), ModItems.BRICK_NETHERRACK.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_ENDSTONE.get(), ModItems.BRICK_ENDSTONE.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_BROWN.get(), ModItems.BRICK_BROWN.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_WHITE.get(), ModItems.BRICK_WHITE.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_BLACK.get(), ModItems.BRICK_BLACK.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_SAND.get(), ModItems.BRICK_SAND.get(), 3, SLOW_SMELT_TIME, consumer);
+        campfireCook(ModItems.CLAY_RED_SAND.get(), ModItems.BRICK_RED_SAND.get(), 3, SLOW_SMELT_TIME, consumer);
 
         //Brick blocks
         createBrickBlock(ModItems.BRICK_STONE.get(), ModBlocks.STONE_BRICK_BLOCK.get(), consumer);
@@ -245,10 +243,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         createBrickBlock(ModItems.BRICK_ENDSTONE.get(), ModBlocks.ENDSTONE_BRICK_BLOCK.get(), consumer);
         createBrickBlock(ModItems.BRICK_BROWN.get(), ModBlocks.BROWN_BRICK_BLOCK.get(), consumer);
         createBrickBlock(ModItems.BRICK_WHITE.get(), ModBlocks.WHITE_BRICK_BLOCK.get(), consumer);
-        createBrickBlock(ModItems.BRICK_BLACK.get(),ModBlocks.BLACK_BRICK_BLOCK.get(), consumer);
+        createBrickBlock(ModItems.BRICK_BLACK.get(), ModBlocks.BLACK_BRICK_BLOCK.get(), consumer);
         createBrickBlock(ModItems.BRICK_SAND.get(), ModBlocks.SAND_BRICK_BLOCK.get(), consumer);
         createBrickBlock(ModItems.BRICK_RED_SAND.get(), ModBlocks.RED_SAND_BRICK_BLOCK.get(), consumer);
-
 
 
         //Smashing metal
@@ -301,13 +298,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
         /*CLAY Containers*/
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.UNFIRED_CLAY_JUG.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.UNFIRED_CLAY_POT.get())
+                .pattern(" x ")
                 .pattern("xxx")
+                .pattern("xxx")
+                .define('x', ModTags.CLAY)
+                .unlockedBy("has_clay", has(ModTags.CLAY))
+                .save(consumer, toResultRL(ModItems.UNFIRED_CLAY_POT.get()));
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.UNFIRED_CLAY_BOTTLE.get())
+                .pattern("x x")
+                .pattern(" x ")
+                .define('x', ModTags.CLAY)
+                .unlockedBy("has_clay", has(ModTags.CLAY))
+                .save(consumer, toResultRL(ModItems.UNFIRED_CLAY_BOTTLE.get()));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.UNFIRED_CLAY_BOWL.get())
                 .pattern("x x")
                 .pattern("xxx")
                 .define('x', ModTags.CLAY)
                 .unlockedBy("has_clay", has(ModTags.CLAY))
-                .save(consumer, toResultRL(ModItems.UNFIRED_CLAY_JUG.get()));
+                .save(consumer, toResultRL(ModItems.UNFIRED_CLAY_BOWL.get()));
 
         ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.UNFIRED_CLAY_BUCKET.get())
                 .pattern("x x")
@@ -317,22 +329,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_clay", has(ModTags.CLAY))
                 .save(consumer, toResultRL(ModItems.UNFIRED_CLAY_BUCKET.get()));
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.DECORATIONS, ModItems.UNFIRED_CLAY_BOTTLE.get())
-                .pattern("x x")
-                .pattern(" x ")
-                .define('x', ModTags.CLAY)
-                .unlockedBy("has_clay", has(ModTags.CLAY))
-                .save(consumer, toResultRL(ModItems.UNFIRED_CLAY_BOTTLE.get()));
+
+        campfireCook(ModItems.UNFIRED_CLAY_POT.get(), ModBlocks.CLAY_POT.get(), 2, VERY_SLOW_SMELT_TIME, consumer);
+        forgeRecipe(ModItems.UNFIRED_CLAY_POT.get(), ModBlocks.CLAY_POT.get(), 300, SLOW_SMELT_TIME, consumer);
+
+        campfireCook(ModItems.UNFIRED_CLAY_BOTTLE.get(), ModItems.CLAY_BOTTLE.get(), 2, SLOW_SMELT_TIME, consumer);
+        forgeRecipe(ModItems.UNFIRED_CLAY_BOTTLE.get(), ModItems.CLAY_BOTTLE.get(), 300, STANDARD_SMELT_TIME, consumer);
+
+        campfireCook(ModItems.UNFIRED_CLAY_BOWL.get(), ModItems.CLAY_BOWL.get(), 2, SLOW_SMELT_TIME, consumer);
+        forgeRecipe(ModItems.UNFIRED_CLAY_BOWL.get(), ModItems.CLAY_BOWL.get(), 300, STANDARD_SMELT_TIME, consumer);
 
 
-        /*Wood Chest*/
-        ShapedRecipeBuilder.shaped(RecipeCategory.BUILDING_BLOCKS, Items.CHEST)
-                .pattern("xxx")
-                .pattern("x x")
-                .pattern("xxx")
-                .define('x', ModTags.PLANKS)
-                .unlockedBy("planks", has(ModTags.PLANKS))
-                .save(consumer);
+        /*Storage*/
 
 
 //        /*Crafting Stations*/
@@ -364,7 +372,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .define('x', ModTags.BRICKS)
                 .unlockedBy("bricks", has(ModTags.BRICKS))
                 .save(consumer, RL("workstations/forge"));
-
 
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, Blocks.DISPENSER)
@@ -470,6 +477,92 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         simpleShapeless(Items.STICK, 2, ModItems.BASIC_FIRESTARTER.get(), consumer);
 
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BRONZE_KNIFE.get())
+                .pattern("I")
+                .pattern("T")
+                .define('I', ModItems.INGOT_BRONZE.get())
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_knife"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_PICK.get())
+                .pattern("III")
+                .pattern(" x ")
+                .pattern(" T ")
+                .define('I', ModItems.INGOT_BRONZE.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_pick"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_SHOVEL.get())
+                .pattern("I")
+                .pattern("x")
+                .pattern("T")
+                .define('I', ModItems.INGOT_BRONZE.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_shovel"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_AXE.get())
+                .pattern("II")
+                .pattern("Ix")
+                .pattern(" T")
+                .define('I', ModItems.INGOT_BRONZE.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_axe"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_HOE.get())
+                .pattern("II")
+                .pattern(" x")
+                .pattern(" T")
+                .define('I', ModItems.INGOT_BRONZE.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_hoe"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BRONZE_SAW.get())
+                .pattern("TTT")
+                .pattern("IIx")
+                .pattern("  T")
+                .define('I', ModItems.INGOT_BRONZE.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_saw"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BRONZE_HAMMER.get())
+                .pattern("O")
+                .pattern("x")
+                .pattern("T")
+                .define('O', ModItems.BRONZE_HAMMER_HEAD.get())
+                .define('x', ModTags.BINDINGS)
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_hammer"));
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, ModItems.BRONZE_SWORD.get())
+                .pattern("I")
+                .pattern("I")
+                .pattern("T")
+                .define('I', ModItems.INGOT_BRONZE.get())
+                .define('T', Items.STICK)
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_sword"));
+
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.BRONZE_HAMMER_HEAD.get())
+                .pattern("OOO")
+                .pattern("OOO")
+                .define('O', ModItems.INGOT_BRONZE.get())
+                .unlockedBy("has_bronze", has(ModItems.INGOT_BRONZE.get()))
+                .save(consumer, RL("bronze_hammer_head"));
+
+
 //
 //        /*Foundry Fuels*/ // maybe bake cook time into the items
 
@@ -497,7 +590,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
 
     }
-
 
 
     /*Helpers*/
@@ -565,9 +657,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(ingredient2, 1)
                 .requires(ingredient3, 1)
                 .unlockedBy("has" + getItemName(ingredient), has(ingredient))
-                .save(consumer, RL(getItemName(result) + "_from_" + getItemName(ingredient) + "_and_" + getItemName(ingredient2) +"_and_" + getItemName(ingredient3)));
+                .save(consumer, RL(getItemName(result) + "_from_" + getItemName(ingredient) + "_and_" + getItemName(ingredient2) + "_and_" + getItemName(ingredient3)));
     }
-
 
 
     private static void createBrickBlock(ItemLike brickItem, ItemLike brickBlock, Consumer<FinishedRecipe> consumer) {
@@ -607,10 +698,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ingredient), RecipeCategory.MISC, result, experience, cookingTime).unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, RL("campfire/" + getItemName(result) + "_with_campfire_from_" + getItemName(ingredient)));
     }
+
     private static void campfireCookFood(ItemLike ingredient, ItemLike result, float experience, int cookingTime, Consumer<FinishedRecipe> consumer) {
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ingredient), RecipeCategory.FOOD, result, experience, cookingTime).unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, RL("campfire/" + getItemName(result) + "_with_campfire_from_" + getItemName(ingredient)));
     }
+
     private static void forgeRecipe(ItemLike ingredient, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.forgeStationRecipe(
                         NonNullList.of(null, Ingredient.of(ingredient)),
@@ -657,7 +750,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
 
-    private static void foundryRecipe3to1(ItemLike ingredient1, ItemLike ingredient2, ItemLike ingredient3 ,ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
+    private static void foundryRecipe3to1(ItemLike ingredient1, ItemLike ingredient2, ItemLike ingredient3, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.foundryRecipe(
                         NonNullList.of(null, Ingredient.of(ingredient1), Ingredient.of(ingredient2), Ingredient.of(ingredient3)),
                         NonNullList.of(null, result.asItem().getDefaultInstance()),
@@ -665,7 +758,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                         10,
                         cookTime)
                 .unlockedBy("has_foundry", has(ModBlocks.FOUNDRY.get()))
-                .save(consumer, RL("foundry/3to1/" + getItemName(result) + "_from_" + getItemName(ingredient1) + "_and_" + getItemName(ingredient2)+ "_and_" +getItemName(ingredient3)));
+                .save(consumer, RL("foundry/3to1/" + getItemName(result) + "_from_" + getItemName(ingredient1) + "_and_" + getItemName(ingredient2) + "_and_" + getItemName(ingredient3)));
     }
 
     private static void foundryRecipe2to2(ItemLike ingredient1, ItemLike ingredient2, ItemLike result1, ItemLike result2, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
@@ -702,21 +795,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(recipeConsumer, new ResourceLocation(getItemName(result)));
     }
 
-    private static void disableProcessOre(ItemLike ingredient,  ItemLike result, Consumer<FinishedRecipe> consumer){
+    private static void disableProcessOre(ItemLike ingredient, ItemLike result, Consumer<FinishedRecipe> consumer) {
         new DisableRecipeBuilder(result.asItem())
-                .save(consumer,new ResourceLocation(getItemName(result) + "_from_smelting_" + getItemName(ingredient)));
+                .save(consumer, new ResourceLocation(getItemName(result) + "_from_smelting_" + getItemName(ingredient)));
 
         new DisableRecipeBuilder(result.asItem()).save(consumer,
                 new ResourceLocation(getItemName(result) + "_from_blasting_" + getItemName(ingredient)));
 
     }
 
-    private static void disableCookFood(ItemLike result,  Consumer<FinishedRecipe> consumer){
+    private static void disableCookFood(ItemLike result, Consumer<FinishedRecipe> consumer) {
         new DisableRecipeBuilder(result.asItem())
-                .save(consumer,new ResourceLocation(getItemName(result)));
+                .save(consumer, new ResourceLocation(getItemName(result)));
 
         new DisableRecipeBuilder(result.asItem())
-                .save(consumer,  new ResourceLocation(getItemName(result) + "_from_smoking"));
+                .save(consumer, new ResourceLocation(getItemName(result) + "_from_smoking"));
 
         new DisableRecipeBuilder(result.asItem())
                 .save(consumer, new ResourceLocation(getItemName(result) + "_from_campfire_cooking"));

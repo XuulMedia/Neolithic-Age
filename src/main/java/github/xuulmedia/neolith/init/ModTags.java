@@ -50,6 +50,7 @@ public class ModTags {
     public static final TagKey<Block> MINEABLE_WITH_HAMMER = createBlockTag("mineable/needs_hammer");
     public static final TagKey<Block> NEEDS_FLINT_TOOL = createBlockTag("requires_flint");
     public static final TagKey<Block> NEEDS_BRONZE_TOOL = createBlockTag("requires_bronze");
+    public static final TagKey<Block> NEEDS_IRON_TOOL = createBlockTag("requires_iron");
     public static final TagKey<Block> NEEDS_STEEL_TOOL = createBlockTag("requires_steel");
 
 

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/clay_bottle_with_forge_from_unfired_clay_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasunfired_clay_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:unfired_clay_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasunfired_clay_bottle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/clay_bottle_with_forge_from_unfired_clay_bottle"
+    ]
+  },
+  "sends_telemetry_event": true
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "O": {
+      "item": "neolith:ingot_bronze"
+    }
+  },
+  "pattern": [
+    "OOO",
+    "OOO"
+  ],
+  "result": {
+    "item": "neolith:bronze_hammer_head"
+  },
+  "show_notification": true
+}

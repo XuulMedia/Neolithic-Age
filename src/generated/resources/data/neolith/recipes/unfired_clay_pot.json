@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "x": {
+      "tag": "neolith:clay"
+    }
+  },
+  "pattern": [
+    " x ",
+    "xxx",
+    "xxx"
+  ],
+  "result": {
+    "item": "neolith:unfired_clay_pot"
+  },
+  "show_notification": true
+}

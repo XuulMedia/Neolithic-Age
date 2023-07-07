@@ -1,5 +1,7 @@
 package github.xuulmedia.neolith.datagen.loot;
 
+import github.xuulmedia.neolith.block.entity.ClayPotBE;
+import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModItems;
 import github.xuulmedia.neolith.init.ModTags;
@@ -7,23 +9,22 @@ import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
-import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.ApplyExplosionDecay;
-import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
+import net.minecraft.world.level.storage.loot.entries.*;
+import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
@@ -41,7 +42,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
     protected static final LootItemCondition.Builder HAS_KNIFE = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.KNIVES));
     protected static final LootItemCondition.Builder HAS_HAMMER = MatchTool.toolMatches(ItemPredicate.Builder.item().of(ModTags.HAMMERS));
 
-    private static final float[] LEAVES_SAPLING_CHANCES = new float[]{0.05F, 0.0625F, 0.083333336F, 0.1F};
+    private static final float[] LEAVES_SAPLING_CHANCES = new float[]{0.01F, 0.025F, 0.083333336F, 0.1F};
     private static final float[] JUNGLE_LEAVES_SAPLING_CHANGES = new float[]{0.025F, 0.027777778F, 0.03125F, 0.041666668F, 0.1F};
     protected static final float[] MODDED_LEAVES_STICK_CHANCES = new float[]{0.4F, 0.444444444F, 0.45F, 0.5555555F, 1F};
 
@@ -93,7 +94,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
         dropSelf(ModBlocks.FORGE.get());
         dropSelf(ModBlocks.FOUNDRY.get());
         dropSelf(ModBlocks.WORK_BENCH.get());
-        dropSelf(ModBlocks.CLAY_POT.get());
+        createStandardTable(ModBlocks.CLAY_POT.get(), ModBlockEntities.CLAY_POT.get(), ClayPotBE.TAG_INVENTORY);
         dropOther(ModBlocks.CAMPFIRE.get(), Items.STICK);
 
         dropSelf(ModBlocks.THATCH.get());
@@ -303,6 +304,20 @@ public class ModBlockLoot extends VanillaBlockLoot {
                 );
 
         this.add(block, LootTable.lootTable().withPool(builder));
+    }
+
+    private void createStandardTable(Block block, BlockEntityType<?> type, String... tags) {
+        LootPoolSingletonContainer.Builder<?> lti = LootItem.lootTableItem(block);
+        lti.apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY));
+        for (String tag : tags) {
+            lti.apply(CopyNbtFunction.copyData(ContextNbtProvider.BLOCK_ENTITY).copy(tag, "BlockEntityTag." + tag, CopyNbtFunction.MergeStrategy.REPLACE));
+        }
+        lti.apply(SetContainerContents.setContents(type).withEntry(DynamicLoot.dynamicEntry(new ResourceLocation("minecraft", "contents"))));
+
+        LootPool.Builder builder = LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1))
+                .add(lti);
+        add(block, LootTable.lootTable().withPool(builder));
     }
 
     protected static LootTable.Builder createSelfDropDispatchTable(Block p_252253_, LootItemCondition.Builder p_248764_, LootPoolEntryContainer.Builder<?> p_249146_) {

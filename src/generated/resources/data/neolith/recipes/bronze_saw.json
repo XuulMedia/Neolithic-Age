@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "I": {
+      "item": "neolith:ingot_bronze"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    "TTT",
+    "IIx",
+    "  T"
+  ],
+  "result": {
+    "item": "neolith:bronze_saw"
+  },
+  "show_notification": true
+}

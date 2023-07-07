@@ -7,10 +7,9 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.GravelBlock;
-import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
-import net.minecraft.world.level.material.MapColor;
+import net.minecraftforge.common.ForgeTier;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -53,25 +52,47 @@ public class ModItems {
 
     /*Stone age tools*/
     public static final RegistryObject<SwordItem> FLINT_KNIFE = registerStoneAgeItem("flint_knife",
-            () -> new SwordItem(ModToolMaterials.FLINT, 4, 1.6f, new Item.Properties().durability(50 * 2))); //double durability because sword takes 2 when mining with it
+            () -> createKnife(ModToolMaterials.FLINT));
     public static final RegistryObject<PickaxeItem> FLINT_PICK = registerStoneAgeItem("flint_pickaxe",
-            () -> new PickaxeItem(ModToolMaterials.FLINT, 2, 1.2f, new Item.Properties().durability(50)));
+            () -> createPick(ModToolMaterials.FLINT));
     public static final RegistryObject<ShovelItem> FLINT_SHOVEL = registerStoneAgeItem("flint_shovel",
-            () -> new ModShovelItem(ModToolMaterials.FLINT, 1.25f, 1.0f, new Item.Properties().durability(50)));
+            () -> createShovel(ModToolMaterials.FLINT));
     public static final RegistryObject<AxeItem> FLINT_AXE = registerStoneAgeItem("flint_axe",
-            () -> new AxeItem(ModToolMaterials.FLINT, 7, 0.8f, new Item.Properties().durability(50)));
+            () -> createAxe(ModToolMaterials.FLINT));
     public static final RegistryObject<HoeItem> FLINT_HOE = registerStoneAgeItem("flint_hoe",
-            () -> new HoeItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
+            () -> createHoe(ModToolMaterials.FLINT));
     public static final RegistryObject<SawItem> FLINT_SAW = registerStoneAgeItem("flint_saw",
-            () -> new SawItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
+            () -> createSaw(ModToolMaterials.FLINT));
     public static final RegistryObject<HammerItem> STONE_HAMMER = registerStoneAgeItem("stone_hammer",
-            () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().durability(50)));
+            () -> createHammer(ModToolMaterials.FLINT));
+
+
+    public static final RegistryObject<SwordItem> BRONZE_KNIFE = registerStoneAgeItem("bronze_knife",
+            () -> createKnife(ModToolMaterials.BRONZE));
+    public static final RegistryObject<PickaxeItem> BRONZE_PICK = registerStoneAgeItem("bronze_pick",
+            () -> createPick(ModToolMaterials.BRONZE));
+    public static final RegistryObject<ShovelItem> BRONZE_SHOVEL = registerStoneAgeItem("bronze_shovel",
+            () -> createShovel(ModToolMaterials.BRONZE));
+    public static final RegistryObject<AxeItem> BRONZE_AXE = registerStoneAgeItem("bronze_axe",
+            () -> createAxe(ModToolMaterials.BRONZE));
+    public static final RegistryObject<HoeItem> BRONZE_HOE = registerStoneAgeItem("bronze_hoe",
+            () -> createHoe(ModToolMaterials.BRONZE));
+    public static final RegistryObject<SawItem> BRONZE_SAW = registerStoneAgeItem("bronze_saw",
+            () -> createSaw(ModToolMaterials.BRONZE));
+    public static final RegistryObject<HammerItem> BRONZE_HAMMER = registerStoneAgeItem("bronze_hammer",
+            () -> createHammer(ModToolMaterials.BRONZE));
+    public static final RegistryObject<SwordItem> BRONZE_SWORD = registerStoneAgeItem("bronze_sword",
+            () -> createSword(ModToolMaterials.BRONZE));
+
+
+    //Other Tools
     public static final RegistryObject<TridentItem> STONE_SPEAR = registerStoneAgeItem("stone_spear",
             () -> new TridentItem(new Item.Properties().durability(50)));
     public static final RegistryObject<FireStarterItem> BASIC_FIRESTARTER = registerStoneAgeItem("firestarter",
             () -> new FireStarterItem(new Item.Properties().durability(2)));
     public static final RegistryObject<SpindleItem> SPINDLE = registerStoneAgeItem("spindle",
             () -> new SpindleItem(ModToolMaterials.FLINT, new Item.Properties().durability(100)));
+
 
     /*Containers*/
     public static final RegistryObject<BasketItem> BASKET = registerStoneAgeItem("basket",
@@ -85,23 +106,16 @@ public class ModItems {
     /*TODO cured hide*/
 
     /*Clay Objects*/
-    public static final RegistryObject<Item> UNFIRED_CLAY_JUG = registerStandardStoneAgeItem("unfired_clay_jug");
+    public static final RegistryObject<Item> UNFIRED_CLAY_POT = registerStandardStoneAgeItem("unfired_clay_pot");
     public static final RegistryObject<Item> UNFIRED_CLAY_BUCKET = registerStandardStoneAgeItem("unfired_clay_bucket");
     public static final RegistryObject<Item> UNFIRED_CLAY_BOTTLE = registerStandardStoneAgeItem("unfired_clay_bottle");
     public static final RegistryObject<Item> UNFIRED_CLAY_BOWL = registerStandardStoneAgeItem("unfired_clay_bowl");
 
 
-
-    public static final RegistryObject<Item> CLAY_JUG = registerStandardStoneAgeItem("clay_jug"); //Make into a block
     public static final RegistryObject<Item> CLAY_BUCKET = registerStandardStoneAgeItem("clay_bucket");
-    public static final RegistryObject<Item> CLAY_BOWL = registerStandardStoneAgeItem("clay_bottle");
-    public static final RegistryObject<BottleItem> CLAY_VIAL = registerStoneAgeItem("clay_vial",
+    public static final RegistryObject<Item> CLAY_BOWL = registerStandardStoneAgeItem("clay_bowl");
+    public static final RegistryObject<BottleItem> CLAY_BOTTLE = registerStoneAgeItem("clay_bottle",
             () -> new BottleItem(new Item.Properties()));
-
-
-
-
-
 
 
     /*TOOLHEADS*/
@@ -111,6 +125,8 @@ public class ModItems {
     public static final RegistryObject<Item> FLINT_AXE_HEAD = registerStandardStoneAgeItem("flint_axe_head");
     public static final RegistryObject<Item> FLINT_HOE_HEAD = registerStandardStoneAgeItem("flint_hoe_head");
     public static final RegistryObject<Item> FLINT_SAW_HEAD = registerStandardStoneAgeItem("flint_saw_head");
+
+    public static final RegistryObject<Item> BRONZE_HAMMER_HEAD = registerStandardStoneAgeItem("bronze_hammer_head");
 
     /*Logs*/
     public static final RegistryObject<FuelItem> LOG_ACACIA = createFuelItem("log_acacia", LOW_HEAT_WOOD, new Item.Properties());
@@ -198,17 +214,6 @@ public class ModItems {
     public static final RegistryObject<Item> BRICK_RED_SAND = registerStandardStoneAgeItem("brick_red_sand");
 
 
-
-
-
-
-
-
-
-
-
-
-
     /*Wool*/
     public static final RegistryObject<Item> WOOL = registerStandardStoneAgeItem("wool");
     public static final RegistryObject<Item> YARN = registerStandardStoneAgeItem("yarn");
@@ -227,18 +232,6 @@ public class ModItems {
             () -> new Item(new Item.Properties()
                     .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
 
-    /*TOOLS*/
-    //Req Material, Damage, attack speed and repair item
-    public static final RegistryObject<SwordItem> BRONZE_SWORD = registerMetalAgeItem("bronze_sword",
-            () -> new SwordItem(ModToolMaterials.BRONZE, 6, 1.6f, new Item.Properties()));
-    public static final RegistryObject<PickaxeItem> BRONZE_PICK = registerMetalAgeItem("bronze_pick",
-            () -> new PickaxeItem(ModToolMaterials.BRONZE, 4, 1.2f, new Item.Properties()));
-    public static final RegistryObject<ModShovelItem> BRONZE_SHOVEL = registerMetalAgeItem("bronze_shovel",
-            () -> new ModShovelItem(ModToolMaterials.BRONZE, 2.25f, 1.0f, new Item.Properties()));
-    public static final RegistryObject<AxeItem> BRONZE_AXE = registerMetalAgeItem("bronze_axe",
-            () -> new AxeItem(ModToolMaterials.BRONZE, 9, 0.9f, new Item.Properties()));
-    public static final RegistryObject<HoeItem> BRONZE_HOE = registerMetalAgeItem("bronze_hoe",
-            () -> new HoeItem(ModToolMaterials.BRONZE, 1, 3.0f, new Item.Properties()));
 
 
     /*Armor*/
@@ -344,11 +337,11 @@ public class ModItems {
     //GOOD FOODs
 //    public static final Item BEETROOT_SOUP = registerItem("beetroot_soup", new BowlFoodItem((new Item.Properties()).stacksTo(1).food(Foods.BEETROOT_SOUP)));
 
-    public static final RegistryObject<Item> BEETROOT_SOUP = registerVanillaItem("beetroot_soup", () -> new BowlFoodItem(new Item.Properties()
+    public static final RegistryObject<Item> BEETROOT_SOUP = registerVanillaItem("beetroot_soup", () -> new ClayBowlFoodItem(new Item.Properties()
             .stacksTo(1).food(ModFoodProperties.GOOD)));
-    public static final RegistryObject<Item> MUSHROOM_STEW = registerVanillaItem("mushroom_stew", () -> new BowlFoodItem(new Item.Properties()
+    public static final RegistryObject<Item> MUSHROOM_STEW = registerVanillaItem("mushroom_stew", () -> new ClayBowlFoodItem(new Item.Properties()
             .stacksTo(1).food(ModFoodProperties.GOOD)));
-    public static final RegistryObject<Item> RABBIT_STEW = registerVanillaItem("rabbit_stew", () ->  new BowlFoodItem(new Item.Properties()
+    public static final RegistryObject<Item> RABBIT_STEW = registerVanillaItem("rabbit_stew", () ->  new ClayBowlFoodItem(new Item.Properties()
             .stacksTo(1).food(ModFoodProperties.STEW)));
 
     public static final RegistryObject<Item> PUMPKIN_PIE = createVanillaFood("pumpkin_pie", ModFoodProperties.GOOD);
@@ -443,4 +436,54 @@ public class ModItems {
                 .requiresCorrectToolForDrops());
     }
 
+    private static SwordItem createKnife(ForgeTier tier){
+        return new SwordItem(tier, 3, -2.4F,new Item.Properties());
+    }
+    private static SwordItem createSword(ForgeTier tier){
+        return new SwordItem(tier, 2, -1.2F,new Item.Properties());
+    }
+    private static ModShovelItem createShovel(ForgeTier tier){
+        return new ModShovelItem(tier, 1.5F, -3F,new Item.Properties());
+    }
+    private static AxeItem createAxe(ForgeTier tier){
+        return new AxeItem(tier, 6.0F, -3.2F, new Item.Properties());
+    }
+    private static HoeItem createHoe(ForgeTier tier){
+        return new HoeItem(tier, -1, -2.0F, new Item.Properties());
+    }
+    private static PickaxeItem createPick(ForgeTier tier){
+        return new PickaxeItem(tier, 1, -2.8F, new Item.Properties());
+    }
+    private static HammerItem createHammer(ForgeTier tier){
+        return new HammerItem(tier, 7.5F, -4.5F, new Item.Properties());
+    }
+    private static SawItem createSaw(ForgeTier tier){
+        return new SawItem(tier, 1.5F, -2.4F, new Item.Properties());
+    }
+
+
+    /*    public static final RegistryObject<SwordItem> BRONZE_KNIFE = registerStoneAgeItem("flint_knife",
+            () -> new SwordItem(ModToolMaterials.BRONZE, 4, 1.6f, new Item.Properties().durability(50 * 2))); //double durability because sword takes 2 when mining with it
+    public static final RegistryObject<SwordItem> BRONZE_SWORD = registerMetalAgeItem("bronze_sword",
+            () -> new SwordItem(ModToolMaterials.BRONZE, 6, 1.6f, new Item.Properties()));
+    public static final RegistryObject<PickaxeItem> BRONZE_PICK = registerMetalAgeItem("bronze_pick",
+            () -> new PickaxeItem(ModToolMaterials.BRONZE, 4, 1.2f, new Item.Properties()));
+    public static final RegistryObject<ModShovelItem> BRONZE_SHOVEL = registerMetalAgeItem("bronze_shovel",
+            () -> new ModShovelItem(ModToolMaterials.BRONZE, 2.25f, 1.0f, new Item.Properties()));
+    public static final RegistryObject<AxeItem> BRONZE_AXE = registerMetalAgeItem("bronze_axe",
+            () -> new AxeItem(ModToolMaterials.BRONZE, 9, 0.9f, new Item.Properties()));
+    public static final RegistryObject<HoeItem> BRONZE_HOE = registerMetalAgeItem("bronze_hoe",
+            () -> new HoeItem(ModToolMaterials.BRONZE, 1, 3.0f, new Item.Properties()));
+
+    public static final RegistryObject<SawItem> FLINT_SAW = registerStoneAgeItem("flint_saw",
+            () -> new SawItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
+    public static final RegistryObject<HammerItem> STONE_HAMMER = registerStoneAgeItem("stone_hammer",
+            () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().durability(50)));
+
+*/
 }
+
+
+
+
+

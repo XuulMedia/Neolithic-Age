@@ -1,6 +1,6 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "neolith:item/tools/bronze_axe"
+    "layer0": "neolith:item/tools/bronze/bronze_axe"
   }
 }

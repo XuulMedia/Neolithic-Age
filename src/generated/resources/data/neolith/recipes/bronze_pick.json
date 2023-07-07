@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "item": "neolith:ingot_bronze"
+    },
+    "T": {
+      "item": "minecraft:stick"
+    },
+    "x": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    "III",
+    " x ",
+    " T "
+  ],
+  "result": {
+    "item": "neolith:bronze_pick"
+  },
+  "show_notification": true
+}

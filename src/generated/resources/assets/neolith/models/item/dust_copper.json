@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "neolith:item/dusts/dust_copper"
+    "layer0": "neolith:item/metals/dusts/dust_copper"
   }
 }

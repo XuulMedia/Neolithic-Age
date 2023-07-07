@@ -1,4 +1,4 @@
-// 1.20	2023-07-05T21:45:50.7058829	Loot Tables
+// 1.20	2023-07-06T15:54:56.3649307	Loot Tables
 c84087ffdfbce9f5a6fe4b23428d140e8374a552 data/minecraft/loot_tables/blocks/acacia_leaves.json
 6021a7b76b28b70df529b50b318a99f5694e9d68 data/minecraft/loot_tables/blocks/acacia_log.json
 715a31903a424ab11694afc1f664e73b55b09169 data/minecraft/loot_tables/blocks/acacia_planks.json
@@ -73,7 +73,7 @@ eea2231208b0d420c4d9ef761db553e3ae83dbdc data/neolith/loot_tables/blocks/bricks_
 ec21d13c164ea92241bb4185b4260cb8568fcdf0 data/neolith/loot_tables/blocks/bricks_stone.json
 d6ea54525de904f481d4715c67348734fd96395f data/neolith/loot_tables/blocks/bricks_white.json
 c0eae854f9c0e86ad9f979f0fa2de8d0ea2953f0 data/neolith/loot_tables/blocks/campfire.json
-27bd311d978183b885cdb07e74ebad322fe0d536 data/neolith/loot_tables/blocks/clay_pot.json
+271d471f7202f4da3471080f15af31af509ad360 data/neolith/loot_tables/blocks/clay_pot.json
 5e4f36b25452355b911df166340c4f83d4cb5f32 data/neolith/loot_tables/blocks/cobblestone_andesite.json
 4fec6c866a2a897f9db5d46cd0d1f84f7dadc325 data/neolith/loot_tables/blocks/cobblestone_basalt.json
 8afdced6577eef7b454f2f97e95aa4dec0833992 data/neolith/loot_tables/blocks/cobblestone_blackstone.json

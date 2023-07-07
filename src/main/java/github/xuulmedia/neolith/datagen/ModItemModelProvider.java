@@ -1,10 +1,7 @@
 package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModItems;
-import net.minecraft.client.renderer.texture.Stitcher;
-import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
@@ -12,7 +9,6 @@ import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public class ModItemModelProvider extends ItemModelProvider {
 
@@ -30,29 +26,27 @@ public class ModItemModelProvider extends ItemModelProvider {
 //        simpleItem(ModItems.WOOL.get());
 //        simpleItem(ModItems.YARN.get());
 
-        simpleItem(ModItems.INGOT_TIN.get(), "ingots");
-        simpleItem(ModItems.INGOT_BRONZE.get(), "ingots");
-        simpleItem(ModItems.INGOT_SILVER.get(), "ingots");
-        simpleItem(ModItems.INGOT_STEEL.get(), "ingots");
+        simpleItem(ModItems.INGOT_TIN.get(), "metals/ingots");
+        simpleItem(ModItems.INGOT_BRONZE.get(), "metals/ingots");
+        simpleItem(ModItems.INGOT_SILVER.get(), "metals/ingots");
+        simpleItem(ModItems.INGOT_STEEL.get(), "metals/ingots");
 
-        simpleItem(ModItems.HIDE_SMALL.get(), "hides");
-        simpleItem(ModItems.HIDE_MEDIUM.get(), "hides");
-        simpleItem(ModItems.HIDE_LARGE.get(), "hides");
+        simpleItem(ModItems.NUGGET_TIN.get(), "metals/nuggets");
+        simpleItem(ModItems.NUGGET_COPPER.get(), "metals/nuggets");
+        simpleItem(ModItems.NUGGET_SILVER.get(), "metals/nuggets");
+        simpleItem(ModItems.NUGGET_BRONZE.get(), "metals/nuggets");
+        simpleItem(ModItems.NUGGET_STEEL.get(), "metals/nuggets");
 
-        simpleItem(ModItems.NUGGET_TIN.get(), "nuggets");
-        simpleItem(ModItems.NUGGET_COPPER.get(), "nuggets");
-        simpleItem(ModItems.NUGGET_SILVER.get(), "nuggets");
-        simpleItem(ModItems.NUGGET_BRONZE.get(), "nuggets");
-        simpleItem(ModItems.NUGGET_STEEL.get(), "nuggets");
+        simpleItem(ModItems.DUST_TIN.get(), "metals/dusts");
+        simpleItem(ModItems.DUST_COPPER.get(), "metals/dusts");
+        simpleItem(ModItems.DUST_SILVER.get(), "metals/dusts");
+        simpleItem(ModItems.DUST_BRONZE.get(), "metals/dusts");
+        simpleItem(ModItems.DUST_STEEL.get(), "metals/dusts");
+        simpleItem(ModItems.DUST_IRON.get(), "metals/dusts");
+        simpleItem(ModItems.DUST_GOLD.get(), "metals/dusts");
+        simpleItem(ModItems.DUST_OBSIDIAN.get(), "metals/dusts");
 
-        simpleItem(ModItems.DUST_TIN.get(), "dusts");
-        simpleItem(ModItems.DUST_COPPER.get(), "dusts");
-        simpleItem(ModItems.DUST_SILVER.get(), "dusts");
-        simpleItem(ModItems.DUST_BRONZE.get(), "dusts");
-        simpleItem(ModItems.DUST_STEEL.get(), "dusts");
-        simpleItem(ModItems.DUST_IRON.get(), "dusts");
-        simpleItem(ModItems.DUST_GOLD.get(), "dusts");
-//        simpleItem(ModItems.DUST_OBSIDIAN.get(), "dusts");
+        simpleItem(ModItems.RAW_TIN.get(), "metals");
 
         simpleItem(ModItems.LOG_ACACIA.get(), "wood/logs");
         simpleItem(ModItems.LOG_BIRCH.get(), "wood/logs");
@@ -123,28 +117,47 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BRICK_RED_SAND.get(), "stone/bricks");
 
 
+        //CLAY
+        simpleItem(ModItems.UNFIRED_CLAY_BOTTLE.get(), "clay");
+        simpleItem(ModItems.CLAY_BOTTLE.get(), "clay");
+        simpleItem(ModItems.UNFIRED_CLAY_BOWL.get(), "clay");
+        simpleItem(ModItems.CLAY_BOWL.get(), "clay");
+        simpleItem(ModItems.UNFIRED_CLAY_POT.get(), "clay");
 
-//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_JUG.get()).getPath(),
-//                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_jug"));
-//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_BUCKET.get()).getPath(),
-//                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_bucket"));
-//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.UNFIRED_CLAY_VIAL.get()).getPath(),
-//                mcLoc("item/generated"),"layer0", modLoc("item/unfired_clay_vial"));
-//
-//        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.CLAY_VIAL.get()).getPath(),
-//                mcLoc("item/generated"),"layer0", modLoc("item/clay_vial"));
+        // Leathers
+        simpleItem(ModItems.HIDE_SMALL.get(), "hides");
+        simpleItem(ModItems.HIDE_MEDIUM.get(), "hides");
+        simpleItem(ModItems.HIDE_LARGE.get(), "hides");
 
+        //TOOLS
+        simpleItem(ModItems.FLINT_KNIFE.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_PICK.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_SHOVEL.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_AXE.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_HOE.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_SAW.get(), "tools/flint");
+        simpleItem(ModItems.STONE_HAMMER.get(), "tools/flint");
+        simpleItem(ModItems.STONE_SPEAR.get(), "tools/flint");
 
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_SWORD.get()).getPath(),
-                mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_sword"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_PICK.get()).getPath(),
-                mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_pickaxe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_SHOVEL.get()).getPath(),
-                mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_shovel"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_AXE.get()).getPath(),
-                mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_axe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BRONZE_HOE.get()).getPath(),
-                mcLoc("item/handheld"), "layer0", modLoc("item/tools/bronze_hoe"));
+        simpleItem(ModItems.BRONZE_KNIFE.get(), "tools/bronze");
+        simpleItem(ModItems.BRONZE_PICK.get(), "tools/bronze");
+        simpleItem(ModItems.BRONZE_SHOVEL.get(), "tools/bronze");
+        simpleItem(ModItems.BRONZE_AXE.get(), "tools/bronze");
+        simpleItem(ModItems.BRONZE_HOE.get(), "tools/bronze");
+        simpleItem(ModItems.BRONZE_SAW.get(), "tools/bronze");
+        simpleItem(ModItems.BRONZE_HAMMER.get(), "tools/bronze");
+        simpleItem(ModItems.BRONZE_SWORD.get(), "tools/bronze");
+
+        //TOOLHEADS
+        simpleItem(ModItems.FLINT_BLADE.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_PICK_HEAD.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_SHOVEL_HEAD.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_AXE_HEAD.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_HOE_HEAD.get(), "tools/flint");
+        simpleItem(ModItems.FLINT_SAW_HEAD.get(), "tools/flint");
+        simpleItem(ModItems.BRONZE_HAMMER_HEAD.get(), "tools/bronze");
+
+        simpleItem(ModItems.BASIC_FIRESTARTER.get(), "tools");
 
 
 
@@ -169,42 +182,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 //
 
 
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_KNIFE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/flint_knife"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_PICK.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/flint_pickaxe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SHOVEL.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/flint_shovel"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_AXE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/flint_axe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_HOE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/flint_hoe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SAW.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/flint_saw"));
 
-
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.STONE_SPEAR.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/flint_spear"));
-
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.STONE_HAMMER.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/stone_hammer"));
-
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.BASIC_FIRESTARTER.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/firestarter"));
-
-
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_BLADE.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/toolhead_flint_knife"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_PICK_HEAD.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/toolhead_flint_pickaxe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SHOVEL_HEAD.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/toolhead_flint_shovel"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_AXE_HEAD.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/toolhead_flint_axe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_HOE_HEAD.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/toolhead_flint_hoe"));
-        singleTexture(ForgeRegistries.ITEMS.getKey(ModItems.FLINT_SAW_HEAD.get()).getPath(),
-                mcLoc("item/generated"), "layer0", modLoc("item/tools/toolhead_flint_saw"));
 
 
 

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/clay_bottle_with_campfire_from_unfired_clay_bottle"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_unfired_clay_bottle": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:unfired_clay_bottle"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "has_unfired_clay_bottle",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/clay_bottle_with_campfire_from_unfired_clay_bottle"
+    ]
+  },
+  "sends_telemetry_event": false
+}

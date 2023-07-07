@@ -5,6 +5,7 @@ import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.util.AdaptedItemHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.entity.player.Inventory;
@@ -19,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 public class ClayPotBE extends AbstractNeolithBlockEntity {
 
     public static final String DISPLAY_NAME = "Pot";
-    private static final String TAG_INVENTORY = "inventory";
+    public static final String TAG_INVENTORY = "inventory";
     public static final int SLOT_COUNT = 15;
     protected ItemStackHandler items = createItemHandler(SLOT_COUNT);
     protected LazyOptional<IItemHandler> itemHandler = LazyOptional.of(() -> new AdaptedItemHandler(items));
@@ -42,9 +43,17 @@ public class ClayPotBE extends AbstractNeolithBlockEntity {
     }
 
     @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        CompoundTag tag = pkt.getTag();
+        if (tag != null) {
+            loadClientData(tag);
+        }
+    }
+
+    @Override
     protected void saveAdditional(CompoundTag tag) {
-        tag.put(TAG_INVENTORY, items.serializeNBT());
         super.saveAdditional(tag);
+        tag.put(TAG_INVENTORY, items.serializeNBT());
     }
 
     @Override
@@ -52,6 +61,17 @@ public class ClayPotBE extends AbstractNeolithBlockEntity {
         super.load(tag);
         items.deserializeNBT(tag.getCompound(TAG_INVENTORY));
     }
+
+    private void saveClientData(CompoundTag tag) {
+        tag.put(TAG_INVENTORY, items.serializeNBT());
+    }
+
+    private void loadClientData(CompoundTag tag) {
+        if (tag.contains(TAG_INVENTORY)) {
+            items.deserializeNBT(tag.getCompound(TAG_INVENTORY));
+        }
+    }
+
 
     @Nullable
     @Override
