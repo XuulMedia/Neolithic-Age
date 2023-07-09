@@ -11,6 +11,7 @@ import net.minecraft.data.PackOutput;
 
 
 import net.minecraft.data.tags.TagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
@@ -29,6 +30,7 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
+
         tag(Tags.Items.INGOTS)
                 .add(ModItems.INGOT_TIN.get())
                 .add(ModItems.INGOT_BRONZE.get())

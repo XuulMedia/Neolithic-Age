@@ -1,11 +1,9 @@
 {
   "variants": {
     "lit=false": {
-      "render_type": "minecraft:cutout",
       "model": "neolith:block/torch_off"
     },
     "lit=true": {
-      "render_type": "minecraft:cutout",
       "model": "neolith:block/torch"
     }
   }

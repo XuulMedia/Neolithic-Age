@@ -3,6 +3,7 @@ package github.xuulmedia.neolith.block.custom;
 import github.xuulmedia.neolith.init.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleOptions;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -27,17 +28,18 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
-public class ModTorchBlock extends TorchBlock {
+public class ModTorchBlock extends Block {
     protected static final int BURN_MIN = 5; // how long in min the torchs will burn
     protected static final int DELAY = 600; // 600 ticks is 30 seconds This is the delay between each tick
     protected static int BURN_TICKS = 2 * BURN_MIN;
     public int burnTime = BURN_TICKS;
-
+    protected final ParticleOptions flameParticle;
     public static final IntegerProperty BURNTIME = IntegerProperty.create("burn_time", 0, BURN_TICKS);
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
     public ModTorchBlock(Properties pProperties) {
-        super(pProperties, ParticleTypes.FLAME);
+        super(pProperties);
+        this.flameParticle = ParticleTypes.FLAME;
         registerDefaultState(stateDefinition.any()
                 .setValue(LIT, true)
                 .setValue(BURNTIME, BURN_TICKS));
@@ -47,6 +49,8 @@ public class ModTorchBlock extends TorchBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(LIT).add(BURNTIME);
     }
+
+
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
@@ -83,6 +87,7 @@ public class ModTorchBlock extends TorchBlock {
         level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
 
     }
+
 
     @Override
     public void setPlacedBy(Level pLevel, BlockPos pos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {

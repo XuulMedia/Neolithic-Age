@@ -2,10 +2,8 @@ package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.custom.*;
-import github.xuulmedia.neolith.item.custom.ModStandingAndWallBlockItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
@@ -245,29 +243,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHERRY_SAPLING = registerVanillaBlock("cherry_sapling", () -> createResistantSapling(new CherryTreeGrower()));
     public static final RegistryObject<Block> DARK_OAK_SAPLING = registerVanillaBlock("dark_oak_sapling", () -> createResistantSapling(new DarkOakTreeGrower()));
 
-
-    /*TODO all saplings need a new type for bonemeal resistance*/
-
-    /*WOOL
-    * WHITE_WOOL
-ORANGE_WOOL
-MAGENTA_WOOL
-LIGHT_BLUE_WOOL
-YELLOW_WOOL
-LIME_WOOL
-PINK_WOOL
-GRAY_WOOL
-LIGHT_GRAY_WOOL
-CYAN_WOOL
-PURPLE_WOOL
-BLUE_WOOL
-BROWN_WOOL
-GREEN_WOOL
-RED_WOOL
-BLACK_WOOL*/
-
     /*Concrete*/
-
     public static final RegistryObject<GravelBlock> WHITE_CONCRETE = registerVanillaBlock("white_concrete", () -> createConcrete(DyeColor.WHITE));
     public static final RegistryObject<GravelBlock> ORANGE_CONCRETE = registerVanillaBlock("orange_concrete", () -> createConcrete(DyeColor.ORANGE));
     public static final RegistryObject<GravelBlock> MAGENTA_CONCRETE = registerVanillaBlock("magenta_concrete", () -> createConcrete(DyeColor.MAGENTA));
@@ -293,6 +269,25 @@ BLACK_WOOL*/
 //    PODZOL
 //    MUD
 //    PATHBLOCK
+    /*TODO all saplings need a new type for bonemeal resistance*/
+
+    /*WOOL
+    * WHITE_WOOL
+ORANGE_WOOL
+MAGENTA_WOOL
+LIGHT_BLUE_WOOL
+YELLOW_WOOL
+LIME_WOOL
+PINK_WOOL
+GRAY_WOOL
+LIGHT_GRAY_WOOL
+CYAN_WOOL
+PURPLE_WOOL
+BLUE_WOOL
+BROWN_WOOL
+GREEN_WOOL
+RED_WOOL
+BLACK_WOOL*/
 
 
     /*Helpers*/
@@ -319,18 +314,18 @@ BLACK_WOOL*/
     private static <T extends Block> RegistryObject<T> registerWallBlock(String name, ModCreativeTabs.TAB_NAME creativeTab, Supplier<T> torchBlock, Supplier<T> wallTorch, Item.Properties itemProperties) {
 
         RegistryObject<T> toReturn = BLOCKS.register("wall_" + name, wallTorch);
-        registerStandingAndWallBlockItem(name, torchBlock, torchBlock, itemProperties, creativeTab);
+        registerStandingAndWallBlockItem(name, torchBlock, toReturn, itemProperties, creativeTab);
 
         return toReturn;
     }
 
     private static <T extends Block> RegistryObject<Item> registerStandingAndWallBlockItem(String name,  Supplier<T> standingBlock,  Supplier<T> wallBlock, Item.Properties itemProperties, ModCreativeTabs.TAB_NAME tab) {
         if (tab == ModCreativeTabs.TAB_NAME.STONE_AGE) {
-            return registerStoneAgeItem(name, () -> new ModStandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
+            return registerStoneAgeItem(name, () -> new StandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
         } else if (tab == ModCreativeTabs.TAB_NAME.METAL_AGE) {
-            return registerMetalAgeItem(name, () -> new ModStandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
+            return registerMetalAgeItem(name, () -> new StandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
         } else {
-            return ModItems.ITEMS.register(name, () -> new ModStandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
+            return ModItems.ITEMS.register(name, () -> new StandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
         }
     }
 
@@ -406,7 +401,7 @@ BLACK_WOOL*/
                 .pushReaction(PushReaction.DESTROY));
     }
 
-    private static TorchBlock createTorchBlock(boolean wall, int lightLevel){
+    private static ModTorchBlock createTorchBlock(boolean wall, int lightLevel){
         if (!wall){
             return new ModTorchBlock(BlockBehaviour.Properties.of()
                     .noCollission()

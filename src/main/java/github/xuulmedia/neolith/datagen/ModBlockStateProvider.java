@@ -71,62 +71,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(block, model);
     }
 
-//    private void sideBottomTop(Block block, String folder, String side, String bottom, String top) {
-//        String key = ForgeRegistries.BLOCKS.getKey(block).getPath();
-//
-//        ResourceLocation textureTop = new ResourceLocation(Neolith.MODID, folder + "/" + side);
-//        ResourceLocation textureSide = new ResourceLocation(Neolith.MODID, folder + "/" + bottom);
-//        ResourceLocation textureBottom = new ResourceLocation(Neolith.MODID, folder + "/" + top);
-//
-//
-//
-//        ModelFile model = models().sideBottomTop(key, textureSide, textureTop, textureBottom);
-//        itemModels().getBuilder(key).parent(model);
-//
-//        simpleBlock(block, model);
-//    }
-//    private void stairsBlockInternal(StairBlock block, String baseName, ResourceLocation side, ResourceLocation bottom, ResourceLocation top) {
-//        ModelFile stairs = models().stairs(baseName, side, bottom, top);
-//        ModelFile stairsInner = models().stairsInner(baseName + "_inner", side, bottom, top);
-//        ModelFile stairsOuter = models().stairsOuter(baseName + "_outer", side, bottom, top);
-//        stairsBlock(block, stairs, stairsInner, stairsOuter);
-//    }
-//
-//
-//    sideBottomTop
 
-//
-//    public ModelFile cubeAll(Block block) {
-//        return models().cubeAll(name(block), blockTexture(block));
-//    }
-//
-//    public void simpleBlock(Block block, ConfiguredModel... models) {
-//        getVariantBuilder(block)
-//                .partialState().setModels(models);
-//    }
-//
-//    public void simpleBlock(Block block) {
-//        simpleBlock(block, cubeAll(block));
-//    }
-//
-//    private String name(Block block) {
-//        return key(block).getPath();
-//    }
-//    private ResourceLocation key(Block block) {
-//        return ForgeRegistries.BLOCKS.getKey(block);
-//    }
-//
-//    public VariantBlockStateBuilder getVariantBuilder(Block b) {
-//        if (registeredBlocks.containsKey(b)) {
-//            IGeneratedBlockState old = registeredBlocks.get(b);
-//            Preconditions.checkState(old instanceof VariantBlockStateBuilder);
-//            return (VariantBlockStateBuilder) old;
-//        } else {
-//            VariantBlockStateBuilder ret = new VariantBlockStateBuilder(b);
-//            registeredBlocks.put(b, ret);
-//            return ret;
-//        }
-//    }
 
 }
 
