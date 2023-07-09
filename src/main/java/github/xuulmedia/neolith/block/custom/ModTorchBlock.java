@@ -36,7 +36,6 @@ public class ModTorchBlock extends TorchBlock {
     public static final IntegerProperty BURNTIME = IntegerProperty.create("burn_time", 0, BURN_TICKS);
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
-
     public ModTorchBlock(Properties pProperties) {
         super(pProperties, ParticleTypes.FLAME);
         registerDefaultState(stateDefinition.any()
@@ -107,5 +106,4 @@ public class ModTorchBlock extends TorchBlock {
     public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
         return canSupportCenter(pLevel, pPos.below(), Direction.UP);
     }
-
 }

@@ -24,7 +24,7 @@ public class ModStandingAndWallBlockItem extends BlockItem {
     }
 
     protected boolean canPlace(LevelReader levelReader, BlockState blockState, BlockPos blockPos) {
-        boolean toReturn =blockState.canSurvive(levelReader, blockPos);
+        boolean toReturn  = blockState.canSurvive(levelReader, blockPos);
         return toReturn;
     }
 
