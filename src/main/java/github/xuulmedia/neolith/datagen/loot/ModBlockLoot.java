@@ -87,6 +87,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
         dropOther(ModBlocks.FLINT_NODE.get(), Items.FLINT);
 
         dropSelf(ModBlocks.TORCH.get());
+//        dropOther(ModBlocks.WALL_TORCH.get(), ModBlocks.TORCH.get());
         dropSelf(ModBlocks.WARDED_GRASS_BLOCK.get());
 
         dropSelf(ModBlocks.MANUAL_GRINDER.get());

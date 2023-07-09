@@ -3,9 +3,11 @@ package github.xuulmedia.neolith.init;
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.item.ModFoodProperties;
 import github.xuulmedia.neolith.item.custom.*;
+import net.minecraft.core.Direction;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.GravelBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -272,6 +274,11 @@ public class ModItems {
     public static final RegistryObject<Item> DUST_SILVER = registerStandardMetalAgeItem("dust_silver");
     public static final RegistryObject<Item> DUST_OBSIDIAN = registerStandardMetalAgeItem("dust_obsidian");
 
+
+
+
+
+
     /***************/
     /* VANILLA    */
     /************/
@@ -359,6 +366,8 @@ public class ModItems {
 
 
 
+
+
 //    public static final RegistryObject<Item> CHORUS_FRUIT = createVanillaFood("chorus_fruit", ModFoodProperties.BASIC);
 
 
@@ -420,6 +429,10 @@ public class ModItems {
         return VANILLA_ITEMS.register(name, item);
     }
 
+
+
+
+
     private static RegistryObject<Item> createVanillaFood(String name, FoodProperties foodProperties) {
         return registerVanillaItem(name, () -> new Item(new Item.Properties().food(foodProperties)));
     }
@@ -461,26 +474,6 @@ public class ModItems {
         return new SawItem(tier, 1.5F, -2.4F, new Item.Properties());
     }
 
-
-    /*    public static final RegistryObject<SwordItem> BRONZE_KNIFE = registerStoneAgeItem("flint_knife",
-            () -> new SwordItem(ModToolMaterials.BRONZE, 4, 1.6f, new Item.Properties().durability(50 * 2))); //double durability because sword takes 2 when mining with it
-    public static final RegistryObject<SwordItem> BRONZE_SWORD = registerMetalAgeItem("bronze_sword",
-            () -> new SwordItem(ModToolMaterials.BRONZE, 6, 1.6f, new Item.Properties()));
-    public static final RegistryObject<PickaxeItem> BRONZE_PICK = registerMetalAgeItem("bronze_pick",
-            () -> new PickaxeItem(ModToolMaterials.BRONZE, 4, 1.2f, new Item.Properties()));
-    public static final RegistryObject<ModShovelItem> BRONZE_SHOVEL = registerMetalAgeItem("bronze_shovel",
-            () -> new ModShovelItem(ModToolMaterials.BRONZE, 2.25f, 1.0f, new Item.Properties()));
-    public static final RegistryObject<AxeItem> BRONZE_AXE = registerMetalAgeItem("bronze_axe",
-            () -> new AxeItem(ModToolMaterials.BRONZE, 9, 0.9f, new Item.Properties()));
-    public static final RegistryObject<HoeItem> BRONZE_HOE = registerMetalAgeItem("bronze_hoe",
-            () -> new HoeItem(ModToolMaterials.BRONZE, 1, 3.0f, new Item.Properties()));
-
-    public static final RegistryObject<SawItem> FLINT_SAW = registerStoneAgeItem("flint_saw",
-            () -> new SawItem(ModToolMaterials.FLINT, 1, 1f, new Item.Properties().durability(50)));
-    public static final RegistryObject<HammerItem> STONE_HAMMER = registerStoneAgeItem("stone_hammer",
-            () -> new HammerItem(ModToolMaterials.FLINT, 8, .5f, new Item.Properties().durability(50)));
-
-*/
 }
 
 

@@ -2,14 +2,17 @@ package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.custom.*;
+import github.xuulmedia.neolith.item.custom.ModStandingAndWallBlockItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.valueproviders.ConstantInt;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.StandingAndWallBlockItem;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.grower.*;
@@ -135,12 +138,11 @@ public class ModBlocks {
             () -> new FlintNodeBlock(BlockBehaviour.Properties.of()
                     .instabreak()), new Item.Properties());
 
+    public static final RegistryObject<Block> TORCH = BLOCKS.register("torch", () -> createTorchBlock(false, 14));
+    public static final RegistryObject<Block> WALL_TORCH = registerWallBlock("torch", ModCreativeTabs.TAB_NAME.STONE_AGE, TORCH,
+            () -> createTorchBlock(true, 14), new Item.Properties());
 
-    public static final RegistryObject<ModTorchBlock> TORCH = registerBlock("torch", ModCreativeTabs.TAB_NAME.STONE_AGE,
-            () -> new ModTorchBlock(BlockBehaviour.Properties.of()
-                    .noCollission()
-                    .instabreak()
-                    .lightLevel(litBlockEmission(15))), new Item.Properties());
+
 
 
     /*Workstations*/
@@ -244,14 +246,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> DARK_OAK_SAPLING = registerVanillaBlock("dark_oak_sapling", () -> createResistantSapling(new DarkOakTreeGrower()));
 
 
-
-
-
-
-
-
-
-
     /*TODO all saplings need a new type for bonemeal resistance*/
 
     /*WOOL
@@ -317,12 +311,31 @@ BLACK_WOOL*/
             return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), itemProperties));
         }
     }
-
-
     private static <T extends Block> RegistryObject<T> registerVanillaBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = VANILLA_BLOCKS.register(name, block);
         return toReturn;
     }
+
+    private static <T extends Block> RegistryObject<T> registerWallBlock(String name, ModCreativeTabs.TAB_NAME creativeTab, Supplier<T> torchBlock, Supplier<T> wallTorch, Item.Properties itemProperties) {
+
+        RegistryObject<T> toReturn = BLOCKS.register("wall_" + name, wallTorch);
+        registerStandingAndWallBlockItem(name, torchBlock, torchBlock, itemProperties, creativeTab);
+
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<Item> registerStandingAndWallBlockItem(String name,  Supplier<T> standingBlock,  Supplier<T> wallBlock, Item.Properties itemProperties, ModCreativeTabs.TAB_NAME tab) {
+        if (tab == ModCreativeTabs.TAB_NAME.STONE_AGE) {
+            return registerStoneAgeItem(name, () -> new ModStandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
+        } else if (tab == ModCreativeTabs.TAB_NAME.METAL_AGE) {
+            return registerMetalAgeItem(name, () -> new ModStandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
+        } else {
+            return ModItems.ITEMS.register(name, () -> new ModStandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
+        }
+    }
+
+
+    /*CREATE BLOCKS*/
 
 
     private static NeolithFallingBlock updateVanillaOre() {
@@ -332,6 +345,7 @@ BLACK_WOOL*/
                 .requiresCorrectToolForDrops()
                 .strength(3.0F, 3.0F),   UniformInt.of(0, 2));
     }
+
 
     public static CutStoneBlock createCutStoneBlock(MapColor color) {
         return new CutStoneBlock(BlockBehaviour.Properties.of()
@@ -391,6 +405,27 @@ BLACK_WOOL*/
                 .sound(SoundType.GRASS)
                 .pushReaction(PushReaction.DESTROY));
     }
+
+    private static TorchBlock createTorchBlock(boolean wall, int lightLevel){
+        if (!wall){
+            return new ModTorchBlock(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.WOOD)
+                    .pushReaction(PushReaction.DESTROY)
+                    .lightLevel(litBlockEmission(lightLevel)));
+        } else {
+            return new ModWallTorchBlock(BlockBehaviour.Properties.of()
+                    .noCollission()
+                    .instabreak()
+                    .sound(SoundType.WOOD)
+                    .pushReaction(PushReaction.DESTROY)
+                    .lightLevel(litBlockEmission(lightLevel)));
+        }
+    }
+
+
+
 
 
     private static Boolean never(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {
