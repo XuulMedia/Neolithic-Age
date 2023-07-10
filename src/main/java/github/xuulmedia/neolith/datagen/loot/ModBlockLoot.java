@@ -1,5 +1,6 @@
 package github.xuulmedia.neolith.datagen.loot;
 
+import github.xuulmedia.neolith.block.crops.JuteCropBlock;
 import github.xuulmedia.neolith.block.entity.ClayPotBE;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.init.ModBlocks;
@@ -8,23 +9,23 @@ import github.xuulmedia.neolith.init.ModTags;
 import net.minecraft.advancements.critereon.EnchantmentPredicate;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.advancements.critereon.MinMaxBounds;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.*;
 import net.minecraft.world.level.storage.loot.functions.*;
-import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.predicates.MatchTool;
+import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
@@ -173,7 +174,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
         HammerSmashingTable(Blocks.TUFF, ModItems.CHUNK_TUFF.get(), ModItems.DUST_TUFF.get(), 1, 4);
         HammerSmashingTable(Blocks.END_STONE, ModItems.CHUNK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get(), 1, 4);
 
-
+        createCropDropTable(ModBlocks.JUTE_CROP.get(), ModItems.PLANT_FIBRE.get(), ModItems.JUTE_SEEDS.get(), JuteCropBlock.AGE, 6);
     }
 
     @Override
@@ -330,6 +331,24 @@ public class ModBlockLoot extends VanillaBlockLoot {
                 .add(lti);
         add(block, LootTable.lootTable().withPool(builder));
     }
+
+
+    private void createCropDropTable(Block cropBlock, Item result, ItemLike seed, Property<Integer> pProperty, int pValue){
+        LootItemCondition.Builder condition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(cropBlock)
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(pProperty, pValue));
+
+        LootTable.Builder loottableBuilder = LootTable.lootTable().withPool(
+        LootPool.lootPool().add(
+                LootItem.lootTableItem(result)
+                        .when(condition)))
+              .withPool(LootPool.lootPool().
+                when(condition)
+                        .add(LootItem.lootTableItem(seed)
+                                .apply(ApplyBonusCount.addBonusBinomialDistributionCount(Enchantments.BLOCK_FORTUNE, 0.5714286F, 3))));
+
+        this.add(cropBlock, loottableBuilder);
+    }
+
 
 
 }

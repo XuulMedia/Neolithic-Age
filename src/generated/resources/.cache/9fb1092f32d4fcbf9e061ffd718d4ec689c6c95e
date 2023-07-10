@@ -1,9 +1,10 @@
-// 1.20	2023-07-06T22:10:23.8039159	Recipes
+// 1.20	2023-07-10T07:37:55.5352633	Recipes
 115bfe2345f44a31e210da80ee5be623428f4610 data/minecraft/advancements/recipes/misc/crafting_table.json
 b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/baked_potato.json
 b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/baked_potato_from_campfire_cooking.json
 b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/baked_potato_from_smoking.json
 b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/blast_furnace.json
+b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/bread.json
 b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/brick_from_blasting_clay.json
 b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/brick_from_smelting_clay.json
 b7cf2b8b50a09e84edb580e767e4a81498ed7043 data/minecraft/recipes/campfire.json

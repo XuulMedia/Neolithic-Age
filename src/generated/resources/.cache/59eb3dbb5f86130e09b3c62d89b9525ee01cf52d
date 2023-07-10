@@ -1,4 +1,4 @@
-// 1.20	2023-07-09T17:13:51.0893607	Loot Tables
+// 1.20	2023-07-10T07:37:55.5342631	Loot Tables
 85cfa972134d70cc854e0f80a614e2fa2772fa03 data/minecraft/loot_tables/blocks/acacia_leaves.json
 6021a7b76b28b70df529b50b318a99f5694e9d68 data/minecraft/loot_tables/blocks/acacia_log.json
 715a31903a424ab11694afc1f664e73b55b09169 data/minecraft/loot_tables/blocks/acacia_planks.json
@@ -92,6 +92,7 @@ abcc1eb0c3fc7869a3a35848a54c40544c83eb42 data/neolith/loot_tables/blocks/flint_n
 7e91bbdc9d8587a42abd575371d64d54ea7b2ee6 data/neolith/loot_tables/blocks/flint_station.json
 ea022bd81994e88a1d698fdfebd6a82490d39902 data/neolith/loot_tables/blocks/forge.json
 007d3ae4d39c1bc4db92937dab898a4b81f32fb4 data/neolith/loot_tables/blocks/foundry.json
+a725e6e0bc2948475ed19179f599b83ccd767200 data/neolith/loot_tables/blocks/jute_crop.json
 8efccf24f357febc21b30eef2bb4172ef8560bc1 data/neolith/loot_tables/blocks/manual_grinder.json
 521a617a9c58308b69a9dc345519a6560d84ff7d data/neolith/loot_tables/blocks/ore_clay.json
 2d04c335123ad5111a957aa79008a560ad4d88d2 data/neolith/loot_tables/blocks/ore_nether_silver.json

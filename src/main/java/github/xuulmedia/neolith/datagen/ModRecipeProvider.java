@@ -90,6 +90,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         disable(Blocks.CLAY, consumer);
 
 
+        disable(Items.BREAD, consumer);
+
         disableCookFood(Items.COOKED_BEEF, consumer);
         disableCookFood(Items.COOKED_CHICKEN, consumer);
         disableCookFood(Items.COOKED_COD, consumer);

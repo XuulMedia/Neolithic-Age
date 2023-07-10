@@ -8,9 +8,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
-public class JuteCropBlock extends CropBlock {
+public class JuteCropBlock extends ModCropBlock {
     public static final int MAX_AGE = 6;
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 6);
 
     public JuteCropBlock(Properties pProperties) {
         super(pProperties);
@@ -19,11 +18,6 @@ public class JuteCropBlock extends CropBlock {
     @Override
     protected ItemLike getBaseSeedId() {
         return ModItems.JUTE_SEEDS.get();
-    }
-
-    @Override
-    public IntegerProperty getAgeProperty() {
-        return AGE;
     }
 
     @Override

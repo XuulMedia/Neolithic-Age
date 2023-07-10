@@ -1,15 +1,24 @@
 package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
+import github.xuulmedia.neolith.block.crops.ModCropBlock;
+import github.xuulmedia.neolith.block.custom.ModTorchBlock;
 import github.xuulmedia.neolith.init.ModBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.data.models.model.ModelTemplates;
+import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.StairBlock;
+import net.minecraft.world.level.block.CropBlock;
+import net.minecraft.world.level.block.WallTorchBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider {
     public ModBlockStateProvider(PackOutput gen, ExistingFileHelper helper) {
@@ -18,8 +27,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
-//        simpleBlock(ModBlocks.ORE_TIN.get());
-
         blockWithItem(ModBlocks.ORE_TIN.get(), "block/ore");
         blockWithItem(ModBlocks.ORE_SILVER.get(), "block/ore");
         blockWithItem(ModBlocks.ORE_CLAY.get(), "block/ore");
@@ -28,7 +35,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLOCK_SILVER.get(), "block");
         blockWithItem(ModBlocks.BLOCK_BRONZE.get(), "block");
         blockWithItem(ModBlocks.BLOCK_STEEL.get(), "block");
-        simpleBlock(ModBlocks.THATCH.get());
 
         //cobblestone
         blockWithItem(ModBlocks.COBBLESTONE_ANDESITE.get(), "block/cobble");
@@ -57,10 +63,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SAND_BRICK_BLOCK.get(),"block/bricks");
         blockWithItem(ModBlocks.RED_SAND_BRICK_BLOCK.get(), "block/bricks");
 
+        blockWithItem(ModBlocks.THATCH.get(), "block");
+        makeCrop(ModBlocks.JUTE_CROP.get(), "jute_stage", "stage", "jute");
+
+
 
     }
-
-
     private void blockWithItem(Block block, String folder) {
         String key = ForgeRegistries.BLOCKS.getKey(block).getPath();
 
@@ -70,6 +78,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlock(block, model);
     }
+
+    public void makeCrop(Block block, String modelName, String textureName, String folder) {
+        Function<BlockState, ConfiguredModel[]> function = state -> cropStates(state, (ModCropBlock)block, modelName, textureName, folder);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] cropStates(BlockState state, CropBlock block, String modelName, String textureName, String folder) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((ModCropBlock) block).getAgeProperty()),
+                new ResourceLocation(Neolith.MODID, "block/crops/"+folder+ "/" + textureName + state.getValue(((ModCropBlock) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
+    }
+
+
 
 
 

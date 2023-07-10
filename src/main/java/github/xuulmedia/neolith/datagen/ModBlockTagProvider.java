@@ -174,11 +174,6 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(Blocks.END_STONE);
 
 
-
-
-
-
-
     }
 
 
