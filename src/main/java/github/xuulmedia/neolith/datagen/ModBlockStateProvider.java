@@ -28,7 +28,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BLOCK_SILVER.get(), "block");
         blockWithItem(ModBlocks.BLOCK_BRONZE.get(), "block");
         blockWithItem(ModBlocks.BLOCK_STEEL.get(), "block");
-//        simpleBlock(ModBlocks.THATCH.get());
+        simpleBlock(ModBlocks.THATCH.get());
 
         //cobblestone
         blockWithItem(ModBlocks.COBBLESTONE_ANDESITE.get(), "block/cobble");

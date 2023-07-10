@@ -35,6 +35,7 @@ public class FireStarterItem extends Item {
 
         if (!ModCampfireBlock.canLight(blockstate) && !CandleBlock.canLight(blockstate) && !CandleCakeBlock.canLight(blockstate)) {
             BlockPos blockpos1 = blockpos.relative(pContext.getClickedFace());
+
             if (BaseFireBlock.canBePlacedAt(level, blockpos1, pContext.getHorizontalDirection())) {
                 level.playSound(player, blockpos1, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
                 BlockState blockstate1 = BaseFireBlock.getState(level, blockpos1);
@@ -52,6 +53,10 @@ public class FireStarterItem extends Item {
             } else {
                 return InteractionResult.FAIL;
             }
+
+
+
+
         } else {
             level.playSound(player, blockpos, SoundEvents.FLINTANDSTEEL_USE, SoundSource.BLOCKS, 1.0F, level.getRandom().nextFloat() * 0.4F + 0.8F);
             resetCounter(level,blockpos);

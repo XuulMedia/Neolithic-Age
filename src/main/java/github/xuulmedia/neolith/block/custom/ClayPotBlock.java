@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.Fallable;
 import net.minecraft.world.level.block.RenderShape;
@@ -111,6 +112,10 @@ public class ClayPotBlock extends BaseEntityBlock implements Fallable {
         return pState.isAir() || pState.is(BlockTags.FIRE) || pState.liquid() || pState.canBeReplaced();
     }
     protected void falling(FallingBlockEntity pEntity) {
+    }
+
+    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
+        return canSupportCenter(pLevel, pPos.below(), Direction.UP);
     }
 
 

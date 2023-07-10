@@ -24,36 +24,25 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         PackOutput packOutput = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
-        CompletableFuture<HolderLookup.Provider> lookupProvider  = event.getLookupProvider();
-
+        CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
         generator.addProvider(event.includeClient(), new ModBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new ModLanguageProvider(packOutput, "en_us"));
 
-
         ModBlockTagProvider blockTagProvider = new ModBlockTagProvider(packOutput, lookupProvider, existingFileHelper);
-        ModItemTagProvider itemTagProvider =  new ModItemTagProvider(packOutput, lookupProvider, blockTagProvider.contentsGetter(), existingFileHelper);
-
+        ModItemTagProvider itemTagProvider = new ModItemTagProvider(packOutput, lookupProvider, blockTagProvider.contentsGetter(), existingFileHelper);
 
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
         generator.addProvider(event.includeServer(), blockTagProvider);
-        generator.addProvider(event.includeServer(),itemTagProvider);
+        generator.addProvider(event.includeServer(), itemTagProvider);
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
                 List.of(new LootTableProvider.SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK))));
-
 
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));
 
 //        generator.addProvider(event.includeServer(), new BlockLootTableProvider(packOutput));
 //        generator.addProvider(event.includeServer(), new EntityLootTableProvider(packOutput));
-//        generator.addProvider(event.includeServer(), new ModBiomeTags(generator, event.getExistingFileHelper()));
-//        generator.addProvider(event.includeServer(), new ModStructureSetTags(generator, event.getExistingFileHelper()));
-
-
-
 
     }
-
-
 }

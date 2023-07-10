@@ -79,6 +79,13 @@ public class ModCampfireBlock extends BaseEntityBlock implements SimpleWaterlogg
         if(pPlayer.getItemInHand(pHand).is(ModTags.LIGHTERS) && !pState.getValue(LIT) ){
             pLevel.setBlock(pPos, pState.setValue(LIT, true), 3);
 
+            if(pPlayer.getItemInHand(pHand).isDamageableItem()){
+                pPlayer.getItemInHand(pHand).hurtAndBreak(1,pPlayer, (p_41303_) -> {
+                    p_41303_.broadcastBreakEvent(pHand);
+                    }
+                );
+            }
+
             return InteractionResult.SUCCESS;
         }
         if(pPlayer.getItemInHand(pHand).is(ModTags.DOUSERS) && pState.getValue(LIT) ){

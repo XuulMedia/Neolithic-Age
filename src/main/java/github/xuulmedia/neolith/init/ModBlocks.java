@@ -1,6 +1,7 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
+import github.xuulmedia.neolith.block.crops.JuteCropBlock;
 import github.xuulmedia.neolith.block.custom.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -140,7 +141,27 @@ public class ModBlocks {
     public static final RegistryObject<Block> WALL_TORCH = registerWallBlock("torch", ModCreativeTabs.TAB_NAME.STONE_AGE, TORCH,
             () -> createTorchBlock(true, 14), new Item.Properties());
 
+    /*Plants*/
+    public static final RegistryObject<Block> THATCH = registerBlock("thatch", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> new ThatchBlock(BlockBehaviour.Properties.of().noCollission().strength(4.0F).sound(SoundType.GRASS)), new Item.Properties());
 
+    /*Crops*/
+/*TODO make this better for faster crops*/
+    public static final RegistryObject<Block> JUTE_CROP = BLOCKS.register("jute_crop", () ->
+            new JuteCropBlock(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollission()
+                    .noOcclusion()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.CROP)
+                    .pushReaction(PushReaction.DESTROY)));
+
+
+
+
+//    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = registerBlock("medicine_crop", ModCreativeTabs.TAB_NAME.METAL_AGE,
+//            () -> new MedicineCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)), new Item.Properties());
 
 
     /*Workstations*/
@@ -153,22 +174,14 @@ public class ModBlocks {
     public static final RegistryObject<FoundryBlock> FOUNDRY = registerBlock("foundry", ModCreativeTabs.TAB_NAME.METAL_AGE,
             () -> new FoundryBlock(BlockBehaviour.Properties.copy(Blocks.FURNACE)), new Item.Properties());
 
-    public static final RegistryObject<WorkBenchBlock> WORK_BENCH = registerBlock("workbench", ModCreativeTabs.TAB_NAME.METAL_AGE,
+    public static final RegistryObject<WorkBenchBlock> WORK_BENCH = registerBlock("workbench", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> new WorkBenchBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE)), new Item.Properties());
-    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire", ModCreativeTabs.TAB_NAME.METAL_AGE,
+    public static final RegistryObject<ModCampfireBlock> CAMPFIRE = registerBlock("campfire", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> new ModCampfireBlock(true, 1, BlockBehaviour.Properties.copy(Blocks.CAMPFIRE)), new Item.Properties().stacksTo(1));
 
 
     public static final RegistryObject<ClayPotBlock> CLAY_POT = registerBlock("clay_pot", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> new ClayPotBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)), new Item.Properties());
-
-    /*Plants*/
-    public static final RegistryObject<ThatchBlock> THATCH = registerBlock("thatch", ModCreativeTabs.TAB_NAME.METAL_AGE,
-            () -> new ThatchBlock(BlockBehaviour.Properties.of().noCollission().strength(4.0F).sound(SoundType.GRASS)), new Item.Properties());
-
-    /*Crops*/
-//    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = registerBlock("medicine_crop", ModCreativeTabs.TAB_NAME.METAL_AGE,
-//            () -> new MedicineCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)), new Item.Properties());
 
 
     /***************/
@@ -306,6 +319,7 @@ BLACK_WOOL*/
             return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), itemProperties));
         }
     }
+
     private static <T extends Block> RegistryObject<T> registerVanillaBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = VANILLA_BLOCKS.register(name, block);
         return toReturn;
@@ -319,7 +333,7 @@ BLACK_WOOL*/
         return toReturn;
     }
 
-    private static <T extends Block> RegistryObject<Item> registerStandingAndWallBlockItem(String name,  Supplier<T> standingBlock,  Supplier<T> wallBlock, Item.Properties itemProperties, ModCreativeTabs.TAB_NAME tab) {
+    private static <T extends Block> RegistryObject<Item> registerStandingAndWallBlockItem(String name, Supplier<T> standingBlock, Supplier<T> wallBlock, Item.Properties itemProperties, ModCreativeTabs.TAB_NAME tab) {
         if (tab == ModCreativeTabs.TAB_NAME.STONE_AGE) {
             return registerStoneAgeItem(name, () -> new StandingAndWallBlockItem(standingBlock.get(), wallBlock.get(), itemProperties, Direction.DOWN));
         } else if (tab == ModCreativeTabs.TAB_NAME.METAL_AGE) {
@@ -338,7 +352,7 @@ BLACK_WOOL*/
                 .mapColor(MapColor.STONE)
                 .instrument(NoteBlockInstrument.BASEDRUM)
                 .requiresCorrectToolForDrops()
-                .strength(3.0F, 3.0F),   UniformInt.of(0, 2));
+                .strength(3.0F, 3.0F), UniformInt.of(0, 2));
     }
 
 
@@ -401,11 +415,12 @@ BLACK_WOOL*/
                 .pushReaction(PushReaction.DESTROY));
     }
 
-    private static ModTorchBlock createTorchBlock(boolean wall, int lightLevel){
-        if (!wall){
+    private static ModTorchBlock createTorchBlock(boolean wall, int lightLevel) {
+        if (!wall) {
             return new ModTorchBlock(BlockBehaviour.Properties.of()
                     .noCollission()
                     .instabreak()
+                    .noOcclusion()
                     .sound(SoundType.WOOD)
                     .pushReaction(PushReaction.DESTROY)
                     .lightLevel(litBlockEmission(lightLevel)));
@@ -413,14 +428,12 @@ BLACK_WOOL*/
             return new ModWallTorchBlock(BlockBehaviour.Properties.of()
                     .noCollission()
                     .instabreak()
+                    .noOcclusion()
                     .sound(SoundType.WOOD)
                     .pushReaction(PushReaction.DESTROY)
                     .lightLevel(litBlockEmission(lightLevel)));
         }
     }
-
-
-
 
 
     private static Boolean never(BlockState state, BlockGetter block, BlockPos pos, EntityType<?> type) {

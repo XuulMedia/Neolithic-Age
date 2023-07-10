@@ -24,32 +24,10 @@ import static github.xuulmedia.neolith.init.ModCreativeTabs.addToStoneAgeTab;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Neolith.MODID);
     public static final DeferredRegister<Item> VANILLA_ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, "minecraft");
-
-
     public static final int LOW_HEAT_WOOD = 250;
     public static final int MED_HEAT_WOOD = 350;
     public static final int HIGH_HEAT_WOOD = 500;
     public static final int NETHER_HEAT_WOOD = 650;
-
-    /*Heat Values for wood*/
-//    High: Apple, Beech, Pecan, OAK, Hickory, Mangrove ironwood
-//    Med: birch, walnut  Birch, Walnut, Larch, Ash,
-//    Low: Elm,  Cedar, Poplar, Pine. Alder, Elm, Mapple, Cherry, acacia
-
-    /*Wood real estimates + Heat Level */
-//    OAK = High Heat
-//    SPRUCE = LOW HEAT
-//    BIRCH = white birch = MED HEAT
-//    JUNGLE = cacao or maybe kapok = LOW HEAT
-//    ACACIA = acacia = LOW
-//    DARK_OAK = black oak (Quercus velutina) = MED HEAT
-//    MANGROVE = HIGH HEAT
-//    CHERRY - LOW HEAT
-//    WARPED Nether woods cant burn normally currently giving them extra high heat instead
-//    CRIMSON
-//    https://theyardable.com/firewood-weight-btu-chart/
-
-    /*TODO add woods hickorty, ironwood, elm and walnut*/
 
 
     /*Stone age tools*/
@@ -69,21 +47,21 @@ public class ModItems {
             () -> createHammer(ModToolMaterials.FLINT));
 
 
-    public static final RegistryObject<SwordItem> BRONZE_KNIFE = registerStoneAgeItem("bronze_knife",
+    public static final RegistryObject<SwordItem> BRONZE_KNIFE = registerMetalAgeItem("bronze_knife",
             () -> createKnife(ModToolMaterials.BRONZE));
-    public static final RegistryObject<PickaxeItem> BRONZE_PICK = registerStoneAgeItem("bronze_pick",
+    public static final RegistryObject<PickaxeItem> BRONZE_PICK = registerMetalAgeItem("bronze_pick",
             () -> createPick(ModToolMaterials.BRONZE));
-    public static final RegistryObject<ShovelItem> BRONZE_SHOVEL = registerStoneAgeItem("bronze_shovel",
+    public static final RegistryObject<ShovelItem> BRONZE_SHOVEL = registerMetalAgeItem("bronze_shovel",
             () -> createShovel(ModToolMaterials.BRONZE));
-    public static final RegistryObject<AxeItem> BRONZE_AXE = registerStoneAgeItem("bronze_axe",
+    public static final RegistryObject<AxeItem> BRONZE_AXE = registerMetalAgeItem("bronze_axe",
             () -> createAxe(ModToolMaterials.BRONZE));
-    public static final RegistryObject<HoeItem> BRONZE_HOE = registerStoneAgeItem("bronze_hoe",
+    public static final RegistryObject<HoeItem> BRONZE_HOE = registerMetalAgeItem("bronze_hoe",
             () -> createHoe(ModToolMaterials.BRONZE));
-    public static final RegistryObject<SawItem> BRONZE_SAW = registerStoneAgeItem("bronze_saw",
+    public static final RegistryObject<SawItem> BRONZE_SAW = registerMetalAgeItem("bronze_saw",
             () -> createSaw(ModToolMaterials.BRONZE));
-    public static final RegistryObject<HammerItem> BRONZE_HAMMER = registerStoneAgeItem("bronze_hammer",
+    public static final RegistryObject<HammerItem> BRONZE_HAMMER = registerMetalAgeItem("bronze_hammer",
             () -> createHammer(ModToolMaterials.BRONZE));
-    public static final RegistryObject<SwordItem> BRONZE_SWORD = registerStoneAgeItem("bronze_sword",
+    public static final RegistryObject<SwordItem> BRONZE_SWORD = registerMetalAgeItem("bronze_sword",
             () -> createSword(ModToolMaterials.BRONZE));
 
 
@@ -91,7 +69,7 @@ public class ModItems {
     public static final RegistryObject<TridentItem> STONE_SPEAR = registerStoneAgeItem("stone_spear",
             () -> new TridentItem(new Item.Properties().durability(50)));
     public static final RegistryObject<FireStarterItem> BASIC_FIRESTARTER = registerStoneAgeItem("firestarter",
-            () -> new FireStarterItem(new Item.Properties().durability(2)));
+            () -> new FireStarterItem(new Item.Properties().durability(10)));
     public static final RegistryObject<SpindleItem> SPINDLE = registerStoneAgeItem("spindle",
             () -> new SpindleItem(ModToolMaterials.FLINT, new Item.Properties().durability(100)));
 
@@ -155,7 +133,7 @@ public class ModItems {
     public static final RegistryObject<FuelItem> PLANK_CRIMSON = createFuelItem("plank_crimson", NETHER_HEAT_WOOD, new Item.Properties());
 
     /*PLANTS*/
-    public static final RegistryObject<FuelItem> PLANT_FIBRE = createFuelItem("plant_fibre",LOW_HEAT_WOOD, new Item.Properties());
+    public static final RegistryObject<FuelItem> PLANT_FIBRE = createFuelItem("plant_fibre", LOW_HEAT_WOOD, new Item.Properties());
     public static final RegistryObject<Item> BRAIDED_PLANT_FIBRE = registerStandardStoneAgeItem("braided_plant_fibre");
 
     /*STONE CHUNKS*/
@@ -220,22 +198,6 @@ public class ModItems {
     public static final RegistryObject<Item> WOOL = registerStandardStoneAgeItem("wool");
     public static final RegistryObject<Item> YARN = registerStandardStoneAgeItem("yarn");
 
-
-
-    /*FOOD*/
-    public static final RegistryObject<Item> SALVE = registerStoneAgeItem("salve",
-            () -> new Item(new Item.Properties().food((ModFoodProperties.SALVE))));
-
-    /*Crops*/
-//    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = registerStoneAgeItem("medicine_seeds",
-//            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
-//                    new Item.Properties()));
-    public static final RegistryObject<Item> MEDICINE_PLANT = registerStoneAgeItem("medicine_plant",
-            () -> new Item(new Item.Properties()
-                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
-
-
-
     /*Armor*/
 
     public static final RegistryObject<ArmorItem> BRONZE_HELMET = registerMetalAgeItem("bronze_helmet",
@@ -275,8 +237,41 @@ public class ModItems {
     public static final RegistryObject<Item> DUST_OBSIDIAN = registerStandardMetalAgeItem("dust_obsidian");
 
 
+    public static final RegistryObject<Item> JUTE_SEEDS = ITEMS.register("jute_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.JUTE_CROP.get(), new Item.Properties()));
 
 
+
+
+    //MEALS (provide buffs)
+    public static final RegistryObject<Item> SANDWICH = createFood("sandwich", ModFoodProperties.MEAL_WITH_MEAT);
+    public static final RegistryObject<Item> SALAD = createFood("salad", ModFoodProperties.MEAL);
+    //TODO Ploughmans Lunch - strenght
+    //Travellers Lunch - speed
+    // Warriors Soup - damage
+    // Painter's Breakfast - vision
+
+
+
+
+
+
+
+
+
+    /*FOOD*/
+//    public static final RegistryObject<Item> SALVE = registerStoneAgeItem("salve",
+//            () -> new Item(new Item.Properties().food((ModFoodProperties.SALVE))));
+//
+//    /*Crops*/
+////    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = registerStoneAgeItem("medicine_seeds",
+////            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
+////                    new Item.Properties()));
+//    public static final RegistryObject<Item> MEDICINE_PLANT = registerStoneAgeItem("medicine_plant",
+//            () -> new Item(new Item.Properties()
+//                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
+//
+//
 
 
     /***************/
@@ -284,29 +279,29 @@ public class ModItems {
     /************/
 
 
-    public static final RegistryObject<?> WOODEN_SWORD = registerVanillaItem("wooden_sword", () ->  new SwordItem(Tiers.WOOD, 3, -2.4F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> WOODEN_SHOVEL = registerVanillaItem("wooden_shovel", () ->  new ShovelItem(Tiers.WOOD, 1.5F, -3.0F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> WOODEN_PICKAXE = registerVanillaItem("wooden_pickaxe", () ->  new PickaxeItem(Tiers.WOOD, 1, -2.8F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> WOODEN_AXE = registerVanillaItem("wooden_axe", () ->  new AxeItem(Tiers.WOOD, 6.0F, -3.2F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> WOODEN_HOE = registerVanillaItem("wooden_hoe", () ->  new HoeItem(Tiers.WOOD, 0, -3.0F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> STONE_SWORD = registerVanillaItem("stone_sword", () ->  new SwordItem(Tiers.STONE, 3, -2.4F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> STONE_SHOVEL = registerVanillaItem("stone_shovel", () ->  new ShovelItem(Tiers.STONE, 1.5F, -3.0F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> STONE_PICKAXE = registerVanillaItem("stone_pickaxe", () ->  new PickaxeItem(Tiers.STONE, 1, -2.8F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> STONE_AXE = registerVanillaItem("stone_axe", () ->  new AxeItem(Tiers.STONE, 7.0F, -3.2F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> STONE_HOE = registerVanillaItem("stone_hoe", () ->  new HoeItem(Tiers.STONE, -1, -2.0F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> GOLDEN_SWORD = registerVanillaItem("golden_sword", () ->  new SwordItem(Tiers.GOLD, 3, -2.4F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> GOLDEN_SHOVEL = registerVanillaItem("golden_shovel", () ->  new ShovelItem(Tiers.GOLD, 1.5F, -3.0F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> GOLDEN_PICKAXE = registerVanillaItem("golden_pickaxe", () ->  new PickaxeItem(Tiers.GOLD, 1, -2.8F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> GOLDEN_AXE = registerVanillaItem("golden_axe", () ->  new AxeItem(Tiers.GOLD, 6.0F, -3.0F, new Item.Properties().durability(1)));
-    public static final RegistryObject<?> GOLDEN_HOE = registerVanillaItem("golden_hoe", () ->  new HoeItem(Tiers.GOLD, 0, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_SWORD = registerVanillaItem("wooden_sword", () -> new SwordItem(Tiers.WOOD, 3, -2.4F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_SHOVEL = registerVanillaItem("wooden_shovel", () -> new ShovelItem(Tiers.WOOD, 1.5F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_PICKAXE = registerVanillaItem("wooden_pickaxe", () -> new PickaxeItem(Tiers.WOOD, 1, -2.8F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_AXE = registerVanillaItem("wooden_axe", () -> new AxeItem(Tiers.WOOD, 6.0F, -3.2F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> WOODEN_HOE = registerVanillaItem("wooden_hoe", () -> new HoeItem(Tiers.WOOD, 0, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_SWORD = registerVanillaItem("stone_sword", () -> new SwordItem(Tiers.STONE, 3, -2.4F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_SHOVEL = registerVanillaItem("stone_shovel", () -> new ShovelItem(Tiers.STONE, 1.5F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_PICKAXE = registerVanillaItem("stone_pickaxe", () -> new PickaxeItem(Tiers.STONE, 1, -2.8F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_AXE = registerVanillaItem("stone_axe", () -> new AxeItem(Tiers.STONE, 7.0F, -3.2F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> STONE_HOE = registerVanillaItem("stone_hoe", () -> new HoeItem(Tiers.STONE, -1, -2.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_SWORD = registerVanillaItem("golden_sword", () -> new SwordItem(Tiers.GOLD, 3, -2.4F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_SHOVEL = registerVanillaItem("golden_shovel", () -> new ShovelItem(Tiers.GOLD, 1.5F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_PICKAXE = registerVanillaItem("golden_pickaxe", () -> new PickaxeItem(Tiers.GOLD, 1, -2.8F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_AXE = registerVanillaItem("golden_axe", () -> new AxeItem(Tiers.GOLD, 6.0F, -3.0F, new Item.Properties().durability(1)));
+    public static final RegistryObject<?> GOLDEN_HOE = registerVanillaItem("golden_hoe", () -> new HoeItem(Tiers.GOLD, 0, -3.0F, new Item.Properties().durability(1)));
 
 
-//Danger foods
+    //Danger foods
     public static final RegistryObject<Item> ROTTEN_FLESH = createVanillaFood("rotten_flesh", ModFoodProperties.RAW_MEAT);
     public static final RegistryObject<Item> SPIDER_EYE = createVanillaFood("spider_eye", ModFoodProperties.DANGER);
     public static final RegistryObject<Item> POISONOUS_POTATO = createVanillaFood("poisonous_potato", ModFoodProperties.DANGER);
 
-            //raw meat
+    //raw meat
     public static final RegistryObject<Item> BEEF = createVanillaFood("beef", ModFoodProperties.RAW_MEAT);
     public static final RegistryObject<Item> CHICKEN = createVanillaFood("chicken", ModFoodProperties.RAW_MEAT);
     public static final RegistryObject<Item> COD = createVanillaFood("cod", ModFoodProperties.RAW_MEAT);
@@ -317,7 +312,7 @@ public class ModItems {
     public static final RegistryObject<Item> RABBIT = createVanillaFood("rabbit", ModFoodProperties.RAW_MEAT);
     public static final RegistryObject<Item> TROPICAL_FISH = createVanillaFood("tropical_fish", ModFoodProperties.RAW_MEAT);
 
-// LOW FOODS
+    // LOW FOODS
     public static final RegistryObject<Item> APPLE = createVanillaFood("apple", ModFoodProperties.RAW_VEG);
     public static final RegistryObject<Item> BEETROOT = createVanillaFood("beetroot", ModFoodProperties.RAW_VEG);
     public static final RegistryObject<Item> CARROT = createVanillaFood("carrot", ModFoodProperties.RAW_VEG);
@@ -325,7 +320,7 @@ public class ModItems {
     public static final RegistryObject<Item> MELON_SLICE = createVanillaFood("melon_slice", ModFoodProperties.BERRY);
     public static final RegistryObject<Item> SWEET_BERRIES = createVanillaFood("sweet_berries", ModFoodProperties.BERRY);
     public static final RegistryObject<Item> GLOW_BERRIES = createVanillaFood("glow_berries", ModFoodProperties.BERRY);
-    public static final RegistryObject<Item> HONEY_BOTTLE = registerVanillaItem("honey_bottle",() ->  new HoneyBottleItem((new Item.Properties())
+    public static final RegistryObject<Item> HONEY_BOTTLE = registerVanillaItem("honey_bottle", () -> new HoneyBottleItem((new Item.Properties())
             .craftRemainder(Items.GLASS_BOTTLE).food(Foods.HONEY_BOTTLE).stacksTo(16)));
 
     //Average foods
@@ -342,35 +337,17 @@ public class ModItems {
 
 
     //GOOD FOODs
-//    public static final Item BEETROOT_SOUP = registerItem("beetroot_soup", new BowlFoodItem((new Item.Properties()).stacksTo(1).food(Foods.BEETROOT_SOUP)));
-
     public static final RegistryObject<Item> BEETROOT_SOUP = registerVanillaItem("beetroot_soup", () -> new ClayBowlFoodItem(new Item.Properties()
             .stacksTo(1).food(ModFoodProperties.GOOD)));
     public static final RegistryObject<Item> MUSHROOM_STEW = registerVanillaItem("mushroom_stew", () -> new ClayBowlFoodItem(new Item.Properties()
             .stacksTo(1).food(ModFoodProperties.GOOD)));
-    public static final RegistryObject<Item> RABBIT_STEW = registerVanillaItem("rabbit_stew", () ->  new ClayBowlFoodItem(new Item.Properties()
+    public static final RegistryObject<Item> RABBIT_STEW = registerVanillaItem("rabbit_stew", () -> new ClayBowlFoodItem(new Item.Properties()
             .stacksTo(1).food(ModFoodProperties.STEW)));
 
     public static final RegistryObject<Item> PUMPKIN_PIE = createVanillaFood("pumpkin_pie", ModFoodProperties.GOOD);
 
 
-    //MEALS (provide buffs)
-    public static final RegistryObject<Item> SANDWICH = createFood("sandwich", ModFoodProperties.MEAL_WITH_MEAT);
-    public static final RegistryObject<Item> SALAD = createFood("salad", ModFoodProperties.MEAL);
-
-
-
-
-
-
-
-
-
-
-
 //    public static final RegistryObject<Item> CHORUS_FRUIT = createVanillaFood("chorus_fruit", ModFoodProperties.BASIC);
-
-
 
 
     //Special Foods
@@ -384,19 +361,6 @@ public class ModItems {
 //    public static final RegistryObject<Item> ENCHANTED_GOLDEN_APPLE = createVanillaFood("enchanted_golden_apple", ModFoodProperties.BASIC);
 //    public static final RegistryObject<Item> GOLDEN_APPLE = createVanillaFood("golden_apple", ModFoodProperties.BASIC);
 //    public static final RegistryObject<Item> GOLDEN_CARROT = createVanillaFood("golden_carrot", ModFoodProperties.BASIC);
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -430,9 +394,6 @@ public class ModItems {
     }
 
 
-
-
-
     private static RegistryObject<Item> createVanillaFood(String name, FoodProperties foodProperties) {
         return registerVanillaItem(name, () -> new Item(new Item.Properties().food(foodProperties)));
     }
@@ -449,31 +410,60 @@ public class ModItems {
                 .requiresCorrectToolForDrops());
     }
 
-    private static SwordItem createKnife(ForgeTier tier){
-        return new SwordItem(tier, 3, -2.4F,new Item.Properties());
+    private static SwordItem createKnife(ForgeTier tier) {
+        return new SwordItem(tier, 3, -2.4F, new Item.Properties().durability(tier.getUses() * 2));
     }
-    private static SwordItem createSword(ForgeTier tier){
-        return new SwordItem(tier, 2, -1.2F,new Item.Properties());
+
+    private static SwordItem createSword(ForgeTier tier) {
+        return new SwordItem(tier, 2, -1.2F, new Item.Properties());
     }
-    private static ModShovelItem createShovel(ForgeTier tier){
-        return new ModShovelItem(tier, 1.5F, -3F,new Item.Properties());
+
+    private static ModShovelItem createShovel(ForgeTier tier) {
+        return new ModShovelItem(tier, 1.5F, -3F, new Item.Properties());
     }
-    private static AxeItem createAxe(ForgeTier tier){
+
+    private static AxeItem createAxe(ForgeTier tier) {
         return new AxeItem(tier, 6.0F, -3.2F, new Item.Properties());
     }
-    private static HoeItem createHoe(ForgeTier tier){
+
+    private static HoeItem createHoe(ForgeTier tier) {
         return new HoeItem(tier, -1, -2.0F, new Item.Properties());
     }
-    private static PickaxeItem createPick(ForgeTier tier){
+
+    private static PickaxeItem createPick(ForgeTier tier) {
         return new PickaxeItem(tier, 1, -2.8F, new Item.Properties());
     }
-    private static HammerItem createHammer(ForgeTier tier){
+
+    private static HammerItem createHammer(ForgeTier tier) {
         return new HammerItem(tier, 7.5F, -4.5F, new Item.Properties());
     }
-    private static SawItem createSaw(ForgeTier tier){
+
+    private static SawItem createSaw(ForgeTier tier) {
         return new SawItem(tier, 1.5F, -2.4F, new Item.Properties());
     }
 
+
+
+
+    /*Heat Values for wood*/
+//    High: Apple, Beech, Pecan, OAK, Hickory, Mangrove ironwood
+//    Med: birch, walnut  Birch, Walnut, Larch, Ash,
+//    Low: Elm,  Cedar, Poplar, Pine. Alder, Elm, Mapple, Cherry, acacia
+
+    /*Wood real estimates + Heat Level */
+//    OAK = High Heat
+//    SPRUCE = LOW HEAT
+//    BIRCH = white birch = MED HEAT
+//    JUNGLE = cacao or maybe kapok = LOW HEAT
+//    ACACIA = acacia = LOW
+//    DARK_OAK = black oak (Quercus velutina) = MED HEAT
+//    MANGROVE = HIGH HEAT
+//    CHERRY - LOW HEAT
+//    WARPED Nether woods cant burn normally currently giving them extra high heat instead
+//    CRIMSON
+//    https://theyardable.com/firewood-weight-btu-chart/
+
+    /*TODO add woods hickorty, ironwood, elm and walnut*/
 }
 
 

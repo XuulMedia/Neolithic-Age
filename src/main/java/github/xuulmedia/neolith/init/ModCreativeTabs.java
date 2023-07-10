@@ -3,6 +3,7 @@ package github.xuulmedia.neolith.init;
 import github.xuulmedia.neolith.Neolith;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.ItemLike;
@@ -18,11 +19,12 @@ import java.util.function.Supplier;
 public class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Neolith.MODID);
 
+
     public static final List<Supplier<? extends ItemLike>> STONE_AGE_ITEMS = new ArrayList<>();
     public static final List<Supplier<? extends ItemLike>> METAL_AGE_ITEMS = new ArrayList<>();
 
     //CreativeModeTabs
-    public static final RegistryObject<CreativeModeTab> STONE_AGE_TAB = CREATIVE_MODE_TABS.register((Neolith.MODID + "stone_age"), () -> CreativeModeTab.builder()
+    public static final RegistryObject<CreativeModeTab> STONE_AGE_TAB = CREATIVE_MODE_TABS.register( "stone_age_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.stone_age." + Neolith.MODID))
             .icon(() -> ModItems.CHUNK_STONE.get().getDefaultInstance())
             .displayItems((enabledFeatures, entries) ->
@@ -30,9 +32,10 @@ public class ModCreativeTabs {
             .withSearchBar()
             .build());
 
-    public static final RegistryObject<CreativeModeTab> METAL_AGE_TAB = CREATIVE_MODE_TABS.register((Neolith.MODID + "metal_age"), () -> CreativeModeTab.builder()
+    public static final RegistryObject<CreativeModeTab> METAL_AGE_TAB = CREATIVE_MODE_TABS.register("metal_age_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("metal_age" + Neolith.MODID))
             .icon(() -> ModItems.INGOT_BRONZE.get().getDefaultInstance())
+            .withTabsBefore(new ResourceLocation(Neolith.MODID, "stone_age_tab"))
             .displayItems((enabledFeatures, entries) ->
                     METAL_AGE_ITEMS.forEach(itemLike -> entries.accept(itemLike.get())))
             .withSearchBar()

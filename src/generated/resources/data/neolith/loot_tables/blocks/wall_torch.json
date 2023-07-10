@@ -27,5 +27,5 @@
       "rolls": 1.0
     }
   ],
-  "random_sequence": "neolith:blocks/torch"
+  "random_sequence": "neolith:blocks/wall_torch"
 }

@@ -23,6 +23,7 @@ import net.minecraft.world.level.storage.loot.entries.*;
 import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.BonusLevelTableCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
 import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
@@ -86,8 +87,8 @@ public class ModBlockLoot extends VanillaBlockLoot {
 
         dropOther(ModBlocks.FLINT_NODE.get(), Items.FLINT);
 
-        dropSelf(ModBlocks.TORCH.get());
-//        dropOther(ModBlocks.WALL_TORCH.get(), ModBlocks.TORCH.get());
+        createTorchDropTable(ModBlocks.TORCH.get(), Items.STICK);
+        createTorchDropTable(ModBlocks.WALL_TORCH.get(), Items.STICK);
         dropSelf(ModBlocks.WARDED_GRASS_BLOCK.get());
 
         dropSelf(ModBlocks.MANUAL_GRINDER.get());
@@ -307,6 +308,15 @@ public class ModBlockLoot extends VanillaBlockLoot {
         this.add(block, LootTable.lootTable().withPool(builder));
     }
 
+    protected void createTorchDropTable(Block block, Item lootItem) {
+        LootPool.Builder builder = LootPool.lootPool()
+                .setRolls(ConstantValue.exactly(1.0F))
+                .add(LootItem.lootTableItem(block)
+                                .when(LootItemRandomChanceCondition.randomChance(0.7F)).otherwise(LootItem.lootTableItem(lootItem)));
+
+        this.add(block, LootTable.lootTable().withPool(builder));
+    }
+
     private void createStandardTable(Block block, BlockEntityType<?> type, String... tags) {
         LootPoolSingletonContainer.Builder<?> lti = LootItem.lootTableItem(block);
         lti.apply(CopyNameFunction.copyName(CopyNameFunction.NameSource.BLOCK_ENTITY));
@@ -321,8 +331,5 @@ public class ModBlockLoot extends VanillaBlockLoot {
         add(block, LootTable.lootTable().withPool(builder));
     }
 
-    protected static LootTable.Builder createSelfDropDispatchTable(Block p_252253_, LootItemCondition.Builder p_248764_, LootPoolEntryContainer.Builder<?> p_249146_) {
-        return LootTable.lootTable().withPool(LootPool.lootPool().setRolls(ConstantValue.exactly(1.0F)).add(LootItem.lootTableItem(p_252253_).when(p_248764_).otherwise(p_249146_)));
-    }
 
 }

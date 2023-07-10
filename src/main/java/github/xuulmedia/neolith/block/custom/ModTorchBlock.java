@@ -28,18 +28,16 @@ import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
-public class ModTorchBlock extends Block {
+public class ModTorchBlock extends TorchBlock {
     protected static final int BURN_MIN = 5; // how long in min the torchs will burn
     protected static final int DELAY = 600; // 600 ticks is 30 seconds This is the delay between each tick
     protected static int BURN_TICKS = 2 * BURN_MIN;
     public int burnTime = BURN_TICKS;
-    protected final ParticleOptions flameParticle;
     public static final IntegerProperty BURNTIME = IntegerProperty.create("burn_time", 0, BURN_TICKS);
     public static final BooleanProperty LIT = BooleanProperty.create("lit");
 
     public ModTorchBlock(Properties pProperties) {
-        super(pProperties);
-        this.flameParticle = ParticleTypes.FLAME;
+        super(pProperties, ParticleTypes.FLAME);
         registerDefaultState(stateDefinition.any()
                 .setValue(LIT, true)
                 .setValue(BURNTIME, BURN_TICKS));
