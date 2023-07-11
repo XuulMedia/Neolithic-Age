@@ -2,15 +2,6 @@
   "type": "neolith:flint_station",
   "category": "misc",
   "experience": 10.0,
-  "ingredients": [
-    {
-      "item": "minecraft:flint"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "neolith:flint_hoe_head"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }

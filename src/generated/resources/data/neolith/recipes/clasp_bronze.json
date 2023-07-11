@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "n": {
+      "item": "neolith:nugget_bronze"
+    },
+    "x": {
+      "item": "neolith:ingot_bronze"
+    }
+  },
+  "pattern": [
+    "xnx"
+  ],
+  "result": {
+    "item": "neolith:clasp_bronze"
+  },
+  "show_notification": true
+}

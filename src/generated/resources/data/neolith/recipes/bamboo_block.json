@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:bamboo"
+    },
+    "r": {
+      "tag": "neolith:bindings"
+    }
+  },
+  "pattern": [
+    "bbb",
+    "rbr",
+    "bbb"
+  ],
+  "result": {
+    "item": "minecraft:bamboo_block"
+  },
+  "show_notification": true
+}

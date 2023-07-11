@@ -4,15 +4,6 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 300,
-  "ingredients": [
-    {
-      "item": "neolith:unfired_clay_bowl"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "neolith:clay_bowl"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }

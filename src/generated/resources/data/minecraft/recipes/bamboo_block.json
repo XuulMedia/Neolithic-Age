@@ -1,0 +1,8 @@
+{
+  "type": "neolith:disable",
+  "conditions": [
+    {
+      "type": "forge:false"
+    }
+  ]
+}

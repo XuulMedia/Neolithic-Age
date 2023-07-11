@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "n": {
+      "item": "minecraft:iron_nugget"
+    },
+    "x": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "xnx"
+  ],
+  "result": {
+    "item": "neolith:hinge_iron"
+  },
+  "show_notification": true
+}

@@ -83,6 +83,16 @@ public class ModItems {
     public static final RegistryObject<Item> HIDE_MEDIUM = registerStandardStoneAgeItem("hide_medium");
     public static final RegistryObject<Item> HIDE_LARGE = registerStandardStoneAgeItem("hide_large");
 
+    public static final RegistryObject<Item> LEATHER_SMALL = registerStandardStoneAgeItem("leather_small");
+    public static final RegistryObject<Item> LEATHER_MEDIUM = registerStandardStoneAgeItem("leather_medium");
+    public static final RegistryObject<Item> LEATHER_LARGE = registerStandardStoneAgeItem("leather_large");
+
+    public static final RegistryObject<Item> ANIMAL_FAT = registerStandardStoneAgeItem("animal_fat");
+    public static final RegistryObject<Item> BONE_SHARD = registerStandardStoneAgeItem("bone_shard");
+
+
+
+
     /*TODO cured hide*/
 
     /*Clay Objects*/
@@ -235,6 +245,11 @@ public class ModItems {
     public static final RegistryObject<Item> DUST_STEEL = registerStandardMetalAgeItem("dust_steel");
     public static final RegistryObject<Item> DUST_SILVER = registerStandardMetalAgeItem("dust_silver");
     public static final RegistryObject<Item> DUST_OBSIDIAN = registerStandardMetalAgeItem("dust_obsidian");
+
+
+    public static final RegistryObject<Item> HINGE_IRON = registerStandardMetalAgeItem("hinge_iron");
+    public static final RegistryObject<Item> CLASP_BRONZE = registerStandardMetalAgeItem("clasp_bronze");
+
 
 
     public static final RegistryObject<Item> JUTE_SEEDS = ITEMS.register("jute_seeds",

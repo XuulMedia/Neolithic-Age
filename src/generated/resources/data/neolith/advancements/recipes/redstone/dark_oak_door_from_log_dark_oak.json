@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:dark_oak_door_from_log_dark_oak"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "haslog_dark_oak": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:log_dark_oak"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "haslog_dark_oak",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:dark_oak_door_from_log_dark_oak"
+    ]
+  },
+  "sends_telemetry_event": false
+}

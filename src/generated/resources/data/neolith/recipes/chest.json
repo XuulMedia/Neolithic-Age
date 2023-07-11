@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "neolith:clasp_bronze"
+    },
+    "x": {
+      "tag": "neolith:planks"
+    }
+  },
+  "pattern": [
+    "xcx",
+    "x x",
+    "xxx"
+  ],
+  "result": {
+    "item": "minecraft:chest"
+  },
+  "show_notification": true
+}

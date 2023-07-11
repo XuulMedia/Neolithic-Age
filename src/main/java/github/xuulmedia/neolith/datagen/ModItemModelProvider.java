@@ -19,8 +19,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
 
-        simpleItem(ModItems.PLANT_FIBRE.get());
-        simpleItem(ModItems.BRAIDED_PLANT_FIBRE.get());
+        simpleItem(ModItems.PLANT_FIBRE.get(), "plants");
+        simpleItem(ModItems.BRAIDED_PLANT_FIBRE.get(), "plants");
         handheldItem(ModItems.BASKET.get());
 
 //        simpleItem(ModItems.WOOL.get());
@@ -47,6 +47,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DUST_OBSIDIAN.get(), "metals/dusts");
 
         simpleItem(ModItems.RAW_TIN.get(), "metals");
+
+        simpleItem(ModItems.CLASP_BRONZE.get(), "fabricated");
+        simpleItem(ModItems.HINGE_IRON.get(), "fabricated");
+        simpleItem(ModItems.BRONZE_HAMMER_HEAD.get(), "fabricated");
 
         simpleItem(ModItems.LOG_ACACIA.get(), "wood/logs");
         simpleItem(ModItems.LOG_BIRCH.get(), "wood/logs");
@@ -125,9 +129,16 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.UNFIRED_CLAY_POT.get(), "clay");
 
         // Leathers
-        simpleItem(ModItems.HIDE_SMALL.get(), "hides");
-        simpleItem(ModItems.HIDE_MEDIUM.get(), "hides");
-        simpleItem(ModItems.HIDE_LARGE.get(), "hides");
+        simpleItem(ModItems.HIDE_SMALL.get(), "animal/hides");
+        simpleItem(ModItems.HIDE_MEDIUM.get(), "animal/hides");
+        simpleItem(ModItems.HIDE_LARGE.get(), "animal/hides");
+
+        simpleItem(ModItems.LEATHER_SMALL.get(), "animal/hides");
+        simpleItem(ModItems.LEATHER_MEDIUM.get(), "animal/hides");
+        simpleItem(ModItems.LEATHER_LARGE.get(), "animal/hides");
+
+        simpleItem(ModItems.ANIMAL_FAT.get(), "animal");
+        simpleItem(ModItems.BONE_SHARD.get(), "animal");
 
         //TOOLS
         simpleItem(ModItems.FLINT_KNIFE.get(), "tools/flint");
@@ -155,7 +166,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.FLINT_AXE_HEAD.get(), "tools/flint");
         simpleItem(ModItems.FLINT_HOE_HEAD.get(), "tools/flint");
         simpleItem(ModItems.FLINT_SAW_HEAD.get(), "tools/flint");
-        simpleItem(ModItems.BRONZE_HAMMER_HEAD.get(), "tools/bronze");
+
 
         simpleItem(ModItems.BASIC_FIRESTARTER.get(), "tools");
 

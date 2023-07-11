@@ -4,15 +4,6 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 250,
-  "ingredients": [
-    {
-      "item": "minecraft:raw_copper"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "minecraft:copper_ingot"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }

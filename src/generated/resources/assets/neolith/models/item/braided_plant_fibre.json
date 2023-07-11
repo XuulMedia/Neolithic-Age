@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "neolith:item/braided_plant_fibre"
+    "layer0": "neolith:item/plants/braided_plant_fibre"
   }
 }

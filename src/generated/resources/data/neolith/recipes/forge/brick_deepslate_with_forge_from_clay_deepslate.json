@@ -4,15 +4,6 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 250,
-  "ingredients": [
-    {
-      "item": "neolith:clay_deepslate"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "neolith:brick_deepslate"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }

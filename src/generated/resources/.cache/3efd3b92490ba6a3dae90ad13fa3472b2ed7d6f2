@@ -1,6 +1,8 @@
-// 1.20	2023-07-06T22:32:23.1043741	Item Models: neolith
+// 1.20	2023-07-10T17:36:31.5449998	Item Models: neolith
+9c0c4e2b2fe3b7c15964437dc2d1cf8c5742af97 assets/neolith/models/item/animal_fat.json
 618efee55ad7b4fc2ce52019624a21c6c1509462 assets/neolith/models/item/basket.json
-7c067dd4b0f73d43220b5e20cd426b915302df8a assets/neolith/models/item/braided_plant_fibre.json
+38d8b910c5df60074a3bfb7714fca3b36e0affaa assets/neolith/models/item/bone_shard.json
+d476b03496cf482a205c4e2ccd6ae5dc19de5c47 assets/neolith/models/item/braided_plant_fibre.json
 6686594e2f10822741b6e52f9a979f582a152e1a assets/neolith/models/item/brick_black.json
 d866df1b4b2d79d5c629691649a5600b4ecabf71 assets/neolith/models/item/brick_brown.json
 5648a1c4ee96aa357e3fdfa300e9ed70b0dea4a1 assets/neolith/models/item/brick_deepslate.json
@@ -12,7 +14,7 @@ d866df1b4b2d79d5c629691649a5600b4ecabf71 assets/neolith/models/item/brick_brown.
 80d6b4adabc136d65fdcab04f580bd4f0960d805 assets/neolith/models/item/brick_white.json
 ab7fb2ee7635412e4ac9b0d805881d3afa1db4a4 assets/neolith/models/item/bronze_axe.json
 5dcb16559e4a87ab38d76a594d2022b36b962553 assets/neolith/models/item/bronze_hammer.json
-bab7187699decbf432f3213a8da10f658c785abb assets/neolith/models/item/bronze_hammer_head.json
+a1bbce0f73bbea1ff1c2f1f1cdb2ae85d923b4ff assets/neolith/models/item/bronze_hammer_head.json
 c8b8a5a1ede3299df7cd4c84e1193bf7ecd97406 assets/neolith/models/item/bronze_hoe.json
 2efcd91cc50ea7df464152c054e580dd031f45b7 assets/neolith/models/item/bronze_knife.json
 475ce66b1ab068a3ff1593a9434733764148e46d assets/neolith/models/item/bronze_pick.json
@@ -33,6 +35,7 @@ a51fa66a1b7cc6893e3b967eca6eed0b09739261 assets/neolith/models/item/chunk_endsto
 137fa439dcc38a6ae96fd48e509cf397e7bdf19e assets/neolith/models/item/chunk_sandstone.json
 9e5b013f7d254c8ebfbb0f9a8702be14df614a49 assets/neolith/models/item/chunk_stone.json
 dad899c8126570a7e894ce4f9bf1a0463b1f558e assets/neolith/models/item/chunk_tuff.json
+0ca9a4b8c8927b63bccf6838f9bad1b732545e11 assets/neolith/models/item/clasp_bronze.json
 711eae7a2c85a99d12d72bfffe4d734e954db188 assets/neolith/models/item/clay_black.json
 130f04f80bef24c62a284a69a4e2f9db375d7da1 assets/neolith/models/item/clay_bottle.json
 280146d7954fc56f28784153e8f0f0c28111ea84 assets/neolith/models/item/clay_bowl.json
@@ -75,13 +78,17 @@ e01ff373e94303c3f48be63d1f2552d994bcf780 assets/neolith/models/item/flint_saw.js
 b93a5facc29ebf6eb4364e58fe31b85b1ae05782 assets/neolith/models/item/flint_saw_head.json
 1d4dc17c3ca403dbe0ed0421ab0eb83464398e37 assets/neolith/models/item/flint_shovel.json
 9c656c22bc6d3cc9a7992569e5569ce36820e886 assets/neolith/models/item/flint_shovel_head.json
-73b8065e63f36d39f528a58d9dc2c13ec7b689f4 assets/neolith/models/item/hide_large.json
-3a9c6eb6970368b140b3de560474dd7598ee27e6 assets/neolith/models/item/hide_medium.json
-d58e7996a38686191ded389591f84bed402b42b3 assets/neolith/models/item/hide_small.json
+261a93c05207d528627c61ef611d8b853b1ffcbf assets/neolith/models/item/hide_large.json
+fb910144470d997be8ec40ce3d4b350718790fd7 assets/neolith/models/item/hide_medium.json
+60c45ce28ce79eb04669ca42afa66d978fdb4cf0 assets/neolith/models/item/hide_small.json
+cdf1d46735c98462b74480b829ed137501862086 assets/neolith/models/item/hinge_iron.json
 300467a92986570704caa2fdf556691750fc6360 assets/neolith/models/item/ingot_bronze.json
 92851bfadb7230afa2c9c8641a5548438e4faa74 assets/neolith/models/item/ingot_silver.json
 7afdf2c3c4d2fad861fda82636ad3cbee13bdea9 assets/neolith/models/item/ingot_steel.json
 8cbac8ad6026b8c631d1aceec67517b3c23e3e1f assets/neolith/models/item/ingot_tin.json
+c194e4c2150ca132ddf1d2ed3b1e610871523e48 assets/neolith/models/item/leather_large.json
+948bffc770379947bd561926e95880ac59f5e5bb assets/neolith/models/item/leather_medium.json
+7f396803317a77928a34aef2d193c3bd233506b7 assets/neolith/models/item/leather_small.json
 e872c820469943b5cee3774e5833e5a89d181f21 assets/neolith/models/item/log_acacia.json
 e5f73500584a15444f774d6d4f3f820f214ceab6 assets/neolith/models/item/log_birch.json
 a8ad05e7a56afabbde06672a54a2b1bd4ba34e36 assets/neolith/models/item/log_cherry.json
@@ -107,7 +114,7 @@ f25ac553d7c54b055cc1d2614e239f1c2b20c3e8 assets/neolith/models/item/plank_crimso
 42bc49b69d90210fce4860ef465ea4d9b66de0a4 assets/neolith/models/item/plank_oak.json
 6a8054a3cb09aaabab156322477e10167c4cac9f assets/neolith/models/item/plank_spruce.json
 c357331378785a0a32567737e505ec866cff2e0b assets/neolith/models/item/plank_warped.json
-d8049e13c04392f618f9ffedf336b3f22f200216 assets/neolith/models/item/plant_fibre.json
+ebff4bdd2b0086986f1720f4d4dd3f1b078fb7b2 assets/neolith/models/item/plant_fibre.json
 88629dada394ead89dd342f18edb8a3a4b379058 assets/neolith/models/item/raw_tin.json
 8b92685c6d97218a04f9b5c7edd57a9c2ac178fd assets/neolith/models/item/stone_hammer.json
 3225bc7f562e2c3a244fd9860f91aa0efa1f8321 assets/neolith/models/item/stone_spear.json

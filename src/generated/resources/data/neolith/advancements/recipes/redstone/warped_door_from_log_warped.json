@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "neolith:string_from_yarn"
+        "recipe": "neolith:warped_door_from_log_warped"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "has_yarn": {
+    "haslog_warped": {
       "conditions": {
         "items": [
           {
             "items": [
-              "neolith:yarn"
+              "neolith:log_warped"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "has_yarn",
+      "haslog_warped",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:string_from_yarn"
+      "neolith:warped_door_from_log_warped"
     ]
   },
   "sends_telemetry_event": false

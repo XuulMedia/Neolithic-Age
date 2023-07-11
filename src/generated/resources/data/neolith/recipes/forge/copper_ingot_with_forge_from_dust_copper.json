@@ -4,15 +4,6 @@
   "cookingtime": 100,
   "experience": 10.0,
   "heatRequired": 250,
-  "ingredients": [
-    {
-      "item": "neolith:dust_copper"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "minecraft:copper_ingot"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }

@@ -4,15 +4,6 @@
   "cookingtime": 100,
   "experience": 10.0,
   "heatRequired": 350,
-  "ingredients": [
-    {
-      "item": "neolith:dust_gold"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "minecraft:gold_ingot"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }

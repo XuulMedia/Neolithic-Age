@@ -54,6 +54,14 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.HIDE_MEDIUM.get(), "Medium Hide");
         add(ModItems.HIDE_LARGE.get(), "Large Hide");
 
+        add(ModItems.ANIMAL_FAT.get(), "Fat");
+        add(ModItems.BONE_SHARD.get(), "Bone Shard");
+
+        add(ModItems.LEATHER_SMALL.get(), "Small Leather");
+        add(ModItems.LEATHER_MEDIUM.get(), "Medium Leather");
+        add(ModItems.LEATHER_LARGE.get(), "Large Leather");
+
+
         add(ModItems.UNFIRED_CLAY_POT.get(), "Unfired Jug");
         add(ModItems.UNFIRED_CLAY_BUCKET.get(), "Unfired Clay Bucket");
         add(ModItems.UNFIRED_CLAY_BOTTLE.get(), "Unfired Clay Bottle");
@@ -175,6 +183,9 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.DUST_SILVER.get(), "Silver Dust");
         add(ModItems.DUST_STEEL.get(), "Steel Dust");
         add(ModItems.DUST_OBSIDIAN.get(), "Obsidian Blend");
+
+        add(ModItems.HINGE_IRON.get(), "Iron Hinge");
+        add(ModItems.CLASP_BRONZE.get(), "Bronze Clasp");
 
         add(ModItems.JUTE_SEEDS.get(), "Jute Seeds");
 

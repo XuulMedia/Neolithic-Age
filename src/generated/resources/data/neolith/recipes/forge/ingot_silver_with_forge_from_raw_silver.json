@@ -4,15 +4,6 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 400,
-  "ingredients": [
-    {
-      "item": "neolith:raw_silver"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "neolith:ingot_silver"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }

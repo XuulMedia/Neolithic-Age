@@ -4,15 +4,6 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 250,
-  "ingredients": [
-    {
-      "item": "minecraft:mutton"
-    }
-  ],
-  "results": [
-    {
-      "count": 1,
-      "item": "minecraft:cooked_mutton"
-    }
-  ]
+  "ingredients": [],
+  "results": []
 }
