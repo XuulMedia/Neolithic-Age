@@ -1,5 +1,6 @@
 package github.xuulmedia.neolith.datagen.loot;
 
+import github.xuulmedia.neolith.block.crops.GreenBeanCrop;
 import github.xuulmedia.neolith.block.crops.JuteCropBlock;
 import github.xuulmedia.neolith.block.entity.ClayPotBE;
 import github.xuulmedia.neolith.init.ModBlockEntities;
@@ -175,6 +176,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
         HammerSmashingTable(Blocks.END_STONE, ModItems.CHUNK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get(), 1, 4);
 
         createCropDropTable(ModBlocks.JUTE_CROP.get(), ModItems.PLANT_FIBRE.get(), ModItems.JUTE_SEEDS.get(), JuteCropBlock.AGE, 6);
+        createCropDropTable(ModBlocks.GREEN_BEAN_CROP.get(), ModItems.GREEN_BEAN.get(), ModItems.GREEN_BEAN_SEEDS.get(), GreenBeanCrop.AGE, 4);
     }
 
     @Override

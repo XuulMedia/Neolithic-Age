@@ -3,16 +3,16 @@ package github.xuulmedia.neolith.block.crops;
 import github.xuulmedia.neolith.init.ModItems;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
 
-public class JuteCropBlock extends ModCropBlock {
-    public static final int MAX_AGE = 6;
-    public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 6);
+public class GreenBeanCrop extends ModCropBlock {
 
-    public JuteCropBlock(Properties pProperties) {
+    public static final int MAX_AGE = 4;
+    public static final IntegerProperty AGE  = IntegerProperty.create("age", 0, 4);
+
+    public GreenBeanCrop(Properties pProperties) {
         super(pProperties);
     }
 
@@ -23,7 +23,7 @@ public class JuteCropBlock extends ModCropBlock {
 
     @Override
     protected ItemLike getBaseSeedId() {
-        return ModItems.JUTE_SEEDS.get();
+        return ModItems.GREEN_BEAN_SEEDS.get();
     }
 
     @Override

@@ -252,9 +252,14 @@ public class ModItems {
 
 
 
-    public static final RegistryObject<Item> JUTE_SEEDS = ITEMS.register("jute_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.JUTE_CROP.get(), new Item.Properties()));
+    public static final RegistryObject<Item> JUTE_SEEDS = addToStoneAgeTab(ITEMS.register("jute_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.JUTE_CROP.get(), new Item.Properties())));
 
+    public static final RegistryObject<Item> GREEN_BEAN_SEEDS = addToStoneAgeTab(ITEMS.register("green_bean_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.GREEN_BEAN_CROP.get(), new Item.Properties())));
+
+    //
+    public static final RegistryObject<Item> GREEN_BEAN = registerStandardStoneAgeItem("green_bean");
 
 
 

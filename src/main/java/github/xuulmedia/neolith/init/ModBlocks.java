@@ -1,6 +1,7 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
+import github.xuulmedia.neolith.block.crops.GreenBeanCrop;
 import github.xuulmedia.neolith.block.crops.JuteCropBlock;
 import github.xuulmedia.neolith.block.custom.*;
 import net.minecraft.core.BlockPos;
@@ -157,7 +158,15 @@ public class ModBlocks {
                     .sound(SoundType.CROP)
                     .pushReaction(PushReaction.DESTROY)));
 
-
+    public static final RegistryObject<Block> GREEN_BEAN_CROP = BLOCKS.register("green_bean_crop", () ->
+            new GreenBeanCrop(BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.PLANT)
+                    .noCollission()
+                    .noOcclusion()
+                    .randomTicks()
+                    .instabreak()
+                    .sound(SoundType.CROP)
+                    .pushReaction(PushReaction.DESTROY)));
 
 
 //    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = registerBlock("medicine_crop", ModCreativeTabs.TAB_NAME.METAL_AGE,

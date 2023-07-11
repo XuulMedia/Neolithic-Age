@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "neolith:dust_gold_with_hammer_from_copper_ore"
+        "recipe": "neolith:dust_gold_with_hammer_from_gold_ore"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "hascopper_ore": {
+    "hasgold_ore": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:copper_ore"
+              "minecraft:gold_ore"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "hascopper_ore",
+      "hasgold_ore",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:dust_gold_with_hammer_from_copper_ore"
+      "neolith:dust_gold_with_hammer_from_gold_ore"
     ]
   },
   "sends_telemetry_event": false

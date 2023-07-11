@@ -3,16 +3,16 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "neolith:dust_gold_with_hammer_from_raw_copper"
+        "recipe": "neolith:dust_gold_with_hammer_from_raw_gold"
       },
       "trigger": "minecraft:recipe_unlocked"
     },
-    "hasraw_copper": {
+    "hasraw_gold": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:raw_copper"
+              "minecraft:raw_gold"
             ]
           }
         ]
@@ -22,13 +22,13 @@
   },
   "requirements": [
     [
-      "hasraw_copper",
+      "hasraw_gold",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "neolith:dust_gold_with_hammer_from_raw_copper"
+      "neolith:dust_gold_with_hammer_from_raw_gold"
     ]
   },
   "sends_telemetry_event": false

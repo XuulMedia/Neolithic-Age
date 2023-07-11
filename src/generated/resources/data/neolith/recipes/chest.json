@@ -10,8 +10,8 @@
     }
   },
   "pattern": [
+    "xxx",
     "xcx",
-    "x x",
     "xxx"
   ],
   "result": {
