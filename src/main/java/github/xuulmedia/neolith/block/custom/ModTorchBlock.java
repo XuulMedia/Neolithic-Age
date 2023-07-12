@@ -47,8 +47,9 @@ public class ModTorchBlock extends TorchBlock {
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(LIT).add(BURNTIME);
     }
-
-
+    public BooleanProperty getLitProperty(){
+        return LIT;
+    }
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {

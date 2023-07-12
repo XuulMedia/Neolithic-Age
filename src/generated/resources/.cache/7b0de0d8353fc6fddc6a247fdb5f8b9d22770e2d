@@ -1,4 +1,4 @@
-// 1.20	2023-07-06T01:07:26.966554	Tags for minecraft:block mod id neolith
+// 1.20.1	2023-07-11T19:08:55.9848451	Tags for minecraft:block mod id neolith
 66938ef1b04abcac0f5590957d672e48deec1047 data/minecraft/tags/blocks/mineable/pickaxe.json
 1ca72992ba65c66f730d1b25d222db9e42831727 data/minecraft/tags/blocks/mineable/shovel.json
 9b82a2c662b7ee545aa36b9d7b411f1f1453cd2e data/minecraft/tags/blocks/needs_iron_tool.json

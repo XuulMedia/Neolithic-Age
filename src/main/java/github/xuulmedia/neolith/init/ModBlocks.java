@@ -1,8 +1,7 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.block.crops.GreenBeanCrop;
-import github.xuulmedia.neolith.block.crops.JuteCropBlock;
+import github.xuulmedia.neolith.block.crops.*;
 import github.xuulmedia.neolith.block.custom.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -19,6 +18,7 @@ import net.minecraft.world.level.block.grower.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -148,29 +148,21 @@ public class ModBlocks {
 
     /*Crops*/
 /*TODO make this better for faster crops*/
-    public static final RegistryObject<Block> JUTE_CROP = BLOCKS.register("jute_crop", () ->
-            new JuteCropBlock(BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.PLANT)
-                    .noCollission()
-                    .noOcclusion()
-                    .randomTicks()
-                    .instabreak()
-                    .sound(SoundType.CROP)
-                    .pushReaction(PushReaction.DESTROY)));
-
-    public static final RegistryObject<Block> GREEN_BEAN_CROP = BLOCKS.register("green_bean_crop", () ->
-            new GreenBeanCrop(BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.PLANT)
-                    .noCollission()
-                    .noOcclusion()
-                    .randomTicks()
-                    .instabreak()
-                    .sound(SoundType.CROP)
-                    .pushReaction(PushReaction.DESTROY)));
 
 
-//    public static final RegistryObject<MedicineCropBlock> MEDICINE_CROP = registerBlock("medicine_crop", ModCreativeTabs.TAB_NAME.METAL_AGE,
-//            () -> new MedicineCropBlock(BlockBehaviour.Properties.of().mapColor(MapColor.PLANT).noCollission().randomTicks().instabreak().sound(SoundType.CROP).pushReaction(PushReaction.DESTROY)), new Item.Properties());
+    public static final RegistryObject<ModCropBlock> JUTE_CROP = BLOCKS.register("jute_crop", () ->
+            new JuteCropBlock(cropProperties()));
+
+    public static final RegistryObject<ModCropBlock> GREEN_BEAN_CROP = BLOCKS.register("green_bean_crop", () ->
+            new GreenBeanCrop(cropProperties()));
+
+    public static final RegistryObject<ModCropBlock> ONION_CROP = BLOCKS.register("onion_crop", () ->
+            new OnionCrop(cropProperties()));
+
+    public static final RegistryObject<ModCropBlock> BLUE_ABRORE_CROP = BLOCKS.register("blue_abrore_crop", () ->
+            new BlueAbroreCrop(cropProperties()));
+
+
 
 
     /*Workstations*/
@@ -442,6 +434,17 @@ BLACK_WOOL*/
                     .pushReaction(PushReaction.DESTROY)
                     .lightLevel(litBlockEmission(lightLevel)));
         }
+    }
+
+    private static BlockBehaviour.Properties cropProperties(){
+      return  BlockBehaviour.Properties.of()
+                .mapColor(MapColor.PLANT)
+                .noCollission()
+                .noOcclusion()
+                .randomTicks()
+                .instabreak()
+                .sound(SoundType.CROP)
+                .pushReaction(PushReaction.DESTROY);
     }
 
 

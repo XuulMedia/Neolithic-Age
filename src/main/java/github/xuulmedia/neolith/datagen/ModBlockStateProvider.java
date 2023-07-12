@@ -3,6 +3,7 @@ package github.xuulmedia.neolith.datagen;
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.crops.ModCropBlock;
 import github.xuulmedia.neolith.block.custom.ModTorchBlock;
+import github.xuulmedia.neolith.block.custom.ModWallTorchBlock;
 import github.xuulmedia.neolith.init.ModBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.models.model.ModelTemplates;
@@ -81,20 +82,42 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(block, model);
     }
 
-    public void makeCrop(Block block, String modelName, String textureName, String folder) {
-        Function<BlockState, ConfiguredModel[]> function = state -> cropStates(state, (ModCropBlock)block, modelName, textureName, folder);
-
+    public void makeCrop(ModCropBlock block, String modelName, String textureName, String folder) {
+        Function<BlockState, ConfiguredModel[]> function = state -> cropStates(state, block, modelName, textureName, folder);
         getVariantBuilder(block).forAllStates(function);
     }
 
-    private ConfiguredModel[] cropStates(BlockState state, CropBlock block, String modelName, String textureName, String folder) {
+    private ConfiguredModel[] cropStates(BlockState state, ModCropBlock block, String modelName, String textureName, String folder) {
         ConfiguredModel[] models = new ConfiguredModel[1];
-        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((ModCropBlock) block).getAgeProperty()),
-                new ResourceLocation(Neolith.MODID, "block/crops/"+folder+ "/" + textureName + state.getValue(((ModCropBlock) block).getAgeProperty()))).renderType("cutout"));
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue((block).getAgeProperty()),
+                new ResourceLocation(Neolith.MODID, "block/crops/"+folder+ "/" + textureName + state.getValue((block).getAgeProperty()))).renderType("cutout"));
 
         return models;
     }
 
+//    public void makeTorch(Block block, String baseModelName) {
+//        Function<BlockState, ConfiguredModel[]> function = state -> torchStates(state, (ModWallTorchBlock) block, baseModelName);
+//
+//        getVariantBuilder(block).forAllStates(function);
+//    }
+//
+//    private ConfiguredModel[] torchStates(BlockState state, ModWallTorchBlock block, String baseModelName) {
+//        ConfiguredModel[] models = new ConfiguredModel[1];
+//
+//        String modelName = state.getValue(block.getLitProperty()) ? baseModelName : baseModelName + "_off";
+//        int rotationY = 0;
+//        switch(state.getValue(block.getFacingProperty())) {
+//            case NORTH: rotationY = 270; break;
+//            case SOUTH: rotationY = 90; break;
+//            case WEST: rotationY = 180; break;
+//            default: break;
+//        }
+//        models[0] = new ConfiguredModel(models().withExistingParent(modelName, new ResourceLocation(Neolith.MODID, "block/" + baseModelName ).
+//                .texture("torch", new ResourceLocation(Neolith.MODID, "block/"+modelName))
+//                .texture("particle", new ResourceLocation(Neolith.MODID, "block/"+modelName)), rotationY, 0);
+//
+//        return models;
+//    }
 
 
 

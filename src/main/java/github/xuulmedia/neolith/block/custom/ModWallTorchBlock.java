@@ -54,6 +54,14 @@ public class ModWallTorchBlock extends ModTorchBlock {
 
     }
 
+    public BooleanProperty getLitProperty(){
+        return LIT;
+    }
+
+    public DirectionProperty getFacingProperty(){
+        return FACING;
+    }
+
 
 //    public boolean canSurvive(BlockState pState, LevelReader pLevel, BlockPos pPos) {
 //        Direction direction = pState.getValue(FACING);

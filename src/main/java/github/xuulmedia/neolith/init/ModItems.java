@@ -8,6 +8,7 @@ import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GravelBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -256,10 +257,17 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.JUTE_CROP.get(), new Item.Properties())));
 
     public static final RegistryObject<Item> GREEN_BEAN_SEEDS = addToStoneAgeTab(ITEMS.register("green_bean_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.GREEN_BEAN_CROP.get(), new Item.Properties())));
+            () -> new ItemNameBlockItem(ModBlocks.GREEN_BEAN_CROP.get(), new Item.Properties().food(ModFoodProperties.RAW_VEG).stacksTo(16))));
 
-    //
+    public static final RegistryObject<Item> ONION = addToStoneAgeTab(ITEMS.register("onion",
+            () -> new ItemNameBlockItem(ModBlocks.ONION_CROP.get(), new Item.Properties().food(ModFoodProperties.RAW_VEG))));
+
+    public static final RegistryObject<Item> BLUE_ABRORE_SEEDS = addToStoneAgeTab(ITEMS.register("blue_abrore_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.BLUE_ABRORE_CROP.get(), new Item.Properties())));
+
+
     public static final RegistryObject<Item> GREEN_BEAN = registerStandardStoneAgeItem("green_bean");
+    public static final RegistryObject<Item> BLUE_ABRORE = registerStandardStoneAgeItem("blue_abrore");
 
 
 

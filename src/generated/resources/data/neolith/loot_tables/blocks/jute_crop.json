@@ -11,7 +11,7 @@
               "block": "neolith:jute_crop",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "age": "6"
+                "age": "7"
               }
             }
           ],
@@ -27,7 +27,7 @@
           "block": "neolith:jute_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "6"
+            "age": "7"
           }
         }
       ],

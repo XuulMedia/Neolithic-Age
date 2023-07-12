@@ -1,7 +1,6 @@
 package github.xuulmedia.neolith.datagen.loot;
 
-import github.xuulmedia.neolith.block.crops.GreenBeanCrop;
-import github.xuulmedia.neolith.block.crops.JuteCropBlock;
+import github.xuulmedia.neolith.block.crops.*;
 import github.xuulmedia.neolith.block.entity.ClayPotBE;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.init.ModBlocks;
@@ -21,6 +20,7 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
@@ -175,8 +175,10 @@ public class ModBlockLoot extends VanillaBlockLoot {
         HammerSmashingTable(Blocks.TUFF, ModItems.CHUNK_TUFF.get(), ModItems.DUST_TUFF.get(), 1, 4);
         HammerSmashingTable(Blocks.END_STONE, ModItems.CHUNK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get(), 1, 4);
 
-        createCropDropTable(ModBlocks.JUTE_CROP.get(), ModItems.PLANT_FIBRE.get(), ModItems.JUTE_SEEDS.get(), JuteCropBlock.AGE, 6);
-        createCropDropTable(ModBlocks.GREEN_BEAN_CROP.get(), ModItems.GREEN_BEAN.get(), ModItems.GREEN_BEAN_SEEDS.get(), GreenBeanCrop.AGE, 4);
+        createCropDropTable(ModBlocks.JUTE_CROP.get(), ModItems.PLANT_FIBRE.get(), ModItems.JUTE_SEEDS.get());
+        createCropDropTable(ModBlocks.GREEN_BEAN_CROP.get(), ModItems.GREEN_BEAN.get(), ModItems.GREEN_BEAN_SEEDS.get());
+        createCropDropTable(ModBlocks.ONION_CROP.get(), ModItems.ONION.get(), ModItems.ONION.get());
+        createCropDropTable(ModBlocks.BLUE_ABRORE_CROP.get(), ModItems.BLUE_ABRORE.get(), ModItems.BLUE_ABRORE_SEEDS.get());
     }
 
     @Override
@@ -335,9 +337,9 @@ public class ModBlockLoot extends VanillaBlockLoot {
     }
 
 
-    private void createCropDropTable(Block cropBlock, Item result, ItemLike seed, Property<Integer> pProperty, int pValue){
+    private void createCropDropTable(ModCropBlock cropBlock, Item result, ItemLike seed){
         LootItemCondition.Builder condition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(cropBlock)
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(pProperty, pValue));
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(cropBlock.getAgeProperty(), cropBlock.getMaxAge()));
 
         LootTable.Builder loottableBuilder = LootTable.lootTable().withPool(
         LootPool.lootPool().add(
