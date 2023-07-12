@@ -62,7 +62,6 @@ public class ModFoodProperties {
             .build();
 
 
-
     /*GOOD TIER*/
     public static final FoodProperties STEW = new FoodProperties.Builder()
             .nutrition(8)
@@ -93,10 +92,8 @@ public class ModFoodProperties {
     /*SUPER TIER*/
 
 
-
-
     //seconds helper so code is more readable
-    private static int sec(int timeInSeconds){
+    private static int sec(int timeInSeconds) {
         return 20 * timeInSeconds;
     }
 }

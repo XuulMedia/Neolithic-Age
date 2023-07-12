@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import org.jetbrains.annotations.NotNull;
 
 public class GreenBeanCrop extends ModCropBlock {
+    public static final int MAX_AGE = 3;
     public static final IntegerProperty AGE = IntegerProperty.create("age", 0, 4);
 
     public GreenBeanCrop(Properties properties) {
@@ -17,6 +18,10 @@ public class GreenBeanCrop extends ModCropBlock {
     @Override
     public @NotNull IntegerProperty getAgeProperty() {
         return AGE;
+    }
+
+    public int getMaxAge() {
+        return MAX_AGE;
     }
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {

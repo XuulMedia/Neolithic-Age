@@ -18,7 +18,6 @@ import net.minecraft.world.level.block.grower.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.level.material.PushReaction;
@@ -147,7 +146,7 @@ public class ModBlocks {
             () -> new ThatchBlock(BlockBehaviour.Properties.of().noCollission().strength(4.0F).sound(SoundType.GRASS)), new Item.Properties());
 
     /*Crops*/
-/*TODO make this better for faster crops*/
+    /*TODO make this better for faster crops*/
 
 
     public static final RegistryObject<ModCropBlock> JUTE_CROP = BLOCKS.register("jute_crop", () ->
@@ -161,8 +160,6 @@ public class ModBlocks {
 
     public static final RegistryObject<ModCropBlock> BLUE_ABRORE_CROP = BLOCKS.register("blue_abrore_crop", () ->
             new BlueAbroreCrop(cropProperties()));
-
-
 
 
     /*Workstations*/
@@ -436,8 +433,8 @@ BLACK_WOOL*/
         }
     }
 
-    private static BlockBehaviour.Properties cropProperties(){
-      return  BlockBehaviour.Properties.of()
+    private static BlockBehaviour.Properties cropProperties() {
+        return BlockBehaviour.Properties.of()
                 .mapColor(MapColor.PLANT)
                 .noCollission()
                 .noOcclusion()

@@ -5,7 +5,6 @@ import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.LanguageProvider;
-import net.minecraftforge.fml.common.Mod;
 
 public class ModLanguageProvider extends LanguageProvider {
     public ModLanguageProvider(PackOutput output, String locale) {
@@ -188,6 +187,12 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.CLASP_BRONZE.get(), "Bronze Clasp");
 
         add(ModItems.JUTE_SEEDS.get(), "Jute Seeds");
+        add(ModItems.GREEN_BEAN_SEEDS.get(), " Green Bean Seeds");
+        add(ModItems.BLUE_ABRORE_SEEDS.get(), "Blue Abrore Seeds");
+
+        add(ModItems.GREEN_BEAN.get(), "Green Bean");
+        add(ModItems.ONION.get(), "Onion");
+        add(ModItems.BLUE_ABRORE.get(), "Medical Herb");
 
         add(ModItems.SANDWICH.get(), "Sandwich");
         add(ModItems.SALAD.get(), "Salad");

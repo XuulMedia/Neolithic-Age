@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-11T19:08:55.9898462	Loot Tables
+// 1.20.1	2023-07-12T08:47:19.8822224	Loot Tables
 85cfa972134d70cc854e0f80a614e2fa2772fa03 data/minecraft/loot_tables/blocks/acacia_leaves.json
 6021a7b76b28b70df529b50b318a99f5694e9d68 data/minecraft/loot_tables/blocks/acacia_log.json
 715a31903a424ab11694afc1f664e73b55b09169 data/minecraft/loot_tables/blocks/acacia_planks.json
@@ -63,7 +63,7 @@ c1a7c4ad9ceb2b077de1ba61597fb0ac80e4f8de data/neolith/loot_tables/blocks/block_b
 8d5928c0dc43ba5a26f023786071a6c1c06af51d data/neolith/loot_tables/blocks/block_silver.json
 8e0f7015222f3437506fe7dd000d5176c1154d90 data/neolith/loot_tables/blocks/block_steel.json
 08c601e8aaa24f652915a75207d2b55f18741552 data/neolith/loot_tables/blocks/block_tin.json
-468b01f4769305d8dc0e8bcca181f6c4e636aa6b data/neolith/loot_tables/blocks/blue_abrore_crop.json
+8f6df4443f1dec35f3b037ee54c2dc0eebf807e2 data/neolith/loot_tables/blocks/blue_abrore_crop.json
 52414b0bc2e852d61694624071ce4678653a714a data/neolith/loot_tables/blocks/bricks_black.json
 4cd0dd25cadb87c07f95d2a4c333f46bad05e635 data/neolith/loot_tables/blocks/bricks_brown.json
 8f2a14acbd948b576c40ecd113fd2388d21394f8 data/neolith/loot_tables/blocks/bricks_deepslate.json
@@ -93,10 +93,10 @@ abcc1eb0c3fc7869a3a35848a54c40544c83eb42 data/neolith/loot_tables/blocks/flint_n
 7e91bbdc9d8587a42abd575371d64d54ea7b2ee6 data/neolith/loot_tables/blocks/flint_station.json
 ea022bd81994e88a1d698fdfebd6a82490d39902 data/neolith/loot_tables/blocks/forge.json
 007d3ae4d39c1bc4db92937dab898a4b81f32fb4 data/neolith/loot_tables/blocks/foundry.json
-726437ad03cf42684d27fb61db94756d2e8c3655 data/neolith/loot_tables/blocks/green_bean_crop.json
-306fb43db2e4978df7bc745569bcfb46c560d89b data/neolith/loot_tables/blocks/jute_crop.json
+2c3500425ca85496168f1fe9e766db702a11d8f7 data/neolith/loot_tables/blocks/green_bean_crop.json
+a725e6e0bc2948475ed19179f599b83ccd767200 data/neolith/loot_tables/blocks/jute_crop.json
 8efccf24f357febc21b30eef2bb4172ef8560bc1 data/neolith/loot_tables/blocks/manual_grinder.json
-29f410820236f1eaef80e9a6ab23c167f9ca3a0c data/neolith/loot_tables/blocks/onion_crop.json
+a607be3bef33c77b12ddd8be33f3ec1d237e3604 data/neolith/loot_tables/blocks/onion_crop.json
 521a617a9c58308b69a9dc345519a6560d84ff7d data/neolith/loot_tables/blocks/ore_clay.json
 2d04c335123ad5111a957aa79008a560ad4d88d2 data/neolith/loot_tables/blocks/ore_nether_silver.json
 a40addcf46e75fa576a400c1e469a88d1e1fb31d data/neolith/loot_tables/blocks/ore_tin.json

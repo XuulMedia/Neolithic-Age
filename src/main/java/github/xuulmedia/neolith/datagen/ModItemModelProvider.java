@@ -27,7 +27,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.GREEN_BEAN_SEEDS.get(), "plants");
 
         simpleItem(ModItems.GREEN_BEAN.get(), "plants");
+        simpleItem(ModItems.JUTE_SEEDS.get(), "plants");
+        simpleItem(ModItems.GREEN_BEAN_SEEDS.get(), "plants");
+        simpleItem(ModItems.ONION.get(), "plants");
+        simpleItem(ModItems.BLUE_ABRORE_SEEDS.get(), "plants");
+        simpleItem(ModItems.GREEN_BEAN.get(), "plants");
+        simpleItem(ModItems.BLUE_ABRORE.get(), "plants");
 
+//        simpleItem(ModItems.SANDWICH.get(), "food");
+//        simpleItem(ModItems.SALAD.get(), "food");
 //        simpleItem(ModItems.WOOL.get());
 //        simpleItem(ModItems.YARN.get());
 
@@ -217,32 +225,24 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder simpleItem(Item item) {
         String path = ForgeRegistries.ITEMS.getKey(item).getPath();
-        return withExistingParent(path,
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(Neolith.MODID, "item/" + path));
+        return withExistingParent(path, new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(Neolith.MODID, "item/" + path));
     }
 
     private ItemModelBuilder simpleItem(Item item, String folder) {
         String path = ForgeRegistries.ITEMS.getKey(item).getPath();
-        return withExistingParent(path,
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(Neolith.MODID, "item/" + folder + "/" + path));
+        return withExistingParent(path, new ResourceLocation("item/generated")).texture("layer0", new ResourceLocation(Neolith.MODID, "item/" + folder + "/" + path));
     }
 
     private ItemModelBuilder handheldItem(Item item) {
         String path = ForgeRegistries.ITEMS.getKey(item).getPath();
 
-        return withExistingParent(path,
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(Neolith.MODID, "item/" + path));
+        return withExistingParent(path, new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(Neolith.MODID, "item/" + path));
     }
 
     private ItemModelBuilder handheldItem(Item item, String folder) {
         String path = ForgeRegistries.ITEMS.getKey(item).getPath();
 
-        return withExistingParent(path,
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(Neolith.MODID, "item/" + folder + "/" + path));
+        return withExistingParent(path, new ResourceLocation("item/handheld")).texture("layer0", new ResourceLocation(Neolith.MODID, "item/" + folder + "/" + path));
     }
 
 

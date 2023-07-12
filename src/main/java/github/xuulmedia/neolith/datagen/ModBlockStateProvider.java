@@ -2,16 +2,10 @@ package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.block.crops.ModCropBlock;
-import github.xuulmedia.neolith.block.custom.ModTorchBlock;
-import github.xuulmedia.neolith.block.custom.ModWallTorchBlock;
 import github.xuulmedia.neolith.init.ModBlocks;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.CropBlock;
-import net.minecraft.world.level.block.WallTorchBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
@@ -55,23 +49,25 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         //Bricks
         blockWithItem(ModBlocks.STONE_BRICK_BLOCK.get(), "block/bricks");
-        blockWithItem(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(),"block/bricks");
-        blockWithItem(ModBlocks.NETHERRACK_BRICK_BLOCK.get(),"block/bricks");
-        blockWithItem(ModBlocks.ENDSTONE_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.DEEPSLATE_BRICK_BLOCK.get(), "block/bricks");
+        blockWithItem(ModBlocks.NETHERRACK_BRICK_BLOCK.get(), "block/bricks");
+        blockWithItem(ModBlocks.ENDSTONE_BRICK_BLOCK.get(), "block/bricks");
         blockWithItem(ModBlocks.BROWN_BRICK_BLOCK.get(), "block/bricks");
-        blockWithItem(ModBlocks.WHITE_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.WHITE_BRICK_BLOCK.get(), "block/bricks");
         blockWithItem(ModBlocks.BLACK_BRICK_BLOCK.get(), "block/bricks");
-        blockWithItem(ModBlocks.SAND_BRICK_BLOCK.get(),"block/bricks");
+        blockWithItem(ModBlocks.SAND_BRICK_BLOCK.get(), "block/bricks");
         blockWithItem(ModBlocks.RED_SAND_BRICK_BLOCK.get(), "block/bricks");
 
         blockWithItem(ModBlocks.THATCH.get(), "block");
+
         makeCrop(ModBlocks.JUTE_CROP.get(), "jute_stage", "stage", "jute");
         makeCrop(ModBlocks.GREEN_BEAN_CROP.get(), "green_bean_stage", "stage", "green_bean");
-
-
+        makeCrop(ModBlocks.BLUE_ABRORE_CROP.get(), "blue_abrore_stage", "stage", "blue_abrore");
+        makeCrop(ModBlocks.ONION_CROP.get(), "onion_stage", "stage", "onion");
 
 
     }
+
     private void blockWithItem(Block block, String folder) {
         String key = ForgeRegistries.BLOCKS.getKey(block).getPath();
 
@@ -90,7 +86,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     private ConfiguredModel[] cropStates(BlockState state, ModCropBlock block, String modelName, String textureName, String folder) {
         ConfiguredModel[] models = new ConfiguredModel[1];
         models[0] = new ConfiguredModel(models().crop(modelName + state.getValue((block).getAgeProperty()),
-                new ResourceLocation(Neolith.MODID, "block/crops/"+folder+ "/" + textureName + state.getValue((block).getAgeProperty()))).renderType("cutout"));
+                new ResourceLocation(Neolith.MODID, "block/crops/" + folder + "/" + textureName + state.getValue((block).getAgeProperty()))).renderType("cutout"));
 
         return models;
     }
@@ -100,26 +96,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
 //
 //        getVariantBuilder(block).forAllStates(function);
 //    }
-//
+////
 //    private ConfiguredModel[] torchStates(BlockState state, ModWallTorchBlock block, String baseModelName) {
 //        ConfiguredModel[] models = new ConfiguredModel[1];
 //
 //        String modelName = state.getValue(block.getLitProperty()) ? baseModelName : baseModelName + "_off";
 //        int rotationY = 0;
-//        switch(state.getValue(block.getFacingProperty())) {
+//        switch(state.getValue(block.getFacingProperty())){
 //            case NORTH: rotationY = 270; break;
 //            case SOUTH: rotationY = 90; break;
 //            case WEST: rotationY = 180; break;
 //            default: break;
 //        }
-//        models[0] = new ConfiguredModel(models().withExistingParent(modelName, new ResourceLocation(Neolith.MODID, "block/" + baseModelName ).
+//        models[0] = new ConfiguredModel(models().withExistingParent(modelName, new ResourceLocation(Neolith.MODID, "block/" + baseModelName )
 //                .texture("torch", new ResourceLocation(Neolith.MODID, "block/"+modelName))
 //                .texture("particle", new ResourceLocation(Neolith.MODID, "block/"+modelName)), rotationY, 0);
 //
 //        return models;
 //    }
-
-
 
 
 }

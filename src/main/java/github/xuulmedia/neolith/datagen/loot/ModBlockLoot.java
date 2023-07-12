@@ -339,7 +339,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
 
     private void createCropDropTable(ModCropBlock cropBlock, Item result, ItemLike seed){
         LootItemCondition.Builder condition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(cropBlock)
-                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(cropBlock.getAgeProperty(), cropBlock.getMaxAge()));
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(cropBlock.AGE, cropBlock.getMaxAge()));
 
         LootTable.Builder loottableBuilder = LootTable.lootTable().withPool(
         LootPool.lootPool().add(

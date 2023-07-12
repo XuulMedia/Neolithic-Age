@@ -11,7 +11,7 @@
               "block": "neolith:onion_crop",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "age": "7"
+                "age": "3"
               }
             }
           ],
@@ -27,7 +27,7 @@
           "block": "neolith:onion_crop",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "7"
+            "age": "3"
           }
         }
       ],

@@ -3,12 +3,9 @@ package github.xuulmedia.neolith.init;
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.item.ModFoodProperties;
 import github.xuulmedia.neolith.item.custom.*;
-import net.minecraft.core.Direction;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.food.Foods;
 import net.minecraft.world.item.*;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.GravelBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
@@ -252,23 +249,19 @@ public class ModItems {
     public static final RegistryObject<Item> CLASP_BRONZE = registerStandardMetalAgeItem("clasp_bronze");
 
 
-
     public static final RegistryObject<Item> JUTE_SEEDS = addToStoneAgeTab(ITEMS.register("jute_seeds",
             () -> new ItemNameBlockItem(ModBlocks.JUTE_CROP.get(), new Item.Properties())));
 
     public static final RegistryObject<Item> GREEN_BEAN_SEEDS = addToStoneAgeTab(ITEMS.register("green_bean_seeds",
             () -> new ItemNameBlockItem(ModBlocks.GREEN_BEAN_CROP.get(), new Item.Properties().food(ModFoodProperties.RAW_VEG).stacksTo(16))));
-
-    public static final RegistryObject<Item> ONION = addToStoneAgeTab(ITEMS.register("onion",
-            () -> new ItemNameBlockItem(ModBlocks.ONION_CROP.get(), new Item.Properties().food(ModFoodProperties.RAW_VEG))));
-
     public static final RegistryObject<Item> BLUE_ABRORE_SEEDS = addToStoneAgeTab(ITEMS.register("blue_abrore_seeds",
             () -> new ItemNameBlockItem(ModBlocks.BLUE_ABRORE_CROP.get(), new Item.Properties())));
 
 
-    public static final RegistryObject<Item> GREEN_BEAN = registerStandardStoneAgeItem("green_bean");
-    public static final RegistryObject<Item> BLUE_ABRORE = registerStandardStoneAgeItem("blue_abrore");
-
+    public static final RegistryObject<Item> ONION = addToStoneAgeTab(ITEMS.register("onion",
+            () -> new ItemNameBlockItem(ModBlocks.ONION_CROP.get(), new Item.Properties().food(ModFoodProperties.RAW_VEG))));
+    public static final RegistryObject<Item> GREEN_BEAN = registerStoneAgeItem("green_bean", () -> new Item(new Item.Properties().food(ModFoodProperties.RAW_VEG).stacksTo(8)));
+    public static final RegistryObject<Item> BLUE_ABRORE = registerStoneAgeItem("blue_abrore", () -> new Item(new Item.Properties().food(ModFoodProperties.SALVE).stacksTo(8)));
 
 
     //MEALS (provide buffs)
@@ -280,32 +273,9 @@ public class ModItems {
     // Painter's Breakfast - vision
 
 
-
-
-
-
-
-
-
-    /*FOOD*/
-//    public static final RegistryObject<Item> SALVE = registerStoneAgeItem("salve",
-//            () -> new Item(new Item.Properties().food((ModFoodProperties.SALVE))));
-//
-//    /*Crops*/
-////    public static final RegistryObject<Item> MEDICINE_PLANT_SEEDS = registerStoneAgeItem("medicine_seeds",
-////            () -> new ItemNameBlockItem(ModBlocks.MEDICINE_CROP.get(),
-////                    new Item.Properties()));
-//    public static final RegistryObject<Item> MEDICINE_PLANT = registerStoneAgeItem("medicine_plant",
-//            () -> new Item(new Item.Properties()
-//                    .food(new FoodProperties.Builder().nutrition(0).saturationMod(0f).alwaysEat().fast().build())));
-//
-//
-
-
     /***************/
     /* VANILLA    */
     /************/
-
 
     public static final RegistryObject<?> WOODEN_SWORD = registerVanillaItem("wooden_sword", () -> new SwordItem(Tiers.WOOD, 3, -2.4F, new Item.Properties().durability(1)));
     public static final RegistryObject<?> WOODEN_SHOVEL = registerVanillaItem("wooden_shovel", () -> new ShovelItem(Tiers.WOOD, 1.5F, -3.0F, new Item.Properties().durability(1)));

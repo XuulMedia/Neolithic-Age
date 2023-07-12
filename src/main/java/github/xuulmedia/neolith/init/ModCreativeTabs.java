@@ -15,6 +15,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Supplier;
+
 @Mod.EventBusSubscriber(modid = Neolith.MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ModCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Neolith.MODID);
@@ -24,7 +25,7 @@ public class ModCreativeTabs {
     public static final List<Supplier<? extends ItemLike>> METAL_AGE_ITEMS = new ArrayList<>();
 
     //CreativeModeTabs
-    public static final RegistryObject<CreativeModeTab> STONE_AGE_TAB = CREATIVE_MODE_TABS.register( "stone_age_tab", () -> CreativeModeTab.builder()
+    public static final RegistryObject<CreativeModeTab> STONE_AGE_TAB = CREATIVE_MODE_TABS.register("stone_age_tab", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.stone_age." + Neolith.MODID))
             .icon(() -> ModItems.CHUNK_STONE.get().getDefaultInstance())
             .displayItems((enabledFeatures, entries) ->
@@ -47,12 +48,13 @@ public class ModCreativeTabs {
         list.add(itemLike);
         return itemLike;
     }
-    public static <T extends Item> RegistryObject<T> addToStoneAgeTab(RegistryObject<T> itemLike){
+
+    public static <T extends Item> RegistryObject<T> addToStoneAgeTab(RegistryObject<T> itemLike) {
         addToTab(STONE_AGE_ITEMS, itemLike);
         return itemLike;
     }
 
-    public static <T extends Item> RegistryObject<T> addToMetalAgeTab(RegistryObject<T> itemLike){
+    public static <T extends Item> RegistryObject<T> addToMetalAgeTab(RegistryObject<T> itemLike) {
         addToTab(METAL_AGE_ITEMS, itemLike);
         return itemLike;
     }
