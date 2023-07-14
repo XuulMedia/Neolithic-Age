@@ -264,9 +264,20 @@ public class ModItems {
     public static final RegistryObject<Item> BLUE_ABRORE = registerStoneAgeItem("blue_abrore", () -> new Item(new Item.Properties().food(ModFoodProperties.SALVE).stacksTo(8)));
 
 
+
+    public static final RegistryObject<Item> MEAT_CAMELID = createFood("meat_camelid", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> MEAT_EQUINE = createFood("meat_equine", ModFoodProperties.RAW_MEAT);
+    public static final RegistryObject<Item> MEAT_BEAR = createFood("meat_bear", ModFoodProperties.RAW_MEAT);
+
+
+
     //MEALS (provide buffs)
     public static final RegistryObject<Item> SANDWICH = createFood("sandwich", ModFoodProperties.MEAL_WITH_MEAT);
     public static final RegistryObject<Item> SALAD = createFood("salad", ModFoodProperties.MEAL);
+
+
+
+
     //TODO Ploughmans Lunch - strenght
     //Travellers Lunch - speed
     // Warriors Soup - damage
