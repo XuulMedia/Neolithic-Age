@@ -16,15 +16,15 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
+
 @Mod(Neolith.MODID)
 public class Neolith {
     public static final String MODID = "neolith";
     private static final Logger LOGGER = LogUtils.getLogger();
-    public Neolith()
-    {
+
+    public Neolith() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for .addListener(this::commonSetup);
         ModBlocks.BLOCKS.register(bus);
         ModBlocks.VANILLA_BLOCKS.register(bus);
         ModItems.ITEMS.register(bus);
@@ -35,15 +35,14 @@ public class Neolith {
         ModMenuTypes.MENUS.register(bus);
         ModRecipes.RECIPES.register(bus);
 
-        // Register ourselves for server and other game events we are interested in
+        ModLootModifiers.register(bus);
+
+
         MinecraftForge.EVENT_BUS.register(this);
 
-        // Register the item to a creative tab
-       // bus.addListener(this::addCreative);
     }
 
-    private void commonSetup(final FMLCommonSetupEvent event)
-    {
+    private void commonSetup(final FMLCommonSetupEvent event) {
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
@@ -51,25 +50,22 @@ public class Neolith {
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
-    public void onServerStarting(ServerStartingEvent event)
-    {
+    public void onServerStarting(ServerStartingEvent event) {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
-    public static class ClientModEvents
-    {
+    public static class ClientModEvents {
         @SubscribeEvent
-        public static void onClientSetup(FMLClientSetupEvent event)
-        {
+        public static void onClientSetup(FMLClientSetupEvent event) {
             ModMenuTypes.registerMenuScreens();
 
         }
 
         @SubscribeEvent
-        public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event){
+        public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.CAMPFIRE.get(), ModCampfireRenderer::new);
         }
 
