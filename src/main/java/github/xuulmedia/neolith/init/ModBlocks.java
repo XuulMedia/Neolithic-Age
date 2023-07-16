@@ -161,6 +161,8 @@ public class ModBlocks {
     public static final RegistryObject<ModCropBlock> BLUE_ABRORE_CROP = BLOCKS.register("blue_abrore_crop", () ->
             new BlueAbroreCrop(cropProperties()));
 
+    /*Wild Crops*/
+
 
     /*Workstations*/
     public static final RegistryObject<ManualGrinderBlock> MANUAL_GRINDER = registerBlock("manual_grinder", ModCreativeTabs.TAB_NAME.STONE_AGE,

@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/meat_bear_cooked_with_forge_from_meat_bear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasmeat_bear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:meat_bear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasmeat_bear",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/meat_bear_cooked_with_forge_from_meat_bear"
+    ]
+  },
+  "sends_telemetry_event": true
+}

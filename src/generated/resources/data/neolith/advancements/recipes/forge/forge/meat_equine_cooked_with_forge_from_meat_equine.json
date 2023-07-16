@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/meat_equine_cooked_with_forge_from_meat_equine"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasmeat_equine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:meat_equine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasmeat_equine",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/meat_equine_cooked_with_forge_from_meat_equine"
+    ]
+  },
+  "sends_telemetry_event": true
+}

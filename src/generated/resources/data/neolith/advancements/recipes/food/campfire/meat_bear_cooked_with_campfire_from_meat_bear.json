@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_meat_bear": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:meat_bear"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/meat_bear_cooked_with_campfire_from_meat_bear"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_meat_bear",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/meat_bear_cooked_with_campfire_from_meat_bear"
+    ]
+  },
+  "sends_telemetry_event": false
+}

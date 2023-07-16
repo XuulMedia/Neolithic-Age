@@ -315,27 +315,22 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_planks", has(ModTags.PLANKS))
                 .save(consumer, toResultRL(Blocks.CHEST));
 
-
         //Food
-        campfireCookFood(Items.BEEF, Items.COOKED_BEEF, 10, STANDARD_SMELT_TIME, consumer);
-        campfireCookFood(Items.CHICKEN, Items.COOKED_CHICKEN, 10, STANDARD_SMELT_TIME, consumer);
-        campfireCookFood(Items.COD, Items.COOKED_COD, 10, STANDARD_SMELT_TIME, consumer);
-        campfireCookFood(Items.MUTTON, Items.COOKED_MUTTON, 10, STANDARD_SMELT_TIME, consumer);
-        campfireCookFood(Items.PORKCHOP, Items.COOKED_PORKCHOP, 10, STANDARD_SMELT_TIME, consumer);
-        campfireCookFood(Items.SALMON, Items.COOKED_SALMON, 10, STANDARD_SMELT_TIME, consumer);
-        campfireCookFood(Items.RABBIT, Items.COOKED_RABBIT, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.BEEF, Items.COOKED_BEEF, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.CHICKEN, Items.COOKED_CHICKEN, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.COD, Items.COOKED_COD, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.MUTTON, Items.COOKED_MUTTON, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.PORKCHOP, Items.COOKED_PORKCHOP, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.SALMON, Items.COOKED_SALMON, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.RABBIT, Items.COOKED_RABBIT, 10, STANDARD_SMELT_TIME, consumer);
 
-        campfireCookFood(Items.POTATO, Items.BAKED_POTATO, 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(Items.POTATO, Items.BAKED_POTATO, 10, STANDARD_SMELT_TIME, consumer);
 
-        forgeRecipe(Items.BEEF, Items.COOKED_BEEF, 250, STANDARD_SMELT_TIME, consumer);
-        forgeRecipe(Items.CHICKEN, Items.COOKED_CHICKEN, 250, STANDARD_SMELT_TIME, consumer);
-        forgeRecipe(Items.COD, Items.COOKED_COD, 250, STANDARD_SMELT_TIME, consumer);
-        forgeRecipe(Items.MUTTON, Items.COOKED_MUTTON, 250, STANDARD_SMELT_TIME, consumer);
-        forgeRecipe(Items.PORKCHOP, Items.COOKED_PORKCHOP, 250, STANDARD_SMELT_TIME, consumer);
-        forgeRecipe(Items.SALMON, Items.COOKED_SALMON, 250, STANDARD_SMELT_TIME, consumer);
-        forgeRecipe(Items.RABBIT, Items.COOKED_RABBIT, 250, STANDARD_SMELT_TIME, consumer);
+        modCookFood(ModItems.MEAT_CAMELID.get(), ModItems.MEAT_CAMELID_COOKED.get(), 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(ModItems.MEAT_EQUINE.get(), ModItems.MEAT_EQUINE_COOKED.get(), 10, STANDARD_SMELT_TIME, consumer);
+        modCookFood(ModItems.MEAT_BEAR.get(), ModItems.MEAT_BEAR_COOKED.get(), 10, STANDARD_SMELT_TIME, consumer);
 
-        forgeRecipe(Items.POTATO, Items.BAKED_POTATO, 250, STANDARD_SMELT_TIME, consumer);
+
 
 
         /*CLAY Containers*/
@@ -744,6 +739,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, RL("campfire/" + getItemName(result) + "_with_campfire_from_" + getItemName(ingredient)));
     }
 
+    private static void modCookFood(ItemLike ingredient, ItemLike result, float experience,int cookTime, Consumer<FinishedRecipe> consumer){
+        campfireCookFood(ingredient, result, experience, cookTime, consumer);
+        forgeRecipe(ingredient, result, 250, cookTime, consumer);
+    }
+
     private static void forgeRecipe(ItemLike ingredient, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.forgeStationRecipe(
                         NonNullList.of(Ingredient.of(ingredient)),
@@ -821,6 +821,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy("has_flint", has(ingredient))
                 .save(consumer, RL(getItemName(result) + "_from_knapping"));
     }
+
+
 
 
     private void FuelSetup(FuelItem item, int cookTime, Consumer<FinishedRecipe> recipeConsumer) {

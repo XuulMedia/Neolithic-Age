@@ -2,6 +2,7 @@ package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
 import github.xuulmedia.neolith.datagen.loot.ModBlockLoot;
+import github.xuulmedia.neolith.datagen.loot.ModEntityLoot;
 import github.xuulmedia.neolith.datagen.loot.ModGlobalLootModifierProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
@@ -38,7 +39,10 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), blockTagProvider);
         generator.addProvider(event.includeServer(), itemTagProvider);
         generator.addProvider(event.includeServer(), new LootTableProvider(packOutput, Collections.emptySet(),
-                List.of(new LootTableProvider.SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK))));
+                List.of(
+                        new LootTableProvider.SubProviderEntry(ModBlockLoot::new, LootContextParamSets.BLOCK),
+                        new LootTableProvider.SubProviderEntry(ModEntityLoot::new, LootContextParamSets.ENTITY)
+                )));
 
         generator.addProvider(event.includeClient(), new ModGlobalLootModifierProvider(packOutput));
         generator.addProvider(event.includeServer(), new ModWorldGenProvider(packOutput, lookupProvider));

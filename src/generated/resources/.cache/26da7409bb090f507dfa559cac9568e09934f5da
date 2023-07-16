@@ -1,3 +1,3 @@
-// 1.20.1	2023-07-15T12:32:48.5530167	Global Loot Modifiers : neolith
-f09128c0b65305d70f99e84ad33019bb0bfcdcf4 data/forge/loot_modifiers/global_loot_modifiers.json
-43b7b31b205e4b129290b4589c1f116bbd6b49e0 data/neolith/loot_modifiers/squid_from_squid.json
+// 1.20.1	2023-07-15T18:41:26.8059326	Global Loot Modifiers : neolith
+e1a300e84139860f0bff55c487ef800a4b90e148 data/forge/loot_modifiers/global_loot_modifiers.json
+65c265f36f1fb3a8c341acbb259197578f16454f data/neolith/loot_modifiers/meat_from_camel.json

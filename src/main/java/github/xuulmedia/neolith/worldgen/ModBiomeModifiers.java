@@ -21,28 +21,24 @@ public class ModBiomeModifiers {
     public static final ResourceKey<BiomeModifier> ADD_CLAY_ORE_LARGE = registerKey("add_clay_ore_large");
     public static final ResourceKey<BiomeModifier> ADD_NETHER_SILVER_ORE = registerKey("add_nether_silver_ore");
 
+
+    public static final ResourceKey<BiomeModifier> ADD_HEALING_HERB = registerKey("add_healing_herb");
+
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
         var placedFeatures = context.lookup(Registries.PLACED_FEATURE);
         var biomes = context.lookup(Registries.BIOME);
 
-
-        context.register(ADD_FLINT_NODE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.FLINT_PLACED_KEY)),
-                GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
 
         context.register(ADD_TIN_ORE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.TIN_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
+
         context.register(ADD_TIN_ORE_LARGE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.TIN_ORE_LARDE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
-
-
-
 
 
         context.register(ADD_CLAY_ORE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
@@ -57,12 +53,23 @@ public class ModBiomeModifiers {
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
 
-
         context.register(ADD_NETHER_SILVER_ORE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_NETHER),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.NETHER_SILVER_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES));
 
+
+        /*Surface*/
+
+        context.register(ADD_FLINT_NODE, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.FLINT_PLACED_KEY)),
+                GenerationStep.Decoration.TOP_LAYER_MODIFICATION));
+
+        context.register(ADD_HEALING_HERB, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.HEALING_HERB_PLACED_KEY)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
 
 
 

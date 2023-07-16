@@ -1,5 +1,5 @@
 {
-  "feature": "neolith:flint_node",
+  "feature": "neolith:flint_node_key",
   "placement": [
     {
       "type": "minecraft:rarity_filter",

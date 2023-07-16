@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-12T08:47:19.8822224	Loot Tables
+// 1.20.1	2023-07-15T18:41:26.8069335	Loot Tables
 85cfa972134d70cc854e0f80a614e2fa2772fa03 data/minecraft/loot_tables/blocks/acacia_leaves.json
 6021a7b76b28b70df529b50b318a99f5694e9d68 data/minecraft/loot_tables/blocks/acacia_log.json
 715a31903a424ab11694afc1f664e73b55b09169 data/minecraft/loot_tables/blocks/acacia_planks.json
@@ -59,6 +59,21 @@ e8205a5702d82c320e20eb6c937c5b106a44a258 data/minecraft/loot_tables/blocks/strip
 e1c155c1b50a3ca640bd152ffaa1cad5501d5f2f data/minecraft/loot_tables/blocks/tuff.json
 d8711f30d3bcdf4f2444d23fb16c4d39a02e8f17 data/minecraft/loot_tables/blocks/warped_planks.json
 8d6c6942e71173975425e8a33a21db303187ced1 data/minecraft/loot_tables/blocks/warped_stem.json
+2df34dd3fc505a4d1369bf9f55a292492f89a1ed data/minecraft/loot_tables/entities/camel.json
+cc2d56a1e9f96ef2788fb728136defe494840106 data/minecraft/loot_tables/entities/cow.json
+de48bb2b15ef60805ac301d7bbb4e899dba8198d data/minecraft/loot_tables/entities/donkey.json
+c019896aad7d13b649314ff721b4b4f33c38290a data/minecraft/loot_tables/entities/fox.json
+66436217d5da69974040ee2805cd4e9480a5edd2 data/minecraft/loot_tables/entities/goat.json
+ba3b3dd6eb8f7e4b07faa244728aef7d470eb559 data/minecraft/loot_tables/entities/hoglin.json
+5bc88e6569c942cff040ed788fe98f198b88b1d1 data/minecraft/loot_tables/entities/horse.json
+37e7d4557f502b222e62c37522d1ed2f8bbeeca3 data/minecraft/loot_tables/entities/llama.json
+cfda08887030f41dd8021ae4f45c813466f76fc5 data/minecraft/loot_tables/entities/mooshroom.json
+2469d386bfbb9848367a9a2308df04a0315c29c5 data/minecraft/loot_tables/entities/mule.json
+ff5d3cadfc31a15cf82363a71086483de4e6c9e8 data/minecraft/loot_tables/entities/panda.json
+96a7dac8fcf7f386f48a2a1619baba938e8c4332 data/minecraft/loot_tables/entities/pig.json
+746309be450978b38a43f59c12fe7373aa66d03c data/minecraft/loot_tables/entities/polar_bear.json
+a363cceca087a3750a1ae231f7c7ddb3ef8aedd4 data/minecraft/loot_tables/entities/rabbit.json
+bc5bbbdad005ec866426e2da24d57e5f129267bf data/minecraft/loot_tables/entities/trader_llama.json
 c1a7c4ad9ceb2b077de1ba61597fb0ac80e4f8de data/neolith/loot_tables/blocks/block_bronze.json
 8d5928c0dc43ba5a26f023786071a6c1c06af51d data/neolith/loot_tables/blocks/block_silver.json
 8e0f7015222f3437506fe7dd000d5176c1154d90 data/neolith/loot_tables/blocks/block_steel.json

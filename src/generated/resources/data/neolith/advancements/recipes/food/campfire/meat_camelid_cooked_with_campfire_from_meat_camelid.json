@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_meat_camelid": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:meat_camelid"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/meat_camelid_cooked_with_campfire_from_meat_camelid"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_meat_camelid",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/meat_camelid_cooked_with_campfire_from_meat_camelid"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -269,6 +269,10 @@ public class ModItems {
     public static final RegistryObject<Item> MEAT_EQUINE = createFood("meat_equine", ModFoodProperties.RAW_MEAT);
     public static final RegistryObject<Item> MEAT_BEAR = createFood("meat_bear", ModFoodProperties.RAW_MEAT);
 
+    public static final RegistryObject<Item> MEAT_CAMELID_COOKED = createFood("meat_camelid_cooked", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> MEAT_EQUINE_COOKED  = createFood("meat_equine_cooked", ModFoodProperties.COOKED_MEAT);
+    public static final RegistryObject<Item> MEAT_BEAR_COOKED  = createFood("meat_bear_cooked", ModFoodProperties.COOKED_MEAT);
+
 
 
     //MEALS (provide buffs)

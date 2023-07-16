@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:forge/meat_camelid_cooked_with_forge_from_meat_camelid"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "hasmeat_camelid": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:meat_camelid"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "requirements": [
+    [
+      "hasmeat_camelid",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:forge/meat_camelid_cooked_with_forge_from_meat_camelid"
+    ]
+  },
+  "sends_telemetry_event": true
+}

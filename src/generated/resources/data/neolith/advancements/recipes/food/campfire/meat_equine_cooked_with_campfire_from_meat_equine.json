@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_meat_equine": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "neolith:meat_equine"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "neolith:campfire/meat_equine_cooked_with_campfire_from_meat_equine"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_meat_equine",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "neolith:campfire/meat_equine_cooked_with_campfire_from_meat_equine"
+    ]
+  },
+  "sends_telemetry_event": false
+}
