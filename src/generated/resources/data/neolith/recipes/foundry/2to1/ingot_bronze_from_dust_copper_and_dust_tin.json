@@ -6,8 +6,16 @@
   "heatRequired": 400,
   "ingredients": [
     {
+      "item": "neolith:dust_copper"
+    },
+    {
       "item": "neolith:dust_tin"
     }
   ],
-  "results": []
+  "results": [
+    {
+      "count": 1,
+      "item": "neolith:ingot_bronze"
+    }
+  ]
 }

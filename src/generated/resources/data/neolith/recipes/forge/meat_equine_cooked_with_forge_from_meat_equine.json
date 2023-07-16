@@ -4,6 +4,15 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 250,
-  "ingredients": [],
-  "results": []
+  "ingredients": [
+    {
+      "item": "neolith:meat_equine"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "neolith:meat_equine_cooked"
+    }
+  ]
 }

@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-15T18:41:26.8069335	Loot Tables
+// 1.20.1	2023-07-16T15:31:26.7357401	Loot Tables
 85cfa972134d70cc854e0f80a614e2fa2772fa03 data/minecraft/loot_tables/blocks/acacia_leaves.json
 6021a7b76b28b70df529b50b318a99f5694e9d68 data/minecraft/loot_tables/blocks/acacia_log.json
 715a31903a424ab11694afc1f664e73b55b09169 data/minecraft/loot_tables/blocks/acacia_planks.json
@@ -104,6 +104,7 @@ efe9f80dd16088831c3de68bebfe720bf1ecb13c data/neolith/loot_tables/blocks/cobbles
 81dd7f6643835ac111d0eaf585776ff428474db2 data/neolith/loot_tables/blocks/cobblestone_sandstone.json
 188b97501bf2ff3d7588baf54de2007d92db69fe data/neolith/loot_tables/blocks/cobblestone_stone.json
 741a4b1b0c71796bd8cefa837a3de8e513ad1edd data/neolith/loot_tables/blocks/cobblestone_tuff.json
+d0140374624db0b214666cd6ce8ef021ece06967 data/neolith/loot_tables/blocks/drying_rack.json
 abcc1eb0c3fc7869a3a35848a54c40544c83eb42 data/neolith/loot_tables/blocks/flint_node.json
 7e91bbdc9d8587a42abd575371d64d54ea7b2ee6 data/neolith/loot_tables/blocks/flint_station.json
 ea022bd81994e88a1d698fdfebd6a82490d39902 data/neolith/loot_tables/blocks/forge.json

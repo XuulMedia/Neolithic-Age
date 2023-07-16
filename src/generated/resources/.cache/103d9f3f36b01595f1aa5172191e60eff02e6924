@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-15T19:05:34.9442285	Registries
+// 1.20.1	2023-07-16T15:31:26.7407407	Registries
 5637f18f294a6d0fb15f328ee53bd3808f11c57a data/neolith/forge/biome_modifier/add_clay_ore.json
 61bf0b901cc60bcec6ccad0dce735778b22df2f9 data/neolith/forge/biome_modifier/add_clay_ore_large.json
 4f6168aba5314a308f9bab94671c541093958965 data/neolith/forge/biome_modifier/add_flint_node.json
@@ -16,7 +16,7 @@ b306e23b21617d81a5a45975c6d103d88be3743b data/neolith/worldgen/configured_featur
 9bcc5353e6b67a486c7889db5af27a21e87a437a data/neolith/worldgen/placed_feature/clay_ore_large_placed.json
 3cb1eb4acc9a0be2808610cd1c71108c52232c17 data/neolith/worldgen/placed_feature/clay_ore_placed.json
 2a31d4c9adc2d079f59fd5b6f3b927001f3f889e data/neolith/worldgen/placed_feature/flint_node_placed.json
-abac4831691094a8503516dca6f68cbde151f336 data/neolith/worldgen/placed_feature/healing_herb_placed.json
+63086ebb5bd2e9afaba3bc2a3bfd812fb1a45412 data/neolith/worldgen/placed_feature/healing_herb_placed.json
 b731cb1c888c8678207eeeca15c907a90d715296 data/neolith/worldgen/placed_feature/nether_silver_ore_placed.json
 1b92f89aa307c8c065a019aac81ef51f42962933 data/neolith/worldgen/placed_feature/tin_ore_large_placed.json
 1b92f89aa307c8c065a019aac81ef51f42962933 data/neolith/worldgen/placed_feature/tin_ore_placed.json

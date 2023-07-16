@@ -4,6 +4,15 @@
   "cookingtime": 600,
   "experience": 10.0,
   "heatRequired": 300,
-  "ingredients": [],
-  "results": []
+  "ingredients": [
+    {
+      "item": "neolith:unfired_clay_pot"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "neolith:clay_pot"
+    }
+  ]
 }

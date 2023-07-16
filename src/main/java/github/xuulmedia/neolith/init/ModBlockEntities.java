@@ -34,4 +34,7 @@ public class ModBlockEntities {
     public static final RegistryObject<BlockEntityType<ClayPotBE>> CLAY_POT = BLOCK_ENTITIES.register("clay_pot",
             () -> BlockEntityType.Builder.of(ClayPotBE::new, ModBlocks.CLAY_POT.get()).build(null));
 
+    public static final RegistryObject<BlockEntityType<DryingRackBE>> DRYING_RACK = BLOCK_ENTITIES.register("drying_rack",
+            () -> BlockEntityType.Builder.of(DryingRackBE::new, ModBlocks.DRYING_RACK.get()).build(null));
+
 }

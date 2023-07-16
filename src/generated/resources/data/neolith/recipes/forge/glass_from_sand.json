@@ -4,6 +4,15 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 350,
-  "ingredients": [],
-  "results": []
+  "ingredients": [
+    {
+      "tag": "neolith:dusts_sand"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "minecraft:glass"
+    }
+  ]
 }

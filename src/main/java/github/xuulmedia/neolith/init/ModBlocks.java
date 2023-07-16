@@ -183,6 +183,10 @@ public class ModBlocks {
     public static final RegistryObject<ClayPotBlock> CLAY_POT = registerBlock("clay_pot", ModCreativeTabs.TAB_NAME.STONE_AGE,
             () -> new ClayPotBlock(BlockBehaviour.Properties.copy(Blocks.DECORATED_POT)), new Item.Properties());
 
+    public static final RegistryObject<DryingRackBlock> DRYING_RACK = registerBlock("drying_rack", ModCreativeTabs.TAB_NAME.STONE_AGE,
+            () -> new DryingRackBlock(BlockBehaviour.Properties.of().mapColor(MapColor.WOOD).sound(SoundType.WOOD)), new Item.Properties());
+
+
 
     /***************/
     /* VANILLA    */

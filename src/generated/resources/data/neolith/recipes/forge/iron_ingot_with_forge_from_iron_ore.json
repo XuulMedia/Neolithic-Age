@@ -4,6 +4,15 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 350,
-  "ingredients": [],
-  "results": []
+  "ingredients": [
+    {
+      "item": "minecraft:iron_ore"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "minecraft:iron_ingot"
+    }
+  ]
 }

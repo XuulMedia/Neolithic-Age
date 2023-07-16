@@ -4,6 +4,15 @@
   "cookingtime": 200,
   "experience": 10.0,
   "heatRequired": 250,
-  "ingredients": [],
-  "results": []
+  "ingredients": [
+    {
+      "item": "minecraft:rabbit"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "minecraft:cooked_rabbit"
+    }
+  ]
 }

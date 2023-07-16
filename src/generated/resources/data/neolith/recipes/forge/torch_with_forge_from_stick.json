@@ -4,6 +4,15 @@
   "cookingtime": 100,
   "experience": 10.0,
   "heatRequired": 80,
-  "ingredients": [],
-  "results": []
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    }
+  ],
+  "results": [
+    {
+      "count": 1,
+      "item": "neolith:torch"
+    }
+  ]
 }

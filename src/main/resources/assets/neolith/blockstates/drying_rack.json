@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "neolith:block/drying_rack",
+      "y": 90
+    },
+
+    "facing=north": {
+      "model": "neolith:block/drying_rack"
+    },
+
+    "facing=south": {
+      "model": "neolith:block/drying_rack",
+      "y": 180
+    },
+
+    "facing=west": {
+      "model": "neolith:block/drying_rack",
+      "y": 270
+    }
+  }
+}

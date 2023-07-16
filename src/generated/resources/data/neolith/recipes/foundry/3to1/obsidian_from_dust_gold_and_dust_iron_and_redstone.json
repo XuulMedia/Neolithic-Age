@@ -6,11 +6,19 @@
   "heatRequired": 600,
   "ingredients": [
     {
+      "item": "neolith:dust_gold"
+    },
+    {
       "item": "neolith:dust_iron"
     },
     {
       "item": "minecraft:redstone"
     }
   ],
-  "results": []
+  "results": [
+    {
+      "count": 1,
+      "item": "minecraft:obsidian"
+    }
+  ]
 }

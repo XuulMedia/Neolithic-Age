@@ -1,6 +1,6 @@
 package github.xuulmedia.neolith.datagen.loot;
 
-import github.xuulmedia.neolith.block.crops.*;
+import github.xuulmedia.neolith.block.crops.ModCropBlock;
 import github.xuulmedia.neolith.block.entity.ClayPotBE;
 import github.xuulmedia.neolith.init.ModBlockEntities;
 import github.xuulmedia.neolith.init.ModBlocks;
@@ -12,7 +12,6 @@ import net.minecraft.advancements.critereon.MinMaxBounds;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.packs.VanillaBlockLoot;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -20,11 +19,12 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.entity.BlockEntityType;
-import net.minecraft.world.level.block.state.properties.IntegerProperty;
-import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
-import net.minecraft.world.level.storage.loot.entries.*;
+import net.minecraft.world.level.storage.loot.entries.AlternativesEntry;
+import net.minecraft.world.level.storage.loot.entries.DynamicLoot;
+import net.minecraft.world.level.storage.loot.entries.LootItem;
+import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.*;
 import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraft.world.level.storage.loot.providers.nbt.ContextNbtProvider;
@@ -100,6 +100,7 @@ public class ModBlockLoot extends VanillaBlockLoot {
         dropSelf(ModBlocks.WORK_BENCH.get());
         createStandardTable(ModBlocks.CLAY_POT.get(), ModBlockEntities.CLAY_POT.get(), ClayPotBE.TAG_INVENTORY);
         dropOther(ModBlocks.CAMPFIRE.get(), Items.STICK);
+        dropSelf(ModBlocks.DRYING_RACK.get());
 
         dropSelf(ModBlocks.THATCH.get());
 

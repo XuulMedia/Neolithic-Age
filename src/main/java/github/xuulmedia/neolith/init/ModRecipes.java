@@ -1,6 +1,7 @@
 package github.xuulmedia.neolith.init;
 
 import github.xuulmedia.neolith.Neolith;
+import github.xuulmedia.neolith.block.custom.DryingRackBlock;
 import github.xuulmedia.neolith.recipe.*;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -14,6 +15,9 @@ public class ModRecipes {
     public static void register(IEventBus eventBus){
         RECIPES.register(eventBus);
     }
+
+    public static final RegistryObject<RecipeSerializer<DryingRecipe>> DRYING_SERIALIZER = RECIPES.register(
+            "drying",   () -> DryingRecipe.SERIALIZER);
 
     public static final RegistryObject<RecipeSerializer<?>> DISABLE_SERIALIZER = RECIPES.register(
             "disable", () -> DisableRecipe.SERIALIZER);

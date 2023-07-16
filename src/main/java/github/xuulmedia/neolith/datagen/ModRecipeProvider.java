@@ -746,8 +746,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static void forgeRecipe(ItemLike ingredient, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.forgeStationRecipe(
-                        NonNullList.of(Ingredient.of(ingredient)),
-                        NonNullList.of(result.asItem().getDefaultInstance()),
+                        NonNullList.of(null, Ingredient.of(ingredient)),
+                        NonNullList.of(null,result.asItem().getDefaultInstance()),
                         heatRequired,
                         10,
                         cookTime)
@@ -757,8 +757,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static void forgeGlass(TagKey<Item> ingredient, ItemLike result, int heatRequired, int cookTime, String tagName, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.forgeStationRecipe(
-                        NonNullList.of(Ingredient.of(ingredient)),
-                        NonNullList.of(result.asItem().getDefaultInstance()),
+                        NonNullList.of(null,Ingredient.of(ingredient)),
+                        NonNullList.of(null,result.asItem().getDefaultInstance()),
                         heatRequired,
                         10,
                         cookTime)
@@ -769,8 +769,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static void foundryRecipe1to1(ItemLike ingredient, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.foundryRecipe(
-                        NonNullList.of(Ingredient.of(ingredient)),
-                        NonNullList.of(result.asItem().getDefaultInstance()),
+                        NonNullList.of(null,Ingredient.of(ingredient)),
+                        NonNullList.of(null,result.asItem().getDefaultInstance()),
                         heatRequired,
                         10,
                         cookTime)
@@ -780,8 +780,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static void foundryRecipe2to1(ItemLike ingredient1, ItemLike ingredient2, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.foundryRecipe(
-                        NonNullList.of(Ingredient.of(ingredient1), Ingredient.of(ingredient2)),
-                        NonNullList.of(result.asItem().getDefaultInstance()),
+                        NonNullList.of(null,Ingredient.of(ingredient1), Ingredient.of(ingredient2)),
+                        NonNullList.of(null,result.asItem().getDefaultInstance()),
                         heatRequired,
                         10,
                         cookTime)
@@ -792,8 +792,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static void foundryRecipe3to1(ItemLike ingredient1, ItemLike ingredient2, ItemLike ingredient3, ItemLike result, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.foundryRecipe(
-                        NonNullList.of(Ingredient.of(ingredient1), Ingredient.of(ingredient2), Ingredient.of(ingredient3)),
-                        NonNullList.of(result.asItem().getDefaultInstance()),
+                        NonNullList.of(null,Ingredient.of(ingredient1), Ingredient.of(ingredient2), Ingredient.of(ingredient3)),
+                        NonNullList.of(null,result.asItem().getDefaultInstance()),
                         heatRequired,
                         10,
                         cookTime)
@@ -803,8 +803,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static void foundryRecipe2to2(ItemLike ingredient1, ItemLike ingredient2, ItemLike result1, ItemLike result2, int heatRequired, int cookTime, Consumer<FinishedRecipe> consumer) {
         HeatRecipeBuilder.foundryRecipe(
-                        NonNullList.of(Ingredient.of(ingredient1), Ingredient.of(ingredient2)),
-                        NonNullList.of(result1.asItem().getDefaultInstance(), result2.asItem().getDefaultInstance()),
+                        NonNullList.of(null,Ingredient.of(ingredient1), Ingredient.of(ingredient2)),
+                        NonNullList.of(null,result1.asItem().getDefaultInstance(), result2.asItem().getDefaultInstance()),
                         heatRequired,
                         10,
                         cookTime)
@@ -815,8 +815,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     private static void flintStation(ItemLike ingredient, ItemLike result, Consumer<FinishedRecipe> consumer) {
         NeolithRecipeBuilder.flintKnapping(
-                        NonNullList.of(Ingredient.of(ingredient)),
-                        NonNullList.of(result.asItem().getDefaultInstance()),
+                        NonNullList.of(null,Ingredient.of(ingredient)),
+                        NonNullList.of(null,result.asItem().getDefaultInstance()),
                         10)
                 .unlockedBy("has_flint", has(ingredient))
                 .save(consumer, RL(getItemName(result) + "_from_knapping"));

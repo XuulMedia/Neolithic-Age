@@ -1,6 +1,7 @@
 package github.xuulmedia.neolith;
 
 import com.mojang.logging.LogUtils;
+import github.xuulmedia.neolith.client.renderer.DryingRackRenderer;
 import github.xuulmedia.neolith.client.renderer.ModCampfireRenderer;
 import github.xuulmedia.neolith.init.*;
 import net.minecraft.world.level.block.Blocks;
@@ -67,6 +68,7 @@ public class Neolith {
         @SubscribeEvent
         public static void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
             event.registerBlockEntityRenderer(ModBlockEntities.CAMPFIRE.get(), ModCampfireRenderer::new);
+            event.registerBlockEntityRenderer(ModBlockEntities.DRYING_RACK.get(), DryingRackRenderer::new);
         }
 
 

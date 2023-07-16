@@ -1,0 +1,10 @@
+{
+  "type": "neolith:drying",
+  "cookingtime": 200,
+  "ingredients": [
+    {
+      "item": "neolith:dust_tin"
+    }
+  ],
+  "results": []
+}
