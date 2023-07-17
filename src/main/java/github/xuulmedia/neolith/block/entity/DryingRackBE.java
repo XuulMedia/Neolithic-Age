@@ -26,7 +26,7 @@ public class DryingRackBE extends BlockEntity {
     private final NonNullList<ItemStack> items = NonNullList.withSize(1, ItemStack.EMPTY);
     private final int[] cookingProgress = new int[1];
     private final int[] cookingTime = new int[1];
-    private final RecipeManager.CachedCheck<Container, DryingRecipe> quickCheck = RecipeManager.createCheck(DryingRecipe.Type.INSTANCE );
+    private final RecipeManager.CachedCheck<Container, DryingRecipe> quickCheck = RecipeManager.createCheck(DryingRecipe.Type.INSTANCE);
 
     public DryingRackBE(BlockPos pPos, BlockState state) {
         super(ModBlockEntities.DRYING_RACK.get(), pPos, state);
@@ -87,16 +87,16 @@ public class DryingRackBE extends BlockEntity {
     }
 
     public boolean placeItem(@Nullable Entity pEntity, ItemStack pStack, int pCookTime) {
-        for(int i = 0; i < this.items.size(); ++i) {
-            ItemStack itemstack = this.items.get(i);
+
+            ItemStack itemstack = this.items.get(0);
             if (itemstack.isEmpty()) {
-                this.cookingTime[i] = pCookTime;
-                this.cookingProgress[i] = 0;
-                this.items.set(i, pStack.split(1));
+                this.cookingTime[0] = pCookTime;
+                this.cookingProgress[0] = 0;
+                this.items.set(0, pStack.split(1));
                 this.level.gameEvent(GameEvent.BLOCK_CHANGE, this.getBlockPos(), GameEvent.Context.of(pEntity, this.getBlockState()));
                 this.markUpdated();
                 return true;
-            }
+
         }
         return false;
     }
@@ -104,6 +104,7 @@ public class DryingRackBE extends BlockEntity {
     public Optional<DryingRecipe> getDryingRecipe(ItemStack pStack) {
         return this.items.stream().noneMatch(ItemStack::isEmpty) ? Optional.empty() : this.quickCheck.getRecipeFor(new SimpleContainer(pStack), this.level);
     }
+
     private void markUpdated() {
         this.setChanged();
         this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
@@ -114,6 +115,7 @@ public class DryingRackBE extends BlockEntity {
     public void clearContent() {
         this.items.clear();
     }
+
 
 }
 

@@ -27,9 +27,9 @@ import javax.annotation.Nullable;
 import java.util.Optional;
 
 public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
-    protected static final  int BURN_MINUITES = 4; // how long in min the fire will burn
+    protected static final int BURN_MINUITES = 4; // how long in min the fire will burn
     private static final int DELAY = 1200; // 1200 ticks is 60 seconds
-    public int maxBurnTime= BURN_MINUITES * DELAY; //should be in minutes
+    public int maxBurnTime = BURN_MINUITES * DELAY; //should be in minutes
     public int burnTime = maxBurnTime;
 
     private final NonNullList<ItemStack> items = NonNullList.withSize(4, ItemStack.EMPTY);
@@ -44,7 +44,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
     public static void cookTick(Level level, BlockPos blockPos, BlockState state, ModCampfireBlockEntity blockEntity) {
 
         boolean flag = false;
-        for(int i = 0; i < blockEntity.items.size(); ++i) {
+        for (int i = 0; i < blockEntity.items.size(); ++i) {
             ItemStack itemstack = blockEntity.items.get(i);
             if (!itemstack.isEmpty()) {
                 flag = true;
@@ -64,7 +64,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
             }
         }
 
-        if(level.isRaining() && blockEntity.isNearRain(level,blockPos)) {
+        if (level.isRaining() && blockEntity.isNearRain(level, blockPos)) {
             level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
 
@@ -73,7 +73,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
         }
 
         int newBurnTime = blockEntity.burnTime - 1;
-        if(newBurnTime <= 0){
+        if (newBurnTime <= 0) {
             level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
             blockEntity.burnTime = blockEntity.maxBurnTime;
@@ -89,11 +89,10 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
     }
 
 
-
     public static void cooldownTick(Level level, BlockPos blockPos, BlockState pState, ModCampfireBlockEntity blockEntity) {
         boolean flag = false;
 
-        for(int i = 0; i < blockEntity.items.size(); ++i) {
+        for (int i = 0; i < blockEntity.items.size(); ++i) {
             if (blockEntity.cookingProgress[i] > 0) {
                 flag = true;
                 blockEntity.cookingProgress[i] = Mth.clamp(blockEntity.cookingProgress[i] - 2, 0, blockEntity.cookingTime[i]);
@@ -109,22 +108,22 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
     public static void particleTick(Level level, BlockPos blockPos, BlockState pState, ModCampfireBlockEntity blockEntity) {
         RandomSource randomsource = level.random;
         if (randomsource.nextFloat() < 0.11F) {
-            for(int i = 0; i < randomsource.nextInt(2) + 2; ++i) {
+            for (int i = 0; i < randomsource.nextInt(2) + 2; ++i) {
                 ModCampfireBlock.makeParticles(level, blockPos, pState.getValue(ModCampfireBlock.SIGNAL_FIRE), false);
             }
         }
 
         int l = pState.getValue(ModCampfireBlock.FACING).get2DDataValue();
 
-        for(int j = 0; j < blockEntity.items.size(); ++j) {
+        for (int j = 0; j < blockEntity.items.size(); ++j) {
             if (!blockEntity.items.get(j).isEmpty() && randomsource.nextFloat() < 0.2F) {
                 Direction direction = Direction.from2DDataValue(Math.floorMod(j + l, 4));
                 float f = 0.3125F;
-                double d0 = (double)blockPos.getX() + 0.5D - (double)((float)direction.getStepX() * 0.3125F) + (double)((float)direction.getClockWise().getStepX() * 0.3125F);
-                double d1 = (double)blockPos.getY() + 0.5D;
-                double d2 = (double)blockPos.getZ() + 0.5D - (double)((float)direction.getStepZ() * 0.3125F) + (double)((float)direction.getClockWise().getStepZ() * 0.3125F);
+                double d0 = (double) blockPos.getX() + 0.5D - (double) ((float) direction.getStepX() * 0.3125F) + (double) ((float) direction.getClockWise().getStepX() * 0.3125F);
+                double d1 = (double) blockPos.getY() + 0.5D;
+                double d2 = (double) blockPos.getZ() + 0.5D - (double) ((float) direction.getStepZ() * 0.3125F) + (double) ((float) direction.getClockWise().getStepZ() * 0.3125F);
 
-                for(int k = 0; k < 4; ++k) {
+                for (int k = 0; k < 4; ++k) {
                     level.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 5.0E-4D, 0.0D);
                 }
             }
@@ -179,7 +178,7 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
     }
 
     public boolean placeFood(@Nullable Entity pEntity, ItemStack pStack, int pCookTime) {
-        for(int i = 0; i < this.items.size(); ++i) {
+        for (int i = 0; i < this.items.size(); ++i) {
             ItemStack itemstack = this.items.get(i);
             if (itemstack.isEmpty()) {
                 this.cookingTime[i] = pCookTime;
@@ -209,23 +208,25 @@ public class ModCampfireBlockEntity extends BlockEntity implements Clearable {
             this.markUpdated();
         }
     }
-    public void reset(){
+
+    public void reset() {
         burnTime = maxBurnTime;
     }
 
-    public boolean isStillBurning() {return burnTime > 0;}
+    public boolean isStillBurning() {
+        return burnTime > 0;
+    }
 
     public boolean isNearRain(Level level, BlockPos blockPos) {
         return level.isRainingAt(blockPos) || level.isRainingAt(blockPos.west()) || level.isRainingAt(blockPos.east()) || level.isRainingAt(blockPos.north()) || level.isRainingAt(blockPos.south());
     }
 
-    public void extinguishFire(BlockState state, Level level, BlockPos blockPos){
+    public void extinguishFire(BlockState state, Level level, BlockPos blockPos) {
         if (!isStillBurning()) {
             level.setBlockAndUpdate(blockPos, state.setValue(ModCampfireBlock.LIT, false));
             level.playSound(null, blockPos, SoundEvents.FIRE_EXTINGUISH, SoundSource.BLOCKS, 1f, level.getRandom().nextFloat() * 0.1F + 0.9F);
         }
     }
-
 
 
 }
