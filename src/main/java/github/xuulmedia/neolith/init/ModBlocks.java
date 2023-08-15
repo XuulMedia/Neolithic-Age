@@ -149,8 +149,8 @@ public class ModBlocks {
     /*TODO make this better for faster crops*/
 
 
-    public static final RegistryObject<ModCropBlock> JUTE_CROP = BLOCKS.register("jute_crop", () ->
-            new JuteCropBlock(cropProperties()));
+    public static final RegistryObject<ModCropBlock> HEMP_CROP = BLOCKS.register("hemp_crop", () ->
+            new HempCropBlock(cropProperties()));
 
     public static final RegistryObject<ModCropBlock> GREEN_BEAN_CROP = BLOCKS.register("green_bean_crop", () ->
             new GreenBeanCrop(cropProperties()));

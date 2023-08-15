@@ -40,7 +40,7 @@ public class DryingRackBlock extends BaseEntityBlock {
         super(properties);
         this.registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
-
+    
     public static VoxelShape makeShape(){
         VoxelShape shape = Shapes.empty();
         shape = Shapes.join(shape, Shapes.box(0.125, 0.1875, 0.6875, 0.875, 0.875, 0.6875), BooleanOp.OR);
@@ -54,6 +54,7 @@ public class DryingRackBlock extends BaseEntityBlock {
 
         return shape;
     }
+
     private static final Optional<VoxelShape> SHAPE = Optional.of(makeShape());
 
     @Override
@@ -99,7 +100,6 @@ public class DryingRackBlock extends BaseEntityBlock {
     public BlockState getStateForPlacement(BlockPlaceContext pContext) {
         return this.defaultBlockState().setValue(FACING, pContext.getHorizontalDirection().getOpposite());
     }
-
 
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
         pBuilder.add(FACING);

@@ -249,8 +249,8 @@ public class ModItems {
     public static final RegistryObject<Item> CLASP_BRONZE = registerStandardMetalAgeItem("clasp_bronze");
 
 
-    public static final RegistryObject<Item> JUTE_SEEDS = addToStoneAgeTab(ITEMS.register("jute_seeds",
-            () -> new ItemNameBlockItem(ModBlocks.JUTE_CROP.get(), new Item.Properties())));
+    public static final RegistryObject<Item> HEMP_SEEDS = addToStoneAgeTab(ITEMS.register("hemp_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.HEMP_CROP.get(), new Item.Properties())));
 
     public static final RegistryObject<Item> GREEN_BEAN_SEEDS = addToStoneAgeTab(ITEMS.register("green_bean_seeds",
             () -> new ItemNameBlockItem(ModBlocks.GREEN_BEAN_CROP.get(), new Item.Properties().food(ModFoodProperties.RAW_VEG).stacksTo(16))));
@@ -262,7 +262,6 @@ public class ModItems {
             () -> new ItemNameBlockItem(ModBlocks.ONION_CROP.get(), new Item.Properties().food(ModFoodProperties.RAW_VEG))));
     public static final RegistryObject<Item> GREEN_BEAN = registerStoneAgeItem("green_bean", () -> new Item(new Item.Properties().food(ModFoodProperties.RAW_VEG).stacksTo(8)));
     public static final RegistryObject<Item> BLUE_ABRORE = registerStoneAgeItem("blue_abrore", () -> new Item(new Item.Properties().food(ModFoodProperties.SALVE).stacksTo(8)));
-
 
 
     public static final RegistryObject<Item> MEAT_CAMELID = createFood("meat_camelid", ModFoodProperties.RAW_MEAT);

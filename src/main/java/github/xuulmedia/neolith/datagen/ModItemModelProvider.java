@@ -23,16 +23,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BRAIDED_PLANT_FIBRE.get(), "plants");
         handheldItem(ModItems.BASKET.get());
 
-        simpleItem(ModItems.JUTE_SEEDS.get(), "plants");
-        simpleItem(ModItems.GREEN_BEAN_SEEDS.get(), "plants");
-
-        simpleItem(ModItems.GREEN_BEAN.get(), "plants");
-        simpleItem(ModItems.JUTE_SEEDS.get(), "plants");
-        simpleItem(ModItems.GREEN_BEAN_SEEDS.get(), "plants");
-        simpleItem(ModItems.ONION.get(), "plants");
         simpleItem(ModItems.BLUE_ABRORE_SEEDS.get(), "plants");
-        simpleItem(ModItems.GREEN_BEAN.get(), "plants");
+        simpleItem(ModItems.GREEN_BEAN_SEEDS.get(), "plants");
+        simpleItem(ModItems.HEMP_SEEDS.get(), "plants");
+
         simpleItem(ModItems.BLUE_ABRORE.get(), "plants");
+        simpleItem(ModItems.GREEN_BEAN.get(), "plants");
+        simpleItem(ModItems.ONION.get(), "plants");
+
+
 
 //        simpleItem(ModItems.SANDWICH.get(), "food");
 //        simpleItem(ModItems.SALAD.get(), "food");

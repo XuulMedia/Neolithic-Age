@@ -1,5 +1,6 @@
 package github.xuulmedia.neolith.datagen.loot;
 
+import github.xuulmedia.neolith.block.crops.HempCropBlock;
 import github.xuulmedia.neolith.block.crops.ModCropBlock;
 import github.xuulmedia.neolith.block.entity.ClayPotBE;
 import github.xuulmedia.neolith.init.ModBlockEntities;
@@ -176,7 +177,19 @@ public class ModBlockLoot extends VanillaBlockLoot {
         HammerSmashingTable(Blocks.TUFF, ModItems.CHUNK_TUFF.get(), ModItems.DUST_TUFF.get(), 1, 4);
         HammerSmashingTable(Blocks.END_STONE, ModItems.CHUNK_ENDSTONE.get(), ModItems.DUST_ENDSTONE.get(), 1, 4);
 
-        createCropDropTable(ModBlocks.JUTE_CROP.get(), ModItems.PLANT_FIBRE.get(), ModItems.JUTE_SEEDS.get());
+
+        LootItemCondition.Builder build = LootItemBlockStatePropertyCondition
+                .hasBlockStateProperties(ModBlocks.HEMP_CROP.get())
+                .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HempCropBlock.AGE, 7))
+                .or(LootItemBlockStatePropertyCondition
+                        .hasBlockStateProperties(ModBlocks.HEMP_CROP.get())
+                        .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(HempCropBlock.AGE, 8)));
+        this.add(ModBlocks.HEMP_CROP.get(), createCropDrops(ModBlocks.HEMP_CROP.get(), ModItems.PLANT_FIBRE.get(),
+                ModItems.HEMP_SEEDS.get(), build));
+
+
+
+
         createCropDropTable(ModBlocks.GREEN_BEAN_CROP.get(), ModItems.GREEN_BEAN.get(), ModItems.GREEN_BEAN_SEEDS.get());
         createCropDropTable(ModBlocks.ONION_CROP.get(), ModItems.ONION.get(), ModItems.ONION.get());
         createCropDropTable(ModBlocks.BLUE_ABRORE_CROP.get(), ModItems.BLUE_ABRORE.get(), ModItems.BLUE_ABRORE_SEEDS.get());

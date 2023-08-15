@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "neolith:item/plants/jute_seeds"
+    "layer0": "neolith:item/plants/hemp_seeds"
   }
 }

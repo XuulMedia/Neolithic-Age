@@ -186,7 +186,7 @@ public class ModLanguageProvider extends LanguageProvider {
         add(ModItems.HINGE_IRON.get(), "Iron Hinge");
         add(ModItems.CLASP_BRONZE.get(), "Bronze Clasp");
 
-        add(ModItems.JUTE_SEEDS.get(), "Jute Seeds");
+        add(ModItems.HEMP_SEEDS.get(), "Hemp Seeds");
         add(ModItems.GREEN_BEAN_SEEDS.get(), " Green Bean Seeds");
         add(ModItems.BLUE_ABRORE_SEEDS.get(), "Blue Abrore Seeds");
 

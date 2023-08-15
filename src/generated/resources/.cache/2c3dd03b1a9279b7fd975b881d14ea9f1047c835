@@ -1,4 +1,4 @@
-// 1.20.1	2023-07-11T21:54:44.1248788	Block States: neolith
+// 1.20.1	2023-08-15T10:10:10.4672974	Block States: neolith
 7bdc4d3615220f37bbc569f3405d7cbe76221c6d assets/neolith/blockstates/block_bronze.json
 9140cb18c49e42f4efe38f2a010a0fbef64f5e7e assets/neolith/blockstates/block_silver.json
 86c118765a66bb328e546ca49cce62caaae5462d assets/neolith/blockstates/block_steel.json
@@ -28,7 +28,7 @@ df1ac1755b40cad6381a0c7e1221501920cb163e assets/neolith/blockstates/cobblestone_
 cd054335c8224c6518ab2632ea84e8280e2eaa72 assets/neolith/blockstates/cobblestone_stone.json
 d29f7e7f869f07437d5fe2a6287ab499d4437fc9 assets/neolith/blockstates/cobblestone_tuff.json
 e0eedad178117dcbbc2715e948636af1e4106e0b assets/neolith/blockstates/green_bean_crop.json
-a94e2b55bc6133d37cf23f5bc98f8126f6eceeb9 assets/neolith/blockstates/jute_crop.json
+7aa00d713d4f08d50249fd9f7c5c128034dceda9 assets/neolith/blockstates/hemp_crop.json
 142b67bad9372869c702ec6ccedd4a5f700adfb6 assets/neolith/blockstates/onion_crop.json
 2080146ee2f02960ba8b951155f207da37a41854 assets/neolith/blockstates/ore_clay.json
 6a9f5e7d921c54c2110dfad31412a17394073fde assets/neolith/blockstates/ore_nether_silver.json
@@ -70,13 +70,15 @@ d74fafc15ad21cc6e59f2224585b60fea898cf55 assets/neolith/models/block/green_bean_
 529c882fedf82382cbb35d68a969b2ca59414baf assets/neolith/models/block/green_bean_stage2.json
 e9a37639452032e99c34ec388209fa0e090d53b7 assets/neolith/models/block/green_bean_stage3.json
 b4912211955189811fed64a6f0986527888268f1 assets/neolith/models/block/green_bean_stage4.json
-96918cb57abbc556dfbcc72165497d5b2d6b120c assets/neolith/models/block/jute_stage0.json
-a263375c1146c3ce8020891a90ecdc53f3db7e92 assets/neolith/models/block/jute_stage1.json
-58368498fff7d603cd631e80c581eec5086088c9 assets/neolith/models/block/jute_stage2.json
-9b94cdc094b823aebf96d6963925f18fc7936e3d assets/neolith/models/block/jute_stage3.json
-51405a854c764d8498bf7cf7be8ffc10ff8d925c assets/neolith/models/block/jute_stage4.json
-07e4252c338b9c21196654f7cc0ff34c225fb0c5 assets/neolith/models/block/jute_stage5.json
-b8b2062020724edbab4fd2459c1020763e5cac6d assets/neolith/models/block/jute_stage6.json
+c0242a86b76e1efd82cab9827910915967e9c2e9 assets/neolith/models/block/hemp_stage0.json
+e7ba011cede22844f6a590d9b5e3230d13e33eda assets/neolith/models/block/hemp_stage1.json
+0cb242bce943d0c7d62b6c6c650055fdc70e7be8 assets/neolith/models/block/hemp_stage2.json
+549a51565cc05fba053ba81cf4d80138b65ecfcf assets/neolith/models/block/hemp_stage3.json
+5b9abfc7a98419c4d7a908a5cfe2b02db426f329 assets/neolith/models/block/hemp_stage4.json
+c99e6bb6960e5542e2bf787e9133be2d56091d5e assets/neolith/models/block/hemp_stage5.json
+8eabbceda4f2429e794f18334f081e907a9bacce assets/neolith/models/block/hemp_stage6.json
+8a088375ff20dd82e2d15115582d15be48f5645f assets/neolith/models/block/hemp_stage7.json
+e03b71aebf96463fca5c06691dff9bf6d9b01d36 assets/neolith/models/block/hemp_stage8.json
 7798a358f343975542ba58ddd281dc72cfd7e197 assets/neolith/models/block/onion_stage0.json
 103a3233ca3d17abbbeb3c2f819a92a0d1784719 assets/neolith/models/block/onion_stage1.json
 f30d036a2c2186c6d690cb2daa8b1848fd1a69df assets/neolith/models/block/onion_stage2.json

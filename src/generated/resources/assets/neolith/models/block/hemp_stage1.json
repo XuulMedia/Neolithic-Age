@@ -2,6 +2,6 @@
   "parent": "minecraft:block/crop",
   "render_type": "minecraft:cutout",
   "textures": {
-    "crop": "neolith:block/crops/jute/stage4"
+    "crop": "neolith:block/crops/hemp/stage1"
   }
 }

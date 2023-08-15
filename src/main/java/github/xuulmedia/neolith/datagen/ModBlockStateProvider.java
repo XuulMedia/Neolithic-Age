@@ -60,7 +60,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.THATCH.get(), "block");
 
-        makeCrop(ModBlocks.JUTE_CROP.get(), "jute_stage", "stage", "jute");
+        makeCrop(ModBlocks.HEMP_CROP.get(), "hemp_stage", "stage", "hemp");
         makeCrop(ModBlocks.GREEN_BEAN_CROP.get(), "green_bean_stage", "stage", "green_bean");
         makeCrop(ModBlocks.BLUE_ABRORE_CROP.get(), "blue_abrore_stage", "stage", "blue_abrore");
         makeCrop(ModBlocks.ONION_CROP.get(), "onion_stage", "stage", "onion");
