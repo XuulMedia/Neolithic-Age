@@ -74,7 +74,7 @@ public class DryingRecipe extends AbstractNeolithItemCraft {
         public DryingRecipe fromJson(ResourceLocation recipeID, JsonObject json) {
             NonNullList<Ingredient> ingredients = ingredientsFromJson(GsonHelper.getAsJsonArray(json, "ingredients"));
             NonNullList<ItemStack> results = resultsFromJson(GsonHelper.getAsJsonArray(json, "results"));
-            int cooktime = GsonHelper.getAsInt(json, "cookingtime", 200);
+            int cooktime = GsonHelper.getAsInt(json, "cookingtime", 500);
 
             return new DryingRecipe(recipeID, ingredients, results, cooktime);
         }

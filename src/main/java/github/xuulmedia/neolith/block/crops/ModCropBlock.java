@@ -1,5 +1,7 @@
 package github.xuulmedia.neolith.block.crops;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
@@ -28,21 +30,12 @@ public abstract class ModCropBlock extends CropBlock {
     }
 
     @Override
+    public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
+        return (double)pLevel.random.nextFloat() < 0.5D; //50% chance
+    }
+
+    @Override
     protected int getBonemealAgeIncrease(Level pLevel) {
         return 1;
     }
-//
-////    @Override
-////    public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-////        return (double)pLevel.random.nextFloat() < 0.5D; //50% chance
-////    }
-//
-//    public boolean isBonemealSuccess(Level pLevel, RandomSource pRandom, BlockPos pPos, BlockState pState) {
-//        return true;
-//    }
-//
-//    /*TODO fix for all*/
-//    public boolean isValidBonemealTarget(LevelReader pLevel, BlockPos pPos, BlockState pState, boolean pIsClient) {
-//        return !this.isMaxAge(pState);
-//    }
 }

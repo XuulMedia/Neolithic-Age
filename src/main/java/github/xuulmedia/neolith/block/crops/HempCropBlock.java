@@ -4,6 +4,7 @@ import github.xuulmedia.neolith.init.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -23,6 +24,7 @@ public class HempCropBlock extends ModCropBlock {
 
     public static final int FIRST_STAGE_MAX_AGE = 7;
     public static final int SECOND_STAGE_MAX_AGE = 1;
+    public static final int MAX_AGE = FIRST_STAGE_MAX_AGE + SECOND_STAGE_MAX_AGE;
 
     private static final VoxelShape[] SHAPE_BY_AGE =
             new VoxelShape[]{
@@ -95,6 +97,11 @@ public class HempCropBlock extends ModCropBlock {
                 pLevel.getBlockState(pPos.below(1)).getValue(AGE) == 7);
     }
 
+    @Override
+    protected int getBonemealAgeIncrease(Level pLevel) {
+        return Mth.nextInt(pLevel.random, 2, 2);
+    }
+
 
     @Override
     public @NotNull IntegerProperty getAgeProperty() {
@@ -102,7 +109,7 @@ public class HempCropBlock extends ModCropBlock {
     }
 
     public int getMaxAge() {
-        return FIRST_STAGE_MAX_AGE + SECOND_STAGE_MAX_AGE;
+        return MAX_AGE;
     }
 
     @Override

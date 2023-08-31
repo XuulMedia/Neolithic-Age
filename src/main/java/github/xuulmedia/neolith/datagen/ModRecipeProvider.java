@@ -1,10 +1,7 @@
 package github.xuulmedia.neolith.datagen;
 
 import github.xuulmedia.neolith.Neolith;
-import github.xuulmedia.neolith.datagen.builders.DisableRecipeBuilder;
-import github.xuulmedia.neolith.datagen.builders.HeatRecipeBuilder;
-import github.xuulmedia.neolith.datagen.builders.HeatingFuelRecipeBuilder;
-import github.xuulmedia.neolith.datagen.builders.NeolithRecipeBuilder;
+import github.xuulmedia.neolith.datagen.builders.*;
 import github.xuulmedia.neolith.init.ModBlocks;
 import github.xuulmedia.neolith.init.ModItems;
 import github.xuulmedia.neolith.init.ModTags;
@@ -176,6 +173,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         //Other smelting
         forgeGlass(ModTags.DUSTS_SANDS, Blocks.GLASS, 350, STANDARD_SMELT_TIME, "sand", consumer);
+
+        //Drying
+        drying(ModItems.HIDE_LARGE.get(), ModItems.LEATHER_LARGE.get(), 0,500, consumer);
+        drying(ModItems.HIDE_MEDIUM.get(), ModItems.LEATHER_MEDIUM.get(), 0,3600, consumer);
+        drying(ModItems.HIDE_SMALL.get(), ModItems.LEATHER_SMALL.get(), 0,3600, consumer);
 
         //Saw plank to board
         sawLog(ModItems.LOG_ACACIA.get(), ModItems.PLANK_ACACIA.get(), consumer);
@@ -729,6 +731,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, RL(getItemName(result) + "_with_hammer_from_" + getItemName(ingredient)));
     }
 
+
+
     private static void campfireCook(ItemLike ingredient, ItemLike result, float experience, int cookingTime, Consumer<FinishedRecipe> consumer) {
         SimpleCookingRecipeBuilder.campfireCooking(Ingredient.of(ingredient), RecipeCategory.MISC, result, experience, cookingTime).unlockedBy("has_" + getItemName(ingredient), has(ingredient))
                 .save(consumer, RL("campfire/" + getItemName(result) + "_with_campfire_from_" + getItemName(ingredient)));
@@ -822,8 +826,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(consumer, RL(getItemName(result) + "_from_knapping"));
     }
 
-
-
+    private static void drying(ItemLike ingredient, ItemLike result, float experience, int cookingTime, Consumer<FinishedRecipe> consumer){
+        DryingRecipeBuilder.create( NonNullList.of(null,Ingredient.of(ingredient)),
+                NonNullList.of(null,result.asItem().getDefaultInstance()),
+                cookingTime, experience).unlockedBy("has_" + getItemName(ingredient), has(ingredient)).save(consumer, RL("drying/"+getItemName(result) + "_from_drying"));
+    }
 
     private void FuelSetup(FuelItem item, int cookTime, Consumer<FinishedRecipe> recipeConsumer) {
         String s = "heating_fuel/" + item.getName();

@@ -45,12 +45,13 @@ public class DryingRackBE extends BlockEntity {
                     Containers.dropItemStack(level, blockPos.getX(), blockPos.getY(), blockPos.getZ(), itemstack1);
                     blockEntity.items.set(0, ItemStack.EMPTY);
                     level.sendBlockUpdated(blockPos, state, state, 3);
+                    blockEntity.markUpdated();
                     level.gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(state));
                 }
             }
         }
     }
-
+/*TODO fix*/
     @Override
     public void load(CompoundTag compoundtag) {
         super.load(compoundtag);
@@ -92,7 +93,10 @@ public class DryingRackBE extends BlockEntity {
             if (itemstack.isEmpty()) {
                 this.cookingTime[0] = pCookTime;
                 this.cookingProgress[0] = 0;
-                this.items.set(0, pStack.split(1));
+
+                ItemStack itemInHand = pStack.split(1);
+                this.items.set(0, itemInHand);
+                this.items.get(0);
                 this.level.gameEvent(GameEvent.BLOCK_CHANGE, this.getBlockPos(), GameEvent.Context.of(pEntity, this.getBlockState()));
                 this.markUpdated();
                 return true;
@@ -112,9 +116,6 @@ public class DryingRackBE extends BlockEntity {
         this.getLevel().sendBlockUpdated(this.getBlockPos(), this.getBlockState(), this.getBlockState(), 3);
     }
 
-    public void clearContent() {
-        this.items.clear();
-    }
 
 
 }

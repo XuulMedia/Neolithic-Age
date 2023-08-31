@@ -23,38 +23,35 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
 
-public class NeolithRecipeBuilder implements RecipeBuilder {
+public class DryingRecipeBuilder implements RecipeBuilder {
     protected final NonNullList<Ingredient> ingredients;
     protected final NonNullList<ItemStack> results;
+    protected final float cookTime;
     protected final float experience;
-
     private final Advancement.Builder advancement;
     @Nullable
     protected String group;
     private final RecipeSerializer<? extends AbstractNeolithItemCraft> serializer;
 
-    public NeolithRecipeBuilder(NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float experience,  RecipeSerializer<? extends AbstractNeolithItemCraft> serializer) {
+    public DryingRecipeBuilder (NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float cookTime, float experience) {
         this.ingredients = ingredients;
         this.results = results;
+        this.cookTime = cookTime;
         this.experience = experience;
-        this.serializer = serializer;
+
         this.advancement = Advancement.Builder.advancement();
+        this.serializer = ModRecipes.DRYING_SERIALIZER.get();
     }
 
-    public static NeolithRecipeBuilder flintKnapping(NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results,  float experience){
-        return new NeolithRecipeBuilder(ingredients, results, experience, ModRecipes.FLINT_STATION_SERIALIZER.get());
+    public static DryingRecipeBuilder create(NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results, float cookTime, float experience){
+        return new DryingRecipeBuilder(ingredients, results, cookTime, experience);
     }
-
-//    public static NeolithRecipeBuilder drying(NonNullList<Ingredient> ingredients, NonNullList<ItemStack> results,  float cookingTime, float experience){
-//        return new NeolithRecipeBuilder(ingredients, results, experience, ModRecipes.FLINT_STATION_SERIALIZER.get());
-//    }
 
     @Override
     public RecipeBuilder unlockedBy(String pCriterionName, CriterionTriggerInstance pCriterionTrigger) {
         this.advancement.addCriterion(pCriterionName, pCriterionTrigger);
         return this;
     }
-
     @Override
     public RecipeBuilder group(@Nullable String pGroupName) {
         this.group = pGroupName;
@@ -82,16 +79,17 @@ public class NeolithRecipeBuilder implements RecipeBuilder {
 
         this.advancement.parent(ROOT_RECIPE_ADVANCEMENT)
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(pRecipeId)).rewards(AdvancementRewards.Builder.recipe(pRecipeId)).requirements(RequirementsStrategy.OR);
-        pFinishedRecipeConsumer.accept(new NeolithRecipeBuilder.Result(
+        pFinishedRecipeConsumer.accept(new DryingRecipeBuilder.Result(
                 pRecipeId,
                 this.group == null ? "" : this.group,
                 this.ingredients,
                 this.results,
+                this.cookTime,
                 this.experience,
                 this.advancement,
-                new ResourceLocation(pRecipeId.getNamespace(), "recipes/forge/" + pRecipeId.getPath()) ,
-                this.serializer));
+                new ResourceLocation(pRecipeId.getNamespace(), "recipes/forge/" + pRecipeId.getPath())));
     }
+
 
     static class Result implements FinishedRecipe {
         private final ResourceLocation id;
@@ -99,30 +97,32 @@ public class NeolithRecipeBuilder implements RecipeBuilder {
         private final CookingBookCategory category;
         private final NonNullList<Ingredient> ingredients;
         private final NonNullList<ItemStack> results;
+        private final float cookTime;
         private final float experience;
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
         private final RecipeSerializer<? extends AbstractNeolithItemCraft> serializer;
 
         public Result(ResourceLocation id, String group, NonNullList<Ingredient> ingredients,
-                      NonNullList<ItemStack> results, float experience, Advancement.Builder advancement, ResourceLocation advancementId, RecipeSerializer<? extends AbstractNeolithItemCraft> serializer) {
+                      NonNullList<ItemStack> results, float cookTime, float experience, Advancement.Builder advancement, ResourceLocation advancementId) {
             this.id = id;
             this.group = group;
             this.category = CookingBookCategory.MISC;
+            this.cookTime = cookTime;
             this.ingredients = ingredients;
             this.results = results;
             this.experience = experience;
             this.advancement = advancement;
             this.advancementId = advancementId;
-            this.serializer = serializer;
+            this.serializer = ModRecipes.DRYING_SERIALIZER.get();
         }
-
         @Override
         public void serializeRecipeData(JsonObject json) {
-            json.addProperty("category", this.category.getSerializedName());
-            if (!this.group.isEmpty()) {
-                json.addProperty("group", this.group);
-            }
+//            json.addProperty("category", this.category.getSerializedName());
+//            if (!this.group.isEmpty()) {
+//                json.addProperty("group", this.group);
+//            }
+            json.addProperty("cookingtime", this.cookTime);
             JsonArray ingredientsArray = new JsonArray();
             for(Ingredient ingredient : this.ingredients) {
                 ingredientsArray.add(ingredient.toJson());
@@ -163,7 +163,5 @@ public class NeolithRecipeBuilder implements RecipeBuilder {
             return this.advancementId;
         }
     }
-
-
-
 }
+

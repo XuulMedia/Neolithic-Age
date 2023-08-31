@@ -41,9 +41,7 @@ public class ModPlacedFeatures {
                 ModOrePlacement.commonOrePlacement(16,
                         HeightRangePlacement.triangle(VerticalAnchor.absolute(2), VerticalAnchor.absolute(100))));
 
-//
-//        PlacementUtils.register(p_256238_, ORE_COPPER, holder28, commonOrePlacement(16, HeightRangePlacement.triangle(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(112))));
-//        PlacementUtils.register(p_256238_, ORE_COPPER_LARGE, holder29, commonOrePlacement(16, HeightRangePlacement.triangle(VerticalAnchor.absolute(-16), VerticalAnchor.absolute(112))));
+
 
         register(context, CLAY_ORE_PLACED_KEY, configuredFeatures.getOrThrow(ModConfiguredFeatures.OVERWORLD_CLAY_ORE_KEY),
                 ModOrePlacement.commonOrePlacement(6,

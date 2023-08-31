@@ -25,9 +25,7 @@ import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.pathfinder.PathComputationType;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
-import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.jetbrains.annotations.Nullable;
 
@@ -35,31 +33,30 @@ import java.util.Optional;
 
 public class DryingRackBlock extends BaseEntityBlock {
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
+    protected static final VoxelShape SOUTH_AABB = Block.box(0.0D, 0.0D, 1.0D, 16.0D, 15.0D, 4.0D);
+    protected static final VoxelShape NORTH_AABB = Block.box(0.0D, 0.0D, 12.0D, 16.0D, 15.0D, 15.0D);
+    protected static final VoxelShape WEST_AABB = Block.box(12.0D, 0.0D, 0.0D, 15.0D, 15.0D, 16.0D);
+    protected static final VoxelShape EAST_AABB = Block.box(1.0D, 0.0D, 0.0D, 4.0D, 15.0D, 16.0D);
 
     public DryingRackBlock(Properties properties) {
         super(properties);
         this.registerDefaultState(stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
-    
-    public static VoxelShape makeShape(){
-        VoxelShape shape = Shapes.empty();
-        shape = Shapes.join(shape, Shapes.box(0.125, 0.1875, 0.6875, 0.875, 0.875, 0.6875), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.1875, 0.25, 0.625, 0.8125, 0.3125, 0.6875), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.75, 0, 0.75, 0.875, 0.875, 0.875), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.125, 0, 0.75, 0.25, 0.875, 0.875), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.1875, 0.75, 0.6875, 0.25, 0.8125, 0.75), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.75, 0.75, 0.6875, 0.8125, 0.8125, 0.75), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.75, 0.25, 0.6875, 0.8125, 0.3125, 0.75), BooleanOp.OR);
-        shape = Shapes.join(shape, Shapes.box(0.1875, 0.25, 0.6875, 0.25, 0.3125, 0.75), BooleanOp.OR);
 
-        return shape;
-    }
-
-    private static final Optional<VoxelShape> SHAPE = Optional.of(makeShape());
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
-        return SHAPE.get();
+        Direction direction = state.getValue(FACING);
+        switch (direction) {
+            default:
+                return EAST_AABB;
+            case SOUTH:
+                return SOUTH_AABB;
+            case WEST:
+                return WEST_AABB;
+            case NORTH:
+                return NORTH_AABB;
+        }
     }
 
     public RenderShape getRenderShape(BlockState pState) {
@@ -74,11 +71,15 @@ public class DryingRackBlock extends BaseEntityBlock {
             ItemStack itemstack = pPlayer.getItemInHand(pHand);
             Optional<DryingRecipe> optional = blockEntity.getDryingRecipe(itemstack);
             if (optional.isPresent()) {
-                if (!pLevel.isClientSide && blockEntity.placeItem(pPlayer, pPlayer.getAbilities().instabuild ? itemstack.copy() : itemstack, optional.get().getDryingTime())) {
+                blockEntity.placeItem(pPlayer, itemstack.copy(), optional.get().getDryingTime());
+                if (!pLevel.isClientSide) {
                     return InteractionResult.SUCCESS;
                 }
 
                 return InteractionResult.CONSUME;
+            }
+            else if (itemstack.isEmpty()){
+
             }
         }
         return InteractionResult.PASS;
